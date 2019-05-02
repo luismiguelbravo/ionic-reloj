@@ -1,0 +1,7 @@
+diario de programcion.txt
+
+  - Go to your newly created project: cd ./reloj
+  - Run ionic serve within the app directory to see your app
+  - Build features and components: https://ion.link/scaffolding-docs
+  - Get Ionic DevApp for easy device testing: https://ion.link/devapp
+  - Push your code to Ionic Appflow to perform real-time updates, and more: git push ionic master
