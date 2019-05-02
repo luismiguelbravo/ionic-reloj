@@ -5,3 +5,9 @@ diario de programcion.txt
   - Build features and components: https://ion.link/scaffolding-docs
   - Get Ionic DevApp for easy device testing: https://ion.link/devapp
   - Push your code to Ionic Appflow to perform real-time updates, and more: git push ionic master
+
+  git push -u ionic develop
+
+Instalando SQlite
+  $ ionic cordova plugin add cordova-sqlite-storage
+  $ npm install @ionic-native/sqlite
