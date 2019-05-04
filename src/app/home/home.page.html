@@ -10,6 +10,31 @@
 </ion-header>
 
 <ion-content>
+
+    <table style="margin: 0 auto;">
+        <tr>
+            <td>
+                <input style="text-align: right;" id="fechaDeEntrada" name="fechaDeEntrada" type="date" data-date-format="DD/MM/YYYY" value="31/12/2021">            
+            </td>
+            <td>
+                <input type="time" id="horaDeEntrada" name="horaDeEntrada" value="00:00">            
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <button ion-button class="button button-positive">
+                  button-positive
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="content has-header padding">
+        <p><button class="button button-balanced">button-balanced</button></p>
+    </div>
+
     <div class="row responsive-sm">
         <div class="col" style="text-align: center;">
             {{ fechaDeHoy.format('YYYY-MM-DD HH:mm:ss') }}
@@ -19,57 +44,69 @@
     <ion-card class="welcome-card">
         <ion-img src="/assets/shapes.svg"></ion-img>
         <ion-card-header>
-            <ion-card-subtitle>META 01 de enero del año 2021</ion-card-subtitle>
-            <ion-card-title>Final de la espera</ion-card-title>
+            <ion-card-subtitle>
+                META 01 de enero del año 2021
+            </ion-card-subtitle>
+            <ion-card-title>
+                Final de la espera
+            </ion-card-title>
         </ion-card-header>
         <ion-card-content>
             <table style="margin: 0 auto;">
-                <tr>
-                    <td>
+                <tr class="borde-inferior">
+                    <td class="text-right">
                         {{diferenciaEnYears}}
                     </td>
                     <td>
-                        año<span *ngIf="diferenciaEnYears > 1">s</span>
+                        &nbsp;Año<span *ngIf="diferenciaEnYears > 1">s</span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="borde-inferior">
+                    <td class="text-right">
                         {{diferenciaEnMeses}}
                     </td>
                     <td>
-                        mese<span *ngIf="diferenciaEnMeses > 1">s</span>
+                        &nbsp;Mese<span *ngIf="diferenciaEnMeses > 1">s</span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="borde-inferior">
+                    <td class="text-right">
                         {{diferenciaEnDias}}
                     </td>
                     <td>
-                        día<span *ngIf="diferenciaEnDias > 1">s</span>
+                        &nbsp;Día<span *ngIf="diferenciaEnDias > 1">s</span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="borde-inferior">
+                    <td class="text-right">
                         {{diferenciaEnHoras}}
                     </td>
                     <td>
-                        hora<span *ngIf="diferenciaEnHoras > 1">s</span>
+                        &nbsp;Hora<span *ngIf="diferenciaEnHoras > 1">s</span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        {{diferenciaEnMinutos}}
+                <tr class="borde-inferior">
+                    <td class="text-right">
+                        &nbsp;{{diferenciaEnMinutos}}
                     </td>
                     <td>
-                        minuto<span *ngIf="diferenciaEnMinutos > 1">s</span>
+                        &nbsp;Minuto<span *ngIf="diferenciaEnMinutos > 1">s</span>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="borde-inferior">
+                    <td class="text-right">
                         {{diferenciaEnSegundos}}
                     </td>
                     <td>
-                        segundo<span *ngIf="diferenciaEnSegundos > 1">s</span>
+                        &nbsp;Segundo<span *ngIf="diferenciaEnSegundos > 1">s</span>
+                    </td>
+                </tr>
+                <tr style="color: white;">
+                    <td>
+                        999
+                    </td>
+                    <td>
+                        SEGUNDOS
                     </td>
                 </tr>
             </table>

@@ -1,4 +1,12 @@
 .welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.borde-inferior {
+    border-bottom: 1px solid #c9bbbb42;
 }
