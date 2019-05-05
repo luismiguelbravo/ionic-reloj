@@ -27,7 +27,6 @@
                     <td>
                         HORA
                     </td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>
@@ -36,11 +35,9 @@
                     <td>
                         <input id="horaDeEntrada" name="horaDeEntrada" [(ngModel)]="horaDeEntrada" style=" border-style: none;" type="time">
                     </td>
-                    <td>
-                        <ion-button size="small" (click)="guardar()">Guardar</ion-button>
-                    </td>
                 </tr>
-            </table>            
+            </table>
+            <ion-button size="small" (click)="guardar()">Guardar</ion-button>        
         </ion-row>
     </ion-grid>
 
@@ -121,9 +118,13 @@
         </ion-card-content>
     </ion-card>
 
-    <app-detalle></app-detalle>
 
-    <ion-card class="welcome-card" *ngFor="let entrada of this.listaDeFechas" >
+    <div *ngFor="let entrada of this.listaDeFechas">
+        <app-detalle [entrada]="entrada"></app-detalle>
+    </div>
+    
+
+    <!-- ion-card class="welcome-card" *ngFor="let entrada of this.listaDeFechas">
         <ion-card-header>
             <ion-card-subtitle>
                 {{entrada.fecha | date: 'dd/MM/yyyy'}}
@@ -199,7 +200,7 @@
             </ion-buttons>
 
         </ion-card-content>
-    </ion-card>
+    </ion-card -->
 
     
 
