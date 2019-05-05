@@ -114,8 +114,10 @@ export class HomePage {
         }
         else
         {
+
             let nuevaFecha = new Entrada();
-            nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
+            nuevaFecha.fecha = moment(this.fechaDeEntrada + ' ' + this.horaDeEntrada, 'YYYY-MM-DD HH:mm:ss').toDate();
+            //nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
             nuevaFecha.titulo = this.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
 
