@@ -37,7 +37,7 @@
                     </td>
                 </tr>
             </table>
-            <ion-button size="small" (click)="guardar()">Guardar</ion-button>        
+            <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>        
         </ion-row>
     </ion-grid>
 
@@ -120,7 +120,14 @@
 
 
     <div *ngFor="let entrada of this.listaDeFechas">
-        <app-detalle [entrada]="entrada"></app-detalle>
+        <ion-card class="welcome-card">
+            <app-detalle [entrada]="entrada"></app-detalle>
+            <ion-buttons slot="primary">
+                <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
+                    Eliminar<ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-card>
     </div>
     
 

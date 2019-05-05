@@ -1,7 +1,7 @@
-<ion-card class="welcome-card">
+
     <ion-card-header>
         <ion-card-subtitle>
-            {{entrada.fecha | date: 'dd/MM/yyyy'}}
+            {{entrada.fecha | date: 'dd/MM/yyyy HH:mm'}}
         </ion-card-subtitle>
         <ion-card-title>
             {{entrada.titulo}} 
@@ -9,44 +9,44 @@
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
-            <tr class="borde-inferior">
+            <tr class="borde-inferior" *ngIf="diferenciaEnYears > 0">
                 <td class="text-right">
                     {{diferenciaEnYears}}
                 </td>
                 <td>
-                    &nbsp;Año<span *ngIf="diferenciaEnYears > 1">s</span>
+                    &nbsp;Año<span *ngIf="diferenciaEnYears*diferenciaEnYears > 1">s</span>
                 </td>
             </tr>
-            <tr class="borde-inferior">
+            <tr class="borde-inferior" *ngIf="!(diferenciaEnYears === 0 && diferenciaEnMeses === 0)">
                 <td class="text-right">
                     {{diferenciaEnMeses}}
                 </td>
                 <td>
-                    &nbsp;Mese<span *ngIf="diferenciaEnMeses > 1">s</span>
+                    &nbsp;Mes<span *ngIf="diferenciaEnMeses*diferenciaEnMeses > 1">es</span>
                 </td>
             </tr>
-            <tr class="borde-inferior">
+            <tr class="borde-inferior" *ngIf="!(diferenciaEnYears === 0 && diferenciaEnMeses === 0 && diferenciaEnDias === 0)">
                 <td class="text-right">
                     {{diferenciaEnDias}}
                 </td>
                 <td>
-                    &nbsp;Día<span *ngIf="diferenciaEnDias > 1">s</span>
+                    &nbsp;Día<span *ngIf="diferenciaEnDias*diferenciaEnDias > 1">s</span>
                 </td>
             </tr>
-            <tr class="borde-inferior">
+            <tr class="borde-inferior" *ngIf="!(diferenciaEnYears === 0 && diferenciaEnMeses === 0 && diferenciaEnDias === 0 && diferenciaEnHoras === 0)">
                 <td class="text-right">
                     {{diferenciaEnHoras}}
                 </td>
                 <td>
-                    &nbsp;Hora<span *ngIf="diferenciaEnHoras > 1">s</span>
+                    &nbsp;Hora<span *ngIf="diferenciaEnHoras*diferenciaEnHoras > 1">s</span>
                 </td>
             </tr>
-            <tr class="borde-inferior">
+            <tr class="borde-inferior" *ngIf="!(diferenciaEnYears === 0 && diferenciaEnMeses === 0 && diferenciaEnDias === 0 && diferenciaEnHoras === 0 && diferenciaEnMinutos === 0)">
                 <td class="text-right">
                     &nbsp;{{diferenciaEnMinutos}}
                 </td>
                 <td>
-                    &nbsp;Minuto<span *ngIf="diferenciaEnMinutos > 1">s</span>
+                    &nbsp;Minuto<span *ngIf="diferenciaEnMinutos*diferenciaEnMinutos > 1">s</span>
                 </td>
             </tr>
             <tr class="borde-inferior">
@@ -54,7 +54,7 @@
                     {{diferenciaEnSegundos}}
                 </td>
                 <td>
-                    &nbsp;Segundo<span *ngIf="diferenciaEnSegundos > 1">s</span>
+                    &nbsp;Segundo<span *ngIf="diferenciaEnSegundos*diferenciaEnSegundos > 1">s</span>
                 </td>
             </tr>
             <tr style="color: white;">
@@ -67,11 +67,6 @@
             </tr>
         </table>
 
-        <ion-buttons slot="primary">
-            <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
-                Eliminar<ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-
     </ion-card-content>
-</ion-card>
+
+

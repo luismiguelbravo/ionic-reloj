@@ -73,6 +73,13 @@ export class HomePage {
               text: 'Eliminar',
               handler: () => {
                 console.log('Confirm Okay');
+                for( var i = 0; i < this.listaDeFechas.length; i++){ 
+                   if ( this.listaDeFechas[i].id === id) {
+                     this.listaDeFechas.splice(i, 1);
+                     this.storage.set('listaDeFechas', this.listaDeFechas);
+                     break;
+                   }
+                }
               }
             }
           ]
@@ -107,6 +114,12 @@ export class HomePage {
 
     guardar():void {
         console.log("GUARDANDO");
+
+        console.log("")
+        console.log(" =========== typeof this.fechaDeEntrada ===========")
+        console.log(typeof this.fechaDeEntrada)
+        console.log(" =========== typeof this.fechaDeEntrada ===========")
+        console.log("")
 
         if (this.horaDeEntrada === '' || this.fechaDeEntrada === '' || this.tituloDeEntrada === '')
         {
