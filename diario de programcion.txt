@@ -8,6 +8,9 @@ diario de programcion.txt
 
   git push -u ionic develop
 
+Generar nuevo componente
+  - ionic generate component entrada/detalle
+
 Instalando SQlite
   $ ionic cordova plugin add cordova-sqlite-storage
   $ npm install @ionic-native/sqlite
