@@ -14,3 +14,11 @@ Generar nuevo componente
 Instalando SQlite
   $ ionic cordova plugin add cordova-sqlite-storage
   $ npm install @ionic-native/sqlite
+
+ejecutar el proyecto en el iphone
+    $ ionic cordova prepare ios
+    abrir la carpeta platforms/ios con xcode
+    modificar bundler identifier y el development team desde xcode
+    y darle play
+
+    
