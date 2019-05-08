@@ -52,12 +52,6 @@ export class HomePage {
 
     async intentarEliminar(id) {
 
-        console.log("");
-        console.log(" =============== id =============== ");
-        console.log(id);
-        console.log(" =============== id =============== ");
-        console.log("");
-
         const alert = await this.alertController.create({
           header: 'Advertencia',
           message: 'Esta acción no puede ser revertida. <strong>¿Esta seguro de eliminar?</strong>',
@@ -90,15 +84,12 @@ export class HomePage {
 
 
     ngOnInit() {
-
-        // this.storage.set('listaDeFechas', null);
         
         this.storage.get('listaDeFechas').then((val) => {
             this.listaDeFechas = val;
             if (val === null) {
                 this.listaDeFechas = [];
             }
-            console.log('listaDeFechas', val);
         });
 
         this.ticTac();
@@ -113,13 +104,6 @@ export class HomePage {
     }
 
     guardar():void {
-        console.log("GUARDANDO");
-
-        console.log("")
-        console.log(" =========== typeof this.fechaDeEntrada ===========")
-        console.log(typeof this.fechaDeEntrada)
-        console.log(" =========== typeof this.fechaDeEntrada ===========")
-        console.log("")
 
         if (this.horaDeEntrada === '' || this.fechaDeEntrada === '' || this.tituloDeEntrada === '')
         {
