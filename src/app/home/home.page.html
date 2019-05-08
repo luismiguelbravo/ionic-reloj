@@ -18,7 +18,28 @@
             <ion-input required [(ngModel)]="tituloDeEntrada"></ion-input>
         </ion-item>
 
-        <ion-row>
+        <ion-item>
+            <ion-label>Date</ion-label>
+            <ion-datetime displayFormat="DD MMMM YYYY" max="3020-10-31"
+                [(ngModel)]="fechaDeEntrada"
+                doneText="ok"
+                cancelText="Cancelar"
+                monthNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+                monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic"
+                dayNames="Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado"
+                dayShortNames="Dom, Lun, Mar, Mié, Juv, Vie, Sáb">
+            </ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Hour</ion-label>
+            <ion-datetime displayFormat="h:mm a" [(ngModel)]="horaDeEntrada"
+                doneText="ok"
+                cancelText="Cancelar">
+            </ion-datetime>
+        </ion-item>
+        <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>
+
+        <!-- ion-row>
             <table style="background-color: blue; margin: 8px 6px; background-color: #f5f7fa;" >
                 <tr class="label-fecha">
                     <td>
@@ -30,7 +51,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="fechaDeEntrada" name="fechaDeEntrada" [(ngModel)]="fechaDeEntrada" style="text-align: right; border-style: none;" type="date" data-date-format="DD/MM/YYYY">
+                        <input 
+                            id="fechaDeEntrada"
+                            name="fechaDeEntrada"
+                            [(ngModel)]="fechaDeEntrada"
+                            style="text-align: right; border-style: none;"
+                            type="date"
+                            data-date-format="DD MMMM YYYY">
                     </td>
                     <td>
                         <input id="horaDeEntrada" name="horaDeEntrada" [(ngModel)]="horaDeEntrada" style=" border-style: none;" type="time">
@@ -38,7 +65,7 @@
                 </tr>
             </table>
             <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>        
-        </ion-row>
+        </ion-row -->
     </ion-grid>
 
     <div class="row responsive-sm" *ngIf="false">
@@ -47,7 +74,7 @@
         </div>
     </div>
 
-    <div *ngFor="let entrada of this.listaDeFechas  | orderBy:'fecha'">
+    <div *ngFor="let entrada of this.listaDeFechas">
         <ion-card class="welcome-card">
             <app-detalle [entrada]="entrada"></app-detalle>
             <ion-buttons slot="primary" class="eliminar">

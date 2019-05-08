@@ -23,8 +23,8 @@ export class HomePage {
     diferenciaEnYears = null;
     listaDeFechas : Entrada[];
 
-    fechaDeEntrada = "2021-01-01";
-    horaDeEntrada = "00:00";
+    fechaDeEntrada = '';
+    horaDeEntrada = '';
     tituloDeEntrada = 'Fecha esperada';
 
     constructor(public alertController: AlertController, private storage: Storage) {}
@@ -90,6 +90,16 @@ export class HomePage {
             if (val === null) {
                 this.listaDeFechas = [];
             }
+            console.log(this.listaDeFechas)
+            this.listaDeFechas.sort(
+                function(a,b) 
+                {
+                    const fechaA = new Date(a.fecha)
+                    const fechaB = new Date(b.fecha)
+                    return fechaA.getTime() - fechaB.getTime()
+                }
+            );
+
         });
 
         this.ticTac();
@@ -113,7 +123,10 @@ export class HomePage {
         {
 
             let nuevaFecha = new Entrada();
-            nuevaFecha.fecha = moment(this.fechaDeEntrada + ' ' + this.horaDeEntrada, 'YYYY-MM-DD HH:mm:ss').toDate();
+            nuevaFecha.fecha = moment(
+                this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16),
+                'YYYY-MM-DD HH:mm:ss'
+            ).toDate();
             //nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
             nuevaFecha.titulo = this.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);

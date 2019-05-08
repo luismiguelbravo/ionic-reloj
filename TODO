@@ -5,9 +5,11 @@ listar metas
 
 ¿el estilo grafico, podria dejarlo para el final ?
 
-crear componente para agregar el formulario
+listo: crear componente para agregar el formulario
 
 
-crear un componente con la card del detalle de la fecha
+listo: crear un componente con la card del detalle de la fecha
 
-despues de guardar recargar
+listo: despues de guardar recargar
+
+deberia haber un reloj general que activara todos los componentes
