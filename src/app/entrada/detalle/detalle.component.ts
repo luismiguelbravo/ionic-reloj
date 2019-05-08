@@ -10,7 +10,8 @@ import { Entrada } from '../../Entrada';
 export class DetalleComponent implements OnInit {
 
     fechaDeHoy = moment() //.format('YYYY-MM-DD HH:mm:ss');
-    finalDeLaEspera = moment("2021-01-01")
+    // finalDeLaEspera = moment("2021-01-01")
+    finalDeLaEspera = null;
     diferencia = null;
     diferenciaString = "";
 
@@ -28,7 +29,11 @@ export class DetalleComponent implements OnInit {
     ngOnInit() {
         this.ticTac();
 
-        this.finalDeLaEspera = moment(this.entrada.fecha);
+        // this.finalDeLaEspera = moment(this.entrada.fecha);
+        this.finalDeLaEspera = moment(
+            this.entrada.fecha,
+            'YYYY-MM-DD HH:mm:ss'
+        );
 
         console.log("");
         console.log(" =============== this.entrada ===============");

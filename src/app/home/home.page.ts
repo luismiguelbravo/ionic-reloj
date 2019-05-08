@@ -125,10 +125,13 @@ export class HomePage {
         {
 
             let nuevaFecha = new Entrada();
+            /*
             nuevaFecha.fecha = moment(
                 this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16),
                 'YYYY-MM-DD HH:mm:ss'
             ).toDate();
+            */
+            nuevaFecha.fecha = this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16);
             //nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
             nuevaFecha.titulo = this.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
