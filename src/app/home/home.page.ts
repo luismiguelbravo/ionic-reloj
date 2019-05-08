@@ -27,6 +27,8 @@ export class HomePage {
     horaDeEntrada = '';
     tituloDeEntrada = 'Fecha esperada';
 
+    mostrarFormulario = false;
+
     constructor(public alertController: AlertController, private storage: Storage) {}
 
     async exitoAlguardar() {

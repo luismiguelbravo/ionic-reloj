@@ -11,8 +11,7 @@
 
 <ion-content>
 
-    <ion-grid style="background-color: #f5f7fa;">
-
+    <ion-grid style="background-color: #f5f7fa;" *ngIf="mostrarFormulario">
         <ion-item>
             <ion-label position="stacked">Titulo</ion-label>
             <ion-input required [(ngModel)]="tituloDeEntrada"></ion-input>
@@ -38,34 +37,11 @@
             </ion-datetime>
         </ion-item>
         <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>
+        <ion-button size="small" (click)="mostrarFormulario = false" style="margin-top: 16px;" color="tertiary">Cancelar</ion-button>
+    </ion-grid>
 
-        <!-- ion-row>
-            <table style="background-color: blue; margin: 8px 6px; background-color: #f5f7fa;" >
-                <tr class="label-fecha">
-                    <td>
-                        FECHA
-                    </td>
-                    <td>
-                        HORA
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input 
-                            id="fechaDeEntrada"
-                            name="fechaDeEntrada"
-                            [(ngModel)]="fechaDeEntrada"
-                            style="text-align: right; border-style: none;"
-                            type="date"
-                            data-date-format="DD MMMM YYYY">
-                    </td>
-                    <td>
-                        <input id="horaDeEntrada" name="horaDeEntrada" [(ngModel)]="horaDeEntrada" style=" border-style: none;" type="time">
-                    </td>
-                </tr>
-            </table>
-            <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>        
-        </ion-row -->
+    <ion-grid *ngIf="!mostrarFormulario">
+        <ion-button expand="full" size="small" (click)="mostrarFormulario = true">Agregar Fecha</ion-button>
     </ion-grid>
 
     <div class="row responsive-sm" *ngIf="false">
