@@ -21,4 +21,6 @@ ejecutar el proyecto en el iphone
     modificar bundler identifier y el development team desde xcode
     y darle play
 
-    
+ejecutar el proyecto
+  
+    $ionic serve

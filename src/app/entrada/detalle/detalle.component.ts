@@ -32,14 +32,8 @@ export class DetalleComponent implements OnInit {
         // this.finalDeLaEspera = moment(this.entrada.fecha);
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
-            'YYYY-MM-DD HH:mm:ss'
+            'YYYY-MM-DD HH:mm'
         );
-
-        console.log("");
-        console.log(" =============== this.entrada ===============");
-        console.log(this.entrada)
-        console.log(" =============== this.entrada ===============");
-        console.log("");
     }
 
     ticTac(): void {
@@ -53,6 +47,8 @@ export class DetalleComponent implements OnInit {
     calcularDiferencias(): void {
         this.fechaDeHoy = moment()
         this.diferenciaEnYears = this.finalDeLaEspera.diff(this.fechaDeHoy, 'years')
+
+
         this.fechaDeHoy.add(this.diferenciaEnYears, 'years')
 
         this.diferenciaEnMeses = this.finalDeLaEspera.diff(this.fechaDeHoy, 'months')
