@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
+import { DetalleComponent } from '../entrada/detalle/detalle.component';
 var HomePageModule = /** @class */ (function () {
     function HomePageModule() {
     }
@@ -21,7 +22,7 @@ var HomePageModule = /** @class */ (function () {
                     }
                 ])
             ],
-            declarations: [HomePage]
+            declarations: [HomePage, DetalleComponent]
         })
     ], HomePageModule);
     return HomePageModule;

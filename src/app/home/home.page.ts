@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
+import { ContadorService } from '../commons/contador.service'
 
 @Component({
     selector: 'app-home',
@@ -29,7 +30,8 @@ export class HomePage {
 
     mostrarFormulario = false;
 
-    constructor(public alertController: AlertController, private storage: Storage) {}
+    constructor(public alertController: AlertController, private storage: Storage,
+        public contadorService: ContadorService) {}
 
     async exitoAlguardar() {
 
@@ -86,7 +88,6 @@ export class HomePage {
 
 
     ngOnInit() {
-        
         this.storage.get('listaDeFechas').then((val) => {
             this.listaDeFechas = val;
             if (val === null) {
@@ -101,18 +102,14 @@ export class HomePage {
                     return fechaA.getTime() - fechaB.getTime()
                 }
             );
-
+            /*
+                se crea un reloj unico que activa a todos los detalles
+                esto lo hice para evitar terner un hilo con reloj contador para cada proceso
+                debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
+                de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
+            */
+            this.contadorService.iniciarMovimiento();
         });
-
-        this.ticTac();
-    }
-
-    ticTac(): void {
-        setTimeout(() => 
-        {
-            this.calcularDiferencias();
-            this.ticTac();
-        }, 900);
     }
 
     guardar():void {
@@ -140,26 +137,6 @@ export class HomePage {
             this.storage.set('listaDeFechas', this.listaDeFechas);
             this.exitoAlguardar();
         }
-    }
-
-    calcularDiferencias(): void {
-        this.fechaDeHoy = moment()
-        this.diferenciaEnYears = this.finalDeLaEspera.diff(this.fechaDeHoy, 'years')
-        this.fechaDeHoy.add(this.diferenciaEnYears, 'years')
-
-        this.diferenciaEnMeses = this.finalDeLaEspera.diff(this.fechaDeHoy, 'months')
-        this.fechaDeHoy.add(this.diferenciaEnMeses, 'months')
-
-        this.diferenciaEnDias = this.finalDeLaEspera.diff(this.fechaDeHoy, 'days')
-        this.fechaDeHoy.add(this.diferenciaEnDias, 'days')
-
-        this.diferenciaEnHoras = this.finalDeLaEspera.diff(this.fechaDeHoy, 'hours')
-        this.fechaDeHoy.add(this.diferenciaEnHoras, 'hours')
-
-        this.diferenciaEnMinutos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'minutes')
-        this.fechaDeHoy.add(this.diferenciaEnMinutos, 'minutes')
-
-        this.diferenciaEnSegundos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'seconds')
     }
 
 }

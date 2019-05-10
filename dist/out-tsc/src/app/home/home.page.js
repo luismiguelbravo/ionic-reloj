@@ -2,9 +2,12 @@ import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { Entrada } from '../Entrada';
 var HomePage = /** @class */ (function () {
-    function HomePage(alertController) {
+    function HomePage(alertController, storage) {
         this.alertController = alertController;
+        this.storage = storage;
         this.fechaDeHoy = moment(); //.format('YYYY-MM-DD HH:mm:ss');
         this.finalDeLaEspera = moment("2021-01-01");
         this.diferencia = null;
@@ -15,8 +18,10 @@ var HomePage = /** @class */ (function () {
         this.diferenciaEnDias = null;
         this.diferenciaEnMeses = null;
         this.diferenciaEnYears = null;
-        this.fechaDeEntrada = "2021-01-01";
-        this.horaDeEntrada = "00:00";
+        this.fechaDeEntrada = '';
+        this.horaDeEntrada = '';
+        this.tituloDeEntrada = 'Fecha esperada';
+        this.mostrarFormulario = false;
     }
     HomePage.prototype.exitoAlguardar = function () {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
@@ -60,41 +65,83 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
-    HomePage.prototype.ngOnInit = function () {
-        this.ticTac();
+    HomePage.prototype.intentarEliminar = function (id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var alert;
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: 'Advertencia',
+                            message: 'Esta acción no puede ser revertida. <strong>¿Esta seguro de eliminar?</strong>',
+                            buttons: [
+                                {
+                                    text: 'Cancelar',
+                                    role: 'cancel',
+                                    cssClass: 'secondary',
+                                    handler: function (blah) {
+                                        console.log('Confirm Cancel: blah');
+                                    }
+                                }, {
+                                    text: 'Eliminar',
+                                    handler: function () {
+                                        console.log('Confirm Okay');
+                                        for (var i = 0; i < _this.listaDeFechas.length; i++) {
+                                            if (_this.listaDeFechas[i].id === id) {
+                                                _this.listaDeFechas.splice(i, 1);
+                                                _this.storage.set('listaDeFechas', _this.listaDeFechas);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
-    HomePage.prototype.ticTac = function () {
+    HomePage.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
-            _this.calcularDiferencias();
-            _this.ticTac();
-        }, 900);
+        this.storage.get('listaDeFechas').then(function (val) {
+            _this.listaDeFechas = val;
+            if (val === null) {
+                _this.listaDeFechas = [];
+            }
+            console.log(_this.listaDeFechas);
+            _this.listaDeFechas.sort(function (a, b) {
+                var fechaA = new Date(a.fecha);
+                var fechaB = new Date(b.fecha);
+                return fechaA.getTime() - fechaB.getTime();
+            });
+        });
     };
     HomePage.prototype.guardar = function () {
-        console.log("GUARDANDO");
-        console.log("");
-        console.log(" =============== fechaDeEntrada =============== ");
-        console.log(this.fechaDeEntrada === '');
-        console.log(" =============== fechaDeEntrada =============== ");
-        console.log("");
-        console.log(this.horaDeEntrada === '');
-        console.log(" =============== horaDeEntrada =============== ");
-        console.log("");
-        // this.errorAlGuardar();
-    };
-    HomePage.prototype.calcularDiferencias = function () {
-        this.fechaDeHoy = moment();
-        this.diferenciaEnYears = this.finalDeLaEspera.diff(this.fechaDeHoy, 'years');
-        this.fechaDeHoy.add(this.diferenciaEnYears, 'years');
-        this.diferenciaEnMeses = this.finalDeLaEspera.diff(this.fechaDeHoy, 'months');
-        this.fechaDeHoy.add(this.diferenciaEnMeses, 'months');
-        this.diferenciaEnDias = this.finalDeLaEspera.diff(this.fechaDeHoy, 'days');
-        this.fechaDeHoy.add(this.diferenciaEnDias, 'days');
-        this.diferenciaEnHoras = this.finalDeLaEspera.diff(this.fechaDeHoy, 'hours');
-        this.fechaDeHoy.add(this.diferenciaEnHoras, 'hours');
-        this.diferenciaEnMinutos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'minutes');
-        this.fechaDeHoy.add(this.diferenciaEnMinutos, 'minutes');
-        this.diferenciaEnSegundos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'seconds');
+        if (this.horaDeEntrada === '' || this.fechaDeEntrada === '' || this.tituloDeEntrada === '') {
+            this.errorAlGuardar();
+        }
+        else {
+            var nuevaFecha = new Entrada();
+            /*
+            nuevaFecha.fecha = moment(
+                this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16),
+                'YYYY-MM-DD HH:mm:ss'
+            ).toDate();
+            */
+            nuevaFecha.fecha = this.fechaDeEntrada.substring(0, 10) + ' ' + this.horaDeEntrada.substring(11, 16);
+            //nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
+            nuevaFecha.titulo = this.tituloDeEntrada;
+            nuevaFecha.id = Math.random().toString(36).substring(7);
+            this.listaDeFechas.push(nuevaFecha);
+            this.storage.set('listaDeFechas', this.listaDeFechas);
+            this.exitoAlguardar();
+        }
     };
     HomePage = tslib_1.__decorate([
         Component({
@@ -102,7 +149,7 @@ var HomePage = /** @class */ (function () {
             templateUrl: 'home.page.html',
             styleUrls: ['home.page.scss'],
         }),
-        tslib_1.__metadata("design:paramtypes", [AlertController])
+        tslib_1.__metadata("design:paramtypes", [AlertController, Storage])
     ], HomePage);
     return HomePage;
 }());

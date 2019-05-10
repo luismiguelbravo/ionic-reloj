@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { Entrada } from '../../Entrada';
+import { Subscription } from "rxjs";
+import { ContadorService } from '../../commons/contador.service'
 
 @Component({
   selector: 'app-detalle',
@@ -9,8 +11,10 @@ import { Entrada } from '../../Entrada';
 })
 export class DetalleComponent implements OnInit {
 
-    fechaDeHoy = moment() //.format('YYYY-MM-DD HH:mm:ss');
-    // finalDeLaEspera = moment("2021-01-01")
+    @Output() movimientoCompletoEventEmitter = new EventEmitter<void>()
+    private movientoCompletoSuscripcion: Subscription = null
+
+    fechaDeHoy = moment()
     finalDeLaEspera = null;
     diferencia = null;
     diferenciaString = "";
@@ -24,24 +28,18 @@ export class DetalleComponent implements OnInit {
 
     @Input() entrada: Entrada;
 
-    constructor() { }
+    constructor(public contadorService: ContadorService) { }
 
     ngOnInit() {
-        this.ticTac();
 
-        // this.finalDeLaEspera = moment(this.entrada.fecha);
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
             'YYYY-MM-DD HH:mm'
         );
-    }
 
-    ticTac(): void {
-        setTimeout(() => 
-        {
+        this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
-            this.ticTac();
-        }, 900);
+        });
     }
 
     calcularDiferencias(): void {
