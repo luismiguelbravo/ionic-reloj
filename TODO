@@ -12,8 +12,15 @@ listo: crear un componente con la card del detalle de la fecha
 
 listo: despues de guardar recargar
 
-pendiente: deberia haber un reloj general que activara todos los componentes
+listo: deberia haber un reloj general que activara todos los componentes
 
     $ ionic generate service commons/contador
 
-peidnete: Agregar boton para compartir
+listo: Agregar boton para compartir
+
+
+Cosas que me faltan para publicar en la iOS store
+
+pendiente : logo
+pendiente : agregar publicidad
+pendiente : agregar donaciones
