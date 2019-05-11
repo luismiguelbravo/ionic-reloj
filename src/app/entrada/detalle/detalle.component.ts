@@ -3,6 +3,8 @@ import * as moment from 'moment';
 import { Entrada } from '../../Entrada';
 import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-detalle',
@@ -16,6 +18,7 @@ export class DetalleComponent implements OnInit {
 
     fechaDeHoy = moment()
     finalDeLaEspera = null;
+    fechaEsperadaDate = null;
     diferencia = null;
     diferenciaString = "";
 
@@ -28,7 +31,7 @@ export class DetalleComponent implements OnInit {
 
     @Input() entrada: Entrada;
 
-    constructor(public contadorService: ContadorService) { }
+    constructor(public contadorService: ContadorService, private socialSharing: SocialSharing) { }
 
     ngOnInit() {
 
@@ -36,6 +39,8 @@ export class DetalleComponent implements OnInit {
             this.entrada.fecha,
             'YYYY-MM-DD HH:mm'
         );
+
+        this.fechaEsperadaDate = this.finalDeLaEspera.toDate()
 
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
@@ -62,6 +67,96 @@ export class DetalleComponent implements OnInit {
         this.fechaDeHoy.add(this.diferenciaEnMinutos, 'minutes')
 
         this.diferenciaEnSegundos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'seconds')
+    }
+
+    async shareWhatsApp() {
+        // Text + Image or URL works
+        // voy a poner una imagen en mi pagina
+        // voy a poner una url que reciva el parametro de la fecha y le muestre el contador
+        let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + ' \n\r \n\r' + 
+            'Tiempo de diferencia:';
+
+        if (this.diferenciaEnYears !== 0) {
+            mensaje += '\n\r' + this.diferenciaEnYears + ' año'
+            if (this.diferenciaEnYears * this.diferenciaEnYears !== 1 )
+            {
+                mensaje += 's'
+            }
+        }
+
+        if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
+            mensaje += '\n\r' + this.diferenciaEnMeses + ' mese';
+            if (this.diferenciaEnMeses * this.diferenciaEnMeses !== 1 )
+            {
+                mensaje += 's'
+            }
+        }
+
+        if (!(
+                this.diferenciaEnYears === 0 &&
+                this.diferenciaEnMeses === 0 &&
+                this.diferenciaEnDias === 0
+            ))
+        {
+            mensaje += '\n\r' + this.diferenciaEnDias + ' dia';
+            if (this.diferenciaEnDias * this.diferenciaEnDias !== 1 )
+            {
+                mensaje += 's'
+            }
+        }
+
+        if (!(
+                this.diferenciaEnYears === 0 &&
+                this.diferenciaEnMeses === 0 &&
+                this.diferenciaEnDias === 0 &&
+                this.diferenciaEnHoras === 0
+            ))
+        {
+            mensaje += '\n\r' + this.diferenciaEnHoras + ' hora';
+            if (this.diferenciaEnHoras * this.diferenciaEnHoras !== 1 )
+            {
+                mensaje += 's'
+            }
+        }
+
+        if (!(
+                this.diferenciaEnYears === 0 && 
+                this.diferenciaEnMeses === 0 && 
+                this.diferenciaEnDias === 0 && 
+                this.diferenciaEnHoras === 0 &&
+                this.diferenciaEnMinutos === 0
+            )
+
+            ) {
+            mensaje += '\n\r' + this.diferenciaEnMinutos + ' minuto';
+            if (this.diferenciaEnMinutos * this.diferenciaEnMinutos !== 1 )
+            {
+                mensaje += 's'
+            }
+        }
+
+        if (!(
+                this.diferenciaEnYears === 0 && 
+                this.diferenciaEnMeses === 0 && 
+                this.diferenciaEnDias === 0 && 
+                this.diferenciaEnHoras === 0 &&
+                this.diferenciaEnMinutos === 0 &&
+                this.diferenciaEnSegundos === 0                    
+            ))
+        {
+            mensaje += '\n\r' + this.diferenciaEnSegundos + 'segundo';
+            if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1 )
+            {
+                mensaje += 's'
+            }
+
+        }
+
+        this.socialSharing.shareViaWhatsApp(mensaje, null, null).then(() => {
+          // Success
+        }).catch((e) => {
+          // Error!
+        });
     }
 
 }
