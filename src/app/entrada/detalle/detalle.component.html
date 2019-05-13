@@ -1,11 +1,8 @@
 
     <ion-card-header>
         <ion-card-subtitle>
-            {{entrada.fecha }}
+            {{entrada.fecha }}<br>{{entrada.titulo}} 
         </ion-card-subtitle>
-        <ion-card-title>
-            {{entrada.titulo}} 
-        </ion-card-title>
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
@@ -51,7 +48,7 @@
             </tr>
         </table>
 
-        <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+        <!-- ion-fab vertical="top" horizontal="end" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
             </ion-fab-button>
@@ -60,7 +57,7 @@
                     <ion-icon name="logo-whatsapp"></ion-icon>
                 </ion-fab-button>
             </ion-fab-list>
-        </ion-fab>
+        </ion-fab -->
 
     </ion-card-content>
 
