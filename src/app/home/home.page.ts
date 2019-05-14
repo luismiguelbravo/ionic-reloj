@@ -94,12 +94,12 @@ export class HomePage {
                 this.listaDeFechas = [];
             }
             console.log(this.listaDeFechas)
-            this.listaDeFechas.sort(
+            this.listaDeFechas = this.listaDeFechas.sort(
                 function(a,b) 
                 {
                     const fechaA = new Date(a.fecha)
                     const fechaB = new Date(b.fecha)
-                    return fechaA.getTime() - fechaB.getTime()
+                    return fechaB.getTime() - fechaA.getTime()
                 }
             );
             /*
@@ -112,6 +112,15 @@ export class HomePage {
         });
     }
 
+    usarSemilla():void {
+        console.log("usarSemilla");
+        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb95"});
+        this.listaDeFechas.push({fecha: "2019-05-11 02:41", titulo: "Ultima vez que fume", id: "dopb95"});
+        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "donby5"});
+        this.storage.set('listaDeFechas', this.listaDeFechas);
+        this.exitoAlguardar();
+    }
+
     guardar():void {
 
         if (this.horaDeEntrada === '' || this.fechaDeEntrada === '' || this.tituloDeEntrada === '')
@@ -120,19 +129,10 @@ export class HomePage {
         }
         else
         {
-
             let nuevaFecha = new Entrada();
-            /*
-            nuevaFecha.fecha = moment(
-                this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16),
-                'YYYY-MM-DD HH:mm:ss'
-            ).toDate();
-            */
             nuevaFecha.fecha = this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16);
-            //nuevaFecha.fecha = new Date(this.fechaDeEntrada + ' ' + this.horaDeEntrada);
             nuevaFecha.titulo = this.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
-
             this.listaDeFechas.push(nuevaFecha);
             this.storage.set('listaDeFechas', this.listaDeFechas);
             this.exitoAlguardar();
