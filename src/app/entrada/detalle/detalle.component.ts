@@ -73,11 +73,10 @@ export class DetalleComponent implements OnInit {
         // Text + Image or URL works
         // voy a poner una imagen en mi pagina
         // voy a poner una url que reciva el parametro de la fecha y le muestre el contador
-        let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + ' \n\r \n\r' + 
-            'Tiempo de diferencia:';
+        let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
 
         if (this.diferenciaEnYears !== 0) {
-            mensaje += '\n\r' + this.diferenciaEnYears + ' año'
+            mensaje += '\n' + this.diferenciaEnYears + ' año'
             if (this.diferenciaEnYears * this.diferenciaEnYears !== 1 )
             {
                 mensaje += 's'
@@ -85,7 +84,7 @@ export class DetalleComponent implements OnInit {
         }
 
         if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            mensaje += '\n\r' + this.diferenciaEnMeses + ' mese';
+            mensaje += '\n' + this.diferenciaEnMeses + ' mese';
             if (this.diferenciaEnMeses * this.diferenciaEnMeses !== 1 )
             {
                 mensaje += 's'
@@ -98,7 +97,7 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnDias === 0
             ))
         {
-            mensaje += '\n\r' + this.diferenciaEnDias + ' dia';
+            mensaje += '\n' + this.diferenciaEnDias + ' dia';
             if (this.diferenciaEnDias * this.diferenciaEnDias !== 1 )
             {
                 mensaje += 's'
@@ -112,7 +111,7 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnHoras === 0
             ))
         {
-            mensaje += '\n\r' + this.diferenciaEnHoras + ' hora';
+            mensaje += '\n' + this.diferenciaEnHoras + ' hora';
             if (this.diferenciaEnHoras * this.diferenciaEnHoras !== 1 )
             {
                 mensaje += 's'
@@ -128,7 +127,7 @@ export class DetalleComponent implements OnInit {
             )
 
             ) {
-            mensaje += '\n\r' + this.diferenciaEnMinutos + ' minuto';
+            mensaje += '\n' + this.diferenciaEnMinutos + ' minuto';
             if (this.diferenciaEnMinutos * this.diferenciaEnMinutos !== 1 )
             {
                 mensaje += 's'
@@ -144,7 +143,7 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnSegundos === 0                    
             ))
         {
-            mensaje += '\n\r' + this.diferenciaEnSegundos + 'segundo';
+            mensaje += '\n' + this.diferenciaEnSegundos + 'segundo';
             if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1 )
             {
                 mensaje += 's'
