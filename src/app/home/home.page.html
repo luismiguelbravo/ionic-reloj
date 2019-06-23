@@ -48,15 +48,20 @@
         </div>
     </div>
 
-    <div *ngFor="let entrada of this.listaDeFechas">
-        <ion-card class="welcome-card">
-            <app-detalle [entrada]="entrada"></app-detalle>
-            <ion-buttons slot="primary" class="eliminar">
-                <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
-                    Eliminar<ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-card>
-    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let entrada of this.listaDeFechas" size-lg="4" size-md="6" size-sm="6" size-xs="12">
+                <ion-card class="welcome-card">
+                    <app-detalle [entrada]="entrada"></app-detalle>
+                    <ion-buttons slot="primary" class="eliminar">
+                        <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
+                            Eliminar<ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-card>
+            </ion-col>  
+        </ion-row>
+    </ion-grid>
+
 
 </ion-content>
