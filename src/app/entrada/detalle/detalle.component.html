@@ -1,8 +1,10 @@
 
     <ion-card-header>
-        <ion-card-subtitle>
-            {{entrada.fecha }}<br>{{entrada.titulo}} 
-        </ion-card-subtitle>
+        {{entrada.titulo}}<br>
+
+        dia: {{ finalDeLaEspera.format('D') }}/
+        mes: {{ finalDeLaEspera.format('M') }}/
+        año: {{ finalDeLaEspera.format('YYYY') }}
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
@@ -11,19 +13,19 @@
                     {{diferenciaEnYears}}
                 </td>
                 <td class="label-fecha">
-                    AÑO(S)
+                    año
                 </td>
                 <td style="padding-left: 9px;" class="numero">
                     {{diferenciaEnMeses}}
                 </td>
                 <td class="label-fecha" style="padding-right: 9px; ">
-                    MES(ES)
+                    mes
                 </td>
                 <td class="numero">
                     {{diferenciaEnDias}}
                 </td>
                 <td class="label-fecha">
-                    DÍA(S)
+                    día
                 </td>
             </tr>
             <tr>
@@ -31,24 +33,24 @@
                     {{diferenciaEnHoras}} 
                 </td>
                 <td class="label-fecha">
-                    HORA(S)
+                    hora
                 </td>
                 <td style="padding-left: 9px;" class="numero">
                     {{diferenciaEnMinutos}}
                 </td>
                 <td class="label-fecha" style="padding-right: 9px; ">
-                    MINUTO(S)
+                    minuto
                 </td>
                 <td class="numero">
                     {{diferenciaEnSegundos}} 
                 </td>
                 <td class="label-fecha">
-                    SEGUNDO(S)
+                    segundo
                 </td>
             </tr>
         </table>
 
-        <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+        <ion-fab vertical="bootom" horizontal="start" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
             </ion-fab-button>
