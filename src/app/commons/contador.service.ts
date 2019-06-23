@@ -21,7 +21,7 @@ export class ContadorService {
                 this.ticTac()
                 this.movientoSubject.next();
             }
-        }, 900);
+        }, 1000);
     }
 
     iniciarMovimiento(): void {
