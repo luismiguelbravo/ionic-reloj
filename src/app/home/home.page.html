@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" style="display: none;">
         <ion-menu-button></ion-menu-button>
     </ion-buttons>
         <ion-title>
@@ -19,7 +19,7 @@
 
         <ion-item>
             <ion-label>Fecha</ion-label>
-            <ion-datetime displayFormat="DD MMMM YYYY" max="3020-10-31"
+            <ion-datetime displayFormat="DD MMMM YYYY" max="2100-12-31"
                 [(ngModel)]="fechaDeEntrada"
                 doneText="ok"
                 cancelText="Cancelar"
