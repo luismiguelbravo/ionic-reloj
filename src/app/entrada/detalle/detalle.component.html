@@ -1,4 +1,4 @@
-
+<div [ngClass]="{'pasado': pasado}">
     <ion-card-header>
         {{entrada.titulo}}<br>
 
@@ -54,13 +54,16 @@
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
             </ion-fab-button>
-            <ion-fab-list side="start">
+            <ion-fab-list side="end">
                 <ion-fab-button (click)="shareWhatsApp()">
                     <ion-icon name="logo-whatsapp"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button (click)="copyToClipBoard()">
+                    <ion-icon name="copy"></ion-icon>
                 </ion-fab-button>
             </ion-fab-list>
         </ion-fab>
 
     </ion-card-content>
-
+</div>
 

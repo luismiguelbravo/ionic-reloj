@@ -4,7 +4,8 @@ import { Entrada } from '../../Entrada';
 import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-
+import { Clipboard } from '@ionic-native/clipboard/ngx';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle',
@@ -28,10 +29,16 @@ export class DetalleComponent implements OnInit {
     diferenciaEnDias = null;
     diferenciaEnMeses = null;
     diferenciaEnYears = null;
+    pasado = false
 
     @Input() entrada: Entrada;
 
-    constructor(public contadorService: ContadorService, private socialSharing: SocialSharing) { }
+    constructor(
+        public contadorService: ContadorService,
+        private socialSharing: SocialSharing,
+        private clipboard: Clipboard,
+        public alertController: AlertController
+    ) { }
 
     ngOnInit() {
 
@@ -48,32 +55,43 @@ export class DetalleComponent implements OnInit {
     }
 
     calcularDiferencias(): void {
-        this.fechaDeHoy = moment()
-        this.diferenciaEnYears = this.finalDeLaEspera.diff(this.fechaDeHoy, 'years')
+        let vm = this
+
+        if ( vm.finalDeLaEspera > vm.fechaDeHoy )
+        {
+            vm.pasado = false
+        }
+        else
+        {
+            vm.pasado = true
+        }
 
 
-        this.fechaDeHoy.add(this.diferenciaEnYears, 'years')
+        vm.fechaDeHoy = moment()
+        
+        
+        vm.diferenciaEnYears = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'years')
 
-        this.diferenciaEnMeses = this.finalDeLaEspera.diff(this.fechaDeHoy, 'months')
-        this.fechaDeHoy.add(this.diferenciaEnMeses, 'months')
 
-        this.diferenciaEnDias = this.finalDeLaEspera.diff(this.fechaDeHoy, 'days')
-        this.fechaDeHoy.add(this.diferenciaEnDias, 'days')
+        vm.fechaDeHoy.add(vm.diferenciaEnYears, 'years')
 
-        this.diferenciaEnHoras = this.finalDeLaEspera.diff(this.fechaDeHoy, 'hours')
-        this.fechaDeHoy.add(this.diferenciaEnHoras, 'hours')
+        vm.diferenciaEnMeses = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'months')
+        vm.fechaDeHoy.add(vm.diferenciaEnMeses, 'months')
 
-        this.diferenciaEnMinutos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'minutes')
-        this.fechaDeHoy.add(this.diferenciaEnMinutos, 'minutes')
+        vm.diferenciaEnDias = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'days')
+        vm.fechaDeHoy.add(vm.diferenciaEnDias, 'days')
 
-        this.diferenciaEnSegundos = this.finalDeLaEspera.diff(this.fechaDeHoy, 'seconds')
+        vm.diferenciaEnHoras = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'hours')
+        vm.fechaDeHoy.add(vm.diferenciaEnHoras, 'hours')
+
+        vm.diferenciaEnMinutos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'minutes')
+        vm.fechaDeHoy.add(vm.diferenciaEnMinutos, 'minutes')
+
+        vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds')
     }
 
-    async shareWhatsApp() {
-        // Text + Image or URL works
-        // voy a poner una imagen en mi pagina
-        // voy a poner una url que reciva el parametro de la fecha y le muestre el contador
-        let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
+    construirMensaje(): string{
+         let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
 
         if (this.diferenciaEnYears !== 0) {
             mensaje += '\n' + this.diferenciaEnYears + ' año'
@@ -150,11 +168,38 @@ export class DetalleComponent implements OnInit {
             }
 
         }
+        return mensaje;
+    }
 
-        this.socialSharing.shareViaWhatsApp(mensaje, null, null).then(() => {
+    async copyToClipBoard() {
+
+        console.log('copyToClipBoard()')
+        let vm = this
+        vm.clipboard.copy(vm.construirMensaje());
+        const alert = await this.alertController.create({
+            header: 'Éxito',
+            subHeader: '',
+            message: 'Copiado al porta papeles.',
+            buttons: ['OK']
+        });
+        await alert.present()
+
+
+    }
+
+    async shareWhatsApp() {
+        console.log('shareWhatsApp')
+        // Text + Image or URL works
+        // voy a poner una imagen en mi pagina
+        // voy a poner una url que reciva el parametro de la fecha y le muestre el contador
+        let vm = this
+
+        vm.socialSharing.shareViaWhatsApp(vm.construirMensaje(), null, null).then(() => {
           // Success
+          console.log("exito al compartir por whatsapp")
         }).catch((e) => {
           // Error!
+          console.log("error al compartir por whatsapp")
         });
     }
 

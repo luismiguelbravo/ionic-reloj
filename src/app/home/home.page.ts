@@ -26,22 +26,29 @@ export class HomePage {
 
     fechaDeEntrada = '';
     horaDeEntrada = '';
-    tituloDeEntrada = 'Fecha esperada';
+    tituloDeEntrada = '';
 
     mostrarFormulario = false;
 
-    constructor(public alertController: AlertController, private storage: Storage,
-        public contadorService: ContadorService) {}
+    constructor(
+        public alertController: AlertController,
+        private storage: Storage,
+        public contadorService: ContadorService
+    ) {}
 
     async exitoAlguardar() {
-
+        let vm = this
         const alert = await this.alertController.create({
             header: 'Éxito',
             subHeader: '',
             message: 'Fecha guardada correctamente.',
             buttons: ['OK']
         });
-        await alert.present();
+        await alert.present()
+        vm.fechaDeEntrada = ''
+        vm.horaDeEntrada = ''
+        vm.tituloDeEntrada = ''
+        vm.mostrarFormulario = false
     }
 
     async errorAlGuardar() {
@@ -122,21 +129,26 @@ export class HomePage {
     }
 
     guardar():void {
+        let vm = this
 
-        if (this.horaDeEntrada === '' || this.fechaDeEntrada === '' || this.tituloDeEntrada === '')
+        if (vm.horaDeEntrada === '' || vm.fechaDeEntrada === '' || vm.tituloDeEntrada === '')
         {
-            this.errorAlGuardar();
+            vm.errorAlGuardar();
         }
         else
         {
             let nuevaFecha = new Entrada();
-            nuevaFecha.fecha = this.fechaDeEntrada.substring(0,10) + ' ' + this.horaDeEntrada.substring(11, 16);
-            nuevaFecha.titulo = this.tituloDeEntrada;
+            nuevaFecha.fecha = vm.fechaDeEntrada.substring(0,10) + ' ' + vm.horaDeEntrada.substring(11, 16);
+            nuevaFecha.titulo = vm.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
-            this.listaDeFechas.push(nuevaFecha);
-            this.storage.set('listaDeFechas', this.listaDeFechas);
-            this.exitoAlguardar();
+            vm.listaDeFechas.push(nuevaFecha);
+            vm.storage.set('listaDeFechas', vm.listaDeFechas);
+            vm.exitoAlguardar();
         }
+    }
+
+    debug():void {
+        console.log(this.listaDeFechas);
     }
 
 }
