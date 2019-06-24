@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 var ContadorService = /** @class */ (function () {
     function ContadorService() {
-        this.movientoSource = new Subject();
-        this.moviemientoEnd$ = this.movientoSource.asObservable();
+        this.movientoSubject = new Subject();
+        this.movimientoObservable = this.movientoSubject.asObservable();
         this.moverse = false;
     }
     ContadorService.prototype.ticTac = function () {
@@ -13,8 +13,9 @@ var ContadorService = /** @class */ (function () {
         setTimeout(function () {
             if (vm.moverse === true) {
                 _this.ticTac();
+                _this.movientoSubject.next();
             }
-        }, 900);
+        }, 1000);
     };
     ContadorService.prototype.iniciarMovimiento = function () {
         var vm = this;

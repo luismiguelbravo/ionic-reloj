@@ -48,11 +48,16 @@
         </div>
     </div>
 
-     <ion-button expand="full" size="small" (click)="debug()">debug</ion-button>
+    <ion-button expand="full" size="small" (click)="debug()">debug</ion-button>
+
+    <p>
+        Equal <br>
+        <input type="text" placeholder="search..." [(ngModel)]="searchValue02" (keyup)="buscar()">
+    </p>
 
     <ion-grid>
         <ion-row>
-            <ion-col *ngFor="let entrada of this.listaDeFechas" size-lg="4" size-md="6" size-sm="6" size-xs="12">
+            <ion-col *ngFor="let entrada of this.listaDeFechas " size-lg="4" size-md="6" size-sm="6" size-xs="12">
                 <ion-card class="welcome-card">
                     <app-detalle [entrada]="entrada"></app-detalle>
                     <ion-buttons slot="primary" class="eliminar">

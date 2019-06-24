@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
 import { ContadorService } from '../commons/contador.service'
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
     selector: 'app-home',
@@ -33,8 +34,9 @@ export class HomePage {
     constructor(
         public alertController: AlertController,
         private storage: Storage,
-        public contadorService: ContadorService
-    ) {}
+        public contadorService: ContadorService,
+        private orderPipe: OrderPipe
+    ) { }
 
     async exitoAlguardar() {
         let vm = this
@@ -95,6 +97,11 @@ export class HomePage {
 
 
     ngOnInit() {
+        console.log("")
+        console.log(" ---------------- this.orderPipe ----------------")
+        console.log(this.orderPipe)
+        console.log(" ---------------- this.orderPipe ----------------")
+        console.log("")
         this.storage.get('listaDeFechas').then((val) => {
             this.listaDeFechas = val;
             if (val === null) {
@@ -142,6 +149,14 @@ export class HomePage {
             nuevaFecha.titulo = vm.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
             vm.listaDeFechas.push(nuevaFecha);
+
+            vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                if( a.fecha < b.fecha) {return 1;}
+                if( a.fecha > b.fecha) {return -1;}
+                return 0;
+            })
+
+
             vm.storage.set('listaDeFechas', vm.listaDeFechas);
             vm.exitoAlguardar();
         }
@@ -149,6 +164,10 @@ export class HomePage {
 
     debug():void {
         console.log(this.listaDeFechas);
+    }
+
+    buscar():void {
+        console.log("buscando")
     }
 
 }

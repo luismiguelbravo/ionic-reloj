@@ -13,10 +13,13 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 
+import { OrderModule } from 'ngx-order-pipe'
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
+        OrderModule,
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,

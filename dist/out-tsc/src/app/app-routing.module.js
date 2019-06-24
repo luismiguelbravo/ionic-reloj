@@ -1,6 +1,7 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule } from '@angular/router';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 var routes = [
     {
         path: '',
@@ -24,6 +25,7 @@ var AppRoutingModule = /** @class */ (function () {
             imports: [
                 RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
             ],
+            providers: [SocialSharing],
             exports: [RouterModule]
         })
     ], AppRoutingModule);
