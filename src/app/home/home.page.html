@@ -37,6 +37,7 @@
         <ion-button size="small" (click)="mostrarFormulario = false" style="margin-top: 16px;" color="tertiary">Cancelar</ion-button>
     </ion-grid>
 
+
     <ion-grid *ngIf="!mostrarFormulario">
         <ion-button expand="full" size="small" (click)="mostrarFormulario = true">Agregar Fecha</ion-button>
         <ion-button expand="full" size="small" (click)="usarSemilla()">usar semilla</ion-button>
@@ -50,10 +51,7 @@
 
     <ion-button expand="full" size="small" (click)="debug()">debug</ion-button>
 
-    <p>
-        Equal <br>
-        <input type="text" placeholder="search..." [(ngModel)]="palabraDeBusqueda" (keyup)="buscar()">
-    </p>
+    <ion-searchbar placeholder="Búscar" [(ngModel)]="palabraDeBusqueda" (keyup)="buscar()"></ion-searchbar>
 
     <ion-grid>
         <ion-row>
