@@ -54,7 +54,8 @@ export class HomePage {
                     if( a.fecha > b.fecha) {return 1;}
                     return 0;
                 })
-                this.listaFiltrada = this.listaDeFechas 
+                vm.listaFiltrada = vm.listaDeFechas
+                vm.storage.set('listaDeFechas', vm.listaDeFechas);
             }
           }, {
             text: 'Orden descendente',
@@ -65,7 +66,8 @@ export class HomePage {
                     if( a.fecha > b.fecha) {return -1;}
                     return 0;
                 })
-                this.listaFiltrada = this.listaDeFechas 
+                vm.listaFiltrada = vm.listaDeFechas
+                vm.storage.set('listaDeFechas', vm.listaDeFechas);
             }
           }]
         });
