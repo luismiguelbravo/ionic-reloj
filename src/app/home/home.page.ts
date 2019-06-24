@@ -28,6 +28,8 @@ export class HomePage {
     fechaDeEntrada = '';
     horaDeEntrada = '';
     tituloDeEntrada = '';
+    listaFiltrada = null
+    palabraDeBusqueda = ""
 
     mostrarFormulario = false;
 
@@ -92,6 +94,8 @@ export class HomePage {
           ]
         });
 
+        this.listaFiltrada = this.listaDeFechas 
+
         await alert.present();
     }
 
@@ -122,6 +126,7 @@ export class HomePage {
                 debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
                 de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
             */
+            this.listaFiltrada = this.listaDeFechas
             this.contadorService.iniciarMovimiento();
         });
     }
@@ -156,8 +161,9 @@ export class HomePage {
                 return 0;
             })
 
-
+            this.listaFiltrada = this.listaDeFechas 
             vm.storage.set('listaDeFechas', vm.listaDeFechas);
+
             vm.exitoAlguardar();
         }
     }
@@ -167,7 +173,11 @@ export class HomePage {
     }
 
     buscar():void {
+        let vm = this
         console.log("buscando")
+        vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
+            return element.titulo.includes(vm.palabraDeBusqueda)
+        });
     }
 
 }

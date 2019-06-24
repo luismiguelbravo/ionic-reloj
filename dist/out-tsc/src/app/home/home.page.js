@@ -5,11 +5,13 @@ import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
 import { ContadorService } from '../commons/contador.service';
+import { OrderPipe } from 'ngx-order-pipe';
 var HomePage = /** @class */ (function () {
-    function HomePage(alertController, storage, contadorService) {
+    function HomePage(alertController, storage, contadorService, orderPipe) {
         this.alertController = alertController;
         this.storage = storage;
         this.contadorService = contadorService;
+        this.orderPipe = orderPipe;
         this.fechaDeHoy = moment(); //.format('YYYY-MM-DD HH:mm:ss');
         this.finalDeLaEspera = moment("2021-01-01");
         this.diferencia = null;
@@ -117,6 +119,11 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("");
+        console.log(" ---------------- this.orderPipe ----------------");
+        console.log(this.orderPipe);
+        console.log(" ---------------- this.orderPipe ----------------");
+        console.log("");
         this.storage.get('listaDeFechas').then(function (val) {
             _this.listaDeFechas = val;
             if (val === null) {
@@ -156,12 +163,27 @@ var HomePage = /** @class */ (function () {
             nuevaFecha.titulo = vm.tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
             vm.listaDeFechas.push(nuevaFecha);
+            vm.listaDeFechas = vm.listaDeFechas.sort(function (a, b) {
+                if (a.fecha < b.fecha) {
+                    return 1;
+                }
+                if (a.fecha > b.fecha) {
+                    return -1;
+                }
+                return 0;
+            });
             vm.storage.set('listaDeFechas', vm.listaDeFechas);
             vm.exitoAlguardar();
         }
     };
     HomePage.prototype.debug = function () {
         console.log(this.listaDeFechas);
+    };
+    HomePage.prototype.buscar = function () {
+        var vm = this;
+        console.log("buscando");
+        console.log("vm.listaDeFechas");
+        console.log(vm.listaDeFechas);
     };
     HomePage = tslib_1.__decorate([
         Component({
@@ -171,7 +193,8 @@ var HomePage = /** @class */ (function () {
         }),
         tslib_1.__metadata("design:paramtypes", [AlertController,
             Storage,
-            ContadorService])
+            ContadorService,
+            OrderPipe])
     ], HomePage);
     return HomePage;
 }());
