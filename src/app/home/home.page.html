@@ -51,7 +51,16 @@
 
     <ion-button expand="full" size="small" (click)="debug()">debug</ion-button>
 
-    <ion-searchbar placeholder="Búscar" [(ngModel)]="palabraDeBusqueda" (keyup)="buscar()"></ion-searchbar>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="10">
+                <ion-searchbar placeholder="Búscar" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()"></ion-searchbar>
+            </ion-col>
+            <ion-col size="2">
+                 <ion-button size="small" (click)="presentActionSheet()" style="margin-top: 16px;">...</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
     <ion-grid>
         <ion-row>

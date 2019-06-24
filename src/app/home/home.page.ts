@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ActionSheetController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
 import { ContadorService } from '../commons/contador.service'
@@ -37,8 +37,40 @@ export class HomePage {
         public alertController: AlertController,
         private storage: Storage,
         public contadorService: ContadorService,
-        private orderPipe: OrderPipe
+        private orderPipe: OrderPipe,
+        public actionSheetController: ActionSheetController
     ) { }
+
+    async presentActionSheet() {
+        let vm = this
+        const actionSheet = await this.actionSheetController.create({
+          header: 'Ordenar',
+          buttons: [{
+            text: 'Orden Ascendente',
+            icon: 'arrow-up',
+            handler: () => {
+                vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                    if( a.fecha < b.fecha) {return -1;}
+                    if( a.fecha > b.fecha) {return 1;}
+                    return 0;
+                })
+                this.listaFiltrada = this.listaDeFechas 
+            }
+          }, {
+            text: 'Orden descendente',
+            icon: 'arrow-down',
+            handler: () => {
+                vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                    if( a.fecha < b.fecha) {return 1;}
+                    if( a.fecha > b.fecha) {return -1;}
+                    return 0;
+                })
+                this.listaFiltrada = this.listaDeFechas 
+            }
+          }]
+        });
+        await actionSheet.present();
+    }
 
     async exitoAlguardar() {
         let vm = this
@@ -176,7 +208,7 @@ export class HomePage {
         let vm = this
         console.log("buscando")
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
-            return element.titulo.includes(vm.palabraDeBusqueda)
+            return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase())
         });
     }
 
