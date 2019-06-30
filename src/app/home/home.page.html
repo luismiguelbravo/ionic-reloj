@@ -37,11 +37,17 @@
         <ion-button size="small" (click)="mostrarFormulario = false" style="margin-top: 16px;" color="tertiary">Cancelar</ion-button>
     </ion-grid>
 
+    <ion-fab *ngIf="!mostrarFormulario" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
-    <ion-grid *ngIf="!mostrarFormulario">
+
+    <!-- ion-grid *ngIf="!mostrarFormulario">
         <ion-button expand="full" size="small" (click)="mostrarFormulario = true">Agregar Fecha</ion-button>
         <ion-button expand="full" size="small" (click)="usarSemilla()">usar semilla</ion-button>
-    </ion-grid>
+    </ion-grid-->
 
     <div class="row responsive-sm" *ngIf="false">
         <div class="col" style="text-align: center;">
@@ -49,7 +55,7 @@
         </div>
     </div>
 
-    <ion-button expand="full" size="small" (click)="debug()">debug</ion-button>
+    <!-- ion-button expand="full" size="small" (click)="debug()">debug</ion-button-->
 
     <ion-grid>
         <ion-row>

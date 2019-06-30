@@ -9,3 +9,15 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .picker-wrapper.sc-ion-picker-ios {
+        bottom: auto !important;
+        top: 0 !important;
+    }
+
+    .action-sheet-container.sc-ion-action-sheet-ios {
+        display: block;
+    }
+}
