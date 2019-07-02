@@ -38,7 +38,7 @@
     </ion-grid>
 
     <ion-fab *ngIf="!mostrarFormulario" vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button>
+        <ion-fab-button (click)="mostrarFormulario = true">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
