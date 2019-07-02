@@ -2,9 +2,7 @@
     <ion-card-header>
         {{entrada.titulo}}<br>
 
-        dia: {{ finalDeLaEspera.format('D') }}/
-        mes: {{ finalDeLaEspera.format('M') }}/
-        año: {{ finalDeLaEspera.format('YYYY') }}
+        {{entrada.fecha | date: 'dd/MM/yyyy HH:mm:ss'}}
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
