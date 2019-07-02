@@ -15,10 +15,13 @@ import { Clipboard } from '@ionic-native/clipboard/ngx';
 
 import { OrderModule } from 'ngx-order-pipe'
 
+import { AgregarPageModule } from './entrada/agregar/agregar.module';
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
+        AgregarPageModule,
         OrderModule,
         BrowserModule,
         IonicModule.forRoot(),

@@ -15,7 +15,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'agregar', loadChildren: './entrada/agregar/agregar.module#AgregarPageModule' }
 ];
 
 @NgModule({

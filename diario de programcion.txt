@@ -24,3 +24,6 @@ ejecutar el proyecto en el iphone
 ejecutar el proyecto
   
     $ionic serve
+
+Generar nuevo componente
+  - ionic generate component entrada/agregar

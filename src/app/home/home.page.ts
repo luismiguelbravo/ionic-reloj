@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { AlertController, ActionSheetController } from '@ionic/angular';
+import { AlertController, ActionSheetController, ModalController} from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
 import { ContadorService } from '../commons/contador.service'
 import { OrderPipe } from 'ngx-order-pipe';
+
+import { AgregarPage } from '../entrada/agregar/agregar.page';
 
 @Component({
     selector: 'app-home',
@@ -38,8 +40,16 @@ export class HomePage {
         private storage: Storage,
         public contadorService: ContadorService,
         private orderPipe: OrderPipe,
-        public actionSheetController: ActionSheetController
+        public actionSheetController: ActionSheetController,
+        public modalController: ModalController
     ) { }
+
+    async mostrarFomulario() {
+        const modal = await this.modalController.create({
+            component: AgregarPage
+        });
+        return await modal.present();
+    }
 
     async presentActionSheet() {
         let vm = this

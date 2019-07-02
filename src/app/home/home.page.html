@@ -11,7 +11,7 @@
 
 <ion-content>
 
-    <ion-grid style="background-color: #f5f7fa;" *ngIf="mostrarFormulario">
+    <!--ion-grid style="background-color: #f5f7fa;" *ngIf="mostrarFormulario">
         <ion-item>
             <ion-label position="stacked">Titulo</ion-label>
             <ion-input required [(ngModel)]="tituloDeEntrada"></ion-input>
@@ -35,10 +35,10 @@
         </ion-item>
         <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>
         <ion-button size="small" (click)="mostrarFormulario = false" style="margin-top: 16px;" color="tertiary">Cancelar</ion-button>
-    </ion-grid>
+    </ion-grid-->
 
-    <ion-fab *ngIf="!mostrarFormulario" vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button (click)="mostrarFormulario = true">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="mostrarFomulario()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
