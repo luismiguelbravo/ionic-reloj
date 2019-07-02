@@ -135,18 +135,15 @@ export class HomePage {
 
 
     ngOnInit() {
-        console.log("")
-        console.log(" ---------------- this.orderPipe ----------------")
-        console.log(this.orderPipe)
-        console.log(" ---------------- this.orderPipe ----------------")
-        console.log("")
-        this.storage.get('listaDeFechas').then((val) => {
-            this.listaDeFechas = val;
+        let vm = this;
+        vm.storage.get('listaDeFechas').then((val) => {
+            vm.listaDeFechas = val
             if (val === null) {
-                this.listaDeFechas = [];
+                vm.listaDeFechas = []
+                vm.usarSemilla()
             }
             console.log(this.listaDeFechas)
-            this.listaDeFechas = this.listaDeFechas.sort(
+            vm.listaDeFechas = this.listaDeFechas.sort(
                 function(a,b) 
                 {
                     const fechaA = new Date(a.fecha)
@@ -160,16 +157,17 @@ export class HomePage {
                 debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
                 de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
             */
-            this.listaFiltrada = this.listaDeFechas
-            this.contadorService.iniciarMovimiento();
+            vm.listaFiltrada = vm.listaDeFechas
+            vm.contadorService.iniciarMovimiento()
         });
     }
 
     usarSemilla():void {
         console.log("usarSemilla");
         this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb95"});
-        this.listaDeFechas.push({fecha: "2019-05-11 02:41", titulo: "Ultima vez que fume", id: "dopb95"});
-        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "donby5"});
+        this.listaDeFechas.push({fecha: "2019-05-11 02:41", titulo: "Ultima vez que fume", id: "dxpb95"});
+        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5"});
+        this.listaDeFechas.push({fecha: "2019-07-01 20:55", titulo: "t", id: "cualquf4"});
         this.storage.set('listaDeFechas', this.listaDeFechas);
         this.exitoAlguardar();
     }
