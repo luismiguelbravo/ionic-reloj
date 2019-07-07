@@ -1,0 +1,4 @@
+/*servicio para detectar que es la primera activacion del prorgrama
+
+if ()
+*/

@@ -21,7 +21,6 @@ import { AgregarPageModule } from './entrada/agregar/agregar.module';
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
-        AgregarPageModule,
         OrderModule,
         BrowserModule,
         IonicModule.forRoot(),
@@ -29,7 +28,8 @@ import { AgregarPageModule } from './entrada/agregar/agregar.module';
         IonicStorageModule.forRoot({
             name: '__mydb',
             driverOrder: ['sqlite', 'indexeddb', 'websql', 'localstorage']
-        })
+        }),
+        AgregarPageModule,
     ],
     providers: [
         Clipboard,

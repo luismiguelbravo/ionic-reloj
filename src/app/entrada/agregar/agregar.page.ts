@@ -8,7 +8,9 @@ import { ModalController} from '@ionic/angular';
 })
 export class AgregarPage implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  constructor(public modalController: ModalController) {
+      console.log(" ---------- constructor del agregar ---------- ")
+  }
 
   ngOnInit() {
   }

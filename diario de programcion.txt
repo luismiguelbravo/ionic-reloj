@@ -26,4 +26,4 @@ ejecutar el proyecto
     $ionic serve
 
 Generar nuevo componente
-  - ionic generate component entrada/agregar
+  - ionic generate page entrada/agregar

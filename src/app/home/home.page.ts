@@ -42,7 +42,9 @@ export class HomePage {
         private orderPipe: OrderPipe,
         public actionSheetController: ActionSheetController,
         public modalController: ModalController
-    ) { }
+    ) { 
+        console.log("constructor del home")
+    }
 
     async mostrarFomulario() {
         const modal = await this.modalController.create({
