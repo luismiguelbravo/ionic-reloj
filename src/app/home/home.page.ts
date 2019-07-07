@@ -169,7 +169,7 @@ export class HomePage {
             vm.listaDeFechas = val
             if (val === null) {
                 vm.listaDeFechas = []
-                vm.usarSemilla()
+                // vm.usarSemilla()
             }
             console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
@@ -193,10 +193,12 @@ export class HomePage {
 
     usarSemilla():void {
         console.log("usarSemilla");
+        this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95"});
         this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb95"});
-        this.listaDeFechas.push({fecha: "2019-05-11 02:41", titulo: "Ultima vez que fume", id: "dxpb95"});
+        this.listaDeFechas.push({fecha: "2019-06-07 15:16", titulo: "Ultima vez que fume y bebi alcohol", id: "dxpb95"});
         this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5"});
-        this.listaDeFechas.push({fecha: "2019-07-01 20:55", titulo: "t", id: "cualquf4"});
+        this.listaDeFechas.push({fecha: "2019-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4"});
+
         this.storage.set('listaDeFechas', this.listaDeFechas);
         this.exitoAlguardar();
     }
@@ -239,6 +241,10 @@ export class HomePage {
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase())
         });
+    }
+
+    editarEntrada():void{
+        console.log("editarEntrada");
     }
 
 }
