@@ -8,6 +8,10 @@ import { ModalController} from '@ionic/angular';
 })
 export class AgregarPage implements OnInit {
 
+  horaDeEntrada = '';
+  fechaDeEntrada = ''; 
+  tituloDeEntrada = "";
+
   constructor(public modalController: ModalController) {
       console.log(" ---------- constructor del agregar ---------- ")
   }
@@ -26,8 +30,18 @@ export class AgregarPage implements OnInit {
     console.log("")
 
     vm.modalController.dismiss({
-      'dismissed': true
+        "guardar" : false
     });
+  }
+
+  guardar(){
+      let vm = this
+      vm.modalController.dismiss({
+          "guardar" : true,
+          "horaDeEntrada" : vm.horaDeEntrada,
+          "fechaDeEntrada" : vm.fechaDeEntrada,
+          "tituloDeEntrada" : vm.tituloDeEntrada
+      });
   }
 
 }

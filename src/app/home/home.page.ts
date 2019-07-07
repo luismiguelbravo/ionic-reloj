@@ -35,6 +35,8 @@ export class HomePage {
 
     mostrarFormulario = false;
 
+
+
     constructor(
         public alertController: AlertController,
         private storage: Storage,
@@ -46,14 +48,29 @@ export class HomePage {
         console.log("constructor del home")
     }
 
+
     async mostrarFomulario() {
-        const modal = await this.modalController.create({
-            component: AgregarPage
-        });
-        return await modal.present();
+        let vm = this;
+        const modal = await this.modalController.create({ component: AgregarPage });
+        modal.present();
+        // Get returned data
+        const { data } = await modal.onWillDismiss();
+
+
+        console.log("")
+        console.log(" ------------------ entro en el guardar del modal ------------------ ")
+        console.log(data)
+        console.log(" ------------------ entro en el guardar del modal ------------------ ")
+        console.log("")
+
+        
+        if (data.guardar )
+        {
+            vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+        }
     }
 
-    async presentActionSheet() {
+    async mostrarMenuDeOrdenamiento() {
         let vm = this
         const actionSheet = await this.actionSheetController.create({
           header: 'Ordenar',
@@ -184,18 +201,18 @@ export class HomePage {
         this.exitoAlguardar();
     }
 
-    guardar():void {
+    guardar(horaDeEntrada, fechaDeEntrada, tituloDeEntrada):void {
         let vm = this
 
-        if (vm.horaDeEntrada === '' || vm.fechaDeEntrada === '' || vm.tituloDeEntrada === '')
+        if (horaDeEntrada === '' || fechaDeEntrada === '' || tituloDeEntrada === '')
         {
             vm.errorAlGuardar();
         }
         else
         {
             let nuevaFecha = new Entrada();
-            nuevaFecha.fecha = vm.fechaDeEntrada.substring(0,10) + ' ' + vm.horaDeEntrada.substring(11, 16);
-            nuevaFecha.titulo = vm.tituloDeEntrada;
+            nuevaFecha.fecha = fechaDeEntrada.substring(0,10) + ' ' + horaDeEntrada.substring(11, 19);
+            nuevaFecha.titulo = tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
             vm.listaDeFechas.push(nuevaFecha);
 
