@@ -1,8 +1,7 @@
 <div [ngClass]="{'pasado': pasado}">
     <ion-card-header>
-        {{entrada.titulo}}<br>
-
-        {{entrada.fecha | date: 'dd/MM/yyyy HH:mm:ss'}}
+        {{ fechaEsperadaDate | date: 'dd/MM/yyyy HH:mm:ss'}} <br>
+        {{entrada.titulo}} 
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
