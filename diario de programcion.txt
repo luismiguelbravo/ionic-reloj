@@ -27,3 +27,18 @@ ejecutar el proyecto
 
 Generar nuevo componente
   - ionic generate page entrada/agregar
+
+cambiar el nombre de la aplicacion
+
+    modifica el archivo config.xml
+
+    $ cordova plugin save
+    $ cordova platform rm ios
+    $ cordova platform add ios
+    $ ionic cordova build ios --prod
+
+    $ ionic cordova prepare ios
+
+
+Modificar el icono de la aplicacion y la pantalla de splash
+    $ ionic cordova resources
