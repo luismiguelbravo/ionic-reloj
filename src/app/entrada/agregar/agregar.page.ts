@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController} from '@ionic/angular';
+import { NavController, NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-agregar',
@@ -12,12 +13,38 @@ export class AgregarPage implements OnInit {
   fechaDeEntrada = ''; 
   tituloDeEntrada = "";
 
-  constructor(public modalController: ModalController) {
-      console.log(" ---------- constructor del agregar ---------- ")
-  }
+  pageTitle = "Agregra"
 
-  ngOnInit() {
-  }
+  entradaDeEdicion : any;  
+
+    constructor(public modalController: ModalController,  public navParams: NavParams) {
+        let vm = this
+        vm.entradaDeEdicion = navParams.get('entrada')
+        console.log(" ---------- constructor del agregar ---------- ")  
+
+        console.log("")
+        console.log(" ---------- this.entrada ---------- ")
+        console.log(vm.entradaDeEdicion);
+        console.log(" ---------- this.entrada ---------- ")
+        console.log("")  
+
+        if (typeof vm.entradaDeEdicion === "undefined"){
+            console.log("Estoy agregando")
+        }
+        else 
+        {
+            console.log("estoy editando")
+            vm.horaDeEntrada = vm.entradaDeEdicion.fecha;
+            vm.fechaDeEntrada = vm.entradaDeEdicion.fecha; 
+            vm.tituloDeEntrada = vm.entradaDeEdicion.titulo;
+            vm.pageTitle = "Editar"
+
+
+        }
+    }
+
+    ngOnInit() {
+    }
 
   dismiss() {
     // using the injected ModalController this page
