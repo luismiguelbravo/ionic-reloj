@@ -47,11 +47,28 @@
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
                 <ion-card class="welcome-card">
                     <app-detalle [entrada]="entrada"></app-detalle>
-                    <ion-buttons slot="primary" class="eliminar">
-                        <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
-                            Eliminar<ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
-                        </ion-button>
-                    </ion-buttons>
+
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <ion-buttons slot="primary" class="eliminar">
+                                    <ion-button color="secondary" (click)="editar(entrada)">
+                                        <ion-icon slot="icon-only" name="create" style="text-align: center;"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </td>
+                            <td>
+                                <ion-buttons slot="primary" class="eliminar">
+                                    <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
+                                        <ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
                 </ion-card>
             </ion-col>  
         </ion-row>
