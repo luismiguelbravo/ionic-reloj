@@ -55,14 +55,34 @@ export class HomePage {
         modal.present();
         // Get returned data
         const { data } = await modal.onWillDismiss();
+        
+        if (data.guardar )
+        {
+            vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+        }
+    }
 
+    async editar(entrada){
+        // mostrar el modal, 
+        // pasarle como parametro la vaina que estoy editando
 
         console.log("")
-        console.log(" ------------------ entro en el guardar del modal ------------------ ")
-        console.log(data)
-        console.log(" ------------------ entro en el guardar del modal ------------------ ")
+        console.log(" -------- editar -------- ")
+        console.log(entrada)
+        console.log(" -------- editar -------- ")
         console.log("")
 
+        let vm = this;
+        const modal = await this.modalController.create({
+            component: AgregarPage,
+            componentProps: {
+                entrada: entrada
+            }
+        });
+
+        modal.present();
+        // Get returned data
+        const { data } = await modal.onWillDismiss();
         
         if (data.guardar )
         {
