@@ -35,8 +35,6 @@ export class HomePage {
 
     mostrarFormulario = false;
 
-
-
     constructor(
         public alertController: AlertController,
         private storage: Storage,
@@ -66,12 +64,6 @@ export class HomePage {
         // mostrar el modal, 
         // pasarle como parametro la vaina que estoy editando
 
-        console.log("")
-        console.log(" -------- editar -------- ")
-        console.log(entrada)
-        console.log(" -------- editar -------- ")
-        console.log("")
-
         let vm = this;
         const modal = await this.modalController.create({
             component: AgregarPage,
@@ -86,8 +78,30 @@ export class HomePage {
         
         if (data.guardar )
         {
-            vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
-        }
+            // vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+            let index = 0;
+            while(index < vm.listaDeFechas.length) {
+                if (vm.listaDeFechas[index].id === entrada.id){
+                    break;
+                }
+                index++
+            }
+
+            vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
+            vm.listaDeFechas[index].titulo = data.tituloDeEntrada
+
+            vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                if( a.fecha < b.fecha) {return 1;}
+                if( a.fecha > b.fecha) {return -1;}
+                return 0;
+            })
+
+            this.listaFiltrada = this.listaDeFechas 
+            vm.storage.set('listaDeFechas', vm.listaDeFechas);
+
+            vm.exitoAlguardar();
+        } 
+
     }
 
     async mostrarMenuDeOrdenamiento() {
@@ -151,30 +165,32 @@ export class HomePage {
     async intentarEliminar(id) {
 
         const alert = await this.alertController.create({
-          header: 'Advertencia',
-          message: 'Esta acción no puede ser revertida. <strong>¿Esta seguro de eliminar?</strong>',
-          buttons: [
+            header: 'Advertencia',
+            message: 'Esta acción no puede ser revertida. <strong>¿Esta seguro de eliminar?</strong>',
+            buttons: [
             {
-              text: 'Cancelar',
-              role: 'cancel',
-              cssClass: 'secondary',
-              handler: (blah) => {
-                console.log('Confirm Cancel: blah');
-              }
-            }, {
-              text: 'Eliminar',
-              handler: () => {
-                console.log('Confirm Okay');
-                for( var i = 0; i < this.listaDeFechas.length; i++){ 
-                   if ( this.listaDeFechas[i].id === id) {
-                     this.listaDeFechas.splice(i, 1);
-                     this.storage.set('listaDeFechas', this.listaDeFechas);
-                     break;
-                   }
+                text: 'Cancelar',
+                role: 'cancel',
+                cssClass: 'secondary',
+                handler: (blah) => {
+                    console.log('Confirm Cancel: blah');
                 }
-              }
+            }, {
+                text: 'Eliminar',
+                handler: () => {
+                console.log('Confirm Okay');
+                    for( var i = 0; i < this.listaDeFechas.length; i++)
+                    { 
+                        if ( this.listaDeFechas[i].id === id) {
+                            this.listaDeFechas.splice(i, 1);
+                            this.listaFiltrada = this.listaDeFechas                      
+                            this.storage.set('listaDeFechas', this.listaDeFechas);
+                            break;
+                        }
+                    }
+                }
             }
-          ]
+            ]
         });
 
         this.listaFiltrada = this.listaDeFechas 
@@ -184,12 +200,13 @@ export class HomePage {
 
 
     ngOnInit() {
+
         let vm = this;
         vm.storage.get('listaDeFechas').then((val) => {
             vm.listaDeFechas = val
             if (val === null) {
                 vm.listaDeFechas = []
-                // vm.usarSemilla()
+                vm.usarSemilla()
             }
             console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
@@ -208,16 +225,18 @@ export class HomePage {
             */
             vm.listaFiltrada = vm.listaDeFechas
             vm.contadorService.iniciarMovimiento()
+
         });
     }
 
     usarSemilla():void {
         console.log("usarSemilla");
         this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95"});
-        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb95"});
+        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956"});
         this.listaDeFechas.push({fecha: "2019-06-07 15:16", titulo: "Ultima vez que fume y bebi alcohol", id: "dxpb95"});
         this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5"});
         this.listaDeFechas.push({fecha: "2019-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4"});
+        this.listaDeFechas.push({fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "inb95"});
 
         this.storage.set('listaDeFechas', this.listaDeFechas);
         this.exitoAlguardar();
@@ -251,20 +270,17 @@ export class HomePage {
         }
     }
 
+
     debug():void {
         console.log(this.listaDeFechas);
     }
 
     buscar():void {
         let vm = this
-        console.log("buscando")
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase())
         });
     }
 
-    editarEntrada():void{
-        console.log("editarEntrada");
-    }
 
 }
