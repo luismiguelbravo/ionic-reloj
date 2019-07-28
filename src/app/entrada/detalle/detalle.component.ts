@@ -19,7 +19,6 @@ export class DetalleComponent implements OnInit {
 
     fechaDeHoy = moment()
     finalDeLaEspera = null;
-    fechaEsperadaDate = null;
     diferencia = null;
     diferenciaString = "";
 
@@ -46,8 +45,6 @@ export class DetalleComponent implements OnInit {
             this.entrada.fecha,
             'YYYY-MM-DD HH:mm'
         );
-
-        this.fechaEsperadaDate = this.finalDeLaEspera.toDate()
 
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
