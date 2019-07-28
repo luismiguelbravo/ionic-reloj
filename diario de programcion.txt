@@ -42,3 +42,14 @@ cambiar el nombre de la aplicacion
 
 Modificar el icono de la aplicacion y la pantalla de splash
     $ ionic cordova resources
+
+
+problema: cordova build ios --verbose exited with exit code 1.
+solucion  : 
+  sudo sudo npm i -g cordova-res --unsafe-perm=true --allow-root // era porque no tenia los resources, no habia generado los iconosç
+  sudo npm install -g ios-deploy
+
+
+
+
+
