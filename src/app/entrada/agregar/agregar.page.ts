@@ -34,8 +34,16 @@ export class AgregarPage implements OnInit {
         else 
         {
             console.log("estoy editando")
-            vm.horaDeEntrada = vm.entradaDeEdicion.fecha;
-            vm.fechaDeEntrada = vm.entradaDeEdicion.fecha; 
+            let output = [vm.entradaDeEdicion.fecha.slice(0, 10), "T", vm.entradaDeEdicion.fecha.slice(11)].join('');
+            
+            console.log("")
+            console.log(" ---------- output---------- ")
+            console.log(output)
+            console.log(" ---------- output---------- ")
+            console.log("")  
+
+            vm.horaDeEntrada = output;
+            vm.fechaDeEntrada = output; 
             vm.tituloDeEntrada = vm.entradaDeEdicion.titulo;
             vm.pageTitle = "Editar"
 
