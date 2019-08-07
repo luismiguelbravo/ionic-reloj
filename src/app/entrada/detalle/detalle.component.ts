@@ -192,7 +192,7 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnSegundos < 0   
             )
         {
-            mensaje = mensaje + '\n' + "Este evento ocurrio hace:" + sumarioDeTiempo
+            mensaje = mensaje + '\n' + "Ocurrió hace:" + sumarioDeTiempo
         }
         else
         {
