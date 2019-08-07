@@ -1,7 +1,10 @@
 <div [ngClass]="{'pasado': pasado}">
     <ion-card-header>
-        {{ entrada.fecha }} <br>
-        {{entrada.titulo}} 
+        <!-- {{ entrada.fecha  }} <br> -->
+        <br>
+        Día {{ entrada.fecha.substring(8,10) }} de {{ nombreDeMes(entrada.fecha.substring(5,7)) }} del año  {{ entrada.fecha.substring(0,4) }} <br>
+        Hora: {{ entrada.fecha.substring(11, entrada.fecha.length) }} <br>
+        <b>{{entrada.titulo}} </b>
     </ion-card-header>
     <ion-card-content>
         <table style="margin: 0 auto;">
