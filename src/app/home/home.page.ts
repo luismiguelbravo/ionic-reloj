@@ -119,25 +119,47 @@ export class HomePage {
             text: 'Orden Ascendente',
             icon: 'arrow-up',
             handler: () => {
-                vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
-                    if( a.fecha < b.fecha) {return -1;}
-                    if( a.fecha > b.fecha) {return 1;}
-                    return 0;
-                })
-                vm.listaFiltrada = vm.listaDeFechas
-                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+
+                // verficiar que el cuadro de busqueda este lleno o no
+                if (vm.palabraDeBusqueda === '') {
+                    vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                        if( a.fecha < b.fecha) {return -1;}
+                        if( a.fecha > b.fecha) {return 1;}
+                        return 0;
+                    })
+                    vm.listaFiltrada = vm.listaDeFechas
+                    vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                }
+                else {
+                    vm.listaFiltrada = vm.listaFiltrada.sort(function(a,b){
+                        if( a.fecha < b.fecha) {return -1;}
+                        if( a.fecha > b.fecha) {return 1;}
+                        return 0;
+                    })
+                }
+
             }
           }, {
             text: 'Orden descendente',
             icon: 'arrow-down',
             handler: () => {
-                vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
-                    if( a.fecha < b.fecha) {return 1;}
-                    if( a.fecha > b.fecha) {return -1;}
-                    return 0;
-                })
-                vm.listaFiltrada = vm.listaDeFechas
-                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                if (vm.palabraDeBusqueda === '') {
+                    vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                        if( a.fecha < b.fecha) {return 1;}
+                        if( a.fecha > b.fecha) {return -1;}
+                        return 0;
+                    })
+                    vm.listaFiltrada = vm.listaDeFechas
+                    vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                }
+                else
+                {
+                    vm.listaFiltrada = vm.listaFiltrada.sort(function(a,b){
+                        if( a.fecha < b.fecha) {return 1;}
+                        if( a.fecha > b.fecha) {return -1;}
+                        return 0;
+                    })
+                }
             }
           }]
         });
@@ -285,7 +307,7 @@ export class HomePage {
     buscar():void {
         let vm = this
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
-            return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase())
+            return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  element.fecha.includes(vm.palabraDeBusqueda) 
         });
     }
 
