@@ -99,10 +99,10 @@ export class DetalleComponent implements OnInit {
         }
 
         if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            mensaje += '\n' + this.diferenciaEnMeses + ' mese';
+            mensaje += '\n' + this.diferenciaEnMeses + ' mes';
             if (this.diferenciaEnMeses * this.diferenciaEnMeses !== 1 )
             {
-                mensaje += 's'
+                mensaje += 'es'
             }
         }
 
