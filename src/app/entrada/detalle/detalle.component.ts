@@ -51,6 +51,17 @@ export class DetalleComponent implements OnInit {
         });
     }
 
+    nombreDeMes(indice)
+    {
+        let arregloNombreDeMes = [
+            "Enero", "Febrero", "Marzo",
+            "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre",
+            "Octubre", "Noviembre", "Diciembre"
+        ]
+        return arregloNombreDeMes[indice-1]
+    }
+
     calcularDiferencias(): void {
         let vm = this
 
