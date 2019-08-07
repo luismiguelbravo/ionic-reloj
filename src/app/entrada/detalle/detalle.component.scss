@@ -36,3 +36,31 @@ ion-card-header{
 .pasado {
     background-color: #e3dfdf;
 }
+
+.titulo {
+    font-size: 4vmin !important;
+    text-align: center;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../../../assets/fonts/Orbitron/Orbitron-Regular.ttf') format("truetype");
+
+
+}
+
+@font-face {
+  font-family: 'Pathway_Gothic_One';
+  src: url('../../../assets/fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf') format("truetype");
+}
+
+
+.numero-de-reloj {
+    font-family: 'Orbitron';
+    font-size: 14vmin !important;
+}
+
+.indicador-de-cifra {
+    font-family: 'Pathway_Gothic_One';
+    font-size: 7vmin !important;
+}
