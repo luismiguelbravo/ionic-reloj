@@ -54,10 +54,14 @@ export class HomePage {
         // Get returned data
         const { data } = await modal.onWillDismiss();
         
-        if (data.guardar )
+        if (typeof data !== "undefined")
         {
-            vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+            if (data.guardar )
+            {
+                vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+            }
         }
+
     }
 
     async editar(entrada){
@@ -76,31 +80,34 @@ export class HomePage {
         // Get returned data
         const { data } = await modal.onWillDismiss();
         
-        if (data.guardar )
+        if (typeof data !== "undefined")
         {
-            // vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
-            let index = 0;
-            while(index < vm.listaDeFechas.length) {
-                if (vm.listaDeFechas[index].id === entrada.id){
-                    break;
+            if (data.guardar )
+            {
+                // vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+                let index = 0;
+                while(index < vm.listaDeFechas.length) {
+                    if (vm.listaDeFechas[index].id === entrada.id){
+                        break;
+                    }
+                    index++
                 }
-                index++
+
+                vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
+                vm.listaDeFechas[index].titulo = data.tituloDeEntrada
+
+                vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+                    if( a.fecha < b.fecha) {return 1;}
+                    if( a.fecha > b.fecha) {return -1;}
+                    return 0;
+                })
+
+                this.listaFiltrada = this.listaDeFechas 
+                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+
+                vm.exitoAlguardar();
             }
-
-            vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
-            vm.listaDeFechas[index].titulo = data.tituloDeEntrada
-
-            vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
-                if( a.fecha < b.fecha) {return 1;}
-                if( a.fecha > b.fecha) {return -1;}
-                return 0;
-            })
-
-            this.listaFiltrada = this.listaDeFechas 
-            vm.storage.set('listaDeFechas', vm.listaDeFechas);
-
-            vm.exitoAlguardar();
-        } 
+        }
 
     }
 
