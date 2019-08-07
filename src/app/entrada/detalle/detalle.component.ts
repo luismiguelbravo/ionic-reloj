@@ -158,7 +158,7 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnSegundos === 0                    
             ))
         {
-            mensaje += '\n' + this.diferenciaEnSegundos + 'segundo';
+            mensaje += '\n' + this.diferenciaEnSegundos + ' segundo';
             if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1 )
             {
                 mensaje += 's'
