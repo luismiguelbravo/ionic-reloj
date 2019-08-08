@@ -49,7 +49,6 @@ solucion  :
   sudo sudo npm i -g cordova-res --unsafe-perm=true --allow-root // era porque no tenia los resources, no habia generado los iconosç
   sudo npm install -g ios-deploy
 
+Generar servicio
 
-
-
-
+  $ ionic generate service commons/idioma
