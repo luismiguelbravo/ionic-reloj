@@ -34,7 +34,7 @@ export class IdiomaService {
             {"indice": 23, "idiomaEnCastellano": "Danés", "idiomaOroginal": "dansk"},
             {"indice": 24, "idiomaEnCastellano": "Eslovaco", "idiomaOroginal": "slovenský"},
             {"indice": 25, "idiomaEnCastellano": "Esloveno", "idiomaOroginal": "Slovensko"},
-            {"indice": 26, "idiomaEnCastellano": "Español", "idiomaOroginal": "Español", "direccion" : "de izquieda a derecha"},
+            {"indice": 26, "idiomaEnCastellano": "Español", "idiomaOroginal": "Español", "direccion" : "ltr"},
             {"indice": 27, "idiomaEnCastellano": "Esperanto", "idiomaOroginal": "Esperanto"},
             {"indice": 28, "idiomaEnCastellano": "Estonio", "idiomaOroginal": "Eestlane"},
             {"indice": 29, "idiomaEnCastellano": "Euskera", "idiomaOroginal": "Euskera"},
