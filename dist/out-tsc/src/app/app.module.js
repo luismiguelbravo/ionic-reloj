@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { OrderModule } from 'ngx-order-pipe';
+import { AgregarPageModule } from './entrada/agregar/agregar.module';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -25,7 +26,8 @@ var AppModule = /** @class */ (function () {
                 IonicStorageModule.forRoot({
                     name: '__mydb',
                     driverOrder: ['sqlite', 'indexeddb', 'websql', 'localstorage']
-                })
+                }),
+                AgregarPageModule,
             ],
             providers: [
                 Clipboard,

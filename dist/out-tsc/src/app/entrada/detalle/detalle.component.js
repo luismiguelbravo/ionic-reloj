@@ -16,7 +16,6 @@ var DetalleComponent = /** @class */ (function () {
         this.movientoCompletoSuscripcion = null;
         this.fechaDeHoy = moment();
         this.finalDeLaEspera = null;
-        this.fechaEsperadaDate = null;
         this.diferencia = null;
         this.diferenciaString = "";
         this.diferenciaEnSegundos = null;
@@ -30,10 +29,18 @@ var DetalleComponent = /** @class */ (function () {
     DetalleComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.finalDeLaEspera = moment(this.entrada.fecha, 'YYYY-MM-DD HH:mm');
-        this.fechaEsperadaDate = this.finalDeLaEspera.toDate();
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(function () {
             _this.calcularDiferencias();
         });
+    };
+    DetalleComponent.prototype.nombreDeMes = function (indice) {
+        var arregloNombreDeMes = [
+            "Enero", "Febrero", "Marzo",
+            "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre",
+            "Octubre", "Noviembre", "Diciembre"
+        ];
+        return arregloNombreDeMes[indice - 1];
     };
     DetalleComponent.prototype.calcularDiferencias = function () {
         var vm = this;
@@ -57,34 +64,39 @@ var DetalleComponent = /** @class */ (function () {
         vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds');
     };
     DetalleComponent.prototype.construirMensaje = function () {
-        var mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
+        //let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
+        var vm = this;
+        var mensaje = "Día " + vm.entrada.fecha.substring(8, 10) + " de " + vm.nombreDeMes(vm.entrada.fecha.substring(5, 7)) +
+            " del año " + vm.entrada.fecha.substring(0, 4) + '\n' +
+            "Hora: " + vm.entrada.fecha.substring(11, vm.entrada.fecha.length) + '\n' + vm.entrada.titulo + '\n';
+        var sumarioDeTiempo = "";
         if (this.diferenciaEnYears !== 0) {
-            mensaje += '\n' + this.diferenciaEnYears + ' año';
-            if (this.diferenciaEnYears * this.diferenciaEnYears !== 1) {
-                mensaje += 's';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnYears) + ' año';
+            if (Math.abs(this.diferenciaEnYears) !== 1) {
+                sumarioDeTiempo += 's';
             }
         }
         if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            mensaje += '\n' + this.diferenciaEnMeses + ' mese';
-            if (this.diferenciaEnMeses * this.diferenciaEnMeses !== 1) {
-                mensaje += 's';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMeses) + ' mes';
+            if (Math.abs(this.diferenciaEnMeses) !== 1) {
+                sumarioDeTiempo += 'es';
             }
         }
         if (!(this.diferenciaEnYears === 0 &&
             this.diferenciaEnMeses === 0 &&
             this.diferenciaEnDias === 0)) {
-            mensaje += '\n' + this.diferenciaEnDias + ' dia';
-            if (this.diferenciaEnDias * this.diferenciaEnDias !== 1) {
-                mensaje += 's';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnDias) + ' día';
+            if (Math.abs(this.diferenciaEnDias) !== 1) {
+                sumarioDeTiempo += 's';
             }
         }
         if (!(this.diferenciaEnYears === 0 &&
             this.diferenciaEnMeses === 0 &&
             this.diferenciaEnDias === 0 &&
             this.diferenciaEnHoras === 0)) {
-            mensaje += '\n' + this.diferenciaEnHoras + ' hora';
-            if (this.diferenciaEnHoras * this.diferenciaEnHoras !== 1) {
-                mensaje += 's';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnHoras) + ' hora';
+            if (Math.abs(this.diferenciaEnHoras) !== 1) {
+                sumarioDeTiempo += 's';
             }
         }
         if (!(this.diferenciaEnYears === 0 &&
@@ -92,9 +104,9 @@ var DetalleComponent = /** @class */ (function () {
             this.diferenciaEnDias === 0 &&
             this.diferenciaEnHoras === 0 &&
             this.diferenciaEnMinutos === 0)) {
-            mensaje += '\n' + this.diferenciaEnMinutos + ' minuto';
-            if (this.diferenciaEnMinutos * this.diferenciaEnMinutos !== 1) {
-                mensaje += 's';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMinutos) + ' minuto';
+            if (Math.abs(this.diferenciaEnMinutos) !== 1) {
+                sumarioDeTiempo += 's';
             }
         }
         if (!(this.diferenciaEnYears === 0 &&
@@ -103,10 +115,21 @@ var DetalleComponent = /** @class */ (function () {
             this.diferenciaEnHoras === 0 &&
             this.diferenciaEnMinutos === 0 &&
             this.diferenciaEnSegundos === 0)) {
-            mensaje += '\n' + this.diferenciaEnSegundos + 'segundo';
+            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnSegundos) + ' segundo';
             if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1) {
-                mensaje += 's';
+                sumarioDeTiempo += 's';
             }
+        }
+        if (this.diferenciaEnYears < 0 ||
+            this.diferenciaEnMeses < 0 ||
+            this.diferenciaEnDias < 0 ||
+            this.diferenciaEnHoras < 0 ||
+            this.diferenciaEnMinutos < 0 ||
+            this.diferenciaEnSegundos < 0) {
+            mensaje = mensaje + '\n' + "Ocurrió hace:" + sumarioDeTiempo;
+        }
+        else {
+            mensaje = mensaje + '\n' + "Aún falta " + sumarioDeTiempo;
         }
         return mensaje;
     };
@@ -137,11 +160,17 @@ var DetalleComponent = /** @class */ (function () {
     };
     DetalleComponent.prototype.shareWhatsApp = function () {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var vm;
+            var vm, mensajeParaEnviar;
             return tslib_1.__generator(this, function (_a) {
                 console.log('shareWhatsApp');
                 vm = this;
-                vm.socialSharing.shareViaWhatsApp(vm.construirMensaje(), null, null).then(function () {
+                mensajeParaEnviar = vm.construirMensaje();
+                console.log("");
+                console.log(" --------- mensajeParaEnviar --------- ");
+                console.log(mensajeParaEnviar);
+                console.log(" --------- mensajeParaEnviar --------- ");
+                console.log("");
+                vm.socialSharing.shareViaWhatsApp(mensajeParaEnviar, null, null).then(function () {
                     // Success
                     console.log("exito al compartir por whatsapp");
                 }).catch(function (e) {

@@ -15,7 +15,9 @@ var routes = [
     {
         path: 'list',
         loadChildren: './list/list.module#ListPageModule'
-    }
+    },
+    { path: 'bienvenida', loadChildren: './bienvenida/bienvenida.module#BienvenidaPageModule' }
+    /*{ path: 'agregar', loadChildren: './entrada/agregar/agregar.module#AgregarPageModule' }*/
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

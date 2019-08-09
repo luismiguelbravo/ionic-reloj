@@ -1,17 +1,20 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ActionSheetController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
 import { ContadorService } from '../commons/contador.service';
 import { OrderPipe } from 'ngx-order-pipe';
+import { AgregarPage } from '../entrada/agregar/agregar.page';
 var HomePage = /** @class */ (function () {
-    function HomePage(alertController, storage, contadorService, orderPipe) {
+    function HomePage(alertController, storage, contadorService, orderPipe, actionSheetController, modalController) {
         this.alertController = alertController;
         this.storage = storage;
         this.contadorService = contadorService;
         this.orderPipe = orderPipe;
+        this.actionSheetController = actionSheetController;
+        this.modalController = modalController;
         this.fechaDeHoy = moment(); //.format('YYYY-MM-DD HH:mm:ss');
         this.finalDeLaEspera = moment("2021-01-01");
         this.diferencia = null;
@@ -25,8 +28,164 @@ var HomePage = /** @class */ (function () {
         this.fechaDeEntrada = '';
         this.horaDeEntrada = '';
         this.tituloDeEntrada = '';
+        this.listaFiltrada = null;
+        this.palabraDeBusqueda = "";
         this.mostrarFormulario = false;
+        console.log("constructor del home");
     }
+    HomePage.prototype.mostrarFomulario = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var vm, modal, data;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        vm = this;
+                        return [4 /*yield*/, this.modalController.create({ component: AgregarPage })];
+                    case 1:
+                        modal = _a.sent();
+                        modal.present();
+                        return [4 /*yield*/, modal.onWillDismiss()];
+                    case 2:
+                        data = (_a.sent()).data;
+                        if (typeof data !== "undefined") {
+                            if (data.guardar) {
+                                vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada);
+                            }
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    HomePage.prototype.editar = function (entrada) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var vm, modal, data, index;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        vm = this;
+                        return [4 /*yield*/, this.modalController.create({
+                                component: AgregarPage,
+                                componentProps: {
+                                    entrada: entrada
+                                }
+                            })];
+                    case 1:
+                        modal = _a.sent();
+                        modal.present();
+                        return [4 /*yield*/, modal.onWillDismiss()];
+                    case 2:
+                        data = (_a.sent()).data;
+                        if (typeof data !== "undefined") {
+                            if (data.guardar) {
+                                index = 0;
+                                while (index < vm.listaDeFechas.length) {
+                                    if (vm.listaDeFechas[index].id === entrada.id) {
+                                        break;
+                                    }
+                                    index++;
+                                }
+                                vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0, 10) + ' ' + data.horaDeEntrada.substring(11, 19);
+                                vm.listaDeFechas[index].titulo = data.tituloDeEntrada;
+                                vm.listaDeFechas = vm.listaDeFechas.sort(function (a, b) {
+                                    if (a.fecha < b.fecha) {
+                                        return 1;
+                                    }
+                                    if (a.fecha > b.fecha) {
+                                        return -1;
+                                    }
+                                    return 0;
+                                });
+                                this.listaFiltrada = this.listaDeFechas;
+                                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                                vm.exitoAlguardar();
+                            }
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    HomePage.prototype.mostrarMenuDeOrdenamiento = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var vm, actionSheet;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        vm = this;
+                        return [4 /*yield*/, this.actionSheetController.create({
+                                header: 'Ordenar',
+                                buttons: [{
+                                        text: 'Orden Ascendente',
+                                        icon: 'arrow-up',
+                                        handler: function () {
+                                            // verficiar que el cuadro de busqueda este lleno o no
+                                            if (vm.palabraDeBusqueda === '') {
+                                                vm.listaDeFechas = vm.listaDeFechas.sort(function (a, b) {
+                                                    if (a.fecha < b.fecha) {
+                                                        return -1;
+                                                    }
+                                                    if (a.fecha > b.fecha) {
+                                                        return 1;
+                                                    }
+                                                    return 0;
+                                                });
+                                                vm.listaFiltrada = vm.listaDeFechas;
+                                                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                                            }
+                                            else {
+                                                vm.listaFiltrada = vm.listaFiltrada.sort(function (a, b) {
+                                                    if (a.fecha < b.fecha) {
+                                                        return -1;
+                                                    }
+                                                    if (a.fecha > b.fecha) {
+                                                        return 1;
+                                                    }
+                                                    return 0;
+                                                });
+                                            }
+                                        }
+                                    }, {
+                                        text: 'Orden descendente',
+                                        icon: 'arrow-down',
+                                        handler: function () {
+                                            if (vm.palabraDeBusqueda === '') {
+                                                vm.listaDeFechas = vm.listaDeFechas.sort(function (a, b) {
+                                                    if (a.fecha < b.fecha) {
+                                                        return 1;
+                                                    }
+                                                    if (a.fecha > b.fecha) {
+                                                        return -1;
+                                                    }
+                                                    return 0;
+                                                });
+                                                vm.listaFiltrada = vm.listaDeFechas;
+                                                vm.storage.set('listaDeFechas', vm.listaDeFechas);
+                                            }
+                                            else {
+                                                vm.listaFiltrada = vm.listaFiltrada.sort(function (a, b) {
+                                                    if (a.fecha < b.fecha) {
+                                                        return 1;
+                                                    }
+                                                    if (a.fecha > b.fecha) {
+                                                        return -1;
+                                                    }
+                                                    return 0;
+                                                });
+                                            }
+                                        }
+                                    }]
+                            })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     HomePage.prototype.exitoAlguardar = function () {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
             var vm, alert;
@@ -99,6 +258,7 @@ var HomePage = /** @class */ (function () {
                                         for (var i = 0; i < _this.listaDeFechas.length; i++) {
                                             if (_this.listaDeFechas[i].id === id) {
                                                 _this.listaDeFechas.splice(i, 1);
+                                                _this.listaFiltrada = _this.listaDeFechas;
                                                 _this.storage.set('listaDeFechas', _this.listaDeFechas);
                                                 break;
                                             }
@@ -109,6 +269,7 @@ var HomePage = /** @class */ (function () {
                         })];
                     case 1:
                         alert = _a.sent();
+                        this.listaFiltrada = this.listaDeFechas;
                         return [4 /*yield*/, alert.present()];
                     case 2:
                         _a.sent();
@@ -119,18 +280,15 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("");
-        console.log(" ---------------- this.orderPipe ----------------");
-        console.log(this.orderPipe);
-        console.log(" ---------------- this.orderPipe ----------------");
-        console.log("");
-        this.storage.get('listaDeFechas').then(function (val) {
-            _this.listaDeFechas = val;
+        var vm = this;
+        vm.storage.get('listaDeFechas').then(function (val) {
+            vm.listaDeFechas = val;
             if (val === null) {
-                _this.listaDeFechas = [];
+                vm.listaDeFechas = [];
+                vm.usarSemilla();
             }
             console.log(_this.listaDeFechas);
-            _this.listaDeFechas = _this.listaDeFechas.sort(function (a, b) {
+            vm.listaDeFechas = _this.listaDeFechas.sort(function (a, b) {
                 var fechaA = new Date(a.fecha);
                 var fechaB = new Date(b.fecha);
                 return fechaB.getTime() - fechaA.getTime();
@@ -141,26 +299,30 @@ var HomePage = /** @class */ (function () {
                 debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
                 de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
             */
-            _this.contadorService.iniciarMovimiento();
+            vm.listaFiltrada = vm.listaDeFechas;
+            vm.contadorService.iniciarMovimiento();
         });
     };
     HomePage.prototype.usarSemilla = function () {
         console.log("usarSemilla");
-        this.listaDeFechas.push({ fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb95" });
-        this.listaDeFechas.push({ fecha: "2019-05-11 02:41", titulo: "Ultima vez que fume", id: "dopb95" });
-        this.listaDeFechas.push({ fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "donby5" });
+        this.listaDeFechas.push({ fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95" });
+        this.listaDeFechas.push({ fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956" });
+        this.listaDeFechas.push({ fecha: "2019-06-07 15:16", titulo: "Ultima vez que fume y bebi alcohol", id: "dxpb95" });
+        this.listaDeFechas.push({ fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5" });
+        this.listaDeFechas.push({ fecha: "2019-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4" });
+        this.listaDeFechas.push({ fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "inb95" });
         this.storage.set('listaDeFechas', this.listaDeFechas);
         this.exitoAlguardar();
     };
-    HomePage.prototype.guardar = function () {
+    HomePage.prototype.guardar = function (horaDeEntrada, fechaDeEntrada, tituloDeEntrada) {
         var vm = this;
-        if (vm.horaDeEntrada === '' || vm.fechaDeEntrada === '' || vm.tituloDeEntrada === '') {
+        if (horaDeEntrada === '' || fechaDeEntrada === '' || tituloDeEntrada === '') {
             vm.errorAlGuardar();
         }
         else {
             var nuevaFecha = new Entrada();
-            nuevaFecha.fecha = vm.fechaDeEntrada.substring(0, 10) + ' ' + vm.horaDeEntrada.substring(11, 16);
-            nuevaFecha.titulo = vm.tituloDeEntrada;
+            nuevaFecha.fecha = fechaDeEntrada.substring(0, 10) + ' ' + horaDeEntrada.substring(11, 19);
+            nuevaFecha.titulo = tituloDeEntrada;
             nuevaFecha.id = Math.random().toString(36).substring(7);
             vm.listaDeFechas.push(nuevaFecha);
             vm.listaDeFechas = vm.listaDeFechas.sort(function (a, b) {
@@ -172,6 +334,7 @@ var HomePage = /** @class */ (function () {
                 }
                 return 0;
             });
+            this.listaFiltrada = this.listaDeFechas;
             vm.storage.set('listaDeFechas', vm.listaDeFechas);
             vm.exitoAlguardar();
         }
@@ -181,9 +344,9 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.buscar = function () {
         var vm = this;
-        console.log("buscando");
-        console.log("vm.listaDeFechas");
-        console.log(vm.listaDeFechas);
+        vm.listaFiltrada = vm.listaDeFechas.filter(function (element) {
+            return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) || element.fecha.includes(vm.palabraDeBusqueda);
+        });
     };
     HomePage = tslib_1.__decorate([
         Component({
@@ -194,7 +357,9 @@ var HomePage = /** @class */ (function () {
         tslib_1.__metadata("design:paramtypes", [AlertController,
             Storage,
             ContadorService,
-            OrderPipe])
+            OrderPipe,
+            ActionSheetController,
+            ModalController])
     ], HomePage);
     return HomePage;
 }());
