@@ -18,11 +18,13 @@ export class BienvenidaPage implements OnInit {
     ngOnInit() {
         let vm = this;
         vm.listaDeIdiomas = this.idiomaService.listaDeIdiomas();
+        /*
         vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
-            if( a.idiomaOroginal < b.idiomaOroginal) {return -1;}
-            if( a.idiomaOroginal > b.idiomaOroginal) {return 1;}
+            if( a.Autoglotonimo < b.Autoglotonimo) {return -1;}
+            if( a.Autoglotonimo > b.Autoglotonimo) {return 1;}
             return 0;
-        })
+        });
+        */
     }
 
     seleccionarEsteIdioma(entrada)
