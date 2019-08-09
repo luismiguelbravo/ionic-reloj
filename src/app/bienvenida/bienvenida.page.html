@@ -8,9 +8,8 @@
         <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma.indice)">
             <ion-label
                 [ngClass]="{'seleccionado': idioma.indice === ididomaSeleccionado}"
-                dir="{{idioma.dir}}"
-            >
-                {{idioma.idiomaOroginal}}
+                dir="{{idioma.dir}}">
+                <span style="color: #d7b7b7">{{ idioma.Heteroglotonimo }}</span> | {{ idioma.Autoglotonimo }}
             </ion-label>
         </ion-item>
     </ion-list>
