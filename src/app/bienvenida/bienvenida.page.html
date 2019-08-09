@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>bienvenida</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Bienvenidos</ion-title>
+    </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let idioma of listaDeIdiomas ">
-            <ion-label>{{idioma.idiomaOroginal}}</ion-label>
+        <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma.indice)">
+            <ion-label
+                [ngClass]="{'seleccionado': idioma.indice === ididomaSeleccionado}"
+                dir="{{idioma.dir}}"
+            >
+                {{idioma.idiomaOroginal}}
+            </ion-label>
         </ion-item>
     </ion-list>
 </ion-content>
