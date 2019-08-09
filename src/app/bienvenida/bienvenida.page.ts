@@ -8,15 +8,27 @@ import { IdiomaService } from '../commons/idioma.service'
 })
 export class BienvenidaPage implements OnInit {
 
-    listaDeIdiomas : any
+    listaDeIdiomas : any;
+    ididomaSeleccionado: number;
 
     constructor(
         public idiomaService: IdiomaService
     ) { }
 
     ngOnInit() {
-        let vm = this
-        vm.listaDeIdiomas = this.idiomaService.listaDeIdiomas()
+        let vm = this;
+        vm.listaDeIdiomas = this.idiomaService.listaDeIdiomas();
+        vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
+            if( a.idiomaOroginal < b.idiomaOroginal) {return -1;}
+            if( a.idiomaOroginal > b.idiomaOroginal) {return 1;}
+            return 0;
+        })
+    }
+
+    seleccionarEsteIdioma(entrada)
+    {
+        let vm = this;
+        vm.ididomaSeleccionado = entrada;
     }
 
 }
