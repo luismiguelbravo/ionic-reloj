@@ -45,15 +45,25 @@
     <ion-grid>
         <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
-                <ion-card class="welcome-card">
-                    <app-detalle [entrada]="entrada"></app-detalle>
+                <ion-card class="welcome-card" style="text-align: center;" [ngClass]="{'pasado': entrada.pasado }">
+                    <!--app-detalle [entrada]="entrada"></app-detalle-->
 
-                    <table style="width: 100%">
+                    <h2>{{ entrada.titulo }}</h2>
+
+                    año {{ entrada.year }}<br>
+                    mes {{ entrada.mes }}<br>
+                    día {{ entrada.dia }}<br>
+                    hora {{ entrada.hora }}<br>
+                    minuto {{ entrada.minuto }}<br>
+                    segundo {{ entrada.segundo }}<br>
+                    <br>
+
+                    <table class="tabla-menu">
                         <tr>
                             <td>
-                                <ion-buttons slot="primary" class="eliminar">
+                                <ion-buttons slot="primary" class="eliminar" style="float: left;">
                                     <ion-button color="secondary" (click)="editar(entrada)">
-                                        <ion-icon slot="icon-only" name="create" style="text-align: center;"></ion-icon>
+                                        <ion-icon slot="icon-only" name="create"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
                             </td>

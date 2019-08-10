@@ -246,11 +246,51 @@ export class HomePage {
                     return fechaB.getTime() - fechaA.getTime()
                 }
             );
+
+            console.log("recorriendo las fechas");
+            
+            let right_now = moment();
+            let fecha_auxiliar = null;
+            let alguna_modificacion = false;
+
+            vm.listaDeFechas.forEach(function(entrada) {
+                fecha_auxiliar = moment(
+                {
+                    years: entrada.year,
+                    months: entrada.mes,
+                    days: entrada.dia,
+                    hours: entrada.hora,
+                    minutes: entrada.minuto,
+                    seconds: entrada.segundo 
+                });
+
+
+                if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
+                   // date is past
+                   console.log(entrada);
+                   entrada.pasado = true;
+                   alguna_modificacion = true;
+
+                }
+                
+            });
+
+            if (alguna_modificacion) {
+                console.log("------------- ocurrio alguna modificacion ------------- ");
+                this.storage.set('listaDeFechas', this.listaDeFechas);
+            }
+
+            // recorrer toda esta vaina para ver que esta en el pasado
+
+
             /*
                 se crea un reloj unico que activa a todos los detalles
                 esto lo hice para evitar terner un hilo con reloj contador para cada proceso
                 debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
                 de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
+
+                // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
+                esto para proteger el consumo del procesador.
             */
             vm.listaFiltrada = vm.listaDeFechas
             vm.contadorService.iniciarMovimiento()
@@ -260,13 +300,62 @@ export class HomePage {
 
     usarSemilla():void {
         console.log("usarSemilla");
-        this.listaDeFechas.push({fecha: "2019-08-24 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845"});
-        this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95"});
-        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956"});
-        this.listaDeFechas.push({fecha: "2019-06-07 15:16", titulo: "Ultima vez que fume y bebi alcohol", id: "dxpb95"});
-        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5"});
-        this.listaDeFechas.push({fecha: "2019-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4"});
-        this.listaDeFechas.push({fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "inb95"});
+        this.listaDeFechas.push({
+            fecha: "2019-08-24 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845",
+            year: 2019,
+            mes: 8,
+            dia: 24,
+            hora: 9,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+        this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95",
+            year: 2019,
+            mes: 5,
+            dia: 27,
+            hora: 9,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956",
+            year: 2016,
+            mes: 10,
+            dia: 19,
+            hora: 0,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5",
+            year: 2021,
+            mes: 1,
+            dia: 1,
+            hora: 0,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+        this.listaDeFechas.push({fecha: "2022-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4",
+            year: 2022,
+            mes: 7,
+            dia: 1,
+            hora: 20,
+            minuto: 55,
+            segundo: 0,
+            pasado: false
+        });
+
+        this.listaDeFechas.push({fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "inb95",
+            year: 2019,
+            mes: 9,
+            dia: 13,
+            hora: 23,
+            minuto: 43,
+            segundo: 0,
+            pasado: false
+        });
 
         this.storage.set('listaDeFechas', this.listaDeFechas);
         this.exitoAlguardar();
@@ -312,5 +401,9 @@ export class HomePage {
         });
     }
 
+    mostarDetalle(): void 
+    {
+        console.log(" ----------- mostarDetalle ----------- ");
+    }
 
 }
