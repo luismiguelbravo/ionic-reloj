@@ -48,7 +48,7 @@
                 <ion-card class="welcome-card" style="text-align: center;" [ngClass]="{'pasado': entrada.pasado }">
                     <!--app-detalle [entrada]="entrada"></app-detalle-->
 
-                    <h2>{{ entrada.titulo }}</h2>
+                    <h2 style="color: black;">{{ entrada.titulo }}</h2>
 
                     año {{ entrada.year }}<br>
                     mes {{ entrada.mes }}<br>
@@ -62,7 +62,7 @@
                         <tr>
                             <td>
                                 <ion-buttons slot="primary" class="eliminar" style="float: left;">
-                                    <ion-button color="secondary" (click)="editar(entrada)">
+                                    <ion-button color="primary" (click)="editar(entrada)">
                                         <ion-icon slot="icon-only" name="create"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
@@ -70,14 +70,14 @@
                             <td>
 
                                 <ion-buttons slot="primary" class="eliminar" style="float: none !important;">
-                                    <ion-button color="secondary" (click)="mostarDetalle(entrada)" style="margin: 0 auto;">
+                                    <ion-button color="primary" (click)="mostarDetalle(entrada)" style="margin: 0 auto;">
                                         <ion-icon slot="icon-only" name="clock" style="text-align: center;"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
 
                             <td>
                                 <ion-buttons slot="primary" class="eliminar">
-                                    <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
+                                    <ion-button color="primary" (click)="intentarEliminar(entrada.id)">
                                         <ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
