@@ -260,7 +260,7 @@ export class HomePage {
 
     usarSemilla():void {
         console.log("usarSemilla");
-        this.listaDeFechas.push({fecha: "2019-10-02 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845"});
+        this.listaDeFechas.push({fecha: "2019-08-24 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845"});
         this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95"});
         this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956"});
         this.listaDeFechas.push({fecha: "2019-06-07 15:16", titulo: "Ultima vez que fume y bebi alcohol", id: "dxpb95"});
