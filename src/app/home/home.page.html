@@ -68,6 +68,14 @@
                                 </ion-buttons>
                             </td>
                             <td>
+
+                                <ion-buttons slot="primary" class="eliminar" style="float: none !important;">
+                                    <ion-button color="secondary" (click)="mostarDetalle(entrada)" style="margin: 0 auto;">
+                                        <ion-icon slot="icon-only" name="clock" style="text-align: center;"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+
+                            <td>
                                 <ion-buttons slot="primary" class="eliminar">
                                     <ion-button color="secondary" (click)="intentarEliminar(entrada.id)">
                                         <ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
