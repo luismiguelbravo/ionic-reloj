@@ -5,6 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class IdiomaService {
 
+    idioma_seleccionado : any;
+
+    seleccionar_idioma(indice): void
+    {
+        let vm = this;
+        vm.idioma_seleccionado = vm.listaDeIdiomas()[indice];
+
+        console.log(vm.idioma_seleccionado);
+        console.log(vm.idioma_seleccionado);
+    }
     
     listaDeIdiomas(): any[]{
         return [
