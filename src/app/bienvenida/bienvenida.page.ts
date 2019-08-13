@@ -10,49 +10,58 @@ import { IdiomaService } from '../commons/idioma.service'
 export class BienvenidaPage implements OnInit {
 
     listaDeIdiomas : any;
-    ididomaSeleccionado: number;
+    ididomaSeleccionado: any;
 
     constructor(
         public idiomaService: IdiomaService,
         public modalController: ModalController
-    ) { }
+    ) { 
+        this.ididomaSeleccionado = {
+             indice : null
+        }
+
+    }
 
     ngOnInit() {
         let vm = this;
         vm.listaDeIdiomas = this.idiomaService.listaDeIdiomas();
-        /*
+
+
         vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
             if( a.Autoglotonimo < b.Autoglotonimo) {return -1;}
             if( a.Autoglotonimo > b.Autoglotonimo) {return 1;}
             return 0;
         });
-        */
+
     }
 
-    seleccionarEsteIdioma(entrada)
+    seleccionarEsteIdioma(idioma)
     {
         let vm = this;
-        vm.ididomaSeleccionado = entrada;
+        vm.ididomaSeleccionado = idioma;
     }
 
-        dismiss() {
-            // using the injected ModalController this page
-            // can "dismiss" itself and optionally pass back data
-            let vm = this
-            console.log("")
-            console.log("cerrando la pantalla de bienvenida")
-            console.log("")
+    dismiss() {
+        // using the injected ModalController this page
+        // can "dismiss" itself and optionally pass back data
+        let vm = this
+        console.log("")
+        console.log("cerrando la pantalla de bienvenida")
+        console.log("")
 
-            vm.modalController.dismiss({
-                "guardar" : false
-            });
-        }
-  
-        guardar(){
-            let vm = this
-            vm.modalController.dismiss({
-                "ididomaSeleccionado" : vm.ididomaSeleccionado
-            });
-        }
+        vm.modalController.dismiss({
+            "guardar" : false
+        });
+    }
+
+    guardar(){
+        console.log("")
+        console.log(" --------------- guardando --------------- ")
+        console.log("")
+        let vm = this
+        vm.modalController.dismiss({
+            "ididomaSeleccionado" : vm.ididomaSeleccionado
+        });
+    }
 
 }

@@ -5,12 +5,25 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma.indice)">
+        <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma)">
             <ion-label
-                [ngClass]="{'seleccionado': idioma.indice === ididomaSeleccionado}"
-                dir="{{idioma.dir}}">
-                <span style="color: #d7b7b7">{{ idioma.Heteroglotonimo }}</span> | {{ idioma.Autoglotonimo }}
+                [ngClass]="{'seleccionado': idioma.indice === ididomaSeleccionado.indice}"
+                style="text-align: center;">
+                {{ idioma.Autoglotonimo }}
             </ion-label>
         </ion-item>
     </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed"  *ngIf="ididomaSeleccionado.indice">
+        <ion-fab-button color="primary" (click)="guardar()">
+            <ion-icon name="checkmark-circle"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button color="danger" (click)="dismiss()">
+            <ion-icon name="close-circle"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
 </ion-content>

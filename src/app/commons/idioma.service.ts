@@ -7,18 +7,27 @@ export class IdiomaService {
 
     idioma_seleccionado : any;
 
-    seleccionar_idioma(indice): void
+    seleccionar_idioma(idioma): void
     {
         let vm = this;
-        vm.idioma_seleccionado = vm.listaDeIdiomas()[indice];
+        vm.idioma_seleccionado = idioma;
 
+        console.log("");
+        console.log(" -------------- vm.idioma_seleccionado en el servicio compartido -------------- ");
         console.log(vm.idioma_seleccionado);
-        console.log(vm.idioma_seleccionado);
+        console.log(" -------------- vm.idioma_seleccionado en el servicio compartido -------------- ");
+        console.log("");
     }
     
+    idioma_actual(idioma) : any 
+    {
+        let vm = this;
+        return vm.idioma_seleccionado;
+    }
+
     listaDeIdiomas(): any[]{
         return [
-            {"indice": 0, "Heteroglotonimo": "Afrikáans", "Autoglotonimo": "afrikáans "},
+            /*{"indice": 0, "Heteroglotonimo": "Afrikáans", "Autoglotonimo": "afrikáans "},
             {"indice": 1, "Heteroglotonimo": "Albanés", "Autoglotonimo": "gjuha shqipë"},
             {"indice": 2, "Heteroglotonimo": "Alemán", "Autoglotonimo": "deutsch "},
             {"indice": 3, "Heteroglotonimo": "Amárico", "Autoglotonimo": "አማርኛ "},
@@ -43,42 +52,44 @@ export class IdiomaService {
             {"indice": 22, "Heteroglotonimo": "Croata", "Autoglotonimo": "hrvatski"},
             {"indice": 23, "Heteroglotonimo": "Danés", "Autoglotonimo": "dansk"},
             {"indice": 24, "Heteroglotonimo": "Eslovaco", "Autoglotonimo": "slovenčina, slovenský jazyk"},
-            {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina"},
+            {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina"},*/
             {
-                  "indice": 26, "Heteroglotonimo": "Español", "Autoglotonimo": "Español",
-                  "Welcome": "Bienvenido",
-                  "Search": "Buscar",
-                  "Ascending order": "Order ascendente",
-                  "Descending order": "Order descendente",
-                  "Save": "Guardar",
-                  "Cancel": "Cancelar",
-                  "Success": "Éxito",
-                  "Event saved successfully.": "evento",
-                  "Warning": "Advertencia",
-                  "This action cannot be reversed.": "Esta acción no puede ser revertida.",
-                  "Remove": "Retirar",
-                  "Title": "Título",
-                  "Event": "Evento",
-                  "Year": "Año",
-                  "Month": "Mes",
-                  "Day": "Día",
-                  "Hour": "Hora",
-                  "Minute": "Minuto",
-                  "Second": "Segundo",
-                  "January": "Enero",
-                  "February": "Febrero",
-                  "March": "Marzo",
-                  "April": "Abril",
-                  "May": "Mayo",
-                  "June": "Junio",
-                  "July": "Julio",
-                  "August": "Agosto",
-                  "September": "Septiembre",
-                  "October": "Octubre",
-                  "November": "Noviembre",
-                  "December": "Diciembre"
+                "indice": 26, "Heteroglotonimo": "Español", "Autoglotonimo": "Español",
+                "Welcome": "Bienvenido",
+                "Search": "Buscar",
+                "Ascending order": "Order ascendente",
+                "Descending order": "Order descendente",
+                "Save": "Guardar",
+                "Cancel": "Cancelar",
+                "Success": "Éxito",
+                "Event saved successfully.": "evento",
+                "Warning": "Advertencia",
+                "This action cannot be reversed.": "Esta acción no puede ser revertida.",
+                "Remove": "Retirar",
+                "Title": "Título",
+                "Event": "Evento",
+                "Year": "Año",
+                "Month": "Mes",
+                "Day": "Día",
+                "Hour": "Hora",
+                "Minute": "Minuto",
+                "Second": "Segundo",
+                "Months":[
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre"
+                ]
             },
-            {"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
+            /*{"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
             {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel"},
             {"indice": 29, "Heteroglotonimo": "Euskera", "Autoglotonimo": "Euskara"},
             {"indice": 30, "Heteroglotonimo": "Finés", "Autoglotonimo": "suomen kieli"},
@@ -97,9 +108,44 @@ export class IdiomaService {
             {"indice": 43, "Heteroglotonimo": "Hmong", "Autoglotonimo": "Hmong "},
             {"indice": 44, "Heteroglotonimo": "Húngaro", "Autoglotonimo": "magyar "},
             {"indice": 45, "Heteroglotonimo": "Igbo", "Autoglotonimo": "asụsụ Ndi Igbo"},
-            {"indice": 46, "Heteroglotonimo": "Indonesio", "Autoglotonimo": "bahasa Indonesia"},
-            {"indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English "},
-            {"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
+            {"indice": 46, "Heteroglotonimo": "Indonesio", "Autoglotonimo": "bahasa Indonesia"},*/
+            {
+                "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English",
+                "Welcome": "Welcome",
+                "Search": "Search",
+                "Ascending order": "Ascending order",
+                "Descending order": "Descending order",
+                "Save": "Save",
+                "Cancel": "Cancel",
+                "Success": "Success",
+                "Event saved successfully.": "Event saved successfully.",
+                "Warning": "Warning",
+                "This action cannot be reversed.": "This action cannot be reversed.",
+                "Remove": "Remove",
+                "Title": "Title",
+                "Event": "Event",
+                "Year": "Year",
+                "Month": "Month",
+                "Day": "Day",
+                "Hour": "Hour",
+                "Minute": "Minute",
+                "Second": "Second",
+                "Months":[
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ]
+            },
+            /*{"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
             {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska"},
             {"indice": 50, "Heteroglotonimo": "Italiano", "Autoglotonimo": "italiano "},
             {"indice": 51, "Heteroglotonimo": "Japonés", "Autoglotonimo": "日本語"},
@@ -154,7 +200,7 @@ export class IdiomaService {
             {"indice": 100, "Heteroglotonimo": "Xhosa", "Autoglotonimo": "IsiXhosa"},
             {"indice": 101, "Heteroglotonimo": "Yidis", "Autoglotonimo": 'ייִדיש  ', 'dir':"rtl"},
             {"indice": 102, "Heteroglotonimo": "Yoruba", "Autoglotonimo": "Èdèe yorùbá"},
-            {"indice": 103, "Heteroglotonimo": "Zulú", "Autoglotonimo": "IsiZulu "}
+            {"indice": 103, "Heteroglotonimo": "Zulú", "Autoglotonimo": "IsiZulu "}*/
         ]
     } 
 

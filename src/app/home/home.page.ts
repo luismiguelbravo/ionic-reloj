@@ -9,6 +9,7 @@ import { OrderPipe } from 'ngx-order-pipe';
 import { AgregarPage } from '../entrada/agregar/agregar.page';
 
 import { BienvenidaPage } from '../bienvenida/bienvenida.page';
+import { IdiomaService } from '../commons/idioma.service'
 
 @Component({
     selector: 'app-home',
@@ -36,6 +37,43 @@ export class HomePage {
     palabraDeBusqueda = ""
 
     mostrarFormulario = false;
+    miIdioma = {
+                "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English",
+                "Welcome": "Welcome",
+                "Search": "Search",
+                "Ascending order": "Ascending order",
+                "Descending order": "Descending order",
+                "Save": "Save",
+                "Cancel": "Cancel",
+                "Success": "Success",
+                "Event saved successfully.": "Event saved successfully.",
+                "Warning": "Warning",
+                "This action cannot be reversed.": "This action cannot be reversed.",
+                "Remove": "Remove",
+                "Title": "Title",
+                "Event": "Event",
+                "Year": "Year",
+                "Month": "Month",
+                "Day": "Day",
+                "Hour": "Hour",
+                "Minute": "Minute",
+                "Second": "Second",
+                "Months":[
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ]
+            };
+
 
     constructor(
         public alertController: AlertController,
@@ -43,7 +81,8 @@ export class HomePage {
         public contadorService: ContadorService,
         private orderPipe: OrderPipe,
         public actionSheetController: ActionSheetController,
-        public modalController: ModalController
+        public modalController: ModalController,
+        public idiomaService: IdiomaService,
     ) { 
         console.log("constructor del home")
     }
@@ -312,7 +351,14 @@ export class HomePage {
             console.log(miIdioma);
             console.log(" --------- miIdioma --------- ");
             console.log("");
-            vm.seleccionarIdioma();
+            if (miIdioma === null){
+                vm.seleccionarIdioma();
+            }
+            else{
+                vm.idiomaService.seleccionar_idioma(miIdioma);
+                vm.miIdioma = miIdioma;
+            }
+            
 
         });
     }
@@ -332,7 +378,19 @@ export class HomePage {
         
         if (typeof data !== "undefined")
         {
+            console.log(" ---------------- datos recibidos desde el modal seleccionador de idioma ---------------- ")
+            console.log(data)
 
+            console.log(" ------------ data.false ------------")
+            console.log(data.false)
+            // si puedo guardar
+            if (typeof data.false === "undefined")
+            {
+                //miIdioma
+               this.storage.set('miIdioma', data.ididomaSeleccionado);
+               this.idiomaService.seleccionar_idioma(data.ididomaSeleccionado);
+               vm.miIdioma = data.ididomaSeleccionado;
+            }
         }
 
     }
