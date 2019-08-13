@@ -155,9 +155,9 @@ export class HomePage {
     async mostrarMenuDeOrdenamiento() {
         let vm = this
         const actionSheet = await this.actionSheetController.create({
-          header: 'Ordenar',
+          header: vm.miIdioma['Order'],
           buttons: [{
-            text: 'Orden Ascendente',
+            text: vm.miIdioma['Ascending order'],
             icon: 'arrow-up',
             handler: () => {
 
@@ -181,7 +181,7 @@ export class HomePage {
 
             }
           }, {
-            text: 'Orden descendente',
+            text: vm.miIdioma['Descending order'],
             icon: 'arrow-down',
             handler: () => {
                 if (vm.palabraDeBusqueda === '') {
