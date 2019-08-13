@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController} from '@ionic/angular';
 import { IdiomaService } from '../commons/idioma.service'
 
 @Component({
@@ -12,7 +13,8 @@ export class BienvenidaPage implements OnInit {
     ididomaSeleccionado: number;
 
     constructor(
-        public idiomaService: IdiomaService
+        public idiomaService: IdiomaService,
+        public modalController: ModalController
     ) { }
 
     ngOnInit() {
@@ -32,5 +34,25 @@ export class BienvenidaPage implements OnInit {
         let vm = this;
         vm.ididomaSeleccionado = entrada;
     }
+
+        dismiss() {
+            // using the injected ModalController this page
+            // can "dismiss" itself and optionally pass back data
+            let vm = this
+            console.log("")
+            console.log("cerrando la pantalla de bienvenida")
+            console.log("")
+
+            vm.modalController.dismiss({
+                "guardar" : false
+            });
+        }
+  
+        guardar(){
+            let vm = this
+            vm.modalController.dismiss({
+                "ididomaSeleccionado" : vm.ididomaSeleccionado
+            });
+        }
 
 }
