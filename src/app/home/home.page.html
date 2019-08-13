@@ -50,18 +50,62 @@
     <ion-grid>
         <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
-                <ion-card class="welcome-card" style="text-align: center;" [ngClass]="{'pasado': entrada.pasado }">
+                <ion-card class="welcome-card" [ngClass]="{'pasado': entrada.pasado }">
                     <!--app-detalle [entrada]="entrada"></app-detalle-->
 
-                    <h2 style="color: black;">{{ entrada.titulo }}</h2>
+                    <h2 style="color: black; text-align: center;">{{ entrada.titulo }}</h2>
 
-                    año {{ entrada.year }}<br>
-                    mes {{ entrada.mes }}<br>
-                    día {{ entrada.dia }}<br>
-                    hora {{ entrada.hora }}<br>
-                    minuto {{ entrada.minuto }}<br>
-                    segundo {{ entrada.segundo }}<br>
-                    <br>
+                    <table style="margin: 0 auto; min-width: 156px;">
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Year }} 
+                            </td>
+                            <td>
+                                {{ entrada.year }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Month }}
+                            </td>
+                            <td>
+                                {{ miIdioma.Months[entrada.mes - 1] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Day }}
+                            </td>
+                            <td>
+                                {{ entrada.dia }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Hour }}
+                            </td>
+                            <td>
+                                {{ entrada.hora }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Minute }} 
+                            </td>
+                            <td>
+                                {{ entrada.minuto }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; padding-right: 5px;">
+                                {{ miIdioma.Second }}
+                            </td>
+                            <td>
+                                {{ entrada.segundo }}
+                            </td>
+                        </tr>
+                    </table>
+                    
 
                     <table class="tabla-menu">
                         <tr>
