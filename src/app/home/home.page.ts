@@ -233,20 +233,20 @@ export class HomePage {
     }
 
     async intentarEliminar(id) {
-
+        let vm = this;
         const alert = await this.alertController.create({
-            header: 'Advertencia',
-            message: 'Esta acción no puede ser revertida. <strong>¿Esta seguro de eliminar?</strong>',
+            header: vm.miIdioma['Warning'],
+            message: vm.miIdioma['This action cannot be reversed.'],
             buttons: [
             {
-                text: 'Cancelar',
+                text: vm.miIdioma['Cancel'],
                 role: 'cancel',
                 cssClass: 'secondary',
                 handler: (blah) => {
                     console.log('Confirm Cancel: blah');
                 }
             }, {
-                text: 'Eliminar',
+                text: vm.miIdioma['Delete'],
                 handler: () => {
                 console.log('Confirm Okay');
                     for( var i = 0; i < this.listaDeFechas.length; i++)
@@ -378,15 +378,14 @@ export class HomePage {
         
         if (typeof data !== "undefined")
         {
-            console.log(" ---------------- datos recibidos desde el modal seleccionador de idioma ---------------- ")
-            console.log(data)
-
-            console.log(" ------------ data.false ------------")
-            console.log(data.false)
+            console.log("")
+            console.log(" ------------ data.guardar ------------")
+            console.log(data.guardar)
+            console.log(" ------------ data.guardar ------------")
+            console.log("")
             // si puedo guardar
-            if (typeof data.false === "undefined")
+            if (typeof data.guardar === "undefined" || data.guardar !== false)
             {
-                //miIdioma
                this.storage.set('miIdioma', data.ididomaSeleccionado);
                this.idiomaService.seleccionar_idioma(data.ididomaSeleccionado);
                vm.miIdioma = data.ididomaSeleccionado;
