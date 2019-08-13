@@ -8,6 +8,8 @@ import { OrderPipe } from 'ngx-order-pipe';
 
 import { AgregarPage } from '../entrada/agregar/agregar.page';
 
+import { BienvenidaPage } from '../bienvenida/bienvenida.page';
+
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -231,6 +233,7 @@ export class HomePage {
     ngOnInit() {
 
         let vm = this;
+        
         vm.storage.get('listaDeFechas').then((val) => {
             vm.listaDeFechas = val
             if (val === null) {
@@ -299,7 +302,42 @@ export class HomePage {
             vm.contadorService.iniciarMovimiento()
 
         });
+
+        // preguntar por el idioma seleccionado
+        vm.storage.get('miIdioma').then((miIdioma) => {
+            console.log("Idioma seleccionado");
+
+            console.log("");
+            console.log(" --------- miIdioma --------- ");
+            console.log(miIdioma);
+            console.log(" --------- miIdioma --------- ");
+            console.log("");
+            vm.seleccionarIdioma();
+
+        });
     }
+
+    async seleccionarIdioma(){
+        // mostrar el modal, 
+        // pasarle como parametro la vaina que estoy editando
+
+        let vm = this;
+        const modal = await this.modalController.create({
+            component: BienvenidaPage
+        });
+
+        modal.present();
+        // Get returned data
+        const { data } = await modal.onWillDismiss();
+        
+        if (typeof data !== "undefined")
+        {
+
+        }
+
+    }
+
+
 
     usarSemilla():void {
         console.log("usarSemilla");
