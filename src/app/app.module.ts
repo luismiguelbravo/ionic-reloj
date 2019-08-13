@@ -17,6 +17,8 @@ import { OrderModule } from 'ngx-order-pipe'
 
 import { AgregarPageModule } from './entrada/agregar/agregar.module';
 
+import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -30,6 +32,7 @@ import { AgregarPageModule } from './entrada/agregar/agregar.module';
             driverOrder: ['sqlite', 'indexeddb', 'websql', 'localstorage']
         }),
         AgregarPageModule,
+        BienvenidaPageModule
     ],
     providers: [
         Clipboard,
