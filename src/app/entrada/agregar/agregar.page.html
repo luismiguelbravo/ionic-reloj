@@ -7,7 +7,7 @@
 <ion-content>
 
     <ion-grid style="background-color: #f5f7fa;">
-        <ion-item>
+        <!--ion-item>
             <ion-label position="stacked">Titulo</ion-label>
             <ion-input required [(ngModel)]="tituloDeEntrada"></ion-input>
         </ion-item>
@@ -27,33 +27,39 @@
                 doneText="ok"
                 cancelText="Cancelar">
             </ion-datetime>
-        </ion-item>
+        </ion-item-->
 
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Title }}</ion-label>
             <ion-input required [(ngModel)]="datosParaGuardar.titulo"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
+            <ion-input required [(ngModel)]="datosParaGuardar.year" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
+                <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+                <ion-select-option *ngFor="let mes of idiomaService.idioma_seleccionado.Months" [value]="mes.value">{{ mes.name }}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
             <ion-input required [(ngModel)]="datosParaGuardar.dia" type="number"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
-                <ion-select placeholder="Select One">
-
-                <ion-select-option *ngFor="let mes of idiomaService.idioma_seleccionado.Months" [value]="mes.value">{{ mes.name }}</ion-select-option>
-
-
-            </ion-select>
+            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Hour }}</ion-label>
+            <ion-input required [(ngModel)]="datosParaGuardar.Hora" type="number"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
-            <ion-input required [(ngModel)]="datosParaGuardar.year" type="number"></ion-input>
+            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Minute }}</ion-label>
+            <ion-input required [(ngModel)]="datosParaGuardar.Minuto" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Second }}</ion-label>
+            <ion-input required [(ngModel)]="datosParaGuardar.Segundo" type="number"></ion-input>
         </ion-item>
 
-<pre>
-    {{ idiomaService.idioma_seleccionado.Months }}
-</pre>
 <!--pre>
     id: string;
     *titulo: string;
