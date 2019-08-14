@@ -82,7 +82,7 @@ export class HomePage {
         private orderPipe: OrderPipe,
         public actionSheetController: ActionSheetController,
         public modalController: ModalController,
-        public idiomaService: IdiomaService,
+        public idiomaService: IdiomaService
     ) { 
         console.log("constructor del home")
     }
