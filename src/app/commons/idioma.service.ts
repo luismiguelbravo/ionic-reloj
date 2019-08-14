@@ -76,6 +76,7 @@ export class IdiomaService {
                 "Hour": "Hora",
                 "Minute": "Minuto",
                 "Second": "Segundo",
+                "Select One": "Seleccione uno",
                 "Months":[
                     { value: 1, name: "Enero" },
                     { value: 2, name: "Febrero" },
@@ -134,6 +135,7 @@ export class IdiomaService {
                 "Hour": "Hour",
                 "Minute": "Minute",
                 "Second": "Second",
+                "Select One": "Select One",
                 "Months":[
                     { value: 1, name: "January" },
                     { value: 2, name: "February" },
