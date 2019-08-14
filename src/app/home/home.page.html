@@ -59,7 +59,7 @@
 
                     <h2 style="color: black; text-align: center;">{{ entrada.titulo }}</h2>
 
-                    <table style="margin: 0 auto; min-width: 156px;">
+                    <!--table style="margin: 0 auto; min-width: 156px;">
                         <tr>
                             <td style="text-align: right; padding-right: 5px;">
                                 {{ miIdioma.Year }} 
@@ -108,7 +108,52 @@
                                 {{ entrada.segundo }}
                             </td>
                         </tr>
-                    </table>
+                    </table-->
+
+
+        <table style="margin: 0 auto;">
+            <tr>
+                <td class="numero">
+                    {{ entrada.year }}
+                </td>
+                <td class="label-fecha">
+                    {{ miIdioma.Year }}
+                </td>
+                <td style="padding-left: 9px;" class="numero">
+                    {{ miIdioma.Months[entrada.mes - 1].name }}
+                </td>
+                <td class="label-fecha" style="padding-right: 9px; ">
+                    {{ miIdioma.Month }}
+                </td>
+                <td class="numero">
+                    {{ entrada.dia }}
+                </td>
+                <td class="label-fecha">
+                    {{ miIdioma.Day }}
+                </td>
+            </tr>
+            <tr>
+                <td class="numero">
+                    {{ entrada.hora }}
+                </td>
+                <td class="label-fecha">
+                    {{ miIdioma.Hour }}
+                </td>
+                <td style="padding-left: 9px;" class="numero">
+                     {{ entrada.minuto }}
+                </td>
+                <td class="label-fecha" style="padding-right: 9px; ">
+                    {{ miIdioma.Minute }} 
+                </td>
+                <td class="numero">
+                    {{ entrada.segundo }}
+                </td>
+                <td class="label-fecha">
+                     {{ miIdioma.Second }}
+                </td>
+            </tr>
+        </table>
+        <br>
                     
 
                     <table class="tabla-menu">
