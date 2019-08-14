@@ -17,7 +17,7 @@ export class AgregarPage implements OnInit {
 
   datosParaGuardar = new Entrada();
 
-  pageTitle = "Agregra"
+  pageTitle = "Agregar"
 
   entradaDeEdicion : any;  
 
@@ -36,7 +36,7 @@ export class AgregarPage implements OnInit {
         console.log(vm.idiomaService.idioma_seleccionado);
         console.log(" ---------- vm.idiomaService ---------- ")
         console.log("")  
-
+        vm.pageTitle = vm.idiomaService.idioma_seleccionado["Add"];
         console.log(" ---------- constructor del agregar ---------- ")  
 
         console.log("")
