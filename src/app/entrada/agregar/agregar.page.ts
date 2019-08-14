@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController} from '@ionic/angular';
 import { NavController, NavParams } from '@ionic/angular';
+import { Entrada } from '../../Entrada';
+import { IdiomaService } from '../../commons/idioma.service'
 
 @Component({
   selector: 'app-agregar',
@@ -13,13 +15,28 @@ export class AgregarPage implements OnInit {
   fechaDeEntrada = ''; 
   tituloDeEntrada = "";
 
+  datosParaGuardar = new Entrada();
+
   pageTitle = "Agregra"
 
   entradaDeEdicion : any;  
 
-    constructor(public modalController: ModalController,  public navParams: NavParams) {
+    constructor(
+        public modalController: ModalController,
+        public navParams: NavParams,
+        public idiomaService: IdiomaService
+    ) {
         let vm = this
         vm.entradaDeEdicion = navParams.get('entrada')
+        idiomaService.idioma_seleccionado
+        
+
+        console.log("")
+        console.log(" ---------- vm.idiomaService ---------- ")
+        console.log(vm.idiomaService.idioma_seleccionado);
+        console.log(" ---------- vm.idiomaService ---------- ")
+        console.log("")  
+
         console.log(" ---------- constructor del agregar ---------- ")  
 
         console.log("")
