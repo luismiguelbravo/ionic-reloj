@@ -338,7 +338,7 @@ export class HomePage {
                 esto para proteger el consumo del procesador.
             */
             vm.listaFiltrada = vm.listaDeFechas
-            vm.contadorService.iniciarMovimiento()
+            // vm.contadorService.iniciarMovimiento()
 
         });
 
@@ -402,7 +402,6 @@ export class HomePage {
             fecha: "2019-08-24 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845",
             year: 2019,
             mes: 8,
-            nombre_mes: 'agosto',
             dia: 24,
             hora: 9,
             minuto: 0,
@@ -412,7 +411,6 @@ export class HomePage {
         this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
             mes: 5,
-            nombre_mes: 'mayo',
             dia: 27,
             hora: 9,
             minuto: 0,
@@ -422,7 +420,6 @@ export class HomePage {
         this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956",
             year: 2016,
             mes: 10,
-            nombre_mes: 'octubre',
             dia: 19,
             hora: 0,
             minuto: 0,
@@ -432,7 +429,6 @@ export class HomePage {
         this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5",
             year: 2021,
             mes: 1,
-            nombre_mes: 'enero',
             dia: 1,
             hora: 0,
             minuto: 0,
@@ -442,7 +438,6 @@ export class HomePage {
         this.listaDeFechas.push({fecha: "2022-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4",
             year: 2022,
             mes: 7,
-            nombre_mes: 'julio',
             dia: 1,
             hora: 20,
             minuto: 55,
@@ -453,7 +448,6 @@ export class HomePage {
         this.listaDeFechas.push({fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "inb95",
             year: 2019,
             mes: 9,
-            nombre_mes: 'septiembre',
             dia: 13,
             hora: 23,
             minuto: 43,
