@@ -4,7 +4,6 @@ export class Entrada {
     fecha: string;
     year: number;
     mes: number;
-    nombre_mes: string;
     dia: number;
     hora: number;
     minuto: number;
