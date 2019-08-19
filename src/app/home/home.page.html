@@ -55,9 +55,9 @@
         <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
                 <ion-card class="welcome-card" [ngClass]="{'pasado': entrada.pasado }">
-                    <!--app-detalle [entrada]="entrada"></app-detalle-->
+                    <app-detalle [entrada]="entrada"></app-detalle>
 
-                    <h2 style="color: black; text-align: center;">{{ entrada.titulo }}</h2>
+                    <!-- h2 style="color: black; text-align: center;">{{ entrada.titulo }}</h2-->
 
                     <!--table style="margin: 0 auto; min-width: 156px;">
                         <tr>
@@ -111,7 +111,7 @@
                     </table-->
 
 
-        <table style="margin: 0 auto;">
+        <!--table style="margin: 0 auto;">
             <tr>
                 <td class="numero">
                     {{ entrada.year }}
@@ -152,31 +152,20 @@
                      {{ miIdioma.Second }}
                 </td>
             </tr>
-        </table>
-        <br>
-                    
-
+        </table-->
                     <table class="tabla-menu">
                         <tr>
-                            <td>
+                            <td style="background: #0cd1e8">
                                 <ion-buttons slot="primary" class="eliminar" style="float: left;">
                                     <ion-button color="primary" (click)="editar(entrada)">
-                                        <ion-icon slot="icon-only" name="create"></ion-icon>
+                                        <ion-icon slot="icon-only" name="create" style="color: white;"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
                             </td>
-                            <td>
-
-                                <ion-buttons slot="primary" class="eliminar" style="float: none !important;">
-                                    <ion-button color="primary" (click)="mostarDetalle(entrada)" style="margin: 0 auto;">
-                                        <ion-icon slot="icon-only" name="clock" style="text-align: center;"></ion-icon>
-                                    </ion-button>
-                                </ion-buttons>
-
-                            <td>
+                            <td style="background: #f04141">
                                 <ion-buttons slot="primary" class="eliminar">
-                                    <ion-button color="primary" (click)="intentarEliminar(entrada.id)">
-                                        <ion-icon slot="icon-only" name="trash" style="text-align: right;"></ion-icon>
+                                    <ion-button (click)="intentarEliminar(entrada.id)">
+                                        <ion-icon slot="icon-only" name="trash" style="text-align: right; color: black;"></ion-icon>
                                     </ion-button>
                                 </ion-buttons>
                             </td>

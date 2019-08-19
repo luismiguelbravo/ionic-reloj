@@ -7,48 +7,6 @@
         <b style="font-size: 18px;">{{entrada.titulo}} </b>
     </ion-card-header>
     <ion-card-content>
-        <table style="margin: 0 auto;">
-            <tr>
-                <td class="numero">
-                    {{diferenciaEnYears}}
-                </td>
-                <td class="label-fecha">
-                    año<span *ngIf="diferenciaEnYears !== -1 && diferenciaEnYears !== 1">s</span>
-                </td>
-                <td style="padding-left: 9px;" class="numero">
-                    {{diferenciaEnMeses}}
-                </td>
-                <td class="label-fecha" style="padding-right: 9px; ">
-                    mes<span *ngIf="diferenciaEnMeses !== -1 && diferenciaEnMeses !== 1">es</span>
-                </td>
-                <td class="numero">
-                    {{diferenciaEnDias}}
-                </td>
-                <td class="label-fecha">
-                    día<span *ngIf="diferenciaEnDias !== -1 && diferenciaEnDias !== 1">s</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="numero">
-                    {{diferenciaEnHoras}} 
-                </td>
-                <td class="label-fecha">
-                    hora<span *ngIf="diferenciaEnHoras !== -1 && diferenciaEnHoras !== 1">s</span>
-                </td>
-                <td style="padding-left: 9px;" class="numero">
-                    {{diferenciaEnMinutos}}
-                </td>
-                <td class="label-fecha" style="padding-right: 9px; ">
-                    minuto<span *ngIf="diferenciaEnMinutos !== -1 && diferenciaEnMinutos !== 1">s</span>
-                </td>
-                <td class="numero">
-                    {{diferenciaEnSegundos}} 
-                </td>
-                <td class="label-fecha">
-                    segundo<span *ngIf="diferenciaEnSegundos !== -1 && diferenciaEnSegundos !== 1">s</span>
-                </td>
-            </tr>
-        </table>
 
         <!-- ion-fab vertical="bootom" horizontal="start" edge slot="fixed">
             <ion-fab-button>
@@ -63,7 +21,68 @@
                 </ion-fab-button>
             </ion-fab-list>
         </ion-fab-->
+        
 
+<ion-grid>
+  <ion-row>
+    <ion-col size="6">
+              <table>
+            <tr>
+                <td class="numero">
+                    {{diferenciaEnYears}}
+                </td>
+                <td class="label-fecha">
+                    año
+                </td>
+            </tr> 
+            <tr>      
+                <td style="padding-left: 9px;" class="numero">
+                    {{diferenciaEnMeses}}
+                </td>
+                <td class="label-fecha" style="padding-right: 9px; ">
+                    mes
+                </td>
+            </tr> 
+            <tr>    
+                <td class="numero">
+                    {{diferenciaEnDias}}
+                </td>
+                <td class="label-fecha">
+                    día
+                </td>
+            </tr> 
+            <tr>    
+                <td class="numero">
+                    {{diferenciaEnHoras}} 
+                </td>
+                <td class="label-fecha">
+                    hora
+                </td>
+            </tr> 
+            <tr>    
+                <td style="padding-left: 9px;" class="numero">
+                    {{diferenciaEnMinutos}}
+                </td>
+                <td class="label-fecha" style="padding-right: 9px; ">
+                    minuto
+                </td>
+            </tr> 
+            <tr>    
+                <td class="numero">
+                    {{diferenciaEnSegundos}} 
+                </td>
+                <td class="label-fecha">
+                    segundo
+                </td>
+            </tr>
+        </table>
+
+    </ion-col>
+    <ion-col size="6">
+      <img src="assets/images/reloj-circular.png" alt="circulito" width="100px">
+    </ion-col>
+  </ion-row>
+</ion-grid>
     </ion-card-content>
 </div>
 

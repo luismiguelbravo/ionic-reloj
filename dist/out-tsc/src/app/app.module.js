@@ -11,6 +11,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { OrderModule } from 'ngx-order-pipe';
 import { AgregarPageModule } from './entrada/agregar/agregar.module';
+import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -28,6 +29,7 @@ var AppModule = /** @class */ (function () {
                     driverOrder: ['sqlite', 'indexeddb', 'websql', 'localstorage']
                 }),
                 AgregarPageModule,
+                BienvenidaPageModule
             ],
             providers: [
                 Clipboard,

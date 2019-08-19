@@ -10,3 +10,4 @@ export class Entrada {
     segundo: number;
     pasado: boolean;
 }
+/* Agregar campo de milisegundos. */
