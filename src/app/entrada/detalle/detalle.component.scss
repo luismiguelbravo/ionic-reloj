@@ -64,3 +64,41 @@ ion-card-header{
     font-family: 'Pathway_Gothic_One';
     font-size: 7vmin !important;
 }
+
+@keyframes slidein {
+    /* 0%   {margin-left:1500px;} */
+    /* 100% {margin-left:0px;} */
+
+    0%   {height: 0px;} 
+    100% {height: 232px;}     
+}
+
+@keyframes slideout {
+    /* 0%   {margin-left:1500px;} */
+    /* 100% {margin-left:0px;} */
+
+    100%   {height: 0px;} 
+    0% {height: 232px;}     
+}
+
+
+.note {
+    animation-name: slidein;
+    animation-duration: 1s;
+    display: block;
+    overflow: hidden;
+}
+
+.abrir {
+    animation-name: slidein;
+    animation-duration: 1s;
+    display: block;
+    overflow: hidden;
+}
+
+.cerrar {
+    animation-name: slideout;
+    animation-duration: 1s;
+    display: block;
+    overflow: hidden;
+}

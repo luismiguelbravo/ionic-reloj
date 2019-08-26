@@ -30,6 +30,8 @@ export class DetalleComponent implements OnInit {
     diferenciaEnYears = null;
     pasado = false
 
+    mostrarReloj = false
+
     @Input() entrada: Entrada;
 
     constructor(
@@ -40,6 +42,7 @@ export class DetalleComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        var vm = this;
 
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
@@ -49,6 +52,21 @@ export class DetalleComponent implements OnInit {
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
         });
+
+
+    }
+
+    seleccionar_reloj(id) {
+      let vm = this;
+      vm.contadorService.setIdSeleccionado(id);
+      // console.log(`scrolling to ${id}`);
+      // let el = document.getElementById(id);
+      // el.scrollIntoView();
+    }
+
+    get_id_Seleccionado()
+    {
+        return this.contadorService.getIdSeleccionado()
     }
 
     nombreDeMes(indice)

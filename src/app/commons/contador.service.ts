@@ -10,6 +10,7 @@ export class ContadorService {
     public movimientoObservable = this.movientoSubject.asObservable()
 
     moverse = false
+    id_seleccionado :string
 
     constructor() { }
 
@@ -28,6 +29,15 @@ export class ContadorService {
         let vm = this
         vm.moverse = true
         vm.ticTac();
+    }
+
+    getIdSeleccionado(): string{
+        return this.id_seleccionado
+    }
+
+    setIdSeleccionado(id): string{
+        this.id_seleccionado = id
+        return this.id_seleccionado
     }
 
     /*

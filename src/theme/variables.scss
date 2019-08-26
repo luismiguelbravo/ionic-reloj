@@ -76,11 +76,16 @@
   --ion-color-light-tint: #f5f6f9;
 
   ion-content{
-    --ion-background-color:#d4d4d4;
+    --ion-background-color:#1a2035;
   }
 
   ion-card {
-    background-color: white !important;
+    background-color: #1f2940 !important;
   }
+
+  .toolbar-title, .toolbar-container {
+     --ion-background-color: #1f2940 !important;
+  }
+  
 
 }

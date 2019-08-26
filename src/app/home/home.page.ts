@@ -269,9 +269,35 @@ export class HomePage {
     }
 
 
+    bajalo_para_aca(id) {
+      let vm = this;
+      vm.contadorService.setIdSeleccionado(id);
+      console.log(`scrolling to ${id}`);
+      let el = document.getElementById(id);
+      el.scrollIntoView();
+    }    
+
+    seleccionar_reloj(id) {
+      let vm = this;
+      vm.contadorService.setIdSeleccionado(id);
+      console.log(`scrolling to ${id}`);
+      let el = document.getElementById(id);
+      el.scrollIntoView();
+    }
+
+    get_id_Seleccionado()
+    {
+        return this.contadorService.getIdSeleccionado()
+    }
+
     ngOnInit() {
 
         let vm = this;
+
+        /*
+        setTimeout(() => {
+            vm.bajalo_para_aca('55')
+        }, 1000);*/
         
         vm.storage.get('listaDeFechas').then((val) => {
             vm.listaDeFechas = val
@@ -797,10 +823,10 @@ export class HomePage {
             pasado: false
         });
         this.listaDeFechas.push({
-            fecha: "2019-08-24 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845",
+            fecha: "2019-08-29 09:00", titulo: "Reny ya puede buscar empleo", id: "ijtg845",
             year: 2019,
             mes: 8,
-            dia: 24,
+            dia: 29,
             hora: 9,
             minuto: 0,
             segundo: 0,

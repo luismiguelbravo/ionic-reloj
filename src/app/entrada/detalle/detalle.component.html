@@ -1,10 +1,10 @@
-<div [ngClass]="{'pasado': pasado}">
+<div [ngClass]="{'pasado': pasado}" id="{{ entrada.id }}" (click)="seleccionar_reloj(entrada.id)">
     <ion-card-header>
         <!-- {{ entrada.fecha  }} <br> -->
         <br>
         Día {{ entrada.fecha.substring(8,10) }} de {{ nombreDeMes(entrada.fecha.substring(5,7)) }} del año  {{ entrada.fecha.substring(0,4) }} <br>
         Hora: {{ entrada.fecha.substring(11, entrada.fecha.length) }} <br>
-        <b style="font-size: 18px;">{{entrada.titulo}} </b>
+        <b style="font-size: 18px;">{{entrada.titulo}} </b><label>{{ entrada.id  }}</label>
     </ion-card-header>
     <ion-card-content>
 
@@ -21,68 +21,69 @@
                 </ion-fab-button>
             </ion-fab-list>
         </ion-fab-->
-        
 
-<ion-grid>
-  <ion-row>
-    <ion-col size="6">
-              <table>
-            <tr>
-                <td class="numero">
-                    {{diferenciaEnYears}}
-                </td>
-                <td class="label-fecha">
-                    año
-                </td>
-            </tr> 
-            <tr>      
-                <td style="padding-left: 9px;" class="numero">
-                    {{diferenciaEnMeses}}
-                </td>
-                <td class="label-fecha" style="padding-right: 9px; ">
-                    mes
-                </td>
-            </tr> 
-            <tr>    
-                <td class="numero">
-                    {{diferenciaEnDias}}
-                </td>
-                <td class="label-fecha">
-                    día
-                </td>
-            </tr> 
-            <tr>    
-                <td class="numero">
-                    {{diferenciaEnHoras}} 
-                </td>
-                <td class="label-fecha">
-                    hora
-                </td>
-            </tr> 
-            <tr>    
-                <td style="padding-left: 9px;" class="numero">
-                    {{diferenciaEnMinutos}}
-                </td>
-                <td class="label-fecha" style="padding-right: 9px; ">
-                    minuto
-                </td>
-            </tr> 
-            <tr>    
-                <td class="numero">
-                    {{diferenciaEnSegundos}} 
-                </td>
-                <td class="label-fecha">
-                    segundo
-                </td>
-            </tr>
-        </table>
+        <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
+            
 
-    </ion-col>
-    <ion-col size="6">
-      <img src="assets/images/reloj-circular.png" alt="circulito" width="100px">
-    </ion-col>
-  </ion-row>
-</ion-grid>
+          <ion-row>
+            <ion-col size="6">
+                      <table>
+                    <tr>
+                        <td class="numero">
+                            {{diferenciaEnYears}}
+                        </td>
+                        <td class="label-fecha">
+                            año
+                        </td>
+                    </tr> 
+                    <tr>      
+                        <td style="padding-left: 9px;" class="numero">
+                            {{diferenciaEnMeses}}
+                        </td>
+                        <td class="label-fecha" style="padding-right: 9px; ">
+                            mes
+                        </td>
+                    </tr> 
+                    <tr>    
+                        <td class="numero">
+                            {{diferenciaEnDias}}
+                        </td>
+                        <td class="label-fecha">
+                            día
+                        </td>
+                    </tr> 
+                    <tr>    
+                        <td class="numero">
+                            {{diferenciaEnHoras}} 
+                        </td>
+                        <td class="label-fecha">
+                            hora
+                        </td>
+                    </tr> 
+                    <tr>    
+                        <td style="padding-left: 9px;" class="numero">
+                            {{diferenciaEnMinutos}}
+                        </td>
+                        <td class="label-fecha" style="padding-right: 9px; ">
+                            minuto
+                        </td>
+                    </tr> 
+                    <tr>    
+                        <td class="numero">
+                            {{diferenciaEnSegundos}} 
+                        </td>
+                        <td class="label-fecha">
+                            segundo
+                        </td>
+                    </tr>
+                </table>
+
+            </ion-col>
+            <ion-col size="6">
+              <img src="assets/images/reloj-circular.png" alt="circulito" width="100px">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
     </ion-card-content>
 </div>
 

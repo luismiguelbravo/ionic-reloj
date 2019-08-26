@@ -52,3 +52,22 @@ solucion  :
 Generar servicio
 
   $ ionic generate service commons/idioma
+
+
+
+============== conseguir el primer evento proximo ===============
+
+necesito calcular la primera fecha proxima 
+mover el reloj de esa fecha
+cuando esa fecha se acabe
+calcular la proxima primera fecha cercana al presente
+
+
+fecha1
+fecha2
+fecha 3
+---- presente ----
+fecha4
+fecha5  
+
+============== conseguir el primer evento proximo ===============
