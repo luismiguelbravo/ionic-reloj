@@ -8,7 +8,7 @@
     </ion-card-header>
     <ion-card-content>
 
-        <!-- ion-fab vertical="bootom" horizontal="start" edge slot="fixed">
+        <!--ion-fab vertical="bootom" horizontal="center" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
             </ion-fab-button>
@@ -21,6 +21,8 @@
                 </ion-fab-button>
             </ion-fab-list>
         </ion-fab-->
+
+
         <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
           <ion-row>
             <ion-col size="12">
@@ -30,7 +32,7 @@
                             {{diferenciaEnYears}}
                         </td>
                         <td class="label-fecha">
-                            año
+                            {{ idiomaService.idioma_seleccionado.Year }}
                         </td>
                     </tr> 
                     <tr>      
@@ -38,7 +40,7 @@
                             {{diferenciaEnMeses}}
                         </td>
                         <td class="label-fecha" style="padding-right: 9px; ">
-                            mes
+                            {{ idiomaService.idioma_seleccionado.Month }}
                         </td>
                     </tr> 
                     <tr>    
@@ -46,7 +48,7 @@
                             {{diferenciaEnDias}}
                         </td>
                         <td class="label-fecha">
-                            día
+                            {{ idiomaService.idioma_seleccionado.Day }}
                         </td>
                     </tr> 
                     <tr>    
@@ -54,7 +56,7 @@
                             {{diferenciaEnHoras}} 
                         </td>
                         <td class="label-fecha">
-                            hora
+                            {{ idiomaService.idioma_seleccionado.Hour }}
                         </td>
                     </tr> 
                     <tr>    
@@ -62,7 +64,7 @@
                             {{diferenciaEnMinutos}}
                         </td>
                         <td class="label-fecha" style="padding-right: 9px; ">
-                            minuto
+                            {{ idiomaService.idioma_seleccionado.Minute }}
                         </td>
                     </tr> 
                     <tr>    
@@ -70,7 +72,7 @@
                             {{diferenciaEnSegundos}} 
                         </td>
                         <td class="label-fecha">
-                            segundo
+                            {{ idiomaService.idioma_seleccionado.Second }}
                         </td>
                     </tr>
                 </table>
