@@ -45,48 +45,6 @@ export class DetalleComponent implements OnInit {
         public alertController: AlertController
     ) { }
 
-    draw(r, p, c) {
-        let vm = this;
-        var start = 1.5 * Math.PI; // Start circle from top
-        var end = (2 * Math.PI) / 100; // One percent of circle
-        p = p || 100; // When time is '00' we show full circle
-        vm.ctx.strokeStyle = c;
-        vm.ctx.beginPath();
-        vm.ctx.arc(130, 130, r, start, p * end + start, false);
-        vm.ctx.stroke();
-    }
-
-    clock () {
-        let vm = this;
-        // requestAnimationFrame(this.clock);
-
-        var date = new Date;
-        let h = date.getHours();
-        let m = date.getMinutes();
-        let s = date.getSeconds();
-        // Calculate percentage to be drawn
-        var hp = 100 / 12 * (h % 12);
-        var mp = 100 / 60 * m;
-        var sp = 100 / 60 * s;
-        // Ensure double digits
-        
-        /*
-        h = h < 10 ? '0' + h : h;
-        m = m < 10 ? '0' + m : m;
-        s = s < 10 ? '0' + s : s;
-        */
-        this.ctx.clearRect(0, 0, 260, 260);
-        this.ctx.fillText(h + ':' + m + ':' + s, 175, 175);
-        this.draw(25, hp, 'palevioletred');
-        this.draw(35, mp, 'limegreen');
-        this.draw(45, sp, 'steelblue');
-    };
-
-
-    ngAfterViewInit(){
-        let vm = this;
-    }
-
     ngOnInit() {
 
         this.finalDeLaEspera = moment(
@@ -101,42 +59,11 @@ export class DetalleComponent implements OnInit {
     }
 
     seleccionar_reloj(id) {
-      let vm = this;
-      vm.contadorService.setIdSeleccionado(id);
-      // console.log(`scrolling to ${id}`);
-      // let el = document.getElementById(id);
-      // el.scrollIntoView();
-
-        console.log("");
-        console.log(" -------------- seleccionar_reloj -------------- ");
-        console.log("");
-
-        this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
-
-        console.log("");
-        console.log(" -------------- this.ctx -------------- ");
-        console.log(this.ctx)
-        console.log(" -------------- this.ctx -------------- ");
-        console.log("");
-
-        //if (vm.cvs !== null ){
-            vm.ctx.lineWidth = 10;
-            vm.ctx.textAlign = 'center';
-            vm.ctx.textBaseline = 'middle';
-            vm.ctx.font = '25px Trebuchet MS';
-            vm.ctx.fillStyle = 'white';
-            console.log("Iniciando el reloj");
-
-            console.log("");
-            console.log(" -------------- vm -------------- ");
-            console.log(vm);
-            console.log(" -------------- vm -------------- ");
-            console.log("");
-
-            
-        // }
-
-
+        let vm = this;
+        vm.contadorService.setIdSeleccionado(id);
+        console.log(`scrolling to ${id}`);
+        let el = document.getElementById(id);
+        el.scrollIntoView();
     }
 
     get_id_Seleccionado()
@@ -189,12 +116,6 @@ export class DetalleComponent implements OnInit {
         vm.fechaDeHoy.add(vm.diferenciaEnMinutos, 'minutes')
 
         vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds')
-
-        if(this.entrada.id === this.get_id_Seleccionado())
-        {
-            this.clock();
-        }
-
     }
 
     construirMensaje(): string{

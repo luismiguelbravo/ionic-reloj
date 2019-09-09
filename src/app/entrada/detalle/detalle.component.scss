@@ -19,7 +19,7 @@
 
 .numero {
     text-align: right;
-    font-size: 20px;
+    font-size: 33px;
     font-family: monospace;
 }
 
@@ -84,21 +84,21 @@ ion-card-header{
 
 .note {
     animation-name: slidein;
-    animation-duration: 1s;
+    animation-duration: 0.2s;
     display: block;
     overflow: hidden;
 }
 
 .abrir {
     animation-name: slidein;
-    animation-duration: 1s;
+    animation-duration: 0.2s;
     display: block;
     overflow: hidden;
 }
 
 .cerrar {
     animation-name: slideout;
-    animation-duration: 1s;
+    animation-duration: 0.2s;
     display: block;
     overflow: hidden;
 }

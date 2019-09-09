@@ -21,15 +21,10 @@
                 </ion-fab-button>
             </ion-fab-list>
         </ion-fab-->
-
-        <canvas [hidden]="!(entrada.id === get_id_Seleccionado())" #myCanvas width="260" height="260" style="background-color: black;"></canvas>
-
         <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
-            
-
           <ion-row>
-            <ion-col size="6">
-                      <table>
+            <ion-col size="12">
+                <table style="margin: 0 auto;">
                     <tr>
                         <td class="numero">
                             {{diferenciaEnYears}}
@@ -79,11 +74,6 @@
                         </td>
                     </tr>
                 </table>
-
-            </ion-col>
-            <ion-col size="6">
-              <!-- img src="assets/images/reloj-circular.png" alt="circulito" width="100px"-->
-              
             </ion-col>
           </ion-row>
         </ion-grid>
