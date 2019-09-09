@@ -2,7 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController} from '@ionic/angular';
 import { NavController, NavParams } from '@ionic/angular';
 import { Entrada } from '../../Entrada';
-import { IdiomaService } from '../../commons/idioma.service'
+import { IdiomaService } from '../../commons/idioma.service';
+import { DIAS } from '../../commons/constantes/dias'
+import { HORAS } from '../../commons/constantes/horas'
+import { CINCUENTA_Y_NUEVE } from '../../commons/constantes/cincuenta_y_nueve'
+
+
 
 @Component({
   selector: 'app-agregar',
@@ -14,6 +19,9 @@ export class AgregarPage implements OnInit {
   horaDeEntrada = '';
   fechaDeEntrada = ''; 
   tituloDeEntrada = "";
+  lista_de_dias = DIAS;
+  lista_de_horas = HORAS;
+  lista_CINCUENTA_Y_NUEVE = CINCUENTA_Y_NUEVE;
 
   datosParaGuardar = new Entrada();
 
@@ -88,12 +96,15 @@ export class AgregarPage implements OnInit {
 
   guardar(){
       let vm = this
+      console.log("validar la fecha");
+      /*
       vm.modalController.dismiss({
           "guardar" : true,
           "horaDeEntrada" : vm.horaDeEntrada,
           "fechaDeEntrada" : vm.fechaDeEntrada,
           "tituloDeEntrada" : vm.tituloDeEntrada
       });
+      */
   }
 
 }
