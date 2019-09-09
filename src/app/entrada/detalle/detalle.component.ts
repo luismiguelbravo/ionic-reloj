@@ -6,6 +6,7 @@ import { ContadorService } from '../../commons/contador.service'
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { AlertController } from '@ionic/angular';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-detalle',
@@ -30,6 +31,9 @@ export class DetalleComponent implements OnInit {
     diferenciaEnYears = null;
     pasado = false
 
+    @ViewChild('myCanvas') myCanvas: ElementRef;
+    public ctx: CanvasRenderingContext2D;
+
     mostrarReloj = false
 
     @Input() entrada: Entrada;
@@ -41,8 +45,49 @@ export class DetalleComponent implements OnInit {
         public alertController: AlertController
     ) { }
 
+    draw(r, p, c) {
+        let vm = this;
+        var start = 1.5 * Math.PI; // Start circle from top
+        var end = (2 * Math.PI) / 100; // One percent of circle
+        p = p || 100; // When time is '00' we show full circle
+        vm.ctx.strokeStyle = c;
+        vm.ctx.beginPath();
+        vm.ctx.arc(130, 130, r, start, p * end + start, false);
+        vm.ctx.stroke();
+    }
+
+    clock () {
+        let vm = this;
+        // requestAnimationFrame(this.clock);
+
+        var date = new Date;
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        // Calculate percentage to be drawn
+        var hp = 100 / 12 * (h % 12);
+        var mp = 100 / 60 * m;
+        var sp = 100 / 60 * s;
+        // Ensure double digits
+        
+        /*
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        */
+        this.ctx.clearRect(0, 0, 260, 260);
+        this.ctx.fillText(h + ':' + m + ':' + s, 175, 175);
+        this.draw(25, hp, 'palevioletred');
+        this.draw(50, mp, 'limegreen');
+        this.draw(75, sp, 'steelblue');
+    };
+
+
+    ngAfterViewInit(){
+        let vm = this;
+    }
+
     ngOnInit() {
-        var vm = this;
 
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
@@ -53,7 +98,6 @@ export class DetalleComponent implements OnInit {
             this.calcularDiferencias();
         });
 
-
     }
 
     seleccionar_reloj(id) {
@@ -62,6 +106,37 @@ export class DetalleComponent implements OnInit {
       // console.log(`scrolling to ${id}`);
       // let el = document.getElementById(id);
       // el.scrollIntoView();
+
+        console.log("");
+        console.log(" -------------- seleccionar_reloj -------------- ");
+        console.log("");
+
+        this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
+
+        console.log("");
+        console.log(" -------------- this.ctx -------------- ");
+        console.log(this.ctx)
+        console.log(" -------------- this.ctx -------------- ");
+        console.log("");
+
+        //if (vm.cvs !== null ){
+            vm.ctx.lineWidth = 23;
+            vm.ctx.textAlign = 'center';
+            vm.ctx.textBaseline = 'middle';
+            vm.ctx.font = '25px Trebuchet MS';
+            vm.ctx.fillStyle = 'white';
+            console.log("Iniciando el reloj");
+
+            console.log("");
+            console.log(" -------------- vm -------------- ");
+            console.log(vm);
+            console.log(" -------------- vm -------------- ");
+            console.log("");
+
+            
+        // }
+
+
     }
 
     get_id_Seleccionado()
@@ -114,6 +189,12 @@ export class DetalleComponent implements OnInit {
         vm.fechaDeHoy.add(vm.diferenciaEnMinutos, 'minutes')
 
         vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds')
+
+        if(this.entrada.id === this.get_id_Seleccionado())
+        {
+            this.clock();
+        }
+
     }
 
     construirMensaje(): string{

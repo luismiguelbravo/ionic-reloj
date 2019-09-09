@@ -22,6 +22,8 @@
             </ion-fab-list>
         </ion-fab-->
 
+        <canvas #myCanvas width="260" height="260" style="background-color: #4a4a4a;"></canvas>
+
         <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
             
 
@@ -80,7 +82,8 @@
 
             </ion-col>
             <ion-col size="6">
-              <img src="assets/images/reloj-circular.png" alt="circulito" width="100px">
+              <!-- img src="assets/images/reloj-circular.png" alt="circulito" width="100px"-->
+              
             </ion-col>
           </ion-row>
         </ion-grid>
