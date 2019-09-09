@@ -7,6 +7,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { AlertController } from '@ionic/angular';
 import { ViewChild, ElementRef } from '@angular/core';
+import { IdiomaService } from '../../commons/idioma.service'
 
 @Component({
   selector: 'app-detalle',
@@ -42,7 +43,8 @@ export class DetalleComponent implements OnInit {
         public contadorService: ContadorService,
         private socialSharing: SocialSharing,
         private clipboard: Clipboard,
-        public alertController: AlertController
+        public alertController: AlertController,
+        public idiomaService: IdiomaService
     ) { }
 
     ngOnInit() {
@@ -61,9 +63,11 @@ export class DetalleComponent implements OnInit {
     seleccionar_reloj(id) {
         let vm = this;
         vm.contadorService.setIdSeleccionado(id);
-        console.log(`scrolling to ${id}`);
-        let el = document.getElementById(id);
-        el.scrollIntoView();
+        /*
+            console.log(`scrolling to ${id}`);
+            let el = document.getElementById(id);
+            el.scrollIntoView();
+        */
     }
 
     get_id_Seleccionado()
