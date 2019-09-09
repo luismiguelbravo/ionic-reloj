@@ -78,8 +78,8 @@ export class DetalleComponent implements OnInit {
         this.ctx.clearRect(0, 0, 260, 260);
         this.ctx.fillText(h + ':' + m + ':' + s, 175, 175);
         this.draw(25, hp, 'palevioletred');
-        this.draw(50, mp, 'limegreen');
-        this.draw(75, sp, 'steelblue');
+        this.draw(35, mp, 'limegreen');
+        this.draw(45, sp, 'steelblue');
     };
 
 
@@ -120,7 +120,7 @@ export class DetalleComponent implements OnInit {
         console.log("");
 
         //if (vm.cvs !== null ){
-            vm.ctx.lineWidth = 23;
+            vm.ctx.lineWidth = 10;
             vm.ctx.textAlign = 'center';
             vm.ctx.textBaseline = 'middle';
             vm.ctx.font = '25px Trebuchet MS';

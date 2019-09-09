@@ -22,7 +22,7 @@
             </ion-fab-list>
         </ion-fab-->
 
-        <canvas #myCanvas width="260" height="260" style="background-color: #4a4a4a;"></canvas>
+        <canvas [hidden]="!(entrada.id === get_id_Seleccionado())" #myCanvas width="260" height="260" style="background-color: black;"></canvas>
 
         <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
             
