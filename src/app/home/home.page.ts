@@ -424,7 +424,6 @@ export class HomePage {
 
     usarSemilla():void {
         console.log("usarSemilla");
-
         this.listaDeFechas.push({
             fecha: "2019-09-22 02:10", titulo: "Viaje a Chile", id: "viajeachile",
             year: 2019,
@@ -435,7 +434,6 @@ export class HomePage {
             segundo: 0,
             pasado: false
         });
-
         this.listaDeFechas.push({
             fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "viajeaperu",
             year: 2019,
@@ -446,7 +444,6 @@ export class HomePage {
             segundo: 0,
             pasado: false
         });
-
         this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
             mes: 5,
@@ -475,6 +472,16 @@ export class HomePage {
             pasado: false
         });
         this.listaDeFechas.push({fecha: "2022-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4",
+            year: 2022,
+            mes: 7,
+            dia: 1,
+            hora: 20,
+            minuto: 55,
+            segundo: 0,
+            pasado: false
+        });
+
+        this.listaDeFechas.push({fecha: "2019-09-09 22:30", titulo: "Reunión Postulantes", id: "Reunión Postulantes",
             year: 2022,
             mes: 7,
             dia: 1,
