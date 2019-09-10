@@ -27,7 +27,7 @@
           <ion-row>
             <ion-col size="12">
                 <table style="margin: 0 auto;">
-                    <tr>
+                    <tr [hidden]="diferenciaEnYears == 0">
                         <td class="numero">
                             {{diferenciaEnYears}}
                         </td>
@@ -35,7 +35,7 @@
                             {{ idiomaService.idioma_seleccionado.Year }}
                         </td>
                     </tr> 
-                    <tr>      
+                    <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0">
                         <td style="padding-left: 9px;" class="numero">
                             {{diferenciaEnMeses}}
                         </td>
@@ -43,7 +43,7 @@
                             {{ idiomaService.idioma_seleccionado.Month }}
                         </td>
                     </tr> 
-                    <tr>    
+                    <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0">
                         <td class="numero">
                             {{diferenciaEnDias}}
                         </td>
@@ -51,7 +51,7 @@
                             {{ idiomaService.idioma_seleccionado.Day }}
                         </td>
                     </tr> 
-                    <tr>    
+                    <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0">
                         <td class="numero">
                             {{diferenciaEnHoras}} 
                         </td>
@@ -59,7 +59,7 @@
                             {{ idiomaService.idioma_seleccionado.Hour }}
                         </td>
                     </tr> 
-                    <tr>    
+                    <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0 ">
                         <td style="padding-left: 9px;" class="numero">
                             {{diferenciaEnMinutos}}
                         </td>
@@ -81,4 +81,3 @@
         </ion-grid>
     </ion-card-content>
 </div>
-

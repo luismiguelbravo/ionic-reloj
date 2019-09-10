@@ -481,6 +481,16 @@ export class HomePage {
             pasado: false
         });
 
+        this.listaDeFechas.push({fecha: "2019-09-29 00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
+            year: 2019,
+            mes: 9,
+            dia: 29,
+            hora: 0,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+
         this.listaDeFechas.push({fecha: "2019-09-09 22:30", titulo: "Reunión Postulantes", id: "Reunión Postulantes",
             year: 2022,
             mes: 7,

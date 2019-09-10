@@ -31,43 +31,40 @@
 
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Title }}</ion-label>
-            <ion-input required [(ngModel)]="datosParaGuardar.titulo"></ion-input>
+            <ion-input required [(ngModel)]="titulo_de_entrada"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
-            <ion-input required [(ngModel)]="datosParaGuardar.year" type="number"></ion-input>
+            <ion-input required [(ngModel)]="year_de_entrada" type="number"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
-                <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+                <ion-select [(ngModel)]="mes_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
                 <ion-select-option *ngFor="let mes of idiomaService.idioma_seleccionado.Months" [value]="mes.value">{{ mes.name }}</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
-            <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+            <ion-select [(ngModel)]="dia_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
                 <ion-select-option *ngFor="let dia of lista_de_dias" [value]="dia">{{ dia }}</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Hour }}</ion-label>
-            <!--ion-input required [(ngModel)]="datosParaGuardar.Hora" type="number"></ion-input-->           
-            <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+            <ion-select [(ngModel)]="hora_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
                 <ion-select-option *ngFor="let hora of lista_de_horas" [value]="hora">{{ hora  | number:'2.0' }}</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Minute }}</ion-label>
-            <!-- ion-input required [(ngModel)]="datosParaGuardar.Minuto" type="number"></ion-input-->
-            <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
-                <ion-select-option *ngFor="let indice of lista_CINCUENTA_Y_NUEVE" [value]="hora">{{ indice  | number:'2.0' }}</ion-select-option>
+            <ion-select [(ngModel)]="minuto_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+                <ion-select-option *ngFor="let minuto of lista_CINCUENTA_Y_NUEVE" [value]="minuto">{{ minuto  | number:'2.0' }}</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Second }}</ion-label>
-            <!--ion-input required [(ngModel)]="datosParaGuardar.Segundo" type="number"></ion-input-->
-            <ion-select placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
-                <ion-select-option *ngFor="let indice of lista_CINCUENTA_Y_NUEVE" [value]="hora">{{ indice  | number:'2.0' }}</ion-select-option>
+            <ion-select [(ngModel)]="segundo_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}">
+                <ion-select-option *ngFor="let segundo of lista_CINCUENTA_Y_NUEVE" [value]="segundo">{{ segundo  | number:'2.0' }}</ion-select-option>
             </ion-select>
         </ion-item>
 
@@ -85,12 +82,19 @@
     pasado: boolean;                
 </pre-->
 
-
-
-
-        <ion-button size="small" (click)="guardar()" style="margin-top: 16px;">Guardar</ion-button>
-        <ion-button size="small" (click)="dismiss()" style="margin-top: 16px;" color="tertiary">Cancelar</ion-button>
-
     </ion-grid>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="primary" (click)="guardar()">
+            <ion-icon name="checkmark-circle"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button color="danger" (click)="dismiss()">
+            <ion-icon name="close-circle"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
 
 </ion-content>

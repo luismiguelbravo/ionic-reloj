@@ -18,7 +18,15 @@ export class AgregarPage implements OnInit {
 
   horaDeEntrada = '';
   fechaDeEntrada = ''; 
-  tituloDeEntrada = "";
+  titulo_de_entrada = "";
+  year_de_entrada:number 
+  mes_de_la_entrada:number
+  dia_de_la_entrada:number
+  hora_de_la_entrada:number
+  minuto_de_la_entrada:number
+  segundo_de_la_entrada:number
+
+
   lista_de_dias = DIAS;
   lista_de_horas = HORAS;
   lista_CINCUENTA_Y_NUEVE = CINCUENTA_Y_NUEVE;
@@ -66,11 +74,12 @@ export class AgregarPage implements OnInit {
             console.log(output)
             console.log(" ---------- output---------- ")
             console.log("")  
-
+            /*
             vm.horaDeEntrada = output;
             vm.fechaDeEntrada = output; 
             vm.tituloDeEntrada = vm.entradaDeEdicion.titulo;
             vm.pageTitle = "Editar"
+            */
 
 
         }
@@ -94,9 +103,28 @@ export class AgregarPage implements OnInit {
     });
   }
 
-  guardar(){
-      let vm = this
-      console.log("validar la fecha");
+    guardar(){
+        let vm = this
+        console.log("validar la fecha");
+
+        let fecha_para_guardar = {
+            fecha: "2019-09-09 22:30",
+            titulo: "Reunión Postulantes",
+            id: "Reunión Postulantes",
+            year: this.year_de_entrada,
+            mes: this.mes_de_la_entrada,
+            dia: this.dia_de_la_entrada,
+            hora: this.hora_de_la_entrada,
+            minuto: this.minuto_de_la_entrada,
+            segundo: this.segundo_de_la_entrada,
+            pasado: false
+        };
+        console.log("")
+        console.log(" ------------ fecha_para_guardar ------------ ")
+        console.log(fecha_para_guardar)
+        console.log(" ------------ fecha_para_guardar ------------ ")
+        console.log("")
+
       /*
       vm.modalController.dismiss({
           "guardar" : true,
