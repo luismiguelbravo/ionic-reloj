@@ -14,13 +14,13 @@
         </ion-item>
     </ion-list>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed"  *ngIf="ididomaSeleccionado.indice">
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed"  *ngIf="ididomaSeleccionado.indice">
         <ion-fab-button color="primary" (click)="guardar()">
             <ion-icon name="checkmark-circle"></ion-icon>
         </ion-fab-button>
     </ion-fab>
 
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button color="danger" (click)="dismiss()">
             <ion-icon name="close-circle"></ion-icon>
         </ion-fab-button>

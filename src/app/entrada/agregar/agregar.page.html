@@ -84,7 +84,7 @@
 
     </ion-grid>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!--ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button color="primary" (click)="guardar()">
             <ion-icon name="checkmark-circle"></ion-icon>
         </ion-fab-button>
@@ -94,7 +94,34 @@
         <ion-fab-button color="danger" (click)="dismiss()">
             <ion-icon name="close-circle"></ion-icon>
         </ion-fab-button>
-    </ion-fab>
+    </ion-fab-->
+
+    <table class="tabla-menu">
+        <tr>
+            <td style="background: #0cd1e8; width: 50%; text-align: center; vertical-align: middle;">
+                <!--ion-buttons slot="primary" class="eliminar" style="float: left;">
+                    <ion-button color="primary" (click)="guardar()">
+                        <ion-icon slot="icon-only" name="checkmark-circle" style="color: white;"></ion-icon>
+                    </ion-button>
+                </ion-buttons-->
+                <span color="primary" (click)="guardar()" style="width: 100%; display: block; font-size: 38px;">
+                    <ion-icon slot="icon-only" name="checkmark-circle" style="color: white;"></ion-icon>
+                </span>
+            </td>
+            <td style="background: #f04141; text-align: center; vertical-align: middle;">
+
+                <span color="primary" (click)="dismiss()" style="width: 100%; display: block; font-size: 38px;">
+                    <ion-icon slot="icon-only" name="close-circle" style="color: black;"></ion-icon>
+                </span>
+
+                <!--ion-buttons slot="primary" class="eliminar">
+                    <ion-button (click)="dismiss()">
+                        <ion-icon slot="icon-only" name="close-circle" style="text-align: right; color: black;"></ion-icon>
+                    </ion-button>
+                </ion-buttons-->
+            </td>
+        </tr>
+    </table>
 
 
 </ion-content>
