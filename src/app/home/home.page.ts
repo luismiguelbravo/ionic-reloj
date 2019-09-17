@@ -99,7 +99,13 @@ export class HomePage {
         {
             if (data.guardar )
             {
-                vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+                console.log("")
+                console.log("----------- datos recividos del modal -----------")
+                console.log(data)
+                console.log("----------- datos recividos del modal -----------")
+                console.log("")
+                //vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
+                vm.guardar(data)
             }
         }
 
@@ -303,7 +309,7 @@ export class HomePage {
             vm.listaDeFechas = val
             if (val === null) {
                 vm.listaDeFechas = []
-                vm.usarSemilla()
+                // vm.usarSemilla()
             }
             console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
@@ -425,22 +431,22 @@ export class HomePage {
     usarSemilla():void {
         console.log("usarSemilla");
         this.listaDeFechas.push({
-            fecha: "2019-09-22 02:10", titulo: "Viaje a Chile", id: "viajeachile",
-            year: 2019,
-            mes: 9,
-            dia: 22,
-            hora: 23,
-            minuto: 43,
+            fecha: "2020-10-19 00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
+            year: 2020,
+            mes: 10,
+            dia: 19,
+            hora: 0,
+            minuto: 0,
             segundo: 0,
             pasado: false
         });
         this.listaDeFechas.push({
-            fecha: "2019-09-13 23:43", titulo: "Viaje a Perú", id: "viajeaperu",
+            fecha: "2019-10-19 00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
             year: 2019,
-            mes: 9,
-            dia: 13,
-            hora: 23,
-            minuto: 43,
+            mes: 10,
+            dia: 19,
+            hora: 0,
+            minuto: 0,
             segundo: 0,
             pasado: false
         });
@@ -462,25 +468,6 @@ export class HomePage {
             segundo: 0,
             pasado: false
         });
-        this.listaDeFechas.push({fecha: "2021-01-01 00:00", titulo: "Fecha esperada", id: "zonbz5",
-            year: 2021,
-            mes: 1,
-            dia: 1,
-            hora: 0,
-            minuto: 0,
-            segundo: 0,
-            pasado: false
-        });
-        this.listaDeFechas.push({fecha: "2022-07-01 20:55", titulo: "Aplicacion para vender mariposas digitales", id: "cualquf4",
-            year: 2022,
-            mes: 7,
-            dia: 1,
-            hora: 20,
-            minuto: 55,
-            segundo: 0,
-            pasado: false
-        });
-
         this.listaDeFechas.push({fecha: "2019-09-29 00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
             year: 2019,
             mes: 9,
@@ -507,32 +494,25 @@ export class HomePage {
         this.exitoAlguardar();
     }
 
-    guardar(horaDeEntrada, fechaDeEntrada, tituloDeEntrada):void {
+    guardar(datos_para_guardar):void {
         let vm = this
 
-        if (horaDeEntrada === '' || fechaDeEntrada === '' || tituloDeEntrada === '')
-        {
-            vm.errorAlGuardar();
-        }
-        else
-        {
-            let nuevaFecha = new Entrada();
-            nuevaFecha.fecha = fechaDeEntrada.substring(0,10) + ' ' + horaDeEntrada.substring(11, 19);
-            nuevaFecha.titulo = tituloDeEntrada;
-            nuevaFecha.id = Math.random().toString(36).substring(7);
-            vm.listaDeFechas.push(nuevaFecha);
+        let nuevaFecha = new Entrada();
+        nuevaFecha.fecha = datos_para_guardar.fecha_string;
+        nuevaFecha.titulo = datos_para_guardar.titulo;
+        nuevaFecha.id = Math.random().toString(36).substring(7);
+        vm.listaDeFechas.push(nuevaFecha);
 
-            vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
-                if( a.fecha < b.fecha) {return 1;}
-                if( a.fecha > b.fecha) {return -1;}
-                return 0;
-            })
+        vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
+            if( a.fecha < b.fecha) {return 1;}
+            if( a.fecha > b.fecha) {return -1;}
+            return 0;
+        })
 
-            this.listaFiltrada = this.listaDeFechas 
-            vm.storage.set('listaDeFechas', vm.listaDeFechas);
-
-            vm.exitoAlguardar();
-        }
+        this.listaFiltrada = this.listaDeFechas 
+        vm.storage.set('listaDeFechas', vm.listaDeFechas);
+        vm.exitoAlguardar();
+        
     }
 
 
