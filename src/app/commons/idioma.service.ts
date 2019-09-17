@@ -55,6 +55,9 @@ export class IdiomaService {
             {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina"},*/
             {
                 "indice": 26, "Heteroglotonimo": "Español", "Autoglotonimo": "Español",
+                "Invalid_Title": "Título inválido",
+                "Invalid_Year": "Año inválido",
+                "Invalid_Date": "Fecha Inválida",
                 "Welcome": "Bienvenido",
                 "Search": "Buscar",
                 "Order" : "Orden",
@@ -79,18 +82,18 @@ export class IdiomaService {
                 "Add": "Agregar",
                 "Select One": "Seleccione uno",
                 "Months":[
-                    { value: 1, name: "Enero" },
-                    { value: 2, name: "Febrero" },
-                    { value: 3, name: "Marzo" },
-                    { value: 4, name: "Abril" },
-                    { value: 5, name: "Mayo"  },
-                    { value: 6, name: "Junio" },
-                    { value: 7, name: "Julio" },
-                    { value: 8, name: "Agosto" },
-                    { value: 9, name: "Septiembre" },
-                    { value: 10, name: "Octubre" },
-                    { value: 11, name: "Noviembre" },
-                    { value: 12, name: "Diciembre" }
+                    { "value": 0, "name": "Enero" },
+                    { "value": 1, "name": "Febrero" },
+                    { "value": 2, "name": "Marzo" },
+                    { "value": 3, "name": "Abril" },
+                    { "value": 4, "name": "Mayo"  },
+                    { "value": 5, "name": "Junio" },
+                    { "value": 6, "name": "Julio" },
+                    { "value": 7, "name": "Agosto" },
+                    { "value": 8, "name": "Septiembre" },
+                    { "value": 9, "name": "Octubre" },
+                    { "value": 10, "name": "Noviembre" },
+                    { "value": 11, "name": "Diciembre" }
                 ]
             },
             /*{"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
@@ -115,6 +118,9 @@ export class IdiomaService {
             {"indice": 46, "Heteroglotonimo": "Indonesio", "Autoglotonimo": "bahasa Indonesia"},*/
             {
                 "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English",
+                "Invalid_Title": "Invalid Title",
+                "Invalid_Year": "Invalid Year",
+                "Invalid_Date": "Invalid Date",
                 "Welcome": "Welcome",
                 "Search": "Search",
                 "Order" : "Order",
@@ -139,18 +145,18 @@ export class IdiomaService {
                 "Add": "Add",
                 "Select One": "Select One",
                 "Months":[
-                    { value: 1, name: "January" },
-                    { value: 2, name: "February" },
-                    { value: 3, name: "March" },
-                    { value: 4, name: "April" },
-                    { value: 5, name: "May"  },
-                    { value: 6, name: "June" },
-                    { value: 7, name: "July" },
-                    { value: 8, name: "August" },
-                    { value: 9, name: "September" },
-                    { value: 10, name: "October" },
-                    { value: 11, name: "November" },
-                    { value: 12, name: "December" }
+                    { "value": 0, "name": "January" },
+                    { "value": 1, "name": "February"},
+                    { "value": 2, "name": "March" },
+                    { "value": 3, "name": "April" },
+                    { "value": 4, "name": "May"  },
+                    { "value": 5, "name": "June" },
+                    { "value": 6, "name": "July" },
+                    { "value": 7, "name": "August" },
+                    { "value": 8, "name": "September" },
+                    { "value": 9, "name": "October" },
+                    { "value": 10, "name": "November" },
+                    { "value": 11, "name": "December" }
                 ]
             },
             /*{"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
