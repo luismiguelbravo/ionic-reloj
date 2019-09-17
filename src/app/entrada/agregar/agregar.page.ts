@@ -167,7 +167,7 @@ export class AgregarPage implements OnInit {
         });
         this.fecha_invalida = fecha_auxiliar.isValid() === false
         let string_fecha = this.year_de_entrada + "-"
-            + this.agregarCero(this.mes_de_la_entrada) + "-"
+            + this.agregarCero(this.mes_de_la_entrada+1) + "-"
             + this.agregarCero(this.dia_de_la_entrada) + " "
             + this.agregarCero(this.hora_de_la_entrada) + ":"
             + this.agregarCero(this.minuto_de_la_entrada) + ":"
