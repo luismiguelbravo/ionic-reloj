@@ -5,14 +5,32 @@
     border-width: 0.55px;
     border-top-style: solid;
     border-color: #d8d8d8;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+}
 
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+.titulo-invalido {
+    background: white;
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    background-color: #d8cccc;
+}
 
-	overflow: hidden;
-
+.mensaje-de-error {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    background-color: #f04141;
+    font-size: 35px;
+    color: white;
+    font-weight: lighter;
 }
