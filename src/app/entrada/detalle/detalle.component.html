@@ -28,51 +28,51 @@
             <ion-col size="12">
                 <table style="margin: 0 auto;">
                     <tr [hidden]="diferenciaEnYears == 0">
-                        <td class="numero">
-                            {{diferenciaEnYears}}
-                        </td>
                         <td class="label-fecha">
                             {{ idiomaService.idioma_seleccionado.Year }}
                         </td>
+                        <td class="numero">
+                            {{diferenciaEnYears | number:'2.0'}}
+                        </td>
                     </tr> 
                     <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0">
-                        <td style="padding-left: 9px;" class="numero">
-                            {{diferenciaEnMeses}}
-                        </td>
                         <td class="label-fecha" style="padding-right: 9px; ">
                             {{ idiomaService.idioma_seleccionado.Month }}
                         </td>
+                        <td style="padding-left: 9px;" class="numero">
+                            {{diferenciaEnMeses | number:'2.0'}}
+                        </td>
                     </tr> 
                     <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0">
-                        <td class="numero">
-                            {{diferenciaEnDias}}
-                        </td>
                         <td class="label-fecha">
                             {{ idiomaService.idioma_seleccionado.Day }}
                         </td>
+                        <td class="numero">
+                            {{diferenciaEnDias | number:'2.0'}}
+                        </td>
                     </tr> 
                     <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0">
-                        <td class="numero">
-                            {{diferenciaEnHoras}} 
-                        </td>
                         <td class="label-fecha">
                             {{ idiomaService.idioma_seleccionado.Hour }}
                         </td>
+                        <td class="numero">
+                            {{diferenciaEnHoras | number:'2.0'}} 
+                        </td>
                     </tr> 
                     <tr [hidden]="diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0 ">
-                        <td style="padding-left: 9px;" class="numero">
-                            {{diferenciaEnMinutos}}
-                        </td>
                         <td class="label-fecha" style="padding-right: 9px; ">
                             {{ idiomaService.idioma_seleccionado.Minute }}
                         </td>
-                    </tr> 
-                    <tr>    
-                        <td class="numero">
-                            {{diferenciaEnSegundos}} 
+                        <td style="padding-left: 9px;" class="numero">
+                            {{diferenciaEnMinutos | number:'2.0'}}
                         </td>
+                    </tr> 
+                    <tr>
                         <td class="label-fecha">
                             {{ idiomaService.idioma_seleccionado.Second }}
+                        </td>
+                        <td class="numero">
+                            {{diferenciaEnSegundos | number:'2.0'}} 
                         </td>
                     </tr>
                 </table>
