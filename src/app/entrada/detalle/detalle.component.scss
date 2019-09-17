@@ -12,15 +12,16 @@
 }
 
 .label-fecha {
-	font-size: 9px;
+	font-size: 30px;
 	text-align: left;
     vertical-align: middle;
 }
 
 .numero {
     text-align: right;
-    font-size: 33px;
-    font-family: monospace;
+    font-size: 60px;
+    /*font-family: monospace;*/
+    font-family: Share_Tech_Mono-Regular;
 }
 
 ion-card-content {
@@ -54,6 +55,10 @@ ion-card-header{
   src: url('../../../assets/fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf') format("truetype");
 }
 
+@font-face {
+  font-family: 'Share_Tech_Mono-Regular';
+  src: url('../../../assets/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf') format("truetype");
+}
 
 .numero-de-reloj {
     font-family: 'Orbitron';
@@ -101,4 +106,15 @@ ion-card-header{
     animation-duration: 0.2s;
     display: block;
     overflow: hidden;
+}
+
+.border-separador {
+    border-bottom: 1px solid #cacaca;
+}
+
+.barra-de-compartir {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #90ee90;
 }
