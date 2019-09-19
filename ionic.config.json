@@ -1,7 +1,8 @@
 {
   "name": "reloj",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular",
   "id": "5c18f3a9"
