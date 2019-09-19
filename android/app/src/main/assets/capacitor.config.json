@@ -1,0 +1,7 @@
+{
+  "appId": "com.bravoluismiguel.reloj",
+  "appName": "reloj",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
