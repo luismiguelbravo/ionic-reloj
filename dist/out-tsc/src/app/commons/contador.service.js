@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 var ContadorService = /** @class */ (function () {
@@ -22,6 +22,13 @@ var ContadorService = /** @class */ (function () {
         vm.moverse = true;
         vm.ticTac();
     };
+    ContadorService.prototype.getIdSeleccionado = function () {
+        return this.id_seleccionado;
+    };
+    ContadorService.prototype.setIdSeleccionado = function (id) {
+        this.id_seleccionado = id;
+        return this.id_seleccionado;
+    };
     /*
     esta funcion detiene el movimiento del contador
     */
@@ -29,11 +36,11 @@ var ContadorService = /** @class */ (function () {
         var vm = this;
         vm.moverse = false;
     };
-    ContadorService = tslib_1.__decorate([
+    ContadorService = __decorate([
         Injectable({
             providedIn: 'root'
         }),
-        tslib_1.__metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [])
     ], ContadorService);
     return ContadorService;
 }());

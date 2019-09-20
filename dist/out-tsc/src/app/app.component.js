@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -29,12 +29,12 @@ var AppComponent = /** @class */ (function () {
             _this.splashScreen.hide();
         });
     };
-    AppComponent = tslib_1.__decorate([
+    AppComponent = __decorate([
         Component({
             selector: 'app-root',
             templateUrl: 'app.component.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [Platform,
+        __metadata("design:paramtypes", [Platform,
             SplashScreen,
             StatusBar])
     ], AppComponent);

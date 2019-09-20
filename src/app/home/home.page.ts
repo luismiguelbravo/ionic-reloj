@@ -433,7 +433,7 @@ export class HomePage {
         this.listaDeFechas.push({
             fecha: "2020-10-19 00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
             year: 2020,
-            mes: 10,
+            mes: 9,
             dia: 19,
             hora: 0,
             minuto: 0,
@@ -443,7 +443,7 @@ export class HomePage {
         this.listaDeFechas.push({
             fecha: "2020-10-01 00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
             year: 2020,
-            mes: 10,
+            mes: 9,
             dia: 1,
             hora: 0,
             minuto: 0,
@@ -453,7 +453,7 @@ export class HomePage {
         this.listaDeFechas.push({
             fecha: "2019-10-19 00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
             year: 2019,
-            mes: 10,
+            mes: 9,
             dia: 19,
             hora: 0,
             minuto: 0,
@@ -462,7 +462,7 @@ export class HomePage {
         });
         this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
-            mes: 5,
+            mes: 4,
             dia: 27,
             hora: 9,
             minuto: 0,
@@ -471,13 +471,14 @@ export class HomePage {
         });
         this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956",
             year: 2016,
-            mes: 10,
+            mes: 9,
             dia: 19,
             hora: 0,
             minuto: 0,
             segundo: 0,
             pasado: false
         });
+        /*
         this.listaDeFechas.push({fecha: "2019-09-29 00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
             year: 2019,
             mes: 9,
@@ -486,11 +487,11 @@ export class HomePage {
             minuto: 0,
             segundo: 0,
             pasado: false
-        });
+        });*/
 
         this.listaDeFechas.push({fecha: "2019-09-12 22:30", titulo: "Deje de fumar y beber", id: "Reunión Postulantes",
-            year: 2022,
-            mes: 9,
+            year: 2019,
+            mes: 8,
             dia: 12,
             hora: 20,
             minuto: 0,

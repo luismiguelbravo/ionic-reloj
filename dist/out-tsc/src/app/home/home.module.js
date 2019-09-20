@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { DetalleComponent } from '../entrada/detalle/detalle.component';
 var HomePageModule = /** @class */ (function () {
     function HomePageModule() {
     }
-    HomePageModule = tslib_1.__decorate([
+    HomePageModule = __decorate([
         NgModule({
             imports: [
                 CommonModule,

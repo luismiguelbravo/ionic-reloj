@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Component } from '@angular/core';
 var ListPage = /** @class */ (function () {
     function ListPage() {
@@ -25,13 +25,13 @@ var ListPage = /** @class */ (function () {
     }
     ListPage.prototype.ngOnInit = function () {
     };
-    ListPage = tslib_1.__decorate([
+    ListPage = __decorate([
         Component({
             selector: 'app-list',
             templateUrl: 'list.page.html',
             styleUrls: ['list.page.scss']
         }),
-        tslib_1.__metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [])
     ], ListPage);
     return ListPage;
 }());

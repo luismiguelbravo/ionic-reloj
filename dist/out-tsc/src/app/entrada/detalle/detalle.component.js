@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __awaiter, __decorate, __generator, __metadata } from "tslib";
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { Entrada } from '../../Entrada';
@@ -6,12 +6,19 @@ import { ContadorService } from '../../commons/contador.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { AlertController } from '@ionic/angular';
+import { ViewChild, ElementRef } from '@angular/core';
+import { IdiomaService } from '../../commons/idioma.service';
+// plugin para compartir
+import { Plugins } from '@capacitor/core';
+var Share = Plugins.Share;
+//     plugin para compartir
 var DetalleComponent = /** @class */ (function () {
-    function DetalleComponent(contadorService, socialSharing, clipboard, alertController) {
+    function DetalleComponent(contadorService, socialSharing, clipboard, alertController, idiomaService) {
         this.contadorService = contadorService;
         this.socialSharing = socialSharing;
         this.clipboard = clipboard;
         this.alertController = alertController;
+        this.idiomaService = idiomaService;
         this.movimientoCompletoEventEmitter = new EventEmitter();
         this.movientoCompletoSuscripcion = null;
         this.fechaDeHoy = moment();
@@ -25,6 +32,7 @@ var DetalleComponent = /** @class */ (function () {
         this.diferenciaEnMeses = null;
         this.diferenciaEnYears = null;
         this.pasado = false;
+        this.mostrarReloj = false;
     }
     DetalleComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -32,6 +40,18 @@ var DetalleComponent = /** @class */ (function () {
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(function () {
             _this.calcularDiferencias();
         });
+    };
+    DetalleComponent.prototype.seleccionar_reloj = function (id) {
+        var vm = this;
+        vm.contadorService.setIdSeleccionado(id);
+        /*
+            console.log(`scrolling to ${id}`);
+            let el = document.getElementById(id);
+            el.scrollIntoView();
+        */
+    };
+    DetalleComponent.prototype.get_id_Seleccionado = function () {
+        return this.contadorService.getIdSeleccionado();
     };
     DetalleComponent.prototype.nombreDeMes = function (indice) {
         var arregloNombreDeMes = [
@@ -133,10 +153,38 @@ var DetalleComponent = /** @class */ (function () {
         }
         return mensaje;
     };
+    DetalleComponent.prototype.compartirConCapacitor = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var vm, urlParaCompartir, shareRet;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        vm = this;
+                        urlParaCompartir = "titulo=" + vm.entrada.titulo
+                            + "year=" + vm.entrada.year
+                            + "month" + vm.entrada.mon
+                            + "mes=" + vm.entrada.mes
+                            + "parametro=" + vm.entrada.dia
+                            + "parametro=" + vm.entrada.hora
+                            + "parametro=" + vm.entrada.minuto
+                            + "parametro=" + vm.entrada.segundo;
+                        return [4 /*yield*/, Share.share({
+                                title: vm.entrada.titulo,
+                                text: vm.construirMensaje(),
+                                url: "https://mimuqui.com/onlineTimer?title=''",
+                                dialogTitle: 'Share with buddies'
+                            })];
+                    case 1:
+                        shareRet = _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     DetalleComponent.prototype.copyToClipBoard = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
+        return __awaiter(this, void 0, void 0, function () {
             var vm, alert;
-            return tslib_1.__generator(this, function (_a) {
+            return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         console.log('copyToClipBoard()');
@@ -159,9 +207,9 @@ var DetalleComponent = /** @class */ (function () {
         });
     };
     DetalleComponent.prototype.shareWhatsApp = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
+        return __awaiter(this, void 0, void 0, function () {
             var vm, mensajeParaEnviar;
-            return tslib_1.__generator(this, function (_a) {
+            return __generator(this, function (_a) {
                 console.log('shareWhatsApp');
                 vm = this;
                 mensajeParaEnviar = vm.construirMensaje();
@@ -181,24 +229,29 @@ var DetalleComponent = /** @class */ (function () {
             });
         });
     };
-    tslib_1.__decorate([
+    __decorate([
         Output(),
-        tslib_1.__metadata("design:type", Object)
+        __metadata("design:type", Object)
     ], DetalleComponent.prototype, "movimientoCompletoEventEmitter", void 0);
-    tslib_1.__decorate([
+    __decorate([
+        ViewChild('myCanvas'),
+        __metadata("design:type", ElementRef)
+    ], DetalleComponent.prototype, "myCanvas", void 0);
+    __decorate([
         Input(),
-        tslib_1.__metadata("design:type", Entrada)
+        __metadata("design:type", Entrada)
     ], DetalleComponent.prototype, "entrada", void 0);
-    DetalleComponent = tslib_1.__decorate([
+    DetalleComponent = __decorate([
         Component({
             selector: 'app-detalle',
             templateUrl: './detalle.component.html',
             styleUrls: ['./detalle.component.scss'],
         }),
-        tslib_1.__metadata("design:paramtypes", [ContadorService,
+        __metadata("design:paramtypes", [ContadorService,
             SocialSharing,
             Clipboard,
-            AlertController])
+            AlertController,
+            IdiomaService])
     ], DetalleComponent);
     return DetalleComponent;
 }());

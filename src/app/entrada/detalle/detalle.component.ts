@@ -54,10 +54,24 @@ export class DetalleComponent implements OnInit {
 
     ngOnInit() {
 
+        /*
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
             'YYYY-MM-DD HH:mm'
         );
+
+        let nuevaFecha = moment({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, milliseconds:123});
+        */
+        let vm = this
+        this.finalDeLaEspera = moment({
+            years:   vm.entrada.year,
+            months:  vm.entrada.mes,
+            date:    vm.entrada.dia,
+            hours:   vm.entrada.hora,
+            minutes: vm.entrada.minuto,
+            seconds: vm.entrada.segundo,
+            milliseconds:123
+        })
 
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
@@ -228,15 +242,27 @@ export class DetalleComponent implements OnInit {
             mensaje = mensaje + '\n' + "Aún falta " + sumarioDeTiempo
         }
 
+        mensaje = mensaje + '\n'
+        mensaje = mensaje + '\n'
+
         return mensaje;
     }
 
     async compartirConCapacitor() {
         let vm = this
+
+        let urlParaCompartir =  "https://mimuqui.com/onlineTimer"
+            + "?year=" + vm.entrada.year
+            + "?mes=" + vm.entrada.mes
+            + "?dia=" + vm.entrada.dia
+            + "?hora=" +  vm.entrada.hora
+            + "?minuto=" + vm.entrada.minuto
+            + "?segundo=" + vm.entrada.segundo
+
         let shareRet = await Share.share({
-          title: 'See cool stuff',
+          title: vm.entrada.titulo,
           text: vm.construirMensaje(),
-          url: 'http://ionicframework.com/',
+          url: urlParaCompartir,
           dialogTitle: 'Share with buddies'
         });
     }

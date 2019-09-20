@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -15,7 +15,7 @@ import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
-    AppModule = tslib_1.__decorate([
+    AppModule = __decorate([
         NgModule({
             declarations: [AppComponent],
             entryComponents: [],

@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { ListPage } from './list.page';
 var ListPageModule = /** @class */ (function () {
     function ListPageModule() {
     }
-    ListPageModule = tslib_1.__decorate([
+    ListPageModule = __decorate([
         NgModule({
             imports: [
                 CommonModule,
