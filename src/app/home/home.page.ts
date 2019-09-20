@@ -309,7 +309,7 @@ export class HomePage {
             vm.listaDeFechas = val
             if (val === null) {
                 vm.listaDeFechas = []
-                // vm.usarSemilla()
+                vm.usarSemilla()
             }
             console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
@@ -478,12 +478,12 @@ export class HomePage {
             pasado: false
         });
 
-        this.listaDeFechas.push({fecha: "2019-09-09 22:30", titulo: "Reunión Postulantes", id: "Reunión Postulantes",
+        this.listaDeFechas.push({fecha: "2019-09-12 22:30", titulo: "Deje de fumar y beber", id: "Reunión Postulantes",
             year: 2022,
-            mes: 7,
-            dia: 1,
+            mes: 9,
+            dia: 12,
             hora: 20,
-            minuto: 55,
+            minuto: 0,
             segundo: 0,
             pasado: false
         });

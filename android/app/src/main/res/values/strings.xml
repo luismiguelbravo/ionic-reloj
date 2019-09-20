@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">reloj</string>
     <string name="title_activity_main">reloj</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="fileprovider_authority">io.ionic.starter.fileprovider</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">com.bravoluismiguel.reloj</string>
+    <string name="fileprovider_authority">com.bravoluismiguel.reloj.fileprovider</string>
+    <string name="custom_url_scheme">com.bravoluismiguel.reloj</string>
 </resources>
