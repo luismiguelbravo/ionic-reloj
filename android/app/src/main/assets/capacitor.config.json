@@ -1,6 +1,6 @@
 {
-  "appId": "com.bravoluismiguel.reloj",
-  "appName": "reloj",
+  "appId": "com.bravoluismiguel.mimuqui",
+  "appName": "Mimuqui",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"
