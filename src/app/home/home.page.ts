@@ -441,6 +441,16 @@ export class HomePage {
             pasado: false
         });
         this.listaDeFechas.push({
+            fecha: "2020-10-01 00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
+            year: 2020,
+            mes: 10,
+            dia: 1,
+            hora: 0,
+            minuto: 0,
+            segundo: 0,
+            pasado: false
+        });
+        this.listaDeFechas.push({
             fecha: "2019-10-19 00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
             year: 2019,
             mes: 10,

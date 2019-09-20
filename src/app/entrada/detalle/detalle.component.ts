@@ -9,6 +9,11 @@ import { AlertController } from '@ionic/angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IdiomaService } from '../../commons/idioma.service'
 
+// plugin para compartir
+import { Plugins } from '@capacitor/core';
+const { Share } = Plugins;
+//     plugin para compartir
+
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.component.html',
@@ -224,6 +229,16 @@ export class DetalleComponent implements OnInit {
         }
 
         return mensaje;
+    }
+
+    async compartirConCapacitor() {
+        let vm = this
+        let shareRet = await Share.share({
+          title: 'See cool stuff',
+          text: vm.construirMensaje(),
+          url: 'http://ionicframework.com/',
+          dialogTitle: 'Share with buddies'
+        });
     }
 
     async copyToClipBoard() {
