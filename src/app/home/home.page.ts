@@ -431,7 +431,7 @@ export class HomePage {
     usarSemilla():void {
         console.log("usarSemilla");
         this.listaDeFechas.push({
-            fecha: "2020-10-19 00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
+            fecha: "2020-10-19 00:00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
             year: 2020,
             mes: 9,
             dia: 19,
@@ -441,7 +441,7 @@ export class HomePage {
             pasado: false
         });
         this.listaDeFechas.push({
-            fecha: "2020-10-01 00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
+            fecha: "2020-10-01 00:00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
             year: 2020,
             mes: 9,
             dia: 1,
@@ -451,7 +451,7 @@ export class HomePage {
             pasado: false
         });
         this.listaDeFechas.push({
-            fecha: "2019-10-19 00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
+            fecha: "2019-10-19 00:00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
             year: 2019,
             mes: 9,
             dia: 19,
@@ -460,7 +460,7 @@ export class HomePage {
             segundo: 0,
             pasado: false
         });
-        this.listaDeFechas.push({fecha: "2019-05-27 09:00", titulo: "Empleo en 3it", id: "donb95",
+        this.listaDeFechas.push({fecha: "2019-05-27 09:00:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
             mes: 4,
             dia: 27,
@@ -469,7 +469,7 @@ export class HomePage {
             segundo: 0,
             pasado: false
         });
-        this.listaDeFechas.push({fecha: "2016-10-19 00:00", titulo: "Llegada a Chile", id: "donb956",
+        this.listaDeFechas.push({fecha: "2016-10-19 00:00:00", titulo: "Llegada a Chile", id: "donb956",
             year: 2016,
             mes: 9,
             dia: 19,
@@ -479,7 +479,7 @@ export class HomePage {
             pasado: false
         });
         /*
-        this.listaDeFechas.push({fecha: "2019-09-29 00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
+        this.listaDeFechas.push({fecha: "2019-09-29 00:00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
             year: 2019,
             mes: 9,
             dia: 29,
@@ -489,7 +489,7 @@ export class HomePage {
             pasado: false
         });*/
 
-        this.listaDeFechas.push({fecha: "2019-09-12 22:30", titulo: "Deje de fumar y beber", id: "Reunión Postulantes",
+        this.listaDeFechas.push({fecha: "2019-09-12 22:30:00", titulo: "Deje de fumar y beber", id: "Reunión Postulantes",
             year: 2019,
             mes: 8,
             dia: 12,

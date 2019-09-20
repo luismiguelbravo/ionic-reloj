@@ -90,4 +90,8 @@ You must build your Ionic project at least once before adding any native platfor
 
   Abrir el proyecto en Android Studio y darle play
 
-
+pendientes:::
+  cosas que quiero
+    editar
+    verificar la agregacion
+    notificaciones

@@ -54,16 +54,16 @@ export class DetalleComponent implements OnInit {
 
     ngOnInit() {
 
-        /*
+        
         this.finalDeLaEspera = moment(
             this.entrada.fecha,
-            'YYYY-MM-DD HH:mm'
+            'YYYY-MM-DD HH:mm:ss'
         );
 
         let nuevaFecha = moment({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, milliseconds:123});
-        */
+        
         let vm = this
-        this.finalDeLaEspera = moment({
+        /*this.finalDeLaEspera = moment({
             years:   vm.entrada.year,
             months:  vm.entrada.mes,
             date:    vm.entrada.dia,
@@ -71,7 +71,13 @@ export class DetalleComponent implements OnInit {
             minutes: vm.entrada.minuto,
             seconds: vm.entrada.segundo,
             milliseconds:123
-        })
+        })*/
+
+        console.log("")
+        console.log(" ----------- this.finalDeLaEspera ----------- ")
+        console.log(this.finalDeLaEspera)
+        console.log(" ----------- this.finalDeLaEspera ----------- ")
+        console.log("")
 
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
