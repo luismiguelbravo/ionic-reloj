@@ -59,8 +59,6 @@ export class DetalleComponent implements OnInit {
             this.entrada.fecha,
             'YYYY-MM-DD HH:mm:ss'
         );
-
-        let nuevaFecha = moment({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, milliseconds:123});
         
         let vm = this
         /*this.finalDeLaEspera = moment({
