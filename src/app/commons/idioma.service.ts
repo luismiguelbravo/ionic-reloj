@@ -95,7 +95,8 @@ export class IdiomaService {
                     { "value": 10, "name": "Noviembre" },
                     { "value": 11, "name": "Diciembre" }
                 ],
-                "Copy": "Copiar"
+                "Copy": "Copiar",
+                "Share": "Compartir"
             },
             /*{"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
             {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel"},
@@ -159,7 +160,8 @@ export class IdiomaService {
                     { "value": 10, "name": "November" },
                     { "value": 11, "name": "December" }
                 ],
-                "Copy": "Copy"
+                "Copy": "Copy",
+                "Share": "Share"
             },
             /*{"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
             {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska"},
