@@ -7,7 +7,6 @@
         <b style="font-size: 18px;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
     </ion-card-header>
     <ion-card-content>
-
         <!--ion-fab vertical="bootom" horizontal="center" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
@@ -30,7 +29,7 @@
                         <tr>
                             <td style="text-align: center">
                                 <ion-button size="medium" color="light" (click)="compartirConCapacitor()">
-                                    Compartir
+                                    {{ idiomaService.idioma_seleccionado.Share }}
                                     <ion-icon name="share" slot="end"></ion-icon>
                                 </ion-button>
                             </td>
