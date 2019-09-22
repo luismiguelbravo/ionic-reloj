@@ -511,19 +511,22 @@ export class HomePage {
         let nuevaFecha = new Entrada();
         nuevaFecha.fecha = datos_para_guardar.fecha_string;
         nuevaFecha.titulo = datos_para_guardar.titulo;
+        nuevaFecha.year = datos_para_guardar.year        
+        nuevaFecha.mes = datos_para_guardar.mes        
+        nuevaFecha.dia = datos_para_guardar.dia
+        nuevaFecha.hora = datos_para_guardar.hora;
+        nuevaFecha.minuto = datos_para_guardar.minuto
+        nuevaFecha.segundo = datos_para_guardar.segundo
         nuevaFecha.id = Math.random().toString(36).substring(7);
         vm.listaDeFechas.push(nuevaFecha);
-
         vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
             if( a.fecha < b.fecha) {return 1;}
             if( a.fecha > b.fecha) {return -1;}
             return 0;
         })
-
         this.listaFiltrada = this.listaDeFechas 
         vm.storage.set('listaDeFechas', vm.listaDeFechas);
         vm.exitoAlguardar();
-        
     }
 
 
