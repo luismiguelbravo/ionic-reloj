@@ -84,7 +84,7 @@ export class HomePage {
         public modalController: ModalController,
         public idiomaService: IdiomaService
     ) { 
-        console.log("constructor del home")
+        // console.log("constructor del home")
     }
 
 
@@ -99,11 +99,11 @@ export class HomePage {
         {
             if (data.guardar )
             {
-                console.log("")
-                console.log("----------- datos recividos del modal -----------")
-                console.log(data)
-                console.log("----------- datos recividos del modal -----------")
-                console.log("")
+                // console.log("")
+                // console.log("----------- datos recividos del modal -----------")
+                // console.log(data)
+                // console.log("----------- datos recividos del modal -----------")
+                // console.log("")
                 //vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
                 vm.guardar(data)
             }
@@ -139,9 +139,16 @@ export class HomePage {
                     }
                     index++
                 }
-
-                vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
-                vm.listaDeFechas[index].titulo = data.tituloDeEntrada
+                //moment().format(); 
+                //vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
+                vm.listaDeFechas[index].titulo = data.titulo
+                vm.listaDeFechas[index].fecha = data.fecha_string
+                vm.listaDeFechas[index].year = data.year
+                vm.listaDeFechas[index].mes = data.mes
+                vm.listaDeFechas[index].dia = data.dia
+                vm.listaDeFechas[index].hora = data.hora
+                vm.listaDeFechas[index].minuto = data.minuto
+                vm.listaDeFechas[index].segundo = data.segundo
 
                 vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
                     if( a.fecha < b.fecha) {return 1;}
@@ -249,12 +256,12 @@ export class HomePage {
                 role: 'cancel',
                 cssClass: 'secondary',
                 handler: (blah) => {
-                    console.log('Confirm Cancel: blah');
+                    // console.log('Confirm Cancel: blah');
                 }
             }, {
                 text: vm.miIdioma['Delete'],
                 handler: () => {
-                console.log('Confirm Okay');
+                // console.log('Confirm Okay');
                     for( var i = 0; i < this.listaDeFechas.length; i++)
                     { 
                         if ( this.listaDeFechas[i].id === id) {
@@ -278,7 +285,7 @@ export class HomePage {
     bajalo_para_aca(id) {
       let vm = this;
       vm.contadorService.setIdSeleccionado(id);
-      console.log(`scrolling to ${id}`);
+      // console.log(`scrolling to ${id}`);
       let el = document.getElementById(id);
       el.scrollIntoView();
     }    
@@ -286,7 +293,7 @@ export class HomePage {
     seleccionar_reloj(id) {
       let vm = this;
       vm.contadorService.setIdSeleccionado(id);
-      console.log(`scrolling to ${id}`);
+      // console.log(`scrolling to ${id}`);
       let el = document.getElementById(id);
       el.scrollIntoView();
     }
@@ -311,7 +318,7 @@ export class HomePage {
                 vm.listaDeFechas = []
                 vm.usarSemilla()
             }
-            console.log(this.listaDeFechas)
+            // console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
                 function(a,b) 
                 {
@@ -321,7 +328,7 @@ export class HomePage {
                 }
             );
 
-            console.log("recorriendo las fechas");
+            // console.log("recorriendo las fechas");
             
             let right_now = moment();
             let fecha_auxiliar = null;
@@ -344,7 +351,7 @@ export class HomePage {
 
                 if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
                    // date is past
-                   console.log(entrada);
+                   // console.log(entrada);
                    entrada.pasado = true;
                    alguna_modificacion = true;
 
@@ -353,7 +360,7 @@ export class HomePage {
             });
 
             if (alguna_modificacion) {
-                console.log("------------- ocurrio alguna modificacion ------------- ");
+                // console.log("------------- ocurrio alguna modificacion ------------- ");
                 this.storage.set('listaDeFechas', this.listaDeFechas);
             }
 
@@ -376,13 +383,13 @@ export class HomePage {
 
         // preguntar por el idioma seleccionado
         vm.storage.get('miIdioma').then((miIdioma) => {
-            console.log("Idioma seleccionado");
+            // console.log("Idioma seleccionado");
 
-            console.log("");
-            console.log(" --------- miIdioma --------- ");
-            console.log(miIdioma);
-            console.log(" --------- miIdioma --------- ");
-            console.log("");
+            // console.log("");
+            // console.log(" --------- miIdioma --------- ");
+            // console.log(miIdioma);
+            // console.log(" --------- miIdioma --------- ");
+            // console.log("");
             if (miIdioma === null){
                 vm.seleccionarIdioma();
             }
@@ -410,11 +417,11 @@ export class HomePage {
         
         if (typeof data !== "undefined")
         {
-            console.log("")
-            console.log(" ------------ data.guardar ------------")
-            console.log(data.guardar)
-            console.log(" ------------ data.guardar ------------")
-            console.log("")
+            // console.log("")
+            // console.log(" ------------ data.guardar ------------")
+            // console.log(data.guardar)
+            // console.log(" ------------ data.guardar ------------")
+            // console.log("")
             // si puedo guardar
             if (typeof data.guardar === "undefined" || data.guardar !== false)
             {
@@ -429,7 +436,7 @@ export class HomePage {
 
 
     usarSemilla():void {
-        console.log("usarSemilla");
+        // console.log("usarSemilla");
         this.listaDeFechas.push({
             fecha: "2020-10-19 00:00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
             year: 2020,
@@ -531,7 +538,7 @@ export class HomePage {
 
 
     debug():void {
-        console.log(this.listaDeFechas);
+        // console.log(this.listaDeFechas);
     }
 
     buscar():void {
@@ -543,11 +550,11 @@ export class HomePage {
 
     mostarDetalle(entrada): void
     {
-        console.log("");
-        console.log(" ----------- mostarDetalle ----------- ");
-        console.log(entrada);
-        console.log(" ----------- mostarDetalle ----------- ");
-        console.log("");
+        // console.log("");
+        // console.log(" ----------- mostarDetalle ----------- ");
+        // console.log(entrada);
+        // console.log(" ----------- mostarDetalle ----------- ");
+        // console.log("");
     }
 
 
