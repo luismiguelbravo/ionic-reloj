@@ -27,6 +27,7 @@ export class AgregarPage implements OnInit {
     minuto_de_la_entrada:number
     segundo_de_la_entrada:number
     intento_guardar = false;
+    id_edicion : string;
 
 
     lista_de_dias = DIAS;
@@ -50,24 +51,24 @@ export class AgregarPage implements OnInit {
         idiomaService.idioma_seleccionado
 
 
-        
+        this.id_edicion = ""
 
-        console.log("")
-        console.log(" ---------- vm.idiomaService ---------- ")
-        console.log(vm.idiomaService.idioma_seleccionado);
-        console.log(" ---------- vm.idiomaService ---------- ")
-        console.log("")  
+        // console.log.log("")
+        // console.log.log(" ---------- vm.idiomaService ---------- ")
+        // console.log.log(vm.idiomaService.idioma_seleccionado);
+        // console.log.log(" ---------- vm.idiomaService ---------- ")
+        // console.log.log("")  
         vm.pageTitle = vm.idiomaService.idioma_seleccionado["Add"];
-        console.log(" ---------- constructor del agregar ---------- ")  
+        // console.log.log(" ---------- constructor del agregar ---------- ")  
 
-        console.log("")
-        console.log(" ---------- this.entrada ---------- ")
-        console.log(vm.entradaDeEdicion);
-        console.log(" ---------- this.entrada ---------- ")
-        console.log("")  
+        // console.log.log("")
+        // console.log.log(" ---------- this.entrada ---------- ")
+        // console.log.log(vm.entradaDeEdicion);
+        // console.log.log(" ---------- this.entrada ---------- ")
+        // console.log.log("")  
 
         if (typeof vm.entradaDeEdicion === "undefined"){
-            console.log("Estoy agregando")
+            // console.log.log("Estoy agregando")
             let fecha_actual = moment()
             this.year_de_entrada = fecha_actual.year()
             this.mes_de_la_entrada = fecha_actual.month()
@@ -78,22 +79,23 @@ export class AgregarPage implements OnInit {
         }
         else 
         {
-            console.log("estoy editando")
-            let output = [vm.entradaDeEdicion.fecha.slice(0, 10), "T", vm.entradaDeEdicion.fecha.slice(11)].join('');
+            // console.log.log("estoy editando")
+            //let output = [vm.entradaDeEdicion.fecha.slice(0, 10), "T", vm.entradaDeEdicion.fecha.slice(11)].join('');
             
-            console.log("")
-            console.log(" ---------- output---------- ")
-            console.log(output)
-            console.log(" ---------- output---------- ")
-            console.log("")  
-            /*
-            vm.horaDeEntrada = output;
-            vm.fechaDeEntrada = output; 
-            vm.tituloDeEntrada = vm.entradaDeEdicion.titulo;
-            vm.pageTitle = "Editar"
-            */
+            // console.log.log("")
+            // console.log.log(" ---------- output---------- ")
+            // console.log.log(output)
+            // console.log.log(" ---------- output---------- ")
+            // console.log.log("")  
 
-
+            this.titulo_de_entrada = vm.entradaDeEdicion.titulo
+            this.year_de_entrada = vm.entradaDeEdicion.year
+            this.mes_de_la_entrada = vm.entradaDeEdicion.mes
+            this.dia_de_la_entrada = vm.entradaDeEdicion.dia
+            this.hora_de_la_entrada = vm.entradaDeEdicion.hora
+            this.minuto_de_la_entrada = vm.entradaDeEdicion.minuto
+            this.segundo_de_la_entrada = vm.entradaDeEdicion.segundo
+            this.id_edicion = vm.entradaDeEdicion.id
         }
     }
 
@@ -107,9 +109,9 @@ export class AgregarPage implements OnInit {
 
         let vm = this
 
-        console.log("")
-        console.log("cerrando la vaina")
-        console.log("")
+        // console.log.log("")
+        // console.log.log("cerrando la vaina")
+        // console.log.log("")
 
         vm.modalController.dismiss({
             "guardar" : false
@@ -178,7 +180,7 @@ export class AgregarPage implements OnInit {
         {
           vm.modalController.dismiss({
                 guardar : true,
-                fecha_string: string_fecha,
+                fecha_string: fecha_auxiliar.format(),
                 titulo: this.titulo_de_entrada,
                 year: this.year_de_entrada,
                 mes: this.mes_de_la_entrada,
@@ -186,7 +188,8 @@ export class AgregarPage implements OnInit {
                 hora: this.hora_de_la_entrada,
                 minuto: this.minuto_de_la_entrada,
                 segundo: this.segundo_de_la_entrada,
-                pasado: false
+                pasado: false,
+                id : this.id_edicion
           });
         }
 
