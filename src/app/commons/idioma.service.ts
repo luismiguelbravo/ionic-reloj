@@ -11,18 +11,21 @@ export class IdiomaService {
     {
         let vm = this;
         vm.idioma_seleccionado = idioma;
-
-        console.log("");
-        console.log(" -------------- vm.idioma_seleccionado en el servicio compartido -------------- ");
-        console.log(vm.idioma_seleccionado);
-        console.log(" -------------- vm.idioma_seleccionado en el servicio compartido -------------- ");
-        console.log("");
     }
     
     idioma_actual(idioma) : any 
     {
         let vm = this;
         return vm.idioma_seleccionado;
+    }
+
+    get_idioma_por_defecto() : any
+    {
+        let lista_de_idiomas = this.listaDeIdiomas();
+        let idiomaPorDefecto = lista_de_idiomas.find(function(element) {
+            return element.indice === 47;
+        });
+        return idiomaPorDefecto;
     }
 
     listaDeIdiomas(): any[]{
