@@ -37,7 +37,8 @@ export class HomePage {
     palabraDeBusqueda = ""
 
     mostrarFormulario = false;
-    miIdioma = {
+    
+    /*miIdioma = {
                 "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English",
                 "Welcome": "Welcome",
                 "Search": "Search",
@@ -73,7 +74,7 @@ export class HomePage {
                     "December"
                 ]
             };
-
+    */
 
     constructor(
         public alertController: AlertController,
@@ -222,11 +223,12 @@ export class HomePage {
 
     async exitoAlguardar() {
         let vm = this
+
         const alert = await this.alertController.create({
-            header: 'Éxito',
+            header: vm.miIdioma.Success,
             subHeader: '',
-            message: 'Fecha guardada correctamente.',
-            buttons: ['OK']
+            message: vm.miIdioma.Event_saved_successfully,
+            buttons: [vm.miIdioma.Accept]
         });
         await alert.present()
         vm.fechaDeEntrada = ''
