@@ -49,13 +49,7 @@ export class AgregarPage implements OnInit {
         vm.entradaDeEdicion = navParams.get('entrada')
         idiomaService.idioma_seleccionado
 
-        let fecha_actual = moment()
-        this.year_de_entrada = fecha_actual.year()
-        this.mes_de_la_entrada = fecha_actual.month()
-        this.dia_de_la_entrada = fecha_actual.date()
-        this.hora_de_la_entrada = fecha_actual.hour()
-        this.minuto_de_la_entrada = fecha_actual.minute()
-        this.segundo_de_la_entrada = fecha_actual.second()
+
         
 
         console.log("")
@@ -74,6 +68,13 @@ export class AgregarPage implements OnInit {
 
         if (typeof vm.entradaDeEdicion === "undefined"){
             console.log("Estoy agregando")
+            let fecha_actual = moment()
+            this.year_de_entrada = fecha_actual.year()
+            this.mes_de_la_entrada = fecha_actual.month()
+            this.dia_de_la_entrada = fecha_actual.date()
+            this.hora_de_la_entrada = fecha_actual.hour()
+            this.minuto_de_la_entrada = fecha_actual.minute()
+            this.segundo_de_la_entrada = fecha_actual.second()
         }
         else 
         {
