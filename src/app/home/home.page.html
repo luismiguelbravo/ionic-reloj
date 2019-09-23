@@ -155,19 +155,17 @@
         </table-->
                     <table class="tabla-menu">
                         <tr>
-                            <td style="background: #0cd1e8">
-                                <ion-buttons slot="primary" class="eliminar" style="float: left;">
-                                    <ion-button color="primary" (click)="editar(entrada)">
-                                        <ion-icon slot="icon-only" name="create" style="color: white;"></ion-icon>
-                                    </ion-button>
-                                </ion-buttons>
+                            <td style="background: #0cd1e8; width: 50%; text-align: center; vertical-align: middle; ">
+                                <span color="primary" (click)="editar(entrada)" style="font-size: 24px; width: 100%; display: block;">
+                                    <ion-icon slot="icon-only" name="create" style="color: white;"></ion-icon>
+                                </span>
                             </td>
-                            <td style="background: #f04141">
-                                <ion-buttons slot="primary" class="eliminar">
-                                    <ion-button (click)="intentarEliminar(entrada.id)">
+                            <td style="background: #f04141; width: 50%; text-align: center; vertical-align: middle;">
+                                <!-- ion-buttons slot="primary" class="eliminar"-->
+                                    <span (click)="intentarEliminar(entrada.id)"  style="font-size: 24px; width: 100%; display: block;">
                                         <ion-icon slot="icon-only" name="trash" style="text-align: right; color: black;"></ion-icon>
-                                    </ion-button>
-                                </ion-buttons>
+                                    </span>
+                                <!--/ion-buttons-->
                             </td>
                         </tr>
                     </table>
