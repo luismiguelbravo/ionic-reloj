@@ -321,7 +321,10 @@ export class HomePage {
         // preguntar por el idioma seleccionado
         vm.storage.get('miIdioma').then((miIdioma) => {
             if (miIdioma === null){
-                vm.seleccionarIdioma();
+                // establezco por defecto el idioma ingles
+                vm.miIdioma = vm.idiomaService.get_idioma_por_defecto()
+                vm.idiomaService.seleccionar_idioma(vm.miIdioma)
+                vm.seleccionarIdioma()
             }
             else{
                 vm.idiomaService.seleccionar_idioma(miIdioma);
