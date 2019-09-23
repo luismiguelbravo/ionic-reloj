@@ -37,44 +37,7 @@ export class HomePage {
     palabraDeBusqueda = ""
 
     mostrarFormulario = false;
-    
-    /*miIdioma = {
-                "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English",
-                "Welcome": "Welcome",
-                "Search": "Search",
-                "Ascending order": "Ascending order",
-                "Descending order": "Descending order",
-                "Save": "Save",
-                "Cancel": "Cancel",
-                "Success": "Success",
-                "Event saved successfully.": "Event saved successfully.",
-                "Warning": "Warning",
-                "This action cannot be reversed.": "This action cannot be reversed.",
-                "Remove": "Remove",
-                "Title": "Title",
-                "Event": "Event",
-                "Year": "Year",
-                "Month": "Month",
-                "Day": "Day",
-                "Hour": "Hour",
-                "Minute": "Minute",
-                "Second": "Second",
-                "Months":[
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December"
-                ]
-            };
-    */
+    miIdioma = null
 
     constructor(
         public alertController: AlertController,
@@ -548,15 +511,5 @@ export class HomePage {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  element.fecha.includes(vm.palabraDeBusqueda) 
         });
     }
-
-    mostarDetalle(entrada): void
-    {
-        // console.log("");
-        // console.log(" ----------- mostarDetalle ----------- ");
-        // console.log(entrada);
-        // console.log(" ----------- mostarDetalle ----------- ");
-        // console.log("");
-    }
-
 
 }
