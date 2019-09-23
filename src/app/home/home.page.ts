@@ -47,9 +47,7 @@ export class HomePage {
         public actionSheetController: ActionSheetController,
         public modalController: ModalController,
         public idiomaService: IdiomaService
-    ) { 
-        // console.log("constructor del home")
-    }
+    ) { }
 
 
     async mostrarFomulario() {
@@ -63,22 +61,16 @@ export class HomePage {
         {
             if (data.guardar )
             {
-                // console.log("")
-                // console.log("----------- datos recividos del modal -----------")
-                // console.log(data)
-                // console.log("----------- datos recividos del modal -----------")
-                // console.log("")
-                //vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
                 vm.guardar(data)
             }
         }
-
     }
 
+    /*
+        mostrar el modal, 
+        pasarle como parametro la vaina que estoy editando
+    */
     async editar(entrada){
-        // mostrar el modal, 
-        // pasarle como parametro la vaina que estoy editando
-
         let vm = this;
         const modal = await this.modalController.create({
             component: AgregarPage,
@@ -95,7 +87,6 @@ export class HomePage {
         {
             if (data.guardar )
             {
-                // vm.guardar(data.horaDeEntrada, data.fechaDeEntrada, data.tituloDeEntrada )
                 let index = 0;
                 while(index < vm.listaDeFechas.length) {
                     if (vm.listaDeFechas[index].id === entrada.id){
@@ -103,8 +94,6 @@ export class HomePage {
                     }
                     index++
                 }
-                //moment().format(); 
-                //vm.listaDeFechas[index].fecha = data.fechaDeEntrada.substring(0,10) + ' ' + data.horaDeEntrada.substring(11, 19);
                 vm.listaDeFechas[index].titulo = data.titulo
                 vm.listaDeFechas[index].fecha = data.fecha_string
                 vm.listaDeFechas[index].year = data.year
@@ -113,20 +102,16 @@ export class HomePage {
                 vm.listaDeFechas[index].hora = data.hora
                 vm.listaDeFechas[index].minuto = data.minuto
                 vm.listaDeFechas[index].segundo = data.segundo
-
                 vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
                     if( a.fecha < b.fecha) {return 1;}
                     if( a.fecha > b.fecha) {return -1;}
                     return 0;
                 })
-
                 this.listaFiltrada = this.listaDeFechas 
                 vm.storage.set('listaDeFechas', vm.listaDeFechas);
-
                 vm.exitoAlguardar();
             }
         }
-
     }
 
     async mostrarMenuDeOrdenamiento() {
@@ -137,7 +122,6 @@ export class HomePage {
             text: vm.miIdioma['Ascending order'],
             icon: 'arrow-up',
             handler: () => {
-
                 // verficiar que el cuadro de busqueda este lleno o no
                 if (vm.palabraDeBusqueda === '') {
                     vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
@@ -244,10 +228,12 @@ export class HomePage {
         await alert.present();
     }
 
+    /*
+        el croll ha resultado ser muy inconveniente, 
+        lo dejo comentado para no repetirlo */
     bajalo_para_aca(id) {
       let vm = this;
       vm.contadorService.setIdSeleccionado(id);
-      // console.log(`scrolling to ${id}`);
       let el = document.getElementById(id);
       el.scrollIntoView();
     }    
@@ -255,7 +241,6 @@ export class HomePage {
     seleccionar_reloj(id) {
       let vm = this;
       vm.contadorService.setIdSeleccionado(id);
-      // console.log(`scrolling to ${id}`);
       let el = document.getElementById(id);
       el.scrollIntoView();
     }
@@ -291,9 +276,6 @@ export class HomePage {
                     return fechaB.getTime() - fechaA.getTime()
                 }
             );
-
-            // console.log("recorriendo las fechas");
-            
             let right_now = moment();
             let fecha_auxiliar = null;
             let alguna_modificacion = false;
@@ -309,27 +291,18 @@ export class HomePage {
                     seconds: entrada.segundo 
                 });
 
-                // actualizar el idioma de los nombres de los meses por si cambio de fecha ???
-                // solo actualizar el nombre del mes al guardar o editar el evento
-
-
+                // recorrer toda esta vaina para ver que esta en el pasado
+                // verifico el caso de que exista alguna fecha que esta en el paso y la marco
                 if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
-                   // date is past
-                   // console.log(entrada);
                    entrada.pasado = true;
                    alguna_modificacion = true;
-
                 }
                 
             });
 
             if (alguna_modificacion) {
-                // console.log("------------- ocurrio alguna modificacion ------------- ");
                 this.storage.set('listaDeFechas', this.listaDeFechas);
             }
-
-            // recorrer toda esta vaina para ver que esta en el pasado
-
 
             /*
                 se crea un reloj unico que activa a todos los detalles
@@ -347,13 +320,6 @@ export class HomePage {
 
         // preguntar por el idioma seleccionado
         vm.storage.get('miIdioma').then((miIdioma) => {
-            // console.log("Idioma seleccionado");
-
-            // console.log("");
-            // console.log(" --------- miIdioma --------- ");
-            // console.log(miIdioma);
-            // console.log(" --------- miIdioma --------- ");
-            // console.log("");
             if (miIdioma === null){
                 vm.seleccionarIdioma();
             }
@@ -361,15 +327,11 @@ export class HomePage {
                 vm.idiomaService.seleccionar_idioma(miIdioma);
                 vm.miIdioma = miIdioma;
             }
-            
-
         });
     }
 
     async seleccionarIdioma(){
         // mostrar el modal, 
-        // pasarle como parametro la vaina que estoy editando
-
         let vm = this;
         const modal = await this.modalController.create({
             component: BienvenidaPage
@@ -381,12 +343,6 @@ export class HomePage {
         
         if (typeof data !== "undefined")
         {
-            // console.log("")
-            // console.log(" ------------ data.guardar ------------")
-            // console.log(data.guardar)
-            // console.log(" ------------ data.guardar ------------")
-            // console.log("")
-            // si puedo guardar
             if (typeof data.guardar === "undefined" || data.guardar !== false)
             {
                this.storage.set('miIdioma', data.ididomaSeleccionado);
@@ -394,10 +350,7 @@ export class HomePage {
                vm.miIdioma = data.ididomaSeleccionado;
             }
         }
-
     }
-
-
 
     usarSemilla():void {
         // console.log("usarSemilla");
@@ -498,11 +451,6 @@ export class HomePage {
         this.listaFiltrada = this.listaDeFechas 
         vm.storage.set('listaDeFechas', vm.listaDeFechas);
         vm.exitoAlguardar();
-    }
-
-
-    debug():void {
-        // console.log(this.listaDeFechas);
     }
 
     buscar():void {
