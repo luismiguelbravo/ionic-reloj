@@ -67,7 +67,7 @@ export class IdiomaService {
                 "Cancel": "Cancelar",
                 "Success": "Éxito",
                 "Delete" : "Eliminar",
-                "Event saved successfully.": "evento",
+                "Event_saved_successfully": "Evento guardado con éxito",
                 "Warning": "Advertencia",
                 "This action cannot be reversed.": "Esta acción no puede ser revertida.",
                 "Remove": "Retirar",
@@ -96,7 +96,8 @@ export class IdiomaService {
                     { "value": 11, "name": "Diciembre" }
                 ],
                 "Copy": "Copiar",
-                "Share": "Compartir"
+                "Share": "Compartir",
+                "Accept" : "Aceptar"
             },
             /*{"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
             {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel"},
@@ -132,7 +133,7 @@ export class IdiomaService {
                 "Cancel": "Cancel",
                 "Success": "Success",
                 "Delete" : "Delete",
-                "Event saved successfully.": "Event saved successfully.",
+                "Event_saved_successfully": "Event saved successfully",
                 "Warning": "Warning",
                 "This action cannot be reversed.": "This action cannot be reversed.",
                 "Remove": "Remove",
@@ -161,7 +162,8 @@ export class IdiomaService {
                     { "value": 11, "name": "December" }
                 ],
                 "Copy": "Copy",
-                "Share": "Share"
+                "Share": "Share",
+                "Accept" : "Accept"
             },
             /*{"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
             {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska"},
