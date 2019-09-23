@@ -1,9 +1,11 @@
 <div [ngClass]="{'pasado': pasado}" id="{{ entrada.id }}" (click)="seleccionar_reloj(entrada.id)">
-    <ion-card-header>
-        <!-- {{ entrada.fecha  }} <br> -->
-        <br>
-        Día {{ entrada.fecha.substring(8,10) }} de {{ nombreDeMes(entrada.fecha.substring(5,7)) }} del año  {{ entrada.fecha.substring(0,4) }} <br>
-        Hora: {{ entrada.fecha.substring(11, entrada.fecha.length) }} <br>
+    <ion-card-header *ngIf="idiomaService.idioma_seleccionado">
+        {{ idiomaService.idioma_seleccionado.Day }} {{ entrada.dia }},
+        {{ idiomaService.idioma_seleccionado.Month }} {{ nombreDeMes(entrada.mes) }},
+        {{ idiomaService.idioma_seleccionado.Year }} {{ entrada.year }} <br>
+        {{ idiomaService.idioma_seleccionado.Hour }} {{ entrada.hora }}
+        {{ idiomaService.idioma_seleccionado.Minute }} {{entrada.minuto}}
+        {{ idiomaService.idioma_seleccionado.Second }} {{ entrada.segundo}}<br>
         <b style="font-size: 18px;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
     </ion-card-header>
     <ion-card-content>
