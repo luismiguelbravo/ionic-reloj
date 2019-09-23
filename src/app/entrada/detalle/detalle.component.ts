@@ -3,9 +3,6 @@ import * as moment from 'moment';
 import { Entrada } from '../../Entrada';
 import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { Clipboard } from '@ionic-native/clipboard/ngx';
-import { AlertController } from '@ionic/angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IdiomaService } from '../../commons/idioma.service'
 
@@ -46,41 +43,22 @@ export class DetalleComponent implements OnInit {
 
     constructor(
         public contadorService: ContadorService,
-        private socialSharing: SocialSharing,
-        private clipboard: Clipboard,
-        public alertController: AlertController,
         public idiomaService: IdiomaService
     ) { }
 
     ngOnInit() {
-
-        
-        this.finalDeLaEspera = moment(
-            this.entrada.fecha,
-            'YYYY-MM-DD HH:mm:ss'
-        );
-        
         let vm = this
-        /*this.finalDeLaEspera = moment({
+        this.finalDeLaEspera = moment({
             years:   vm.entrada.year,
             months:  vm.entrada.mes,
             date:    vm.entrada.dia,
             hours:   vm.entrada.hora,
             minutes: vm.entrada.minuto,
-            seconds: vm.entrada.segundo,
-            milliseconds:123
-        })*/
-
-        console.log("")
-        console.log(" ----------- this.finalDeLaEspera ----------- ")
-        console.log(this.finalDeLaEspera)
-        console.log(" ----------- this.finalDeLaEspera ----------- ")
-        console.log("")
-
+            seconds: vm.entrada.segundo
+        })
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
         });
-
     }
 
     seleccionar_reloj(id) {
@@ -106,7 +84,7 @@ export class DetalleComponent implements OnInit {
             "Julio", "Agosto", "Septiembre",
             "Octubre", "Noviembre", "Diciembre"
         ]
-        return arregloNombreDeMes[indice-1]
+        return arregloNombreDeMes[indice]
     }
 
     calcularDiferencias(): void {
@@ -263,50 +241,17 @@ export class DetalleComponent implements OnInit {
             + "?minuto=" + vm.entrada.minuto
             + "?segundo=" + vm.entrada.segundo
 
+        console.log("")
+        console.log(" ----------- urlParaCompartir ----------- ")
+        console.log(urlParaCompartir);
+        console.log(" ----------- urlParaCompartir ----------- ")
+        console.log("")
+
         let shareRet = await Share.share({
           title: vm.entrada.titulo,
           text: vm.construirMensaje(),
           url: urlParaCompartir,
           dialogTitle: 'Share with buddies'
-        });
-    }
-
-    async copyToClipBoard() {
-
-        console.log('copyToClipBoard()')
-        let vm = this
-        vm.clipboard.copy(vm.construirMensaje());
-        const alert = await this.alertController.create({
-            header: 'Éxito',
-            subHeader: '',
-            message: 'Copiado al porta papeles.',
-            buttons: ['OK']
-        });
-        await alert.present()
-
-
-    }
-
-    async shareWhatsApp() {
-        console.log('shareWhatsApp')
-        // Text + Image or URL works
-        // voy a poner una imagen en mi pagina
-        // voy a poner una url que reciva el parametro de la fecha y le muestre el contador
-        let vm = this
-        let mensajeParaEnviar = vm.construirMensaje();
-
-        console.log("")
-        console.log(" --------- mensajeParaEnviar --------- ")
-        console.log(mensajeParaEnviar)
-        console.log(" --------- mensajeParaEnviar --------- ")
-        console.log("")
-
-        vm.socialSharing.shareViaWhatsApp(mensajeParaEnviar, null, null).then(() => {
-          // Success
-          console.log("exito al compartir por whatsapp")
-        }).catch((e) => {
-          // Error!
-          console.log("error al compartir por whatsapp")
         });
     }
 
