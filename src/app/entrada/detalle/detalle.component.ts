@@ -48,14 +48,6 @@ export class DetalleComponent implements OnInit {
 
     ngOnInit() {
         let vm = this
-        this.finalDeLaEspera = moment({
-            years:   vm.entrada.year,
-            months:  vm.entrada.mes,
-            date:    vm.entrada.dia,
-            hours:   vm.entrada.hora,
-            minutes: vm.entrada.minuto,
-            seconds: vm.entrada.segundo
-        })
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
         });
@@ -89,6 +81,15 @@ export class DetalleComponent implements OnInit {
 
     calcularDiferencias(): void {
         let vm = this
+
+        this.finalDeLaEspera = moment({
+            years:   vm.entrada.year,
+            months:  vm.entrada.mes,
+            date:    vm.entrada.dia,
+            hours:   vm.entrada.hora,
+            minutes: vm.entrada.minuto,
+            seconds: vm.entrada.segundo
+        })
 
         if ( vm.finalDeLaEspera > vm.fechaDeHoy )
         {
