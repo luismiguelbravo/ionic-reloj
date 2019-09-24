@@ -1,36 +1,22 @@
-<!--ion-header style="background-color: #061f41;">
-    <ion-toolbar>
-        <ion-buttons slot="end">
-            <ion-button (click)="seleccionarIdioma()">
-                <ion-icon slot="icon-only" name="more"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-        <ion-title style="text-align: center;">
-            Mimuqui 456
-        </ion-title>
-    </ion-toolbar>
-</ion-header-->
 
 <div style="background-color: #061f41; min-height: 30px;">
     <table style="width: 100%; height: 52px;">
         <tr>
-            <td>
+            <td style="width: 40px;">
                 &nbsp;
             </td>
             <td style="text-align: center; color: white;">
                 Mimuqui 457
             </td>
-            <td style="text-align: right;">
+            <td style="text-align: right; width: 40px;">
                 <span color="primary" (click)="seleccionarIdioma()" style="font-size: 24px; width: 100%; display: block; color: white;">
-                    <ion-icon slot="icon-only" name="more"></ion-icon>
-                </span>                    
+                    <ion-icon slot="icon-only" name="more"></ion-icon>&nbsp;&nbsp;
+                </span>
             </td>
         </tr>
     </table>
 </div>
-
-<ion-content>
-
+<ion-content >
     <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px;">
         <ion-fab-button (click)="mostrarFomulario()">
             <ion-icon name="add"></ion-icon>

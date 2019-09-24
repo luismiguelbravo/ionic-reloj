@@ -43,3 +43,8 @@
 ion-card {
     margin: 16px 0 0 0 !important;
 }
+
+ion-content { 
+    --background: -webkit-linear-gradient(135deg, #08264c, #0c0828);
+    --background: linear-gradient(135deg, #08264c, #0c0828);
+}
