@@ -118,3 +118,13 @@ ion-card-header{
     border-radius: 5px;
     background-color: #90ee90;
 }
+
+.contenido-de-la-carta {
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color:  #091126;
+}
