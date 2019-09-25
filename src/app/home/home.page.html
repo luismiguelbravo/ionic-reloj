@@ -17,7 +17,7 @@
     </table>
 </div>
 <ion-content >
-    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px;">
+    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px; display: none;">
         <ion-fab-button (click)="mostrarFomulario()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
@@ -36,14 +36,14 @@
     </div>
     <ion-grid *ngIf="miIdioma">
         <ion-row>
-            <ion-col size="10">
+            <ion-col size="12">
                 <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()"></ion-searchbar>
             </ion-col>
-            <ion-col size="2">
+            <!--ion-col size="2">
                  <ion-button size="small" (click)="mostrarMenuDeOrdenamiento()" style="margin-top: 16px;">
                      <ion-icon name="funnel"></ion-icon>
                  </ion-button>
-            </ion-col>
+            </ion-col-->
         </ion-row>
     </ion-grid>
 
@@ -53,7 +53,7 @@
                 <ion-card class="welcome-card" [ngClass]="{'pasado': entrada.pasado }">
                     <app-detalle [entrada]="entrada"></app-detalle>
 
-                    <table class="tabla-menu">
+                    <table class="tabla-menu" style="display: none !important;">
                         <tr>
                             <td style="background: #0cd1e8; width: 50%; text-align: center; vertical-align: middle; ">
                                 <span color="primary" (click)="editar(entrada)" style="font-size: 24px; width: 100%; display: block;">

@@ -1,14 +1,17 @@
 <div [ngClass]="{'pasado': pasado}" id="{{ entrada.id }}" (click)="seleccionar_reloj(entrada.id)">
-    <ion-card-header *ngIf="idiomaService.idioma_seleccionado">
-        {{ idiomaService.idioma_seleccionado.Day }} {{ entrada.dia }},
-        {{ idiomaService.idioma_seleccionado.Month }} {{ nombreDeMes(entrada.mes) }},
-        {{ idiomaService.idioma_seleccionado.Year }} {{ entrada.year }} <br>
-        {{ idiomaService.idioma_seleccionado.Hour }} {{ entrada.hora }},
-        {{ idiomaService.idioma_seleccionado.Minute }} {{entrada.minuto}},
-        {{ idiomaService.idioma_seleccionado.Second }} {{ entrada.segundo}}<br>
-        <b style="font-size: 18px;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
+    <ion-card-header *ngIf="idiomaService.idioma_seleccionado" style="padding: 0;">
+        <div style="background-color: #272e41; padding: 13px 20px;">
+            <!-- {{ idiomaService.idioma_seleccionado.Day }} {{ entrada.dia }},
+            {{ idiomaService.idioma_seleccionado.Month }} {{ nombreDeMes(entrada.mes) }},
+            {{ idiomaService.idioma_seleccionado.Year }} {{ entrada.year }} <br>
+            {{ idiomaService.idioma_seleccionado.Hour }} {{ entrada.hora }},
+            {{ idiomaService.idioma_seleccionado.Minute }} {{entrada.minuto}},
+            {{ idiomaService.idioma_seleccionado.Second }} {{ entrada.segundo}}<br>-->
+            <b style="font-size: 18px; color: white;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
+        </div>
+
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content style="background-color:  #091126;">
         <!--ion-fab vertical="bootom" horizontal="center" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
@@ -25,7 +28,7 @@
 
 
         <ion-grid *ngIf="entrada.id === get_id_Seleccionado()" [ngClass]="{'abrir': entrada.id === get_id_Seleccionado(), 'cerrar': entrada.id !== get_id_Seleccionado() }">
-            <ion-row>
+            <ion-row style="display: none;">
                 <ion-col>
                     <table width="100%" class="barra-de-compartir">
                         <tr>
