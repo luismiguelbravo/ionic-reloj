@@ -52,8 +52,20 @@
     <ion-grid *ngIf="miIdioma">
         <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
-                <ion-card class="welcome-card" [ngClass]="{'pasado': entrada.pasado }">
+                <ion-card class="welcome-card"> <!-- [ngClass]="{'pasado': entrada.pasado }" -->
                     <app-detalle [entrada]="entrada"></app-detalle>
+
+                    <div style="background-color: #272e41; padding: 10px 0;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align: right;">
+                                    <span class="mi-boton boton-editar" (click)="editar(entrada)">{{miIdioma.Edit}}</span>
+                                    <span class="mi-boton boton-eliminar" (click)="intentarEliminar(entrada.id)">{{miIdioma.Delete}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
 
                     <table class="tabla-menu" style="display: none !important;">
                         <tr>

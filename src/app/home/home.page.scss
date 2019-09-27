@@ -35,7 +35,7 @@
 }
 
 .pasado {
-    background-color: #e3dfdf;
+    background-color: transparent;
 }
 
 .tabla-menu{
@@ -54,4 +54,22 @@ ion-card {
 ion-content { 
     --background: -webkit-linear-gradient(135deg, #08264c, #0c0828);
     --background: linear-gradient(135deg, #08264c, #0c0828);
+}
+
+.mi-boton{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 6px 18px;
+    margin-right: 8px;
+}
+
+.boton-editar {
+    background-color: #00DCB0;
+    color: #232b44;
+}
+
+.boton-eliminar {
+    background-color: #e9254e;
+    color: #fefafb;
 }
