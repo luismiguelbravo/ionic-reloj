@@ -11,7 +11,7 @@
         </div>
 
     </ion-card-header>
-    <ion-card-content class="contenido-de-la-carta">
+    <ion-card-content class="contenido-de-la-carta" style="padding-left: 0; padding-right: 0;">
         <!--ion-fab vertical="bootom" horizontal="center" edge slot="fixed">
             <ion-fab-button>
                 <ion-icon name="share"></ion-icon>
@@ -45,7 +45,7 @@
             </ion-row>
           <ion-row>
             <ion-col size="12">
-                <table>
+                <table style="width: 100%;">
                     <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
                         <td class="label-fecha border-separador">
                             {{ idiomaService.idioma_seleccionado.Year }}
@@ -54,8 +54,9 @@
                             {{diferenciaEnYears | number:'2.0'}}
                         </td>
                         <td rowspan="6">
-                            <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3;"></canvas>
+                            
                             <div class="circulo-por-cubrir">
+                                <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3; top: -10px; left: -10px;"></canvas>
                                 <div class="circulo-central"></div>
                             </div>
 

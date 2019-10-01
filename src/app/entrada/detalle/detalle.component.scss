@@ -12,14 +12,14 @@
 }
 
 .label-fecha {
-	font-size: 30px;
+	font-size: 20px;
 	text-align: left;
     vertical-align: middle;
 }
 
 .numero {
     text-align: right;
-    font-size: 40px;
+    font-size: 24px;
     /*font-family: monospace;*/
     font-family: Share_Tech_Mono-Regular;
 }
@@ -109,7 +109,7 @@ ion-card-header{
 }
 
 .border-separador {
-    border-bottom: 1px solid #cacaca;
+    border-bottom: 1px solid #403939;
 }
 
 .barra-de-compartir {
@@ -134,8 +134,7 @@ ion-card-header{
 }
 
 .circulo-por-cubrir {
-    left: 10px;
-    top: 10px;
+    margin: 0 auto;
     width: 150px;
     height: 150px;
     background: #484848;
