@@ -45,6 +45,46 @@
             </ion-row>
           <ion-row>
             <ion-col size="12">
+                <div style="padding: 5px; background-color: #3a3b3cb3;">
+                    <table style="width: 100%; color: #9e9e9e;" class="border-separador">
+                        <tr class="border-separador">
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Year }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{ entrada.year }} </span>
+                            </td>
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Month }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{ nombreDeMes(entrada.mes) }}</span>
+
+                            </td>
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Day }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{ entrada.dia }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Hour }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{ entrada.hora }}</span>
+                            </td>
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Minute }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{entrada.minuto}}</span>
+                            </td>
+                            <td>
+                                {{ idiomaService.idioma_seleccionado.Second }}
+                                <br>
+                                <span class="indicador-fecha-entrada">{{ entrada.segundo}}</span>
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+
                 <table style="width: 100%;">
                     <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
                         <td class="label-fecha border-separador">
