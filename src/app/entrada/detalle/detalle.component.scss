@@ -132,3 +132,27 @@ ion-card-header{
 .cifra-en-zero {
     color: #404040;
 }
+
+.circulo-por-cubrir {
+    left: 10px;
+    top: 10px;
+    width: 150px;
+    height: 150px;
+    background: #484848;
+    border-radius: 98px;
+    position: relative;
+    z-index: 1;
+    -moz-border-radius: 98px; 
+    -webkit-border-radius: 98px; 
+}
+
+.circulo-central {
+    top: 31px;
+    left: 31px;
+    display: block;
+    width: 88px;
+    height: 88px;
+    background: #091126;
+    border-radius: 79px;
+    position: relative;
+}

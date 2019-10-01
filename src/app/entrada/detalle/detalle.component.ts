@@ -49,7 +49,7 @@ export class DetalleComponent implements OnInit {
     ngOnInit() {
         let vm = this
         this.ctx = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
-        vm.ctx.lineWidth = 10;
+        vm.ctx.lineWidth = 30;
         vm.ctx.textAlign = 'center';
         vm.ctx.textBaseline = 'middle';
         vm.ctx.font = '25px Trebuchet MS';
@@ -75,12 +75,12 @@ export class DetalleComponent implements OnInit {
         // requestAnimationFrame(this.clock);
 
         var date = new Date;
-        let h = date.getHours();
-        let m = date.getMinutes();
+        //let h = date.getHours();
+        //let m = date.getMinutes();
         let s = date.getSeconds();
         // Calculate percentage to be drawn
-        var hp = 100 / 12 * (h % 12);
-        var mp = 100 / 60 * m;
+        //var hp = 100 / 12 * (h % 12);
+        //var mp = 100 / 60 * m;
         var sp = 100 / 60 * s;
         // Ensure double digits
         
@@ -91,10 +91,12 @@ export class DetalleComponent implements OnInit {
         */
         this.ctx.clearRect(0, 0, 170, 170);
         //this.ctx.fillText(h + ':' + m + ':' + s, 85, 85);
-        this.ctx.fillText(s + "", 85, 85);
+        this.ctx.fillText(s + "%", 85, 85);
         //this.draw(25, hp, 'palevioletred');
         //this.draw(35, mp, 'limegreen');
-        this.draw(45, sp, 'steelblue');
+        // this.draw(60, sp, 'steelblue');
+        this.draw(60, sp, 'steelblue');
+        //this.draw(60, 100, 'steelblue');
     };
 
     seleccionar_reloj(id) {

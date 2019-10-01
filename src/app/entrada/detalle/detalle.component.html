@@ -54,7 +54,11 @@
                             {{diferenciaEnYears | number:'2.0'}}
                         </td>
                         <td rowspan="6">
-                            <canvas #myCanvas width="170" height="170" style="background-color: #091126;"></canvas>
+                            <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3;"></canvas>
+                            <div class="circulo-por-cubrir">
+                                <div class="circulo-central"></div>
+                            </div>
+
                         </td>
                     </tr> 
                     <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0}"
