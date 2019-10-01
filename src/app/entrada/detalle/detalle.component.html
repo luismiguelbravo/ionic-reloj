@@ -44,14 +44,17 @@
                 </ion-col>
             </ion-row>
           <ion-row>
-            <ion-col size="6">
+            <ion-col size="12">
                 <table>
-                    <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" class="border-separador">
-                        <td class="label-fecha">
+                    <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
+                        <td class="label-fecha border-separador">
                             {{ idiomaService.idioma_seleccionado.Year }}
                         </td>
-                        <td class="numero">
+                        <td class="numero border-separador">
                             {{diferenciaEnYears | number:'2.0'}}
+                        </td>
+                        <td rowspan="6">
+                            <canvas #myCanvas width="170" height="170" style="background-color: #091126;"></canvas>
                         </td>
                     </tr> 
                     <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0}"
@@ -99,9 +102,6 @@
                         </td>
                     </tr>
                 </table>
-            </ion-col>
-            <ion-col size="6">
-                <canvas #myCanvas width="170" height="170" style="background-color: black;"></canvas>
             </ion-col>
           </ion-row>
 
