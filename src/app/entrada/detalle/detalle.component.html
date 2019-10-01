@@ -7,7 +7,7 @@
             {{ idiomaService.idioma_seleccionado.Hour }} {{ entrada.hora }},
             {{ idiomaService.idioma_seleccionado.Minute }} {{entrada.minuto}},
             {{ idiomaService.idioma_seleccionado.Second }} {{ entrada.segundo}}<br>-->
-            <b style="font-size: 18px; color: white;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
+            <b style="font-size: 18px; color: #d2d2d2;">{{entrada.titulo}} </b><!--label>{{ entrada.id  }}</label-->
         </div>
 
     </ion-card-header>
@@ -53,11 +53,16 @@
                         <td class="numero border-separador">
                             {{diferenciaEnYears | number:'2.0'}}
                         </td>
-                        <td rowspan="6">
-                            
+                        <td rowspan="6" style="padding-left: 5px;">
+
                             <div class="circulo-por-cubrir">
                                 <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3; top: -10px; left: -10px;"></canvas>
                                 <div class="circulo-central"></div>
+                            </div>
+                            <br>
+                            <div (click)="compartirConCapacitor()" style="text-align: center; color: aqua; font-size: 18px;">
+                                {{ idiomaService.idioma_seleccionado.Share }}
+                                <ion-icon name="share" slot="end"></ion-icon>
                             </div>
 
                         </td>
