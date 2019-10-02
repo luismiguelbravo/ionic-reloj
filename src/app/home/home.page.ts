@@ -356,6 +356,12 @@ export class HomePage {
     }
 
     usarSemilla():void {
+
+        let vm = this;
+
+        vm.miIdioma = vm.idiomaService.get_idioma_por_defecto()
+        vm.idiomaService.seleccionar_idioma(vm.miIdioma)
+
         // console.log("usarSemilla");
         this.listaDeFechas.push({
             fecha: "2020-10-19 00:00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
