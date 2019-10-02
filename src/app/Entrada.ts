@@ -9,5 +9,11 @@ export class Entrada {
     minuto: number;
     segundo: number;
     pasado: boolean;
+    year_de_creacion: number;
+    mes_de_creacion: number;
+    dia_de_creacion: number;
+    hora_de_creacion: number;
+    minuto_de_creacion: number;
+    segundo_de_creacion: number;
 }
 /* Agregar campo de milisegundos. */
