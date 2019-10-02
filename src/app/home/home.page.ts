@@ -358,6 +358,7 @@ export class HomePage {
     usarSemilla():void {
 
         let vm = this;
+        let ahora = moment();
 
         vm.miIdioma = vm.idiomaService.get_idioma_por_defecto()
         vm.idiomaService.seleccionar_idioma(vm.miIdioma)
@@ -371,7 +372,13 @@ export class HomePage {
             hora: 0,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: ahora.year(),
+            mes_de_creacion: ahora.month(),
+            dia_de_creacion: ahora.date(),
+            hora_de_creacion: ahora.hour(),
+            minuto_de_creacion: ahora.minute(),
+            segundo_de_creacion: ahora.second()
         });
         this.listaDeFechas.push({
             fecha: "2020-10-01 00:00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
@@ -381,7 +388,13 @@ export class HomePage {
             hora: 0,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: 2018,
+            mes_de_creacion: 11,
+            dia_de_creacion: 27,
+            hora_de_creacion: 20,
+            minuto_de_creacion: 0,
+            segundo_de_creacion: 0
         });
         this.listaDeFechas.push({
             fecha: "2019-10-19 00:00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
@@ -391,7 +404,13 @@ export class HomePage {
             hora: 0,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: 2018,
+            mes_de_creacion: 9,
+            dia_de_creacion: 19,
+            hora_de_creacion: 0,
+            minuto_de_creacion: 0,
+            segundo_de_creacion: 0
         });
         this.listaDeFechas.push({fecha: "2019-05-27 09:00:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
@@ -400,7 +419,13 @@ export class HomePage {
             hora: 9,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: ahora.year(),
+            mes_de_creacion: ahora.month(),
+            dia_de_creacion: ahora.date(),
+            hora_de_creacion: ahora.hour(),
+            minuto_de_creacion: ahora.minute(),
+            segundo_de_creacion: ahora.second()
         });
         this.listaDeFechas.push({fecha: "2016-10-19 00:00:00", titulo: "Llegada a Chile", id: "donb956",
             year: 2016,
@@ -409,7 +434,13 @@ export class HomePage {
             hora: 0,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: ahora.year(),
+            mes_de_creacion: ahora.month(),
+            dia_de_creacion: ahora.date(),
+            hora_de_creacion: ahora.hour(),
+            minuto_de_creacion: ahora.minute(),
+            segundo_de_creacion: ahora.second()
         });
         /*
         this.listaDeFechas.push({fecha: "2019-09-29 00:00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
@@ -429,7 +460,13 @@ export class HomePage {
             hora: 20,
             minuto: 0,
             segundo: 0,
-            pasado: false
+            pasado: false,
+            year_de_creacion: ahora.year(),
+            mes_de_creacion: ahora.month(),
+            dia_de_creacion: ahora.date(),
+            hora_de_creacion: ahora.hour(),
+            minuto_de_creacion: ahora.minute(),
+            segundo_de_creacion: ahora.second()
         });
 
 
@@ -440,6 +477,7 @@ export class HomePage {
 
     guardar(datos_para_guardar):void {
         let vm = this
+        let ahora = moment()
 
         let nuevaFecha = new Entrada();
         nuevaFecha.fecha = datos_para_guardar.fecha_string;
@@ -450,6 +488,15 @@ export class HomePage {
         nuevaFecha.hora = datos_para_guardar.hora;
         nuevaFecha.minuto = datos_para_guardar.minuto
         nuevaFecha.segundo = datos_para_guardar.segundo
+
+        nuevaFecha.year_de_creacion = ahora.year()
+        nuevaFecha.mes_de_creacion = ahora.month()
+        nuevaFecha.dia_de_creacion = ahora.date()
+        nuevaFecha.hora_de_creacion = ahora.hour()
+        nuevaFecha.minuto_de_creacion = ahora.minute()
+        nuevaFecha.segundo_de_creacion = ahora.second()
+
+
         nuevaFecha.id = Math.random().toString(36).substring(7);
         vm.listaDeFechas.push(nuevaFecha);
         vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
