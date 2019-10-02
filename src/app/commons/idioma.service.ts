@@ -101,7 +101,8 @@ export class IdiomaService {
                 "Copy": "Copiar",
                 "Share": "Compartir",
                 "Accept" : "Aceptar",
-                "Edit" : "Editar"
+                "Edit" : "Editar",
+                "event_date" : "Fecha del evento"
             },
             /*{"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia"},
             {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel"},
@@ -168,7 +169,8 @@ export class IdiomaService {
                 "Copy": "Copy",
                 "Share": "Share",
                 "Accept" : "Accept",
-                "Edit" : "Edit"
+                "Edit" : "Edit",
+                "event_date" : "Event date"
             },
             /*{"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge"},
             {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska"},
