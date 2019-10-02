@@ -45,41 +45,54 @@
             </ion-row>
           <ion-row>
             <ion-col size="12">
-                <div style="padding: 5px; padding-top: 6px; background-color: #3a3b3cb3;">
+                <div style="padding: 5px; padding-top: 6px; background-color: #3a3b3cb3; border-radius: 5px;">
                     <table style="width: 100%; color: #9e9e9e;">
                         <tr class="border-separador">
+                            <td colspan="3" style="background-color: #444242; text-align: center; font-size: 18px; border-radius: 5px;">
+                                <span style="color: #ffb1b1;">
+                                    {{ idiomaService.idioma_seleccionado.event_date }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="border-separador">
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Year }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{ entrada.year }} </span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Year }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{ entrada.year }} </span>
                             </td>
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Month }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{ nombreDeMes(entrada.mes) }}</span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Month }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{ nombreDeMes(entrada.mes) }}</span>
 
                             </td>
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Day }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{ entrada.dia }}</span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Day }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{ entrada.dia | number:'2.0' }}</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Hour }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{ entrada.hora }}</span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Hour }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{ entrada.hora | number:'2.0' }}</span>
                             </td>
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Minute }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{entrada.minuto}}</span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Minute }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{entrada.minuto | number:'2.0'}}</span>
                             </td>
                             <td>
-                                {{ idiomaService.idioma_seleccionado.Second }}
-                                <br>
-                                <span class="indicador-fecha-entrada">{{ entrada.segundo}}</span>
+                                <span class="label-fecha-entrada">
+                                    {{ idiomaService.idioma_seleccionado.Second }}
+                                </span>
+                                <span class="valor-fecha-entrada">{{ entrada.segundo | number:'2.0'}}</span>
                             </td>
                         </tr>
                     </table>                    
