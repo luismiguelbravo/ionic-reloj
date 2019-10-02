@@ -34,6 +34,11 @@ export class DetalleComponent implements OnInit {
     diferenciaEnYears = null;
     pasado = false
 
+    porcentaje = 0;
+    tiempo_total = 0;
+    tiempo_transcurrido = 0;
+    fecha_de_creacion = null;
+
     @ViewChild('myCanvas') myCanvas: ElementRef;
     public ctx: CanvasRenderingContext2D;
 
@@ -57,6 +62,15 @@ export class DetalleComponent implements OnInit {
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(()=>{
             this.calcularDiferencias();
         });
+
+        this.fecha_de_creacion = moment({
+            years:   vm.entrada.year_de_creacion,
+            months:  vm.entrada.mes_de_creacion,
+            date:    vm.entrada.dia_de_creacion,
+            hours:   vm.entrada.hora_de_creacion,
+            minutes: vm.entrada.minuto_de_creacion,
+            seconds: vm.entrada.segundo_de_creacion
+        })
     }
 
     draw(r, p, c) {
@@ -73,30 +87,17 @@ export class DetalleComponent implements OnInit {
     clock () {
         let vm = this;
         // requestAnimationFrame(this.clock);
-
         var date = new Date;
-        //let h = date.getHours();
-        //let m = date.getMinutes();
         let s = date.getSeconds();
         // Calculate percentage to be drawn
-        //var hp = 100 / 12 * (h % 12);
-        //var mp = 100 / 60 * m;
         var sp = 100 / 60 * s;
         // Ensure double digits
-        
-        /*
-        h = h < 10 ? '0' + h : h;
-        m = m < 10 ? '0' + m : m;
-        s = s < 10 ? '0' + s : s;
-        */
         this.ctx.clearRect(0, 0, 170, 170);
-        //this.ctx.fillText(h + ':' + m + ':' + s, 85, 85);
-        this.ctx.fillText(s + "%", 85, 85);
-        //this.draw(25, hp, 'palevioletred');
-        //this.draw(35, mp, 'limegreen');
+        // this.ctx.fillText(s + "%", 85, 85);
         // this.draw(60, sp, 'steelblue');
-        this.draw(60, sp, 'steelblue');
-        //this.draw(60, 100, 'steelblue');
+
+        this.ctx.fillText(vm.porcentaje.toFixed(1) + "%", 85, 85);
+        this.draw(60, vm.porcentaje, 'steelblue');
     };
 
     seleccionar_reloj(id) {
@@ -128,6 +129,8 @@ export class DetalleComponent implements OnInit {
     calcularDiferencias(): void {
         let vm = this
 
+
+
         this.finalDeLaEspera = moment({
             years:   vm.entrada.year,
             months:  vm.entrada.mes,
@@ -137,21 +140,23 @@ export class DetalleComponent implements OnInit {
             seconds: vm.entrada.segundo
         })
 
+        vm.fechaDeHoy = moment()
+
         if ( vm.finalDeLaEspera > vm.fechaDeHoy )
         {
             vm.pasado = false
+            vm.tiempo_total = vm.finalDeLaEspera.diff(vm.fecha_de_creacion, 'seconds')
+            vm.tiempo_transcurrido = vm.fechaDeHoy.diff(vm.fecha_de_creacion, 'seconds')
+            vm.porcentaje = vm.tiempo_transcurrido * 100 / vm.tiempo_total;
         }
         else
         {
             vm.pasado = true
+            vm.porcentaje = 100;
         }
-
-
-        vm.fechaDeHoy = moment()
-        
+       
         
         vm.diferenciaEnYears = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'years')
-
 
         vm.fechaDeHoy.add(vm.diferenciaEnYears, 'years')
 
