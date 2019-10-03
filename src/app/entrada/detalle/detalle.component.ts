@@ -39,6 +39,10 @@ export class DetalleComponent implements OnInit {
     tiempo_transcurrido = 0;
     fecha_de_creacion = null;
 
+    now = null;
+    fechaDate = null;
+    moment_from_date = null;
+
     @ViewChild('myCanvas') myCanvas: ElementRef;
     public ctx: CanvasRenderingContext2D;
 
@@ -129,6 +133,9 @@ export class DetalleComponent implements OnInit {
     calcularDiferencias(): void {
         let vm = this
 
+        vm.now = moment().utc()
+        vm.fechaDate = new Date()
+        vm.moment_from_date = moment(new Date())
 
 
         this.finalDeLaEspera = moment({
