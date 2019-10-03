@@ -137,8 +137,8 @@ export class DetalleComponent implements OnInit {
             date:    vm.entrada.dia,
             hours:   vm.entrada.hora,
             minutes: vm.entrada.minuto,
-            seconds: vm.entrada.segundo
-        })
+            seconds: vm.entrada.segundo,
+        }, vm.entrada.time_zone);
 
         vm.fechaDeHoy = moment()
 
