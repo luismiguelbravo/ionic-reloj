@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { AlertController, ActionSheetController, ModalController} from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
@@ -250,10 +250,18 @@ export class HomePage {
         return this.contadorService.getIdSeleccionado()
     }
 
+    debug()
+    {
+        console.log("")
+        console.log(" -------------- TMZ -------------- ")
+        console.log("moment.tz.guess() " + moment.tz.guess())
+        console.log(" -------------- TMZ -------------- ")
+        console.log("")
+    }
+
     ngOnInit() {
 
         let vm = this;
-
         /*
         setTimeout(() => {
             // Hacer el scroll es muy inconveniente
