@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { Entrada } from '../../Entrada';
 import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
