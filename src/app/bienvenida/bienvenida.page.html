@@ -14,7 +14,7 @@
         </ion-item>
     </ion-list>
 
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed"  *ngIf="ididomaSeleccionado.indice">
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed"  *ngIf="ididomaSeleccionado.indice !== null">
         <ion-fab-button color="primary" (click)="guardar()">
             <ion-icon name="checkmark-circle"></ion-icon>
         </ion-fab-button>
