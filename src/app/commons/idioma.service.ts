@@ -185,7 +185,7 @@ export class IdiomaService {
                 "Delete":"מחק",
                 "Event_saved_successfully":"האירוע נשמר בהצלחה",
                 "Warning":"אזהרה",
-                "This action":"לא ניתן להפוך את הפעולה הזו.",
+                "This action cannot be reversed.":"לא ניתן לבטל פעולה זו",
                 "Remove":"הסר",
                 "Title":"כותרת",
                 "Event":"אירוע",
