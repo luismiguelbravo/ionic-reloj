@@ -198,7 +198,7 @@ export class HomePage {
         let vm = this;
         const alert = await this.alertController.create({
             header: vm.miIdioma['Warning'],
-            message: vm.miIdioma['This action cannot be reversed.'],
+            message: vm.miIdioma['This action cannot be reversed'],
             buttons: [
             {
                 text: vm.miIdioma['Cancel'],
