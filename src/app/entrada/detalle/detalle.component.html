@@ -1,9 +1,4 @@
 <div id="{{ entrada.id }}" (click)="seleccionar_reloj(entrada.id)"> <!-- [ngClass]="{'pasado': pasado}" -->
-<pre>                                                                                                                    
-    now.utc() {{ now }}                                                                                                        
-    fechaDate {{ fechaDate }}                                                                                            
-    moment_from_date {{ moment_from_date }}                                                                              
-</pre>
     <ion-card-header *ngIf="idiomaService.idioma_seleccionado" style="padding: 0;">
         <div style="background-color: #272e41; padding: 13px 20px;">
             <!-- {{ idiomaService.idioma_seleccionado.Day }} {{ entrada.dia }},
