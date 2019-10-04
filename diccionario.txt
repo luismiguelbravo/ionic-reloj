@@ -1,0 +1,47 @@
+Invalid Title
+Invalid Year
+Invalid Date
+Welcome
+Search
+Order
+Ascending order
+Descending order
+Save
+Cancel
+Success
+Delete
+Event saved successfully
+Warning
+This action cannot be reversed
+Remove
+Title
+Event
+Year
+Month
+Day
+Hour
+Minute
+Second
+Add
+Select One
+
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+
+Copy 
+Share 
+Accept 
+Edit 
+event date
+Future
+Past
