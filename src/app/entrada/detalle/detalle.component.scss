@@ -154,14 +154,15 @@ ion-card-header{
 }
 
 .circulo-central {
-    top: 31px;
-    left: 31px;
+    /* top: 31px; */
+    /* left: 31px; */
     display: block;
     width: 88px;
     height: 88px;
     background: #091126;
     border-radius: 79px;
-    position: relative;
+    /* position: relative; */
+    margin: 0 auto;
 }
 
 .label-fecha-entrada {

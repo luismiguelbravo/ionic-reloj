@@ -121,7 +121,19 @@
 
                                 <div class="circulo-por-cubrir">
                                     <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3; top: -10px; left: -10px;"></canvas>
-                                    <div class="circulo-central"></div>
+                                    <table style="width: 100%; height: 100%;">
+                                        <tr>
+                                            <td></td><td></td><td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td><td>
+                                                <div class="circulo-central"></div>
+                                            </td><td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td><td></td><td></td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <br>
                                 <div (click)="compartirConCapacitor()" style="text-align: center; color: aqua; font-size: 18px;">
