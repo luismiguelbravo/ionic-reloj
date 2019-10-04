@@ -6,7 +6,7 @@ import { IdiomaService } from '../../commons/idioma.service';
 import { DIAS } from '../../commons/constantes/dias'
 import { HORAS } from '../../commons/constantes/horas'
 import { CINCUENTA_Y_NUEVE } from '../../commons/constantes/cincuenta_y_nueve'
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 
 

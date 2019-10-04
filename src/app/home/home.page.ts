@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { AlertController, ActionSheetController, ModalController} from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Entrada } from '../Entrada';
@@ -250,10 +250,25 @@ export class HomePage {
         return this.contadorService.getIdSeleccionado()
     }
 
+    debug()
+    {
+        console.log("")
+        console.log(" -------------- TMZ -------------- ")
+        console.log("moment.tz.guess() " + moment.tz.guess())
+        console.log(" -------------- TMZ -------------- ")
+        console.log("")
+
+        console.log("")
+        console.log(" -------------- moment.tz.names() -------------- ")
+        console.log(moment.tz.names())
+        console.log(" -------------- moment.tz.names() -------------- ")
+        console.log("")
+
+    }
+
     ngOnInit() {
 
         let vm = this;
-
         /*
         setTimeout(() => {
             // Hacer el scroll es muy inconveniente
@@ -378,7 +393,8 @@ export class HomePage {
             dia_de_creacion: ahora.date(),
             hora_de_creacion: ahora.hour(),
             minuto_de_creacion: ahora.minute(),
-            segundo_de_creacion: ahora.second()
+            segundo_de_creacion: ahora.second(),
+            time_zone: "America/Santiago"
         });
         this.listaDeFechas.push({
             fecha: "2020-10-01 00:00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
@@ -394,7 +410,8 @@ export class HomePage {
             dia_de_creacion: 27,
             hora_de_creacion: 20,
             minuto_de_creacion: 0,
-            segundo_de_creacion: 0
+            segundo_de_creacion: 0,
+            time_zone: "America/Santiago"
         });
         this.listaDeFechas.push({
             fecha: "2019-10-19 00:00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
@@ -410,7 +427,8 @@ export class HomePage {
             dia_de_creacion: 19,
             hora_de_creacion: 0,
             minuto_de_creacion: 0,
-            segundo_de_creacion: 0
+            segundo_de_creacion: 0,
+            time_zone: "America/Santiago"
         });
         this.listaDeFechas.push({fecha: "2019-05-27 09:00:00", titulo: "Empleo en 3it", id: "donb95",
             year: 2019,
@@ -425,7 +443,8 @@ export class HomePage {
             dia_de_creacion: ahora.date(),
             hora_de_creacion: ahora.hour(),
             minuto_de_creacion: ahora.minute(),
-            segundo_de_creacion: ahora.second()
+            segundo_de_creacion: ahora.second(),
+            time_zone: "America/Santiago"
         });
         this.listaDeFechas.push({fecha: "2016-10-19 00:00:00", titulo: "Llegada a Chile", id: "donb956",
             year: 2016,
@@ -440,7 +459,8 @@ export class HomePage {
             dia_de_creacion: ahora.date(),
             hora_de_creacion: ahora.hour(),
             minuto_de_creacion: ahora.minute(),
-            segundo_de_creacion: ahora.second()
+            segundo_de_creacion: ahora.second(),
+            time_zone: "America/Santiago"
         });
         /*
         this.listaDeFechas.push({fecha: "2019-09-29 00:00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
@@ -466,7 +486,8 @@ export class HomePage {
             dia_de_creacion: ahora.date(),
             hora_de_creacion: ahora.hour(),
             minuto_de_creacion: ahora.minute(),
-            segundo_de_creacion: ahora.second()
+            segundo_de_creacion: ahora.second(),
+            time_zone: "America/Santiago"
         });
 
 
@@ -496,6 +517,7 @@ export class HomePage {
         nuevaFecha.minuto_de_creacion = ahora.minute()
         nuevaFecha.segundo_de_creacion = ahora.second()
 
+        nuevaFecha.time_zone = moment.tz.guess();
 
         nuevaFecha.id = Math.random().toString(36).substring(7);
         vm.listaDeFechas.push(nuevaFecha);

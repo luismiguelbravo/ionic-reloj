@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { Entrada } from '../../Entrada';
 import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
@@ -133,7 +133,7 @@ export class DetalleComponent implements OnInit {
     calcularDiferencias(): void {
         let vm = this
 
-        vm.now = moment().utc()
+        vm.now = moment().utc().tz(vm.entrada.time_zone)
         vm.fechaDate = new Date()
         vm.moment_from_date = moment(new Date())
 
@@ -144,8 +144,8 @@ export class DetalleComponent implements OnInit {
             date:    vm.entrada.dia,
             hours:   vm.entrada.hora,
             minutes: vm.entrada.minuto,
-            seconds: vm.entrada.segundo
-        })
+            seconds: vm.entrada.segundo,
+        }, vm.entrada.time_zone);
 
         vm.fechaDeHoy = moment()
 

@@ -15,5 +15,6 @@ export class Entrada {
     hora_de_creacion: number;
     minuto_de_creacion: number;
     segundo_de_creacion: number;
+    time_zone: string;
 }
 /* Agregar campo de milisegundos. */

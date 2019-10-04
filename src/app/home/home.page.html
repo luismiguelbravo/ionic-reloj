@@ -49,6 +49,11 @@
         </ion-row>
     </ion-grid>
 
+     <ion-button size="small" (click)="debug()" style="margin-top: 16px;">
+         debug
+     </ion-button>
+    
+
     <ion-grid *ngIf="miIdioma">
         <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
