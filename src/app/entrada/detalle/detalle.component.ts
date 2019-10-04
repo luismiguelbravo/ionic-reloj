@@ -86,18 +86,13 @@ export class DetalleComponent implements OnInit {
 
     clock () {
         let vm = this;
-        // requestAnimationFrame(this.clock);
-        var date = new Date;
-        let s = date.getSeconds();
-        // Calculate percentage to be drawn
-        var sp = 100 / 60 * s;
-        // Ensure double digits
+        let color_de_relleno = 'steelblue';
+        if (vm.pasado ) {
+            color_de_relleno = "#4682b4b0"
+        }
         this.ctx.clearRect(0, 0, 170, 170);
-        // this.ctx.fillText(s + "%", 85, 85);
-        // this.draw(60, sp, 'steelblue');
-
         this.ctx.fillText(vm.porcentaje.toFixed(1) + "%", 85, 85);
-        this.draw(60, vm.porcentaje, 'steelblue');
+        this.draw(60, vm.porcentaje, color_de_relleno);
     };
 
     seleccionar_reloj(id) {

@@ -98,14 +98,14 @@
                     </table>                    
                 </div>
                 <br>
-                <div style="padding: 5px; padding-top: 6px; background-color: #0d3052b3; border-radius: 5px;" [ngClass]="{'pasado': entrada.pasado}">
+                <div style="padding: 5px; padding-top: 6px; background-color: #0d3052b3; border-radius: 5px;" [ngClass]="{'pasado': pasado}">
                     <table style="width: 100%;">
                         <tr>
                             <td colspan="3" class="titulo-de-tiempo">
-                                <span style="color: #7d7d7d;" *ngIf="entrada.pasado">
+                                <span style="color: #7d7d7d;" *ngIf="pasado">
                                     {{ idiomaService.idioma_seleccionado.Past }}
                                 </span>
-                                <span style="color: #9c9c9c;" *ngIf="!entrada.pasado">
+                                <span style="color: #9c9c9c;" *ngIf="!pasado">
                                     {{ idiomaService.idioma_seleccionado.Future }}
                                 </span>
                             </td>
