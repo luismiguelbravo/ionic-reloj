@@ -172,10 +172,10 @@
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0}"
                             class="border-separador">
-                            <td class="label-fecha" style="padding-right: 9px; ">
+                            <td class="label-fecha">
                                 {{ idiomaService.idioma_seleccionado.Minute }}
                             </td>
-                            <td style="padding-left: 9px;" class="numero">
+                            <td class="numero">
                                 {{diferenciaEnMinutos | number:'2.0'}}
                             </td>
                         </tr> 

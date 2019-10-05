@@ -85,8 +85,12 @@ You must build your Ionic project at least once before adding any native platfor
   correr esto en la terminal
   $ ionic capacitor copy android
 
+  $ ionic build && ionic capacitor copy android
+
   // esta linea abre el android studio
   $ npx cap open android
+
+
 
   Abrir el proyecto en Android Studio y darle play
 
