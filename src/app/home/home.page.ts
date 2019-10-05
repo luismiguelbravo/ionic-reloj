@@ -265,7 +265,7 @@ export class HomePage {
             vm.listaDeFechas = val
             if (val === null) {
                 vm.listaDeFechas = []
-                vm.usarSemilla()
+                // vm.usarSemilla()
             }
             // console.log(this.listaDeFechas)
             vm.listaDeFechas = this.listaDeFechas.sort(
@@ -359,9 +359,6 @@ export class HomePage {
 
         let vm = this;
         let ahora = moment();
-
-        vm.miIdioma = vm.idiomaService.get_idioma_por_defecto()
-        vm.idiomaService.seleccionar_idioma(vm.miIdioma)
 
         // console.log("usarSemilla");
         this.listaDeFechas.push({
@@ -511,6 +508,11 @@ export class HomePage {
 
     buscar():void {
         let vm = this
+        if (vm.palabraDeBusqueda === "usar semilla lmb")
+        {
+            vm.usarSemilla();
+            vm.palabraDeBusqueda = "";
+        }
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  element.fecha.includes(vm.palabraDeBusqueda) 
         });
