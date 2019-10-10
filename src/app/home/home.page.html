@@ -2,28 +2,34 @@
 <div style="background-color: #071f41; min-height: 30px; border-bottom: 1px solid #5c6c82;">
     <table style="width: 100%; height: 52px;">
         <tr>
-            <td style="width: 40px;">
+            <!--td style="width: 40px;">
                 <span color="primary" (click)="mostrarFomulario()" style="font-size: 24px; width: 100%; display: block; color: white;">
                     &nbsp;&nbsp;<ion-icon slot="icon-only" name="add"></ion-icon>&nbsp;&nbsp;
                 </span>
-            </td>
+            </td-->
             <td style="text-align: center; color: white;">
                 Mimuqui
             </td>
-            <td style="text-align: right; width: 40px;">
+            <!--td style="text-align: right; width: 40px;">
                 <span color="primary" (click)="seleccionarIdioma()" style="font-size: 24px; width: 100%; display: block; color: white;">
                     <ion-icon slot="icon-only" name="more"></ion-icon>&nbsp;&nbsp;
                 </span>
-            </td>
+            </td-->
         </tr>
     </table>
 </div>
 <ion-content >
-    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px; display: none;">
+    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px;">
         <ion-fab-button (click)="mostrarFomulario()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+    <ion-fab vertical="top" edge horizontal="end" slot="fixed" style="margin-top: -15px;">
+        <ion-fab-button (click)="seleccionarIdioma()">
+            <ion-icon name="more"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
 
 
     <!-- ion-grid *ngIf="!mostrarFormulario">
@@ -36,10 +42,16 @@
             {{ fechaDeHoy.format('YYYY-MM-DD HH:mm:ss') }}
         </div>
     </div>
+
     <ion-grid *ngIf="miIdioma">
         <ion-row>
+            <!--ion-col size="10">
+                <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()" showCancelButton="never"></ion-searchbar>
+            </ion-col-->
             <ion-col size="10">
-                <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()"></ion-searchbar>
+                <input type="text" name="cuadroDeBusqueda" placeholder="{{miIdioma.Search}}"
+                    [(ngModel)]="palabraDeBusqueda" (ngModelChange)="buscar()"
+                    class="cuadro-de-busqueda">
             </ion-col>
             <ion-col size="2">
                  <ion-button size="small" (click)="mostrarMenuDeOrdenamiento()" style="margin-top: 16px;">
