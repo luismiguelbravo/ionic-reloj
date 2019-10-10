@@ -73,3 +73,20 @@ ion-content {
     background-color: #e9254e;
     color: #fefafb;
 }
+
+.cuadro-de-busqueda{
+    background-color: #061835 !important;
+    -webkit-border-radius: 25px !important;
+    -moz-border-radius: 25px !important;
+    border-radius: 25px !important;
+    border: 1px solid #797979 !important;
+    color: white !important;
+    width: 100%;
+    height: 29px;
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+.cuadro-de-busqueda:focus, .cuadro-de-busqueda:focus{
+    outline: none;
+}
