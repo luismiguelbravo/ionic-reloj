@@ -67,10 +67,10 @@
                 <ion-card class="welcome-card"> <!-- [ngClass]="{'pasado': entrada.pasado }" -->
                     <app-detalle [entrada]="entrada"></app-detalle>
 
-                    <div style="background-color: #272e41; padding: 10px 0;">
-                        <table style="width: 100%;">
+                    <div style="background-color: #272e41; padding: 10px 10px;">
+                        <table>
                             <tr>
-                                <td style="text-align: right;">
+                                <td>
                                     <span class="mi-boton boton-editar ripple" (click)="editar(entrada)">{{miIdioma.Edit}}</span>
                                     <span class="mi-boton boton-eliminar ripple" (click)="intentarEliminar(entrada.id)">{{miIdioma.Delete}}</span>
                                 </td>
