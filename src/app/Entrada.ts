@@ -1,5 +1,5 @@
 export class Entrada {
-    id: string;
+    id: number;
     titulo: string;
     fecha: string;
     year: number;
