@@ -113,6 +113,30 @@ export class HomePage {
                 this.listaFiltrada = this.listaDeFechas 
                 vm.storage.set('listaDeFechas', vm.listaDeFechas);
                 vm.exitoAlguardar();
+
+                let fecha_de_notificacion = moment({
+                    years:   data.year,
+                    months:  data.mes,
+                    date:    data.dia,
+                    hours:   data.hora,
+                    minutes: data.minuto,
+                    seconds: data.segundo
+                })
+
+                LocalNotifications.schedule({
+                  notifications: [
+                    {
+                      title: data.titulo,
+                      body: "",
+                      id: entrada.id,
+                      schedule: { at: fecha_de_notificacion.toDate() },
+                      sound: null,
+                      attachments: null,
+                      actionTypeId: "",
+                      extra: null
+                    }
+                  ]
+                });
             }
         }
     }
@@ -220,6 +244,17 @@ export class HomePage {
                             this.listaDeFechas.splice(i, 1);
                             this.listaFiltrada = this.listaDeFechas                      
                             this.storage.set('listaDeFechas', this.listaDeFechas);
+
+                
+                            let notificacion_a_eliminar = [{
+                                id : id + ""
+                            }]
+                            LocalNotifications.cancel({notifications: notificacion_a_eliminar});
+
+                            console.log("")
+                            console.log(" ============ eliminando la notificacion ============ ")
+                            console.log("")
+
                             break;
                         }
                     }
