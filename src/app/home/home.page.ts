@@ -10,6 +10,9 @@ import { AgregarPage } from '../entrada/agregar/agregar.page';
 
 import { BienvenidaPage } from '../bienvenida/bienvenida.page';
 import { IdiomaService } from '../commons/idioma.service'
+import { Plugins } from '@capacitor/core';
+const { LocalNotifications } = Plugins;
+
 
 @Component({
     selector: 'app-home',
@@ -362,7 +365,7 @@ export class HomePage {
 
         // console.log("usarSemilla");
         this.listaDeFechas.push({
-            fecha: "2020-10-19 00:00:00", titulo: "Cumpleaño 2020", id: "cumple2020",
+            fecha: "2020-10-19 00:00:00", titulo: "Cumpleaño 2020", id: 1,
             year: 2020,
             mes: 9,
             dia: 19,
@@ -378,7 +381,7 @@ export class HomePage {
             segundo_de_creacion: ahora.second()
         });
         this.listaDeFechas.push({
-            fecha: "2020-10-01 00:00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: "danica202",
+            fecha: "2020-10-01 00:00:00", titulo: "Regreso de Camila Daniela Garcia Valle a Chile", id: 2,
             year: 2020,
             mes: 9,
             dia: 1,
@@ -394,7 +397,7 @@ export class HomePage {
             segundo_de_creacion: 0
         });
         this.listaDeFechas.push({
-            fecha: "2019-10-19 00:00:00", titulo: "Cumpleaño 2019", id: "cumple2019",
+            fecha: "2019-10-19 00:00:00", titulo: "Cumpleaño 2019", id: 3,
             year: 2019,
             mes: 9,
             dia: 19,
@@ -409,7 +412,7 @@ export class HomePage {
             minuto_de_creacion: 0,
             segundo_de_creacion: 0
         });
-        this.listaDeFechas.push({fecha: "2019-05-27 09:00:00", titulo: "Empleo en 3it", id: "donb95",
+        this.listaDeFechas.push({fecha: "2019-05-27 09:00:00", titulo: "Empleo en 3it", id: 4,
             year: 2019,
             mes: 4,
             dia: 27,
@@ -424,7 +427,7 @@ export class HomePage {
             minuto_de_creacion: ahora.minute(),
             segundo_de_creacion: ahora.second()
         });
-        this.listaDeFechas.push({fecha: "2016-10-19 00:00:00", titulo: "Llegada a Chile", id: "donb956",
+        this.listaDeFechas.push({fecha: "2016-10-19 00:00:00", titulo: "Llegada a Chile", id: 5,
             year: 2016,
             mes: 9,
             dia: 19,
@@ -439,18 +442,8 @@ export class HomePage {
             minuto_de_creacion: ahora.minute(),
             segundo_de_creacion: ahora.second()
         });
-        /*
-        this.listaDeFechas.push({fecha: "2019-09-29 00:00:00", titulo: "Cumpleaños Javiera Anais", id: "19",
-            year: 2019,
-            mes: 9,
-            dia: 29,
-            hora: 0,
-            minuto: 0,
-            segundo: 0,
-            pasado: false
-        });*/
 
-        this.listaDeFechas.push({fecha: "2019-09-12 22:30:00", titulo: "Deje de fumar y beber", id: "Reunión Postulantes",
+        this.listaDeFechas.push({fecha: "2019-09-12 22:30:00", titulo: "Deje de fumar y beber", id: 6,
             year: 2019,
             mes: 8,
             dia: 12,
@@ -494,7 +487,8 @@ export class HomePage {
         nuevaFecha.segundo_de_creacion = ahora.second()
 
 
-        nuevaFecha.id = Math.random().toString(36).substring(7);
+        nuevaFecha.id = Math.round(Math.random()  * 10000000000000000)
+
         vm.listaDeFechas.push(nuevaFecha);
         vm.listaDeFechas = vm.listaDeFechas.sort(function(a,b){
             if( a.fecha < b.fecha) {return 1;}
@@ -503,6 +497,31 @@ export class HomePage {
         })
         this.listaFiltrada = this.listaDeFechas 
         vm.storage.set('listaDeFechas', vm.listaDeFechas);
+
+        let fecha_de_notificacion = moment({
+            years:   nuevaFecha.year,
+            months:  nuevaFecha.mes,
+            date:    nuevaFecha.dia,
+            hours:   nuevaFecha.hora,
+            minutes: nuevaFecha.minuto,
+            seconds: nuevaFecha.segundo
+        })
+
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              title: nuevaFecha.titulo,
+              body: "",
+              id: nuevaFecha.id,
+              schedule: { at: fecha_de_notificacion.toDate() },
+              sound: null,
+              attachments: null,
+              actionTypeId: "",
+              extra: null
+            }
+          ]
+        });
+
         vm.exitoAlguardar();
     }
 
