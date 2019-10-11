@@ -31,3 +31,16 @@
     color: white !important;
 }
 
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.1s;
+}
+.ripple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #69847ebf 1%) center/15000%;
+}
+.ripple:active {
+    background-color: #cacaca;
+    background-size: 100%;
+    transition: background 0s;
+}
