@@ -37,14 +37,14 @@
         <ion-button expand="full" size="small" (click)="usarSemilla()">usar semilla</ion-button>
     </ion-grid-->
 
-    <div class="row responsive-sm" *ngIf="false">
-        <div class="col" style="text-align: center;">
-            {{ fechaDeHoy.format('YYYY-MM-DD HH:mm:ss') }}
+    <div class="row responsive-sm">
+        <div class="col" style="text-align: center; color: white;">
+            notificacionClickeada {{ notificacionClickeada }}
         </div>
     </div>
 
     <ion-grid *ngIf="miIdioma">
-        <ion-row>
+        <ion-row *ngIf="this.listaDeFechas.length > 1">
             <!--ion-col size="10">
                 <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()" showCancelButton="never"></ion-searchbar>
             </ion-col-->

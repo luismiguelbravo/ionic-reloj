@@ -10,9 +10,9 @@ import { AgregarPage } from '../entrada/agregar/agregar.page';
 
 import { BienvenidaPage } from '../bienvenida/bienvenida.page';
 import { IdiomaService } from '../commons/idioma.service'
-import { Plugins } from '@capacitor/core';
-const { LocalNotifications } = Plugins;
 
+import { Platform } from '@ionic/angular';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
     selector: 'app-home',
@@ -42,6 +42,9 @@ export class HomePage {
     mostrarFormulario = false;
     miIdioma = null
 
+    notificacionClickeada = null;
+    plataforma_desktop = null;
+
     constructor(
         public alertController: AlertController,
         private storage: Storage,
@@ -49,21 +52,21 @@ export class HomePage {
         private orderPipe: OrderPipe,
         public actionSheetController: ActionSheetController,
         public modalController: ModalController,
-        public idiomaService: IdiomaService
+        public idiomaService: IdiomaService,
+        private platform: Platform,
+        private localNotifications: LocalNotifications
+
     ) { }
 
-
     async mostrarFomulario() {
-        let vm = this;
+        const vm = this;
         const modal = await this.modalController.create({ component: AgregarPage });
         modal.present();
         // Get returned data
         const { data } = await modal.onWillDismiss();
-        
-        if (typeof data !== "undefined")
-        {
-            if (data.guardar )
-            {
+
+        if (typeof data !== 'undefined') {
+            if (data.guardar ) {
                 vm.guardar(data)
             }
         }
@@ -114,29 +117,11 @@ export class HomePage {
                 vm.storage.set('listaDeFechas', vm.listaDeFechas);
                 vm.exitoAlguardar();
 
-                let fecha_de_notificacion = moment({
-                    years:   data.year,
-                    months:  data.mes,
-                    date:    data.dia,
-                    hours:   data.hora,
-                    minutes: data.minuto,
-                    seconds: data.segundo
-                })
-
-                LocalNotifications.schedule({
-                  notifications: [
-                    {
-                      title: data.titulo,
-                      body: "",
-                      id: entrada.id,
-                      schedule: { at: fecha_de_notificacion.toDate() },
-                      sound: null,
-                      attachments: null,
-                      actionTypeId: "",
-                      extra: null
-                    }
-                  ]
-                });
+                // **** actualizar notificacion
+                console.log("")
+                console.log(" ============ editando la notificacion ============ ")
+                console.log("")
+                this.editarNotificacion(vm.listaDeFechas[index])
             }
         }
     }
@@ -241,20 +226,26 @@ export class HomePage {
                     for( var i = 0; i < this.listaDeFechas.length; i++)
                     { 
                         if ( this.listaDeFechas[i].id === id) {
+                            let right_now = moment();
+                            let fecha_auxiliar = moment(
+                                {
+                                    years: this.listaDeFechas[i].year,
+                                    months: this.listaDeFechas[i].mes,
+                                    days: this.listaDeFechas[i].dia,
+                                    hours: this.listaDeFechas[i].hora,
+                                    minutes: this.listaDeFechas[i].minuto,
+                                    seconds: this.listaDeFechas[i].segundo 
+                                });
+
+                            if ( right_now < fecha_auxiliar ) {
+                                console.log("")
+                                console.log(" ============ eliminando la notificacion ============ ")
+                                console.log("")                                
+                                this.eliminarNotificacion(id)
+                            }
                             this.listaDeFechas.splice(i, 1);
                             this.listaFiltrada = this.listaDeFechas                      
                             this.storage.set('listaDeFechas', this.listaDeFechas);
-
-                
-                            let notificacion_a_eliminar = [{
-                                id : id + ""
-                            }]
-                            LocalNotifications.cancel({notifications: notificacion_a_eliminar});
-
-                            console.log("")
-                            console.log(" ============ eliminando la notificacion ============ ")
-                            console.log("")
-
                             break;
                         }
                     }
@@ -369,6 +360,18 @@ export class HomePage {
                 vm.miIdioma = miIdioma;
             }
         });
+
+        this.notificacionClickeada = 'ngOnInit()'
+        // me suscribo al evento click en la notificacion
+        this.localNotifications.on('click').subscribe(res => {
+            this.notificacionClickeada = 'alguna notificacion fue tocada'
+            //this.notificacionClickeada = res.data.id
+            console.log("")
+            console.log(" ============ this.localNotifications.on('click') ============ ")
+            console.log('click():res', res)
+            console.log(" ============ this.localNotifications.on('click') ============ ")
+            console.log("")
+        })
     }
 
     async seleccionarIdioma(){
@@ -533,29 +536,13 @@ export class HomePage {
         this.listaFiltrada = this.listaDeFechas 
         vm.storage.set('listaDeFechas', vm.listaDeFechas);
 
-        let fecha_de_notificacion = moment({
-            years:   nuevaFecha.year,
-            months:  nuevaFecha.mes,
-            date:    nuevaFecha.dia,
-            hours:   nuevaFecha.hora,
-            minutes: nuevaFecha.minuto,
-            seconds: nuevaFecha.segundo
-        })
 
-        LocalNotifications.schedule({
-          notifications: [
-            {
-              title: nuevaFecha.titulo,
-              body: "",
-              id: nuevaFecha.id,
-              schedule: { at: fecha_de_notificacion.toDate() },
-              sound: null,
-              attachments: null,
-              actionTypeId: "",
-              extra: null
-            }
-          ]
-        });
+
+        // **** crear notificacion
+        console.log("")
+        console.log(" ============ crear la notificacion ============ ")
+        console.log("")
+        this.crearNotificacion(nuevaFecha)
 
         vm.exitoAlguardar();
     }
@@ -570,6 +557,42 @@ export class HomePage {
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  element.fecha.includes(vm.palabraDeBusqueda) 
         });
+    }
+
+    crearNotificacion(entrada: Entrada):void{
+        let fecha_de_notificacion = moment({
+            years:   entrada.year,
+            months:  entrada.mes,
+            date:    entrada.dia,
+            hours:   entrada.hora,
+            minutes: entrada.minuto,
+            seconds: entrada.segundo
+        })
+
+        this.localNotifications.schedule({
+            id: entrada.id,
+            title: entrada.titulo,
+            text: 'Mimuqui',
+            data: {entrada: entrada},
+            trigger: {at: fecha_de_notificacion.toDate()}
+        })
+    }
+
+    editarNotificacion(entrada:Entrada):void{
+        // eliminar notificacion anterior
+        this.eliminarNotificacion(entrada.id)
+        // crear notificacion nueva
+        this.crearNotificacion(entrada);
+    }
+
+    eliminarNotificacion(id:number):void {
+        // como no puedo eliminar, voy a enviar la notificacion al pasado, asi no sonara
+        this.localNotifications.schedule({
+            id: id,
+            title: '',
+            text: '',
+            trigger: {at: this.fechaDeHoy.toDate()}
+        })
     }
 
 }

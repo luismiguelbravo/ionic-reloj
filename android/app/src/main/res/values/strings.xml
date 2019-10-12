@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">reloj</string>
-    <string name="title_activity_main">reloj</string>
-    <string name="package_name">com.bravoluismiguel.reloj</string>
-    <string name="fileprovider_authority">com.bravoluismiguel.reloj.fileprovider</string>
-    <string name="custom_url_scheme">com.bravoluismiguel.reloj</string>
+    <string name="app_name">Mimuqui</string>
+    <string name="title_activity_main">Mimuqui</string>
+    <string name="package_name">com.bravoluismiguel.mimuqui</string>
+    <string name="fileprovider_authority">com.bravoluismiguel.mimuqui.fileprovider</string>
+    <string name="custom_url_scheme">com.bravoluismiguel.mimuqui</string>
 </resources>
