@@ -261,10 +261,14 @@ export class HomePage {
         el croll ha resultado ser muy inconveniente, 
         lo dejo comentado para no repetirlo */
     bajalo_para_aca(id) {
-      let vm = this;
-      vm.contadorService.setIdSeleccionado(id);
-      let el = document.getElementById(id);
-      el.scrollIntoView();
+        let vm = this;
+        vm.contadorService.setIdSeleccionado(id);
+        let elemento = document.getElementById(id);
+        elemento.style.border = "4px solid white"
+        elemento.scrollIntoView();
+        setTimeout(() => {
+            elemento.style.border = "none"
+        }, 2000);
     }    
 
     seleccionar_reloj(id) {
