@@ -364,13 +364,8 @@ export class HomePage {
         this.notificacionClickeada = 'ngOnInit()'
         // me suscribo al evento click en la notificacion
         this.localNotifications.on('click').subscribe(res => {
-            this.notificacionClickeada = 'alguna notificacion fue tocada'
-            //this.notificacionClickeada = res.data.id
-            console.log("")
-            console.log(" ============ this.localNotifications.on('click') ============ ")
-            console.log('click():res', res)
-            console.log(" ============ this.localNotifications.on('click') ============ ")
-            console.log("")
+            this.notificacionClickeada = res.data.id
+            this.bajalo_para_aca(res.data.id)
         })
     }
 
@@ -573,14 +568,14 @@ export class HomePage {
             id: entrada.id,
             title: entrada.titulo,
             text: '',
-            data: {entrada: entrada},
+            data: {id: entrada.id},
             trigger: {at: fecha_de_notificacion.toDate()}
         })
     }
 
     editarNotificacion(entrada:Entrada):void{
         // eliminar notificacion anterior
-        this.eliminarNotificacion(entrada.id)
+        // this.eliminarNotificacion(entrada.id)
         // crear notificacion nueva
         this.crearNotificacion(entrada);
     }
