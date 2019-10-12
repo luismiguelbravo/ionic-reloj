@@ -18,6 +18,7 @@ import { OrderModule } from 'ngx-order-pipe'
 import { AgregarPageModule } from './entrada/agregar/agregar.module';
 
 import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -38,7 +39,8 @@ import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
         Clipboard,
         StatusBar,
         SplashScreen,
-            { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        LocalNotifications
     ],
     bootstrap: [AppComponent],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
