@@ -572,7 +572,7 @@ export class HomePage {
         this.localNotifications.schedule({
             id: entrada.id,
             title: entrada.titulo,
-            text: 'Mimuqui',
+            text: '',
             data: {entrada: entrada},
             trigger: {at: fecha_de_notificacion.toDate()}
         })
