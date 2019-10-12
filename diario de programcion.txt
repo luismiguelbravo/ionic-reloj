@@ -102,3 +102,8 @@ pendientes:::
     LISTO :: editar
     LISTO :: verificar la agregacion
     notificaciones
+
+
+======= admob =======
+Mimuqui android
+ID de aplicación: ca-app-pub-7351123315567146~2709823003
