@@ -136,7 +136,8 @@
                                     </table>
                                 </div>
                                 <br>
-                                <div (click)="compartirConCapacitor()" style="text-align: center; color: aqua; font-size: 18px;">
+
+                                <div *ngIf="mostrar_boton_compartir" (click)="compartirConCapacitor()" style="text-align: center; color: aqua; font-size: 18px;">
                                     {{ idiomaService.idioma_seleccionado.Share }}
                                     <ion-icon name="share" slot="end"></ion-icon>
                                 </div>
