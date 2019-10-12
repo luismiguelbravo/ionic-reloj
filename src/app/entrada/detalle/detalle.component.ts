@@ -5,6 +5,7 @@ import { Subscription } from "rxjs";
 import { ContadorService } from '../../commons/contador.service'
 import { ViewChild, ElementRef } from '@angular/core';
 import { IdiomaService } from '../../commons/idioma.service'
+import { Platform } from '@ionic/angular';
 
 // plugin para compartir
 import { Plugins } from '@capacitor/core';
@@ -39,6 +40,8 @@ export class DetalleComponent implements OnInit {
     tiempo_transcurrido = 0;
     fecha_de_creacion = null;
 
+    mostrar_boton_compartir = true;
+
     @ViewChild('myCanvas') myCanvas: ElementRef;
     public ctx: CanvasRenderingContext2D;
 
@@ -48,8 +51,16 @@ export class DetalleComponent implements OnInit {
 
     constructor(
         public contadorService: ContadorService,
-        public idiomaService: IdiomaService
-    ) { }
+        public idiomaService: IdiomaService,
+        private platform: Platform,
+    ) { 
+        
+        this.platform.ready().then(() => {
+            if ( this.platform.is("desktop")){
+                this.mostrar_boton_compartir = false;
+            }
+        });
+    }
 
     ngOnInit() {
         let vm = this
