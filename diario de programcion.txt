@@ -87,7 +87,7 @@ You must build your Ionic project at least once before adding any native platfor
 
 
   PUBLICAR EN ANDROID
-  $ ionic build && ionic capacitor copy android
+  $ ionic build --prod && ionic capacitor copy android
 
   // esta linea abre el android studio
   $ npx cap open android
@@ -95,7 +95,7 @@ You must build your Ionic project at least once before adding any native platfor
   Abrir el proyecto en Android Studio y darle play
 
 ==== publicar en FIREBASE ====  
-  $ ionic build && firebase deploy
+  $ ionic build --prod && firebase deploy
 
 pendientes:::
   cosas que quiero 
