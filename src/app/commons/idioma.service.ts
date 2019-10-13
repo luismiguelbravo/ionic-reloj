@@ -5,56 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class IdiomaService {
 
-    idioma_seleccionado = {
-                "indice": 47, "Heteroglotonimo": "Inglés", "Autoglotonimo": "English", "dir":"ltr",
-                "Invalid_Title": "Invalid Title",
-                "Invalid_Year": "Invalid Year",
-                "Invalid_Date": "Invalid Date",
-                "Welcome": "Welcome",
-                "Search": "Search",
-                "Order" : "Order",
-                "Ascending order": "Ascending order",
-                "Descending order": "Descending order",
-                "Save": "Save",
-                "Cancel": "Cancel",
-                "Success": "Success",
-                "Delete" : "Delete",
-                "Event_saved_successfully": "Event saved successfully",
-                "Warning": "Warning",
-                "This action cannot be reversed": "This action cannot be reversed",
-                "Remove": "Remove",
-                "Title": "Title",
-                "Event": "Event",
-                "Year": "Year",
-                "Month": "Month",
-                "Day": "Day",
-                "Hour": "Hour",
-                "Minute": "Minute",
-                "Second": "Second",
-                "Add": "Add",
-                "Select One": "Select One",
-                "Months":[
-                    { "value": 0, "name": "January" },
-                    { "value": 1, "name": "February"},
-                    { "value": 2, "name": "March" },
-                    { "value": 3, "name": "April" },
-                    { "value": 4, "name": "May"  },
-                    { "value": 5, "name": "June" },
-                    { "value": 6, "name": "July" },
-                    { "value": 7, "name": "August" },
-                    { "value": 8, "name": "September" },
-                    { "value": 9, "name": "October" },
-                    { "value": 10, "name": "November" },
-                    { "value": 11, "name": "December" }
-                ],
-                "Copy": "Copy",
-                "Share": "Share",
-                "Accept" : "Accept",
-                "Edit" : "Edit",
-                "event_date" : "Event date",
-                "Future": "Future",
-                "Past" : "Past"
-            };
+    get_idioma_by_indice(indice) {
+        return this.listaDeIdiomas().filter(idioma => {
+            return idioma.indice === indice;
+        })[0]
+    }
+
+    idioma_seleccionado = this.get_idioma_by_indice(47)[0]
 
     seleccionar_idioma(idioma): void
     {

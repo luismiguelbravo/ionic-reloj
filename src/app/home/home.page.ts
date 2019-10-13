@@ -33,7 +33,7 @@ export class HomePage {
     diferenciaEnDias = null;
     diferenciaEnMeses = null;
     diferenciaEnYears = null;
-    listaDeFechas : Entrada[];
+    listaDeFechas : Entrada[] = [];
 
     fechaDeEntrada = '';
     horaDeEntrada = '';
@@ -67,7 +67,202 @@ export class HomePage {
             console.log(val)
             console.log(" ==== val ==== ")
             console.log("")
+
+            console.log("")
+            console.log(">>----> typeof val.titulo === 'undefined' <----<< ")
+            console.log(typeof val.titulo === 'undefined')
+            console.log(">>----> typeof val.titulo === 'undefined' <----<< ")
+            console.log("")
+
+            if (typeof val.titulo === "undefined")
+            {
+                //
+                //
+                //
+                    this.storage.get('listaDeFechas').then((val) => {
+                        this.listaDeFechas = val
+                        if (val === null) {
+                            this.listaDeFechas = []
+                            // vm.usarSemilla()
+                        }
+                        // console.log(this.listaDeFechas)
+                        this.listaDeFechas = this.listaDeFechas.sort(
+                            function(a,b) 
+                            {
+                                const fechaA = new Date(a.fecha)
+                                const fechaB = new Date(b.fecha)
+                                return fechaB.getTime() - fechaA.getTime()
+                            }
+                        );
+                        let right_now = moment();
+                        let fecha_auxiliar = null;
+                        let alguna_modificacion = false;
+
+                        this.listaDeFechas.forEach(function(entrada) {
+                            fecha_auxiliar = moment(
+                            {
+                                years: entrada.year,
+                                months: entrada.mes,
+                                days: entrada.dia,
+                                hours: entrada.hora,
+                                minutes: entrada.minuto,
+                                seconds: entrada.segundo 
+                            });
+
+                            // recorrer toda esta vaina para ver que esta en el pasado
+                            // verifico el caso de que exista alguna fecha que esta en el paso y la marco
+                            if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
+                               entrada.pasado = true;
+                               alguna_modificacion = true;
+                            }
+                            
+                        });
+
+                        if (alguna_modificacion) {
+                            this.storage.set('listaDeFechas', this.listaDeFechas);
+                        }
+
+                        /*
+                            se crea un reloj unico que activa a todos los detalles
+                            esto lo hice para evitar terner un hilo con reloj contador para cada proceso
+                            debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
+                            de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
+
+                            // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
+                            esto para proteger el consumo del procesador.
+                        */
+                        this.listaFiltrada = this.listaDeFechas
+                        this.contadorService.iniciarMovimiento()
+
+                    });
+                //
+                //
+                //
+
+                // preguntar por el idioma seleccionado
+                this.storage.get('miIdioma').then((miIdioma) => {
+                    if (miIdioma === null){
+                        // establezco por defecto el idioma ingles
+                        this.miIdioma = this.idiomaService.get_idioma_por_defecto()
+                        this.idiomaService.seleccionar_idioma(this.miIdioma)
+                        this.seleccionarIdioma()
+                    }
+                    else{
+                        this.idiomaService.seleccionar_idioma(miIdioma);
+                        this.miIdioma = miIdioma;
+                    }
+                });
+            }
+            else
+            {
+                // seleccionar el idioma indicado por el copartidor
+                this.miIdioma = this.idiomaService.get_idioma_by_indice(Number(val.idioma));
+                console.log("")
+                console.log(">>----> this.miIdioma <----<< ")
+                console.log(this.miIdioma)
+                console.log(">>----> this.miIdioma <----<< ")
+                console.log("")
+                this.storage.set('miIdioma', this.miIdioma);
+                this.idiomaService.seleccionar_idioma(this.miIdioma);
+                // crear una entrada
+                let nuevaFecha = new Entrada();
+                nuevaFecha.fecha = val.fecha
+                nuevaFecha.titulo = val.titulo
+                nuevaFecha.year = Number(val.year)
+                nuevaFecha.mes = Number(val.mes)
+                nuevaFecha.dia = Number(val.dia)
+                nuevaFecha.hora = Number(val.hora)
+                nuevaFecha.minuto = Number(val.minuto)
+                nuevaFecha.segundo = Number(val.segundo)
+
+                nuevaFecha.year_de_creacion = Number(val.year_de_creacion)
+                nuevaFecha.mes_de_creacion = Number(val.mes_de_creacion)
+                nuevaFecha.dia_de_creacion = Number(val.dia_de_creacion)
+                nuevaFecha.hora_de_creacion = Number(val.hora_de_creacion)
+                nuevaFecha.minuto_de_creacion = Number(val.minuto_de_creacion)
+                nuevaFecha.segundo_de_creacion = Number(val.segundo_de_creacion)
+                nuevaFecha.pasado = val.pasado == "true"
+                nuevaFecha.id = Math.round(Math.random()  * 10000000000000000)
+
+                // this.listaDeFechas.push(nuevaFecha);
+                // this.listaDeFechas = this.listaDeFechas.sort(function(a,b){
+                //     if( a.fecha < b.fecha) {return 1;}
+                //     if( a.fecha > b.fecha) {return -1;}
+                //     return 0;
+                // })
+                // this.listaFiltrada = this.listaDeFechas 
+                // this.storage.set('listaDeFechas', this.listaDeFechas);
+                // console.log(" === this.listaDeFechas ===");
+                // console.log(this.listaDeFechas)
+                // this.contadorService.iniciarMovimiento()
+
+                    this.storage.get('listaDeFechas').then((val) => {
+                        this.listaDeFechas = val
+                        if (val === null) {
+                            this.listaDeFechas = []
+                            // vm.usarSemilla()
+                        }
+                        // console.log(this.listaDeFechas)
+                        this.listaDeFechas.push(nuevaFecha);
+                        this.listaDeFechas = this.listaDeFechas.sort(
+                            function(a,b) 
+                            {
+                                const fechaA = new Date(a.fecha)
+                                const fechaB = new Date(b.fecha)
+                                return fechaB.getTime() - fechaA.getTime()
+                            }
+                        );
+                        let right_now = moment();
+                        let fecha_auxiliar = null;
+                        let alguna_modificacion = false;
+
+                        this.listaDeFechas.forEach(function(entrada) {
+                            fecha_auxiliar = moment(
+                            {
+                                years: entrada.year,
+                                months: entrada.mes,
+                                days: entrada.dia,
+                                hours: entrada.hora,
+                                minutes: entrada.minuto,
+                                seconds: entrada.segundo 
+                            });
+
+                            // recorrer toda esta vaina para ver que esta en el pasado
+                            // verifico el caso de que exista alguna fecha que esta en el paso y la marco
+                            if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
+                               entrada.pasado = true;
+                               alguna_modificacion = true;
+                            }
+                            
+                        });
+                        this.storage.set('listaDeFechas', this.listaDeFechas);
+                        /*
+                            se crea un reloj unico que activa a todos los detalles
+                            esto lo hice para evitar terner un hilo con reloj contador para cada proceso
+                            debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
+                            de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
+
+                            // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
+                            esto para proteger el consumo del procesador.
+                        */
+                        this.listaFiltrada = this.listaDeFechas
+                        this.contadorService.iniciarMovimiento()
+
+                    });
+
+
+
+
+
+                setTimeout(() => {
+                    // Hacer el scroll es muy inconveniente
+                    // se deja comentado para evitar repetir
+                    this.bajalo_para_aca(nuevaFecha.id)
+                }, 1000);
+            }
         });
+
+
     }
 
     async mostrarFomulario() {
@@ -274,8 +469,8 @@ export class HomePage {
         lo dejo comentado para no repetirlo */
     bajalo_para_aca(id) {
         let vm = this;
-        vm.contadorService.setIdSeleccionado(id);
-        let elemento = document.getElementById(id);
+        vm.contadorService.setIdSeleccionado(id + "");
+        let elemento = document.getElementById(id + "");
         elemento.style.border = "4px solid white"
         elemento.scrollIntoView();
         setTimeout(() => {
@@ -297,85 +492,12 @@ export class HomePage {
 
     ngOnInit() {
 
-        let vm = this;
-
         /*
         setTimeout(() => {
             // Hacer el scroll es muy inconveniente
             // se deja comentado para evitar repetir
             vm.bajalo_para_aca('55')
         }, 1000);*/
-        
-        vm.storage.get('listaDeFechas').then((val) => {
-            vm.listaDeFechas = val
-            if (val === null) {
-                vm.listaDeFechas = []
-                // vm.usarSemilla()
-            }
-            // console.log(this.listaDeFechas)
-            vm.listaDeFechas = this.listaDeFechas.sort(
-                function(a,b) 
-                {
-                    const fechaA = new Date(a.fecha)
-                    const fechaB = new Date(b.fecha)
-                    return fechaB.getTime() - fechaA.getTime()
-                }
-            );
-            let right_now = moment();
-            let fecha_auxiliar = null;
-            let alguna_modificacion = false;
-
-            vm.listaDeFechas.forEach(function(entrada) {
-                fecha_auxiliar = moment(
-                {
-                    years: entrada.year,
-                    months: entrada.mes,
-                    days: entrada.dia,
-                    hours: entrada.hora,
-                    minutes: entrada.minuto,
-                    seconds: entrada.segundo 
-                });
-
-                // recorrer toda esta vaina para ver que esta en el pasado
-                // verifico el caso de que exista alguna fecha que esta en el paso y la marco
-                if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
-                   entrada.pasado = true;
-                   alguna_modificacion = true;
-                }
-                
-            });
-
-            if (alguna_modificacion) {
-                this.storage.set('listaDeFechas', this.listaDeFechas);
-            }
-
-            /*
-                se crea un reloj unico que activa a todos los detalles
-                esto lo hice para evitar terner un hilo con reloj contador para cada proceso
-                debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
-                de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
-
-                // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
-                esto para proteger el consumo del procesador.
-            */
-            vm.listaFiltrada = vm.listaDeFechas
-            vm.contadorService.iniciarMovimiento()
-
-        });
-
-        // preguntar por el idioma seleccionado
-        vm.storage.get('miIdioma').then((miIdioma) => {
-            if (miIdioma === null){
-                // establezco por defecto el idioma ingles
-                vm.miIdioma = vm.idiomaService.get_idioma_por_defecto()
-                vm.idiomaService.seleccionar_idioma(vm.miIdioma)
-                vm.seleccionarIdioma()
-            }
-            else{
-                vm.idiomaService.seleccionar_idioma(miIdioma);
-                vm.miIdioma = miIdioma;
-            }
-        });
 
         this.notificacionClickeada = 'ngOnInit()'
         // me suscribo al evento click en la notificacion

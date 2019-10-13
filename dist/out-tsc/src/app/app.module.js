@@ -12,6 +12,7 @@ import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { OrderModule } from 'ngx-order-pipe';
 import { AgregarPageModule } from './entrada/agregar/agregar.module';
 import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -35,7 +36,8 @@ var AppModule = /** @class */ (function () {
                 Clipboard,
                 StatusBar,
                 SplashScreen,
-                { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+                { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+                LocalNotifications
             ],
             bootstrap: [AppComponent],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]

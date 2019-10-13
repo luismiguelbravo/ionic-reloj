@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IdiomaService } from './commons/idioma.service';
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar) {
+    function AppComponent(platform, splashScreen, statusBar, idiomaService) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.idiomaService = idiomaService;
         this.appPages = [
             {
                 title: 'Inicio',
@@ -36,7 +38,8 @@ var AppComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [Platform,
             SplashScreen,
-            StatusBar])
+            StatusBar,
+            IdiomaService])
     ], AppComponent);
     return AppComponent;
 }());

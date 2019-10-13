@@ -33,6 +33,8 @@ export class AppComponent {
   }
 
   initializeApp() {
+    this.idiomaService.seleccionar_idioma(this.idiomaService.get_idioma_by_indice(47));
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

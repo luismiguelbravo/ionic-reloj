@@ -3,22 +3,20 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { Entrada } from '../../Entrada';
 import { ContadorService } from '../../commons/contador.service';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { Clipboard } from '@ionic-native/clipboard/ngx';
-import { AlertController } from '@ionic/angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IdiomaService } from '../../commons/idioma.service';
+import { Platform } from '@ionic/angular';
+import { HttpParams } from "@angular/common/http";
 // plugin para compartir
 import { Plugins } from '@capacitor/core';
 var Share = Plugins.Share;
 //     plugin para compartir
 var DetalleComponent = /** @class */ (function () {
-    function DetalleComponent(contadorService, socialSharing, clipboard, alertController, idiomaService) {
+    function DetalleComponent(contadorService, idiomaService, platform) {
+        var _this = this;
         this.contadorService = contadorService;
-        this.socialSharing = socialSharing;
-        this.clipboard = clipboard;
-        this.alertController = alertController;
         this.idiomaService = idiomaService;
+        this.platform = platform;
         this.movimientoCompletoEventEmitter = new EventEmitter();
         this.movientoCompletoSuscripcion = null;
         this.fechaDeHoy = moment();
@@ -32,15 +30,60 @@ var DetalleComponent = /** @class */ (function () {
         this.diferenciaEnMeses = null;
         this.diferenciaEnYears = null;
         this.pasado = false;
+        this.porcentaje = 0;
+        this.tiempo_total = 0;
+        this.tiempo_transcurrido = 0;
+        this.fecha_de_creacion = null;
+        this.mostrar_boton_compartir = true;
         this.mostrarReloj = false;
+        this.platform.ready().then(function () {
+            if (_this.platform.is("desktop")) {
+                _this.mostrar_boton_compartir = false;
+            }
+        });
     }
     DetalleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.finalDeLaEspera = moment(this.entrada.fecha, 'YYYY-MM-DD HH:mm');
+        var vm = this;
+        this.ctx = this.myCanvas.nativeElement.getContext('2d');
+        vm.ctx.lineWidth = 30;
+        vm.ctx.textAlign = 'center';
+        vm.ctx.textBaseline = 'middle';
+        vm.ctx.font = '25px Trebuchet MS';
+        vm.ctx.fillStyle = 'white';
         this.movientoCompletoSuscripcion = this.contadorService.movimientoObservable.subscribe(function () {
             _this.calcularDiferencias();
         });
+        this.fecha_de_creacion = moment({
+            years: vm.entrada.year_de_creacion,
+            months: vm.entrada.mes_de_creacion,
+            date: vm.entrada.dia_de_creacion,
+            hours: vm.entrada.hora_de_creacion,
+            minutes: vm.entrada.minuto_de_creacion,
+            seconds: vm.entrada.segundo_de_creacion
+        });
     };
+    DetalleComponent.prototype.draw = function (r, p, c) {
+        var vm = this;
+        var start = 1.5 * Math.PI; // Start circle from top
+        var end = (2 * Math.PI) / 100; // One percent of circle
+        p = p || 100; // When time is '00' we show full circle
+        vm.ctx.strokeStyle = c;
+        vm.ctx.beginPath();
+        vm.ctx.arc(85, 85, r, start, p * end + start, false);
+        vm.ctx.stroke();
+    };
+    DetalleComponent.prototype.clock = function () {
+        var vm = this;
+        var color_de_relleno = 'steelblue';
+        if (vm.pasado) {
+            color_de_relleno = "#4682b4b0";
+        }
+        this.ctx.clearRect(0, 0, 170, 170);
+        this.ctx.fillText(vm.porcentaje.toFixed(1) + "%", 85, 85);
+        this.draw(60, vm.porcentaje, color_de_relleno);
+    };
+    ;
     DetalleComponent.prototype.seleccionar_reloj = function (id) {
         var vm = this;
         vm.contadorService.setIdSeleccionado(id);
@@ -54,23 +97,29 @@ var DetalleComponent = /** @class */ (function () {
         return this.contadorService.getIdSeleccionado();
     };
     DetalleComponent.prototype.nombreDeMes = function (indice) {
-        var arregloNombreDeMes = [
-            "Enero", "Febrero", "Marzo",
-            "Abril", "Mayo", "Junio",
-            "Julio", "Agosto", "Septiembre",
-            "Octubre", "Noviembre", "Diciembre"
-        ];
-        return arregloNombreDeMes[indice - 1];
+        return this.idiomaService.idioma_seleccionado.Months[indice].name;
     };
     DetalleComponent.prototype.calcularDiferencias = function () {
         var vm = this;
+        this.finalDeLaEspera = moment({
+            years: vm.entrada.year,
+            months: vm.entrada.mes,
+            date: vm.entrada.dia,
+            hours: vm.entrada.hora,
+            minutes: vm.entrada.minuto,
+            seconds: vm.entrada.segundo
+        });
+        vm.fechaDeHoy = moment();
         if (vm.finalDeLaEspera > vm.fechaDeHoy) {
             vm.pasado = false;
+            vm.tiempo_total = vm.finalDeLaEspera.diff(vm.fecha_de_creacion, 'seconds');
+            vm.tiempo_transcurrido = vm.fechaDeHoy.diff(vm.fecha_de_creacion, 'seconds');
+            vm.porcentaje = vm.tiempo_transcurrido * 100 / vm.tiempo_total;
         }
         else {
             vm.pasado = true;
+            vm.porcentaje = 100;
         }
-        vm.fechaDeHoy = moment();
         vm.diferenciaEnYears = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'years');
         vm.fechaDeHoy.add(vm.diferenciaEnYears, 'years');
         vm.diferenciaEnMeses = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'months');
@@ -82,150 +131,93 @@ var DetalleComponent = /** @class */ (function () {
         vm.diferenciaEnMinutos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'minutes');
         vm.fechaDeHoy.add(vm.diferenciaEnMinutos, 'minutes');
         vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds');
+        this.clock();
     };
     DetalleComponent.prototype.construirMensaje = function () {
         //let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
-        var vm = this;
-        var mensaje = "Día " + vm.entrada.fecha.substring(8, 10) + " de " + vm.nombreDeMes(vm.entrada.fecha.substring(5, 7)) +
-            " del año " + vm.entrada.fecha.substring(0, 4) + '\n' +
-            "Hora: " + vm.entrada.fecha.substring(11, vm.entrada.fecha.length) + '\n' + vm.entrada.titulo + '\n';
-        var sumarioDeTiempo = "";
-        if (this.diferenciaEnYears !== 0) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnYears) + ' año';
-            if (Math.abs(this.diferenciaEnYears) !== 1) {
-                sumarioDeTiempo += 's';
-            }
-        }
-        if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMeses) + ' mes';
-            if (Math.abs(this.diferenciaEnMeses) !== 1) {
-                sumarioDeTiempo += 'es';
-            }
-        }
-        if (!(this.diferenciaEnYears === 0 &&
-            this.diferenciaEnMeses === 0 &&
-            this.diferenciaEnDias === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnDias) + ' día';
-            if (Math.abs(this.diferenciaEnDias) !== 1) {
-                sumarioDeTiempo += 's';
-            }
-        }
-        if (!(this.diferenciaEnYears === 0 &&
-            this.diferenciaEnMeses === 0 &&
-            this.diferenciaEnDias === 0 &&
-            this.diferenciaEnHoras === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnHoras) + ' hora';
-            if (Math.abs(this.diferenciaEnHoras) !== 1) {
-                sumarioDeTiempo += 's';
-            }
-        }
-        if (!(this.diferenciaEnYears === 0 &&
-            this.diferenciaEnMeses === 0 &&
-            this.diferenciaEnDias === 0 &&
-            this.diferenciaEnHoras === 0 &&
-            this.diferenciaEnMinutos === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMinutos) + ' minuto';
-            if (Math.abs(this.diferenciaEnMinutos) !== 1) {
-                sumarioDeTiempo += 's';
-            }
-        }
-        if (!(this.diferenciaEnYears === 0 &&
-            this.diferenciaEnMeses === 0 &&
-            this.diferenciaEnDias === 0 &&
-            this.diferenciaEnHoras === 0 &&
-            this.diferenciaEnMinutos === 0 &&
-            this.diferenciaEnSegundos === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnSegundos) + ' segundo';
-            if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1) {
-                sumarioDeTiempo += 's';
-            }
-        }
+        var mensaje = this.entrada.titulo + '\n\n';
         if (this.diferenciaEnYears < 0 ||
             this.diferenciaEnMeses < 0 ||
             this.diferenciaEnDias < 0 ||
             this.diferenciaEnHoras < 0 ||
             this.diferenciaEnMinutos < 0 ||
             this.diferenciaEnSegundos < 0) {
-            mensaje = mensaje + '\n' + "Ocurrió hace:" + sumarioDeTiempo;
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Past + " :::::::::\n";
         }
         else {
-            mensaje = mensaje + '\n' + "Aún falta " + sumarioDeTiempo;
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Future + " :::::::::\n";
         }
+        if (this.diferenciaEnYears !== 0) {
+            mensaje += this.idiomaService.idioma_seleccionado.Year + " " + Math.abs(this.diferenciaEnYears) + '\n';
+        }
+        if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
+            mensaje += this.idiomaService.idioma_seleccionado.Month + " " + Math.abs(this.diferenciaEnMeses) + '\n';
+        }
+        if (!(this.diferenciaEnYears === 0 &&
+            this.diferenciaEnMeses === 0 &&
+            this.diferenciaEnDias === 0)) {
+            mensaje += this.idiomaService.idioma_seleccionado.Day + " " + Math.abs(this.diferenciaEnDias) + '\n';
+        }
+        if (!(this.diferenciaEnYears === 0 &&
+            this.diferenciaEnMeses === 0 &&
+            this.diferenciaEnDias === 0 &&
+            this.diferenciaEnHoras === 0)) {
+            mensaje += this.idiomaService.idioma_seleccionado.Hour + " " + Math.abs(this.diferenciaEnHoras) + '\n';
+        }
+        if (!(this.diferenciaEnYears === 0 &&
+            this.diferenciaEnMeses === 0 &&
+            this.diferenciaEnDias === 0 &&
+            this.diferenciaEnHoras === 0 &&
+            this.diferenciaEnMinutos === 0)) {
+            mensaje += this.idiomaService.idioma_seleccionado.Minute + " " + Math.abs(this.diferenciaEnMinutos) + '\n';
+        }
+        mensaje += this.idiomaService.idioma_seleccionado.Second + " " + Math.abs(this.diferenciaEnSegundos);
         return mensaje;
     };
     DetalleComponent.prototype.compartirConCapacitor = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var vm, urlParaCompartir, shareRet;
+            var params, urlParaCompartir, shareRet;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        vm = this;
-                        urlParaCompartir = "titulo=" + vm.entrada.titulo
-                            + "year=" + vm.entrada.year
-                            + "month" + vm.entrada.mon
-                            + "mes=" + vm.entrada.mes
-                            + "parametro=" + vm.entrada.dia
-                            + "parametro=" + vm.entrada.hora
-                            + "parametro=" + vm.entrada.minuto
-                            + "parametro=" + vm.entrada.segundo;
+                        params = new HttpParams();
+                        params = params.set('titulo', this.entrada.titulo);
+                        params = params.set('fecha', this.entrada.fecha);
+                        params = params.set('year', this.entrada.year + '');
+                        params = params.set('mes', this.entrada.mes + '');
+                        params = params.set('dia', this.entrada.dia + '');
+                        params = params.set('hora', this.entrada.hora + '');
+                        params = params.set('minuto', this.entrada.minuto + '');
+                        params = params.set('segundo', this.entrada.segundo + '');
+                        params = params.set('pasado', this.entrada.pasado + '');
+                        params = params.set('year_de_creacion', this.entrada.year_de_creacion + '');
+                        params = params.set('mes_de_creacion', this.entrada.mes_de_creacion + '');
+                        params = params.set('dia_de_creacion', this.entrada.dia_de_creacion + '');
+                        params = params.set('hora_de_creacion', this.entrada.hora_de_creacion + '');
+                        params = params.set('minuto_de_creacion', this.entrada.minuto_de_creacion + '');
+                        params = params.set('segundo_de_creacion', this.entrada.segundo_de_creacion + '');
+                        params = params.set('idioma', this.idiomaService.idioma_seleccionado.indice + '');
+                        urlParaCompartir = location.origin + '/home?' + params.toString();
+                        console.log("");
+                        console.log(" ----------- urlParaCompartir ----------- ");
+                        console.log(urlParaCompartir);
+                        console.log(" ----------- urlParaCompartir ----------- ");
+                        console.log("");
+                        console.log("");
+                        console.log(" ----------- mensaje para compartir ----------- ");
+                        console.log(this.construirMensaje());
+                        console.log(" ----------- mensaje para compartir ----------- ");
+                        console.log("");
                         return [4 /*yield*/, Share.share({
-                                title: vm.entrada.titulo,
-                                text: vm.construirMensaje(),
-                                url: "https://mimuqui.com/onlineTimer?title=''",
+                                title: this.entrada.titulo,
+                                text: this.construirMensaje(),
+                                url: urlParaCompartir,
                                 dialogTitle: 'Share with buddies'
                             })];
                     case 1:
                         shareRet = _a.sent();
                         return [2 /*return*/];
                 }
-            });
-        });
-    };
-    DetalleComponent.prototype.copyToClipBoard = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var vm, alert;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log('copyToClipBoard()');
-                        vm = this;
-                        vm.clipboard.copy(vm.construirMensaje());
-                        return [4 /*yield*/, this.alertController.create({
-                                header: 'Éxito',
-                                subHeader: '',
-                                message: 'Copiado al porta papeles.',
-                                buttons: ['OK']
-                            })];
-                    case 1:
-                        alert = _a.sent();
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    DetalleComponent.prototype.shareWhatsApp = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var vm, mensajeParaEnviar;
-            return __generator(this, function (_a) {
-                console.log('shareWhatsApp');
-                vm = this;
-                mensajeParaEnviar = vm.construirMensaje();
-                console.log("");
-                console.log(" --------- mensajeParaEnviar --------- ");
-                console.log(mensajeParaEnviar);
-                console.log(" --------- mensajeParaEnviar --------- ");
-                console.log("");
-                vm.socialSharing.shareViaWhatsApp(mensajeParaEnviar, null, null).then(function () {
-                    // Success
-                    console.log("exito al compartir por whatsapp");
-                }).catch(function (e) {
-                    // Error!
-                    console.log("error al compartir por whatsapp");
-                });
-                return [2 /*return*/];
             });
         });
     };
@@ -248,10 +240,8 @@ var DetalleComponent = /** @class */ (function () {
             styleUrls: ['./detalle.component.scss'],
         }),
         __metadata("design:paramtypes", [ContadorService,
-            SocialSharing,
-            Clipboard,
-            AlertController,
-            IdiomaService])
+            IdiomaService,
+            Platform])
     ], DetalleComponent);
     return DetalleComponent;
 }());
