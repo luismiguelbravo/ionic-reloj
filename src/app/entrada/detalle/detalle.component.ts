@@ -232,7 +232,7 @@ export class DetalleComponent implements OnInit {
         {
             mensaje += this.idiomaService.idioma_seleccionado.Minute + " " + Math.abs(this.diferenciaEnMinutos) + '\n'
         }
-        mensaje += this.idiomaService.idioma_seleccionado.Second + " " + Math.abs(this.diferenciaEnSegundos)
+        mensaje += this.idiomaService.idioma_seleccionado.Second + " " + Math.abs(this.diferenciaEnSegundos) + '\n\n'
         return mensaje;
     }
 
@@ -256,18 +256,6 @@ export class DetalleComponent implements OnInit {
         params = params.set('idioma',  this.idiomaService.idioma_seleccionado.indice + '')
 
         let urlParaCompartir = 'https://mimuqui.com/home?' + params.toString()
-
-        console.log("")
-        console.log(" ----------- urlParaCompartir ----------- ")
-        console.log(urlParaCompartir);
-        console.log(" ----------- urlParaCompartir ----------- ")
-        console.log("")
-
-        console.log("")
-        console.log(" ----------- mensaje para compartir ----------- ")
-        console.log(this.construirMensaje());
-        console.log(" ----------- mensaje para compartir ----------- ")
-        console.log("")
 
         let shareRet = await Share.share({
           title: this.entrada.titulo,
