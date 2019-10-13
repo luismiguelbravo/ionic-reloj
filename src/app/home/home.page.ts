@@ -14,6 +14,8 @@ import { IdiomaService } from '../commons/idioma.service'
 import { Platform } from '@ionic/angular';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free/ngx';
+
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -54,9 +56,55 @@ export class HomePage {
         public modalController: ModalController,
         public idiomaService: IdiomaService,
         private platform: Platform,
-        private localNotifications: LocalNotifications
+        private localNotifications: LocalNotifications,
+        private admobFree: AdMobFree
 
-    ) { }
+    ) {
+        console.log("")
+        console.log("")
+        console.log("")
+        console.log(" ============ CONSTRUCTOR ============ ")
+        console.log(" ============ CONSTRUCTOR ============ ")
+        console.log(" ============ CONSTRUCTOR ============ ")
+        console.log("")
+        console.log("")
+        console.log("")
+
+        const bannerConfig: AdMobFreeBannerConfig = {
+            // add your config here
+            // for the sake of this example we will just use the test config
+            isTesting: true,
+            autoShow: true,
+            id: "ca-app-pub-7351123315567146/3855383714"
+        };
+        admobFree.banner.config(bannerConfig);
+
+        platform.ready().then(() => {
+            admobFree.banner.prepare()
+                .then(() => {
+                // banner Ad is ready
+                // if we set autoShow to false, then we will need to call the show method here
+                    console.log("")
+                    console.log("")
+                    console.log("")
+                    console.log(" ============ DISPARANDO BANNER ============ ")
+                    console.log(" ============ DISPARANDO BANNER ============ ")
+                    console.log(" ============ DISPARANDO BANNER ============ ")
+                    console.log("")
+                    console.log("")
+                    console.log("")    
+
+                })
+                .catch(error => {
+                    console.log("")
+                    console.log(" ============ error al soltar el banner ============ ")
+                    console.log(JSON.stringify(error))
+                    console.log(" ============ error al soltar el banner ============ ")
+                    console.log("")
+            });                
+        })
+
+    }
 
     async mostrarFomulario() {
         const vm = this;

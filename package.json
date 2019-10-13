@@ -22,6 +22,8 @@
     "@angular/router": "^7.2.2",
     "@capacitor/android": "^1.2.1",
     "@capacitor/core": "1.2.1",
+    "@capacitor/ios": "^1.2.1",
+    "@ionic-native/admob-free": "^5.15.0",
     "@ionic-native/clipboard": "^5.8.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/local-notifications": "^5.15.0",
@@ -102,10 +104,12 @@
         "MAX_STORE": "2",
         "MIN_BACKGROUND_DURATION": "30"
       },
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-7351123315567146~2709823003"
+      }
     },
     "platforms": [
-      "ios",
       "android"
     ]
   }

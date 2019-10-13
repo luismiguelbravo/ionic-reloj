@@ -20,6 +20,8 @@ import { AgregarPageModule } from './entrada/agregar/agregar.module';
 import { BienvenidaPageModule } from './bienvenida/bienvenida.module';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -40,7 +42,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        LocalNotifications
+        LocalNotifications,
+        AdMobFree
     ],
     bootstrap: [AppComponent],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

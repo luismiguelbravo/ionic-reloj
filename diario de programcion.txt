@@ -94,6 +94,13 @@ You must build your Ionic project at least once before adding any native platfor
 
   Abrir el proyecto en Android Studio y darle play
 
+  === actualizando los plugin de cordoba instalados ===
+  npx cap sync
+  npx cap update
+  ionic capacitor sync
+  *** parece que esta vaina si 
+  *** $ ionic cordova build android --prod --release
+
 ==== publicar en FIREBASE ====  
   $ ionic build && firebase deploy
 

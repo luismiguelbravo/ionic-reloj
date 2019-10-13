@@ -1,0 +1,7 @@
+{
+  "appId": "com.bravoluismiguel.mimuqui",
+  "appName": "Mimuqui",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

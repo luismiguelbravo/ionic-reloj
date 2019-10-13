@@ -109,4 +109,12 @@
         <variable name="MAX_STORE" value="2" />
         <variable name="MIN_BACKGROUND_DURATION" value="30" />
     </plugin>
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <plugin name="cordova-plugin-admob-free" spec="~0.27.0">
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-7351123315567146~2709823003" />
+    </plugin>
+    <plugin name="cordova-admob-plus" spec="~0.0.0">
+        <variable name="APP_ID_ANDROID" value="ca-app-pub-7351123315567146~2709823003" />
+        <variable name="APP_ID_IOS" value="ca-app-pub-7351123315567146~9711519086" />
+    </plugin>
 </widget>
