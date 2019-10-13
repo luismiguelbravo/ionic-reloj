@@ -27,3 +27,28 @@ me he dado cuento que mis penasmientos cambian cuando voy a trotar.
 
 
 comienzo a pensar
+
+
+ ===== modulo de compartir =====
+
+crear un enlace con el cuerpo codificado en base 64
+json.stringFy(parametros)
+codificar en base 64 atob(json.stringFy(parametros))
+
+recibirlos en una pagina de compartir
+y alli mostrar el detalle 
+
+con enlaces para descargar la aplicacion
+estos enlaces solo los tendre despues de publicar
+asi que el trabajo en la aplicacion va a llegar hasta compartir y abrir la pagina web
+
+
+traducir a los idiomas restantes
+publicar en iphone
+publicar en google play
+
+podria compartir con un link alhome
+pasandole el idioma
+la entrada
+y haciendo scroll y hight light.
+    cumpliria con la funcionalidad con menos codigo
