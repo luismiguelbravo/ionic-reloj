@@ -14,6 +14,8 @@ import { IdiomaService } from '../commons/idioma.service'
 import { Platform } from '@ionic/angular';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -54,9 +56,19 @@ export class HomePage {
         public modalController: ModalController,
         public idiomaService: IdiomaService,
         private platform: Platform,
-        private localNotifications: LocalNotifications
+        private localNotifications: LocalNotifications,
+        private router: Router,
+        private activatedRoute: ActivatedRoute
 
-    ) { }
+    ) { 
+        activatedRoute.queryParams.subscribe((val) => {
+            console.log("")
+            console.log(" ==== val ==== ")
+            console.log(val)
+            console.log(" ==== val ==== ")
+            console.log("")
+        });
+    }
 
     async mostrarFomulario() {
         const vm = this;
