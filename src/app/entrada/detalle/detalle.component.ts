@@ -255,7 +255,7 @@ export class DetalleComponent implements OnInit {
         params = params.set('segundo_de_creacion',  this.entrada.segundo_de_creacion + '')
         params = params.set('idioma',  this.idiomaService.idioma_seleccionado.indice + '')
 
-        let urlParaCompartir = location.origin + '/home?' + params.toString()
+        let urlParaCompartir = 'https://mimuqui.com/home?' + params.toString()
 
         console.log("")
         console.log(" ----------- urlParaCompartir ----------- ")
