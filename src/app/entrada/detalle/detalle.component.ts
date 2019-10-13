@@ -178,43 +178,40 @@ export class DetalleComponent implements OnInit {
 
     construirMensaje(): string{
         //let mensaje = this.entrada.titulo + ' ' + this.finalDeLaEspera.format("DD/MM/YYYY HH:mm") + '\n';
-        let vm = this
-        let mensaje ="Día " + vm.entrada.fecha.substring(8,10) + " de " +  vm.nombreDeMes(vm.entrada.fecha.substring(5,7)) +
-        " del año " + vm.entrada.fecha.substring(0,4) + '\n' +
-        "Hora: " + vm.entrada.fecha.substring(11, vm.entrada.fecha.length)  + '\n' + vm.entrada.titulo + '\n'
+        let mensaje = this.entrada.titulo + '\n\n';
 
-        let sumarioDeTiempo = "";
-
+        if (
+                this.diferenciaEnYears < 0 ||
+                this.diferenciaEnMeses < 0 ||
+                this.diferenciaEnDias < 0 ||
+                this.diferenciaEnHoras < 0 ||
+                this.diferenciaEnMinutos < 0 ||
+                this.diferenciaEnSegundos < 0
+            )
+        {
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Past + " :::::::::\n"
+        }
+        else
+        {
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Future + " :::::::::\n"
+        }
 
         if (this.diferenciaEnYears !== 0) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnYears) + ' año'
-            if (Math.abs(this.diferenciaEnYears) !== 1 )
-            {
-                sumarioDeTiempo += 's'
-            }
+            mensaje += this.idiomaService.idioma_seleccionado.Year + " " + Math.abs(this.diferenciaEnYears) + '\n'
         }
 
         if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMeses) + ' mes';
-            if (Math.abs(this.diferenciaEnMeses) !== 1 )
-            {
-                sumarioDeTiempo += 'es'
-            }
+            mensaje += this.idiomaService.idioma_seleccionado.Month + " " +  Math.abs(this.diferenciaEnMeses) + '\n'
         }
 
         if (!(
-                this.diferenciaEnYears === 0 &&
-                this.diferenciaEnMeses === 0 &&
-                this.diferenciaEnDias === 0
-            ))
+            this.diferenciaEnYears === 0 &&
+            this.diferenciaEnMeses === 0 &&
+            this.diferenciaEnDias === 0
+        ))
         {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnDias) + ' día';
-            if (Math.abs(this.diferenciaEnDias) !== 1 )
-            {
-                sumarioDeTiempo += 's'
-            }
+            mensaje += this.idiomaService.idioma_seleccionado.Day + " " + Math.abs(this.diferenciaEnDias) + '\n'
         }
-
         if (!(
                 this.diferenciaEnYears === 0 &&
                 this.diferenciaEnMeses === 0 &&
@@ -222,13 +219,8 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnHoras === 0
             ))
         {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnHoras) + ' hora';
-            if (Math.abs(this.diferenciaEnHoras) !== 1 )
-            {
-                sumarioDeTiempo += 's'
-            }
+            mensaje += this.idiomaService.idioma_seleccionado.Hour + " " + Math.abs(this.diferenciaEnHoras) + '\n'
         }
-
         if (!(
                 this.diferenciaEnYears === 0 && 
                 this.diferenciaEnMeses === 0 && 
@@ -236,55 +228,15 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnHoras === 0 &&
                 this.diferenciaEnMinutos === 0
             )
-
-            ) {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnMinutos) + ' minuto';
-            if (Math.abs(this.diferenciaEnMinutos) !== 1 )
-            {
-                sumarioDeTiempo += 's'
-            }
-        }
-
-        if (!(
-                this.diferenciaEnYears === 0 && 
-                this.diferenciaEnMeses === 0 && 
-                this.diferenciaEnDias === 0 && 
-                this.diferenciaEnHoras === 0 &&
-                this.diferenciaEnMinutos === 0 &&
-                this.diferenciaEnSegundos === 0                    
-            ))
+        )
         {
-            sumarioDeTiempo += '\n' + Math.abs(this.diferenciaEnSegundos) + ' segundo';
-            if (this.diferenciaEnSegundos * this.diferenciaEnSegundos !== 1 )
-            {
-                sumarioDeTiempo += 's'
-            }
-
+            mensaje += this.idiomaService.idioma_seleccionado.Minute + " " + Math.abs(this.diferenciaEnMinutos) + '\n'
         }
-
-        if (    this.diferenciaEnYears < 0 || 
-                this.diferenciaEnMeses < 0 || 
-                this.diferenciaEnDias < 0 ||
-                this.diferenciaEnHoras < 0 ||
-                this.diferenciaEnMinutos < 0 ||
-                this.diferenciaEnSegundos < 0   
-            )
-        {
-            mensaje = mensaje + '\n' + "Ocurrió hace:" + sumarioDeTiempo
-        }
-        else
-        {
-            mensaje = mensaje + '\n' + "Aún falta " + sumarioDeTiempo
-        }
-
-        mensaje = mensaje + '\n'
-        mensaje = mensaje + '\n'
-
+        mensaje += this.idiomaService.idioma_seleccionado.Second + " " + Math.abs(this.diferenciaEnSegundos)
         return mensaje;
     }
 
     async compartirConCapacitor() {
-        let vm = this
         let params = new HttpParams();
         params = params.set('titulo',  this.entrada.titulo)
         params = params.set('fecha',  this.entrada.fecha)
@@ -311,9 +263,15 @@ export class DetalleComponent implements OnInit {
         console.log(" ----------- urlParaCompartir ----------- ")
         console.log("")
 
+        console.log("")
+        console.log(" ----------- mensaje para compartir ----------- ")
+        console.log(this.construirMensaje());
+        console.log(" ----------- mensaje para compartir ----------- ")
+        console.log("")
+
         let shareRet = await Share.share({
-          title: vm.entrada.titulo,
-          text: vm.construirMensaje(),
+          title: this.entrada.titulo,
+          text: this.construirMensaje(),
           url: urlParaCompartir,
           dialogTitle: 'Share with buddies'
         });
