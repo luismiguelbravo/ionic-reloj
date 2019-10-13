@@ -44,23 +44,14 @@ export class BienvenidaPage implements OnInit {
     dismiss() {
         // using the injected ModalController this page
         // can "dismiss" itself and optionally pass back data
-        let vm = this
-        console.log("")
-        console.log("cerrando la pantalla de bienvenida")
-        console.log("")
-
-        vm.modalController.dismiss({
+        this.modalController.dismiss({
             "guardar" : false
         });
     }
 
     guardar(){
-        console.log("")
-        console.log(" --------------- guardando --------------- ")
-        console.log("")
-        let vm = this
-        vm.modalController.dismiss({
-            "ididomaSeleccionado" : vm.ididomaSeleccionado
+        this.modalController.dismiss({
+            "ididomaSeleccionado" : this.ididomaSeleccionado
         });
     }
 
