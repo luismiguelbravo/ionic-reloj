@@ -6,6 +6,7 @@ import { ContadorService } from '../../commons/contador.service'
 import { ViewChild, ElementRef } from '@angular/core';
 import { IdiomaService } from '../../commons/idioma.service'
 import { Platform } from '@ionic/angular';
+import {HttpParams} from  "@angular/common/http";
 
 // plugin para compartir
 import { Plugins } from '@capacitor/core';
@@ -284,14 +285,25 @@ export class DetalleComponent implements OnInit {
 
     async compartirConCapacitor() {
         let vm = this
+        let params = new HttpParams();
+        params = params.set('titulo',  this.entrada.titulo)
+        params = params.set('fecha',  this.entrada.fecha)
+        params = params.set('year',  this.entrada.year + '')
+        params = params.set('mes',  this.entrada.mes + '')
+        params = params.set('dia',  this.entrada.dia + '')
+        params = params.set('hora',  this.entrada.hora + '')
+        params = params.set('minuto',  this.entrada.minuto + '')
+        params = params.set('segundo',  this.entrada.segundo + '')
+        params = params.set('pasado',  this.entrada.pasado + '')
+        params = params.set('year_de_creacion',  this.entrada.year_de_creacion + '')
+        params = params.set('mes_de_creacion',  this.entrada.mes_de_creacion + '')
+        params = params.set('dia_de_creacion',  this.entrada.dia_de_creacion + '')
+        params = params.set('hora_de_creacion',  this.entrada.hora_de_creacion + '')
+        params = params.set('minuto_de_creacion',  this.entrada.minuto_de_creacion + '')
+        params = params.set('segundo_de_creacion',  this.entrada.segundo_de_creacion + '')
+        params = params.set('idioma',  this.idiomaService.idioma_seleccionado.indice + '')
 
-        let urlParaCompartir =  "https://mimuqui.com/onlineTimer"
-            + "?year=" + vm.entrada.year
-            + "?mes=" + vm.entrada.mes
-            + "?dia=" + vm.entrada.dia
-            + "?hora=" +  vm.entrada.hora
-            + "?minuto=" + vm.entrada.minuto
-            + "?segundo=" + vm.entrada.segundo
+        let urlParaCompartir = location.origin + '/home?' + params.toString()
 
         console.log("")
         console.log(" ----------- urlParaCompartir ----------- ")
