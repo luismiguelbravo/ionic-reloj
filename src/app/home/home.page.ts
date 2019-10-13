@@ -62,83 +62,64 @@ export class HomePage {
 
     ) { 
         activatedRoute.queryParams.subscribe((val) => {
-            console.log("")
-            console.log(" ==== val ==== ")
-            console.log(val)
-            console.log(" ==== val ==== ")
-            console.log("")
-
-            console.log("")
-            console.log(">>----> typeof val.titulo === 'undefined' <----<< ")
-            console.log(typeof val.titulo === 'undefined')
-            console.log(">>----> typeof val.titulo === 'undefined' <----<< ")
-            console.log("")
-
             if (typeof val.titulo === "undefined")
             {
-                //
-                //
-                //
-                    this.storage.get('listaDeFechas').then((val) => {
-                        this.listaDeFechas = val
-                        if (val === null) {
-                            this.listaDeFechas = []
-                            // vm.usarSemilla()
+                this.storage.get('listaDeFechas').then((val) => {
+                    this.listaDeFechas = val
+                    if (val === null) {
+                        this.listaDeFechas = []
+                        // vm.usarSemilla()
+                    }
+                    // console.log(this.listaDeFechas)
+                    this.listaDeFechas = this.listaDeFechas.sort(
+                        function(a,b) 
+                        {
+                            const fechaA = new Date(a.fecha)
+                            const fechaB = new Date(b.fecha)
+                            return fechaB.getTime() - fechaA.getTime()
                         }
-                        // console.log(this.listaDeFechas)
-                        this.listaDeFechas = this.listaDeFechas.sort(
-                            function(a,b) 
-                            {
-                                const fechaA = new Date(a.fecha)
-                                const fechaB = new Date(b.fecha)
-                                return fechaB.getTime() - fechaA.getTime()
-                            }
-                        );
-                        let right_now = moment();
-                        let fecha_auxiliar = null;
-                        let alguna_modificacion = false;
+                    );
+                    let right_now = moment();
+                    let fecha_auxiliar = null;
+                    let alguna_modificacion = false;
 
-                        this.listaDeFechas.forEach(function(entrada) {
-                            fecha_auxiliar = moment(
-                            {
-                                years: entrada.year,
-                                months: entrada.mes,
-                                days: entrada.dia,
-                                hours: entrada.hora,
-                                minutes: entrada.minuto,
-                                seconds: entrada.segundo 
-                            });
-
-                            // recorrer toda esta vaina para ver que esta en el pasado
-                            // verifico el caso de que exista alguna fecha que esta en el paso y la marco
-                            if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
-                               entrada.pasado = true;
-                               alguna_modificacion = true;
-                            }
-                            
+                    this.listaDeFechas.forEach(function(entrada) {
+                        fecha_auxiliar = moment(
+                        {
+                            years: entrada.year,
+                            months: entrada.mes,
+                            days: entrada.dia,
+                            hours: entrada.hora,
+                            minutes: entrada.minuto,
+                            seconds: entrada.segundo 
                         });
 
-                        if (alguna_modificacion) {
-                            this.storage.set('listaDeFechas', this.listaDeFechas);
+                        // recorrer toda esta vaina para ver que esta en el pasado
+                        // verifico el caso de que exista alguna fecha que esta en el paso y la marco
+                        if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
+                           entrada.pasado = true;
+                           alguna_modificacion = true;
                         }
-
-                        /*
-                            se crea un reloj unico que activa a todos los detalles
-                            esto lo hice para evitar terner un hilo con reloj contador para cada proceso
-                            debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
-                            de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
-
-                            // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
-                            esto para proteger el consumo del procesador.
-                        */
-                        this.listaFiltrada = this.listaDeFechas
-                        this.contadorService.iniciarMovimiento()
-
+                        
                     });
-                //
-                //
-                //
 
+                    if (alguna_modificacion) {
+                        this.storage.set('listaDeFechas', this.listaDeFechas);
+                    }
+
+                    /*
+                        se crea un reloj unico que activa a todos los detalles
+                        esto lo hice para evitar terner un hilo con reloj contador para cada proceso
+                        debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
+                        de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
+
+                        // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
+                        esto para proteger el consumo del procesador.
+                    */
+                    this.listaFiltrada = this.listaDeFechas
+                    this.contadorService.iniciarMovimiento()
+
+                });
                 // preguntar por el idioma seleccionado
                 this.storage.get('miIdioma').then((miIdioma) => {
                     if (miIdioma === null){
