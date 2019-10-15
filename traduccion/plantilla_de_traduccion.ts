@@ -37,7 +37,7 @@
     { "value": 8, "name": ""},
     { "value": 9, "name": ""},
     { "value": 10, "name": ""},
-    { "value": 11, "name": ""}
+    { "value": 11, "name": ""},
 ],
 
 "Copy": 
