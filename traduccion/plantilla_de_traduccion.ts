@@ -23,7 +23,7 @@
 "Minute": 
 "Second": 
 "Add": 
-"Select One":
+"Select One": 
 
 "Months":[
     { "value": 0, "name": ""},
