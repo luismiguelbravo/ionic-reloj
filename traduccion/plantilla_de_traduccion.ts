@@ -5,7 +5,7 @@
 "Search": 
 "Order" : 
 "Ascending order": 
-"Descending order":
+"Descending order": 
 "Save": 
 "Cancel": 
 "Success": 
