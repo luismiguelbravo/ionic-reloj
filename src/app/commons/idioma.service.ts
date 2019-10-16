@@ -5182,11 +5182,9 @@ export class IdiomaService {
                 "Future": "Zamtsogolo",
                 "Past" : "Zakale"
             }
-            // idiomas que faltan: chichewa
-            // probar el idioma YIDIS  en la aplicacion a ver sino da algun error
-
         ]
     } 
-
+    // idiomas que faltan: chichewa
+    // probar el idioma YIDIS  en la aplicacion a ver sino da algun error
     constructor() { }
 }
