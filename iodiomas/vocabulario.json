@@ -1,5 +1,8 @@
         [
             {"indice": 0, "Heteroglotonimo": "Afrikáans", "Autoglotonimo": "afrikáans ", "dir":"ltr",
+                "ascending" : "stygende",
+                "descending" : "neerdaal",
+                "error" : "fout",
                 "Invalid_Title": "Ongeldige titel",
                 "Invalid_Year":"Ongeldige jaar",
                 "Invalid_Date":"Ongeldige datum",
@@ -49,6 +52,9 @@
                 "Past" : "verlede"
             },
             {"indice": 1, "Heteroglotonimo": "Albanés", "Autoglotonimo": "gjuha shqipë", "dir":"ltr",
+                "ascending" : "ngjitje",
+                "descending" : "zbritëse",
+                "error" : "gabim",
                 "Invalid_Title": "Titulli i pavlefshëm",
                 "Invalid_Year":"Viti i pavlefshëm",
                 "Invalid_Date":"Data e pavlefshme",
@@ -98,6 +104,9 @@
                 "Past" : "e kaluara"
             },
             {"indice": 2, "Heteroglotonimo": "Alemán", "Autoglotonimo": "deutsch ", "dir":"ltr",
+                "ascending" : "aufsteigend",
+                "descending" : "absteigend",
+                "error" : "Error",
                 "Invalid_Title": "Ungültiger Titel",
                 "Invalid_Year":"Ungültiges Jahr",
                 "Invalid_Date":"Ungültiges Datum",
@@ -147,6 +156,9 @@
                 "Past" : "Vergangenheit"
             },
             {"indice": 3, "Heteroglotonimo": "Amárico", "Autoglotonimo": "አማርኛ ", "dir":"ltr",
+                "ascending" : "ወደ ላይ መውጣት",
+                "descending" : "መውረድ",
+                "error" : "ስህተት",
                 "Invalid_Title": "ልክ ያልሆነ ርዕስ",
                 "Invalid_Year":"ልክ ያልሆነ ዓመት",
                 "Invalid_Date":"ልክ ያልሆነ ቀን",
@@ -196,6 +208,9 @@
                 "Past" : "ያለፈው"
             },
             {"indice": 4, "Heteroglotonimo": "Árabe", "Autoglotonimo": "العربية", "dir":"rtl",
+                "ascending" : "تصاعدي",
+                "descending" : "تنازلي",
+                "error" : "خطأ",
                 "Invalid_Title": "عنوان غير صالح",
                 "Invalid_Year":"سنة غير صالحة",
                 "Invalid_Date":"تاريخ غير صالح",
@@ -245,6 +260,9 @@
                 "Past" : "الماضي"
             },
             {"indice": 5, "Heteroglotonimo": "Armenio", "Autoglotonimo": "հայերեն լեզու ", "dir":"ltr",
+                "ascending" : "աճող",
+                "descending" : "իջնող",
+                "error" : "սխալ",
                 "Invalid_Title": "Անվավեր վերնագիր",
                 "Invalid_Year":"Անվավեր տարի",
                 "Invalid_Date":"Անվավեր ամսաթիվ",
@@ -295,6 +313,9 @@
                 "Past" : "Անցյալ"
             },
             {"indice": 6, "Heteroglotonimo": "Azerí", "Autoglotonimo": "Азәрбајҹан дили", "dir":"ltr",
+                "ascending" : "artan",
+                "descending" : "enən",
+                "error" : "səhv",
                 "Invalid_Title": "Yanlış Başlıq",
                 "Invalid_Year":"Yanlış İl",
                 "Invalid_Date":"Yanlış tarix",
@@ -344,6 +365,9 @@
                 "Past" : "Keçmiş"
             },
             {"indice": 7, "Heteroglotonimo": "Bengalí", "Autoglotonimo": "বাংলা", "dir":"ltr",
+                "ascending" : "ঊর্ধ্বগামী",
+                "descending" : "সাজানো",
+                "error" : "এরর",
                 "Invalid_Title": "অবৈধ শিরোনাম",
                 "Invalid_Year":"অবৈধ বছর",
                 "Invalid_Date":"অবৈধ তারিখ",
@@ -393,6 +417,9 @@
                 "Past" : "গত"
             },
             {"indice": 8, "Heteroglotonimo": "Bielorruso", "Autoglotonimo": "Беларуская",
+                "ascending" : "узыходны",
+                "descending" : "сыходны",
+                "error" : "памылка",
                 "Invalid_Title": "Несапраўдны загаловак",
                 "Invalid_Year":"Несапраўдны год",
                 "Invalid_Date":"Няправільная дата",
@@ -442,6 +469,9 @@
                 "Past" : "Мінулае"
             },
             {"indice": 9, "Heteroglotonimo": "Birmano", "Autoglotonimo": "မြန်မာ ",
+                "ascending" : "တက်သည်",
+                "descending" : "ဆင်းသက်",
+                "error" : "အမှား",
                 "valid_Title": "မမှန်ကန်သောခေါင်းစဉ်",
                 "Invalid_Year":"မမှန်ကန်သောနှစ်",
                 "Invalid_Date":"မမှန်ကန်သောနေ့စွဲ",
@@ -491,6 +521,9 @@
                 "Past" : "အတိတ်"
             },
             {"indice": 10, "Heteroglotonimo": "Bosnio", "Autoglotonimo": "bosanski jezik",
+                "ascending" : "uzlazno",
+                "descending" : "silazno",
+                "error" : "greška",
                 "Invalid_Title": "Nevažeći naslov",
                 "Invalid_Year":"Nevažeća godina",
                 "Invalid_Date":"Nevažeći datum",
@@ -540,6 +573,9 @@
                 "Past" : "Prošlost"
             },
             {"indice": 11, "Heteroglotonimo": "Búlgaro", "Autoglotonimo": "български",
+                "ascending" : "възходящ",
+                "descending" : "низходящ",
+                "error" : "грешка",
                 "Invalid_Title": "Невалидно заглавие",
                 "Invalid_Year":"Невалидна година",
                 "Invalid_Date":"Невалидна дата",
@@ -589,6 +625,9 @@
                 "Past" : "минало"
             },
             {"indice": 12, "Heteroglotonimo": "Canarés", "Autoglotonimo": "ಕನ್ನಡ ",
+                "ascending" : "ಆರೋಹಣ",
+                "descending" : "ಅವರೋಹಣ",
+                "error" : "ದೋಷ",
                 "Invalid_Title": "ಅಮಾನ್ಯ ಶೀರ್ಷಿಕೆ",
                 "Invalid_Year":"ಅಮಾನ್ಯ ವರ್ಷ",
                 "Invalid_Date":"ಅಮಾನ್ಯ ದಿನಾಂಕ",
@@ -638,6 +677,9 @@
                 "Past" : "ಹಿಂದಿನದು"
             },
             {"indice": 13, "Heteroglotonimo": "Catalán", "Autoglotonimo": "català",
+                "ascending" : "ascendent",
+                "descending" : "descendent",
+                "error" : "error",
                 "Invalid_Title": "Títol no vàlid",
                 "Invalid_Year":"Any no vàlid",
                 "Invalid_Date":"Data no vàlida",
@@ -687,6 +729,9 @@
                 "Past" : "Passat"
             },
             {"indice": 14, "Heteroglotonimo": "Cebuano", "Autoglotonimo": "sugbuanon",
+                "ascending" : "pagsaka",
+                "descending" : "pagkanaog",
+                "error" : "sayup",
                 "Invalid_Title": "Dili Pugong nga Ulohan",
                 "Invalid_Year":"Dili Tinuig nga Tuig",
                 "Invalid_Date":"Dili Takma nga Petsa",
@@ -736,6 +781,9 @@
                 "Past" : "Kaniadto"
             },
             {"indice": 15, "Heteroglotonimo": "Checo", "Autoglotonimo": "Česky",
+                "ascending" : "vzestupně",
+                "descending" : "klesající",
+                "error" : "chyba",
                 "Invalid_Title": "Neplatný název",
                 "Invalid_Year":"Neplatný rok",
                 "Invalid_Date":"Neplatné datum",
@@ -785,6 +833,9 @@
                 "Past" : "Minulost"
             },
             {"indice": 16, "Heteroglotonimo": "Chino (Simplificado)", "Autoglotonimo":   "汉语",
+                "ascending" : "上升",
+                "descending" : "降序",
+                "error" : "错误",
                 "Invalid_Title": "无效的标题",
                 "Invalid_Year":"无效的年份",
                 "Invalid_Date":"失效日期",
@@ -834,6 +885,9 @@
                 "Past" : "过去"
             },
             {"indice": 17, "Heteroglotonimo": "Chino (Tradicional)", "Autoglotonimo":  "漢語",
+                "ascending" : "上升",
+                "descending" : "降序",
+                "error" : "錯誤",
                 "Invalid_Title": "無效的標題",
                 "Invalid_Year":"無效的年份",
                 "Invalid_Date":"失效日期",
@@ -883,6 +937,9 @@
                 "Past" : "過去"
             },
             {"indice": 18, "Heteroglotonimo": "Cingalés", "Autoglotonimo": "සිංහල",
+                "ascending" : "නඟින්න",
+                "descending" : "බැසයාම",
+                "error" : "දෝෂයකි",
                 "Invalid_Title": "අවලංගු මාතෘකාව",
                 "Invalid_Year":"අවලංගු වර්ෂය",
                 "Invalid_Date":"අවලංගු දිනය",
@@ -932,6 +989,9 @@
                 "Past" : "පසුගිය"
             },
             {"indice": 19, "Heteroglotonimo": "Coreano", "Autoglotonimo": "한국어",
+                "ascending" : "오름차순",
+                "descending" : "내림차순",
+                "error" : "오류",
                 "Invalid_Title": "잘못된 제목",
                 "Invalid_Year":"유효하지 않은 연도",
                 "Invalid_Date":"잘못된 날짜",
@@ -981,6 +1041,9 @@
                 "Past" : "과거"
             },
             {"indice": 20, "Heteroglotonimo": "Corso", "Autoglotonimo": "corsu",
+                "ascending" : "ascendenti",
+                "descending" : "discendente",
+                "error" : "errore",
                 "Invalid_Title": "Titulu micca validu",
                 "Invalid_Year":"Anu invalidu",
                 "Invalid_Date":"Data invalida",
@@ -1030,6 +1093,9 @@
                 "Past" : "Passatu"
             },
             {"indice": 21, "Heteroglotonimo": "Criollo haitiano", "Autoglotonimo": "kreyòl ayisyen",
+                "ascending" : "moute",
+                "descending" : "desann",
+                "error" : "erè",
                 "Invalid_Title": "Tit Envalid",
                 "Invalid_Year":"Ane valab",
                 "Invalid_Date":"Validite Dat",
@@ -1079,6 +1145,9 @@
                 "Past" : "Pase"
             },
             {"indice": 22, "Heteroglotonimo": "Croata", "Autoglotonimo": "hrvatski",
+                "ascending" : "uzlazni",
+                "descending" : "silazni",
+                "error" : "greška",
                 "Invalid_Title": "Nevažeći naslov",
                 "Invalid_Year":"Nevažeća godina",
                 "Invalid_Date":"Nevažeći datum",
@@ -1128,6 +1197,9 @@
                 "Past" : "Prošlost"
             },
             {"indice": 23, "Heteroglotonimo": "Danés", "Autoglotonimo": "dansk",
+                "ascending" : "opstigende",
+                "descending" : "aftagende",
+                "error" : "fejl",
                 "Invalid_Title": "Ugyldig titel",
                 "Invalid_Year":"Ugyldigt år",
                 "Invalid_Date":"Ugyldig dato",
@@ -1177,6 +1249,9 @@
                 "Past" : "Forbi"
             },
             {"indice": 24, "Heteroglotonimo": "Eslovaco", "Autoglotonimo": "slovenčina, slovenský jazyk",
+                "ascending" : "stúpajúca",
+                "descending" : "klesajúci",
+                "error" : "chyba",
                 "Invalid_Title": "Neplatný názov",
                 "Invalid_Year":"Neplatný rok",
                 "Invalid_Date":"Neplatný dátum",
@@ -1226,6 +1301,9 @@
                 "Past" : "minulosť"
             },
             {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina",
+                "ascending" : "naraščajoče",
+                "descending" : "padajoče",
+                "error" : "napaka",
                 "Invalid_Title": "Neveljaven naslov",
                 "Invalid_Year":"Neveljavno leto",
                 "Invalid_Date":"Neveljaven datum",
@@ -1275,6 +1353,9 @@
                 "Past" : "Pretekli"
             },
             {"indice": 26, "Heteroglotonimo": "Español", "Autoglotonimo": "Español", "dir":"ltr",
+                "ascending" : "ascendente",
+                "descending" : "descendente",
+                "error" : "error",
                 "Invalid_Title": "Título inválido",
                 "Invalid_Year": "Año inválido",
                 "Invalid_Date": "Fecha Inválida",
@@ -1324,6 +1405,9 @@
                 "Past" : "Pasado"
             },
             {"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia",
+                "ascending" : "ascendanta",
+                "descending" : "descendante",
+                "error" : "eraro",
                 "Invalid_Title": "Nevalida Titolo",
                 "Invalid_Year":"Malvalida Jaro",
                 "Invalid_Date":"Nevalida Dato",
@@ -1373,6 +1457,9 @@
                 "Past" : "Preterito"
             },
             {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel",
+                "ascending" : "tõusev",
+                "descending" : "laskudes",
+                "error" : "viga",
                 "Invalid_Title": "Vale pealkiri",
                 "Invalid_Year":"Vale aasta",
                 "Invalid_Date":"Vale kuupäev",
@@ -1422,6 +1509,9 @@
                 "Past" : "Minevik"
             },
             {"indice": 29, "Heteroglotonimo": "Euskera", "Autoglotonimo": "Euskara",
+                "ascending" : "goranzko",
+                "descending" : "beherantz",
+                "error" : "error",
                 "Invalid_Title": "Titulu baliogabea",
                 "Invalid_Year":"Urte baliogabea",
                 "Invalid_Date":"Data baliogabea",
@@ -1470,7 +1560,10 @@
                 "Future": "Etorkizuna",
                 "Past" : "Iragana"
             },
-            {"indice": 30, "Heteroglotonimo": "Finés", "Autoglotonimo": "suomen kieli",
+            {"indice": 30, "Heteroglotonimo": "Finés / finlandés", "Autoglotonimo": "suomen kieli",
+                "ascending" : "nouseva",
+                "descending" : "aleneva",
+                "error" : "virhe",
                 "Invalid_Title": "Virheellinen otsikko",
                 "Invalid_Year":"Virheellinen vuosi",
                 "Invalid_Date":"Väärä päivämäärä",
@@ -1520,6 +1613,9 @@
                 "Past" : "menneisyys"
             },
             {"indice": 31, "Heteroglotonimo": "Francés", "Autoglotonimo": "Français",
+                "ascending" : "Ascendant",
+                "descending" : "descendant",
+                "error" : "Erreur",
                 "Invalid_Title": "Titre invalide",
                 "Invalid_Year":"Année invalide",
                 "Invalid_Date":"Date invalide",
@@ -1569,6 +1665,9 @@
                 "Past" : "Passé"
             },
             {"indice": 32, "Heteroglotonimo": "Frisón", "Autoglotonimo": "Frysk, Friisk, Fräisk",
+                "ascending" : "opkommende",
+                "descending" : "descending",
+                "error" : "fersin",
                 "Invalid_Title": "Unjildige titel",
                 "Invalid_Year":"Unjildich jier",
                 "Invalid_Date":"Unjildige datum",
@@ -1618,6 +1717,9 @@
                 "Past" : "Ferline"
             },
             {"indice": 33, "Heteroglotonimo": "Gaélico Escocés", "Autoglotonimo": "Gàidhlig",
+                "ascending" : "dìreadh",
+                "descending" : "a ’teàrnadh",
+                "error" : "mearachd",
                 "Invalid_Title": "Tiotal mì-dhligheach",
                 "Invalid_Year":"Bliadhna neo-dhligheach",
                 "Invalid_Date":"Ceann-latha neo-dhligheach",
@@ -5097,6 +5199,9 @@
                 "Past" : "Esedlule"
             },
             {"indice": 104, "Heteroglotonimo": "chichewa", "Autoglotonimo": "Chicheŵa",
+                "ascending" : "kukwera",
+                "descending" : "kutsika",
+                "error" : "cholakwika",
                 "Invalid_Title": "Mutu wosavomerezeka",
                 "Invalid_Year":"Chaka chosavomerezeka",
                 "Invalid_Date":"Tsiku Losavomerezeka",
@@ -5146,3 +5251,5 @@
                 "Past" : "Zakale"
             }
         ]
+
+        //camboyano
