@@ -417,7 +417,7 @@
             "Future": "ভবিষ্যৎ",
             "Past" : "গত"
         },
-        {"indice": 8, "Heteroglotonimo": "Bielorruso", "Autoglotonimo": "Беларуская",
+        {"indice": 8, "Heteroglotonimo": "Bielorruso", "Autoglotonimo": "Беларуская", "dir":"ltr",
             "ascending" : "узыходны",
             "descending" : "сыходны",
             "error" : "памылка",
@@ -469,7 +469,7 @@
             "Future": "Будучыня",
             "Past" : "Мінулае"
         },
-        {"indice": 9, "Heteroglotonimo": "Birmano", "Autoglotonimo": "မြန်မာ ",
+        {"indice": 9, "Heteroglotonimo": "Birmano", "Autoglotonimo": "မြန်မာ ", "dir":"ltr",
             "ascending" : "တက်သည်",
             "descending" : "ဆင်းသက်",
             "error" : "အမှား",
@@ -521,7 +521,7 @@
             "Future": "အနာဂတ်",
             "Past" : "အတိတ်"
         },
-        {"indice": 10, "Heteroglotonimo": "Bosnio", "Autoglotonimo": "bosanski jezik",
+        {"indice": 10, "Heteroglotonimo": "Bosnio", "Autoglotonimo": "bosanski jezik", "dir":"ltr",
             "ascending" : "uzlazno",
             "descending" : "silazno",
             "error" : "greška",
@@ -573,7 +573,7 @@
             "Future": "Budućnost",
             "Past" : "Prošlost"
         },
-        {"indice": 11, "Heteroglotonimo": "Búlgaro", "Autoglotonimo": "български",
+        {"indice": 11, "Heteroglotonimo": "Búlgaro", "Autoglotonimo": "български", "dir":"ltr",
             "ascending" : "възходящ",
             "descending" : "низходящ",
             "error" : "грешка",
@@ -625,7 +625,7 @@
             "Future": "бъдеще",
             "Past" : "минало"
         },
-        {"indice": 12, "Heteroglotonimo": "Canarés", "Autoglotonimo": "ಕನ್ನಡ ",
+        {"indice": 12, "Heteroglotonimo": "Canarés", "Autoglotonimo": "ಕನ್ನಡ ", "dir":"ltr",
             "ascending" : "ಆರೋಹಣ",
             "descending" : "ಅವರೋಹಣ",
             "error" : "ದೋಷ",
@@ -677,7 +677,7 @@
             "Future": "ಭವಿಷ್ಯ",
             "Past" : "ಹಿಂದಿನದು"
         },
-        {"indice": 13, "Heteroglotonimo": "Catalán", "Autoglotonimo": "català",
+        {"indice": 13, "Heteroglotonimo": "Catalán", "Autoglotonimo": "català", "dir":"ltr",
             "ascending" : "ascendent",
             "descending" : "descendent",
             "error" : "error",
@@ -729,7 +729,7 @@
             "Future": "Futur",
             "Past" : "Passat"
         },
-        {"indice": 14, "Heteroglotonimo": "Cebuano", "Autoglotonimo": "sugbuanon",
+        {"indice": 14, "Heteroglotonimo": "Cebuano", "Autoglotonimo": "sugbuanon", "dir":"ltr",
             "ascending" : "pagsaka",
             "descending" : "pagkanaog",
             "error" : "sayup",
@@ -781,7 +781,7 @@
             "Future": "Sa umaabot",
             "Past" : "Kaniadto"
         },
-        {"indice": 15, "Heteroglotonimo": "Checo", "Autoglotonimo": "Česky",
+        {"indice": 15, "Heteroglotonimo": "Checo", "Autoglotonimo": "Česky", "dir":"ltr",
             "ascending" : "vzestupně",
             "descending" : "klesající",
             "error" : "chyba",
@@ -833,7 +833,7 @@
             "Future": "Budoucnost",
             "Past" : "Minulost"
         },
-        {"indice": 16, "Heteroglotonimo": "Chino (Simplificado)", "Autoglotonimo":   "汉语",
+        {"indice": 16, "Heteroglotonimo": "Chino (Simplificado)", "Autoglotonimo":   "汉语", "dir":"ltr",
             "ascending" : "上升",
             "descending" : "降序",
             "error" : "错误",
@@ -885,7 +885,7 @@
             "Future": "未来",
             "Past" : "过去"
         },
-        {"indice": 17, "Heteroglotonimo": "Chino (Tradicional)", "Autoglotonimo":  "漢語",
+        {"indice": 17, "Heteroglotonimo": "Chino (Tradicional)", "Autoglotonimo":  "漢語", "dir":"ltr",
             "ascending" : "上升",
             "descending" : "降序",
             "error" : "錯誤",
@@ -937,7 +937,7 @@
             "Future": "未來",
             "Past" : "過去"
         },
-        {"indice": 18, "Heteroglotonimo": "Cingalés", "Autoglotonimo": "සිංහල",
+        {"indice": 18, "Heteroglotonimo": "Cingalés", "Autoglotonimo": "සිංහල", "dir":"ltr",
             "ascending" : "නඟින්න",
             "descending" : "බැසයාම",
             "error" : "දෝෂයකි",
@@ -989,7 +989,7 @@
             "Future": "අනාගතය",
             "Past" : "පසුගිය"
         },
-        {"indice": 19, "Heteroglotonimo": "Coreano", "Autoglotonimo": "한국어",
+        {"indice": 19, "Heteroglotonimo": "Coreano", "Autoglotonimo": "한국어", "dir":"ltr",
             "ascending" : "오름차순",
             "descending" : "내림차순",
             "error" : "오류",
@@ -1041,7 +1041,7 @@
             "Future": "미래",
             "Past" : "과거"
         },
-        {"indice": 20, "Heteroglotonimo": "Corso", "Autoglotonimo": "corsu",
+        {"indice": 20, "Heteroglotonimo": "Corso", "Autoglotonimo": "corsu", "dir":"ltr",
             "ascending" : "ascendenti",
             "descending" : "discendente",
             "error" : "errore",
@@ -1093,7 +1093,7 @@
             "Future": "Avvene",
             "Past" : "Passatu"
         },
-        {"indice": 21, "Heteroglotonimo": "Criollo haitiano", "Autoglotonimo": "kreyòl ayisyen",
+        {"indice": 21, "Heteroglotonimo": "Criollo haitiano", "Autoglotonimo": "kreyòl ayisyen", "dir":"ltr",
             "ascending" : "moute",
             "descending" : "desann",
             "error" : "erè",
@@ -1145,7 +1145,7 @@
             "Future": "Future",
             "Past" : "Pase"
         },
-        {"indice": 22, "Heteroglotonimo": "Croata", "Autoglotonimo": "hrvatski",
+        {"indice": 22, "Heteroglotonimo": "Croata", "Autoglotonimo": "hrvatski", "dir":"ltr",
             "ascending" : "uzlazni",
             "descending" : "silazni",
             "error" : "greška",
@@ -1197,7 +1197,7 @@
             "Future": "Budućnost",
             "Past" : "Prošlost"
         },
-        {"indice": 23, "Heteroglotonimo": "Danés", "Autoglotonimo": "dansk",
+        {"indice": 23, "Heteroglotonimo": "Danés", "Autoglotonimo": "dansk", "dir":"ltr",
             "ascending" : "opstigende",
             "descending" : "aftagende",
             "error" : "fejl",
@@ -1249,7 +1249,7 @@
             "Future": "Fremtid",
             "Past" : "Forbi"
         },
-        {"indice": 24, "Heteroglotonimo": "Eslovaco", "Autoglotonimo": "slovenčina, slovenský jazyk",
+        {"indice": 24, "Heteroglotonimo": "Eslovaco", "Autoglotonimo": "slovenčina, slovenský jazyk", "dir":"ltr",
             "ascending" : "stúpajúca",
             "descending" : "klesajúci",
             "error" : "chyba",
@@ -1301,7 +1301,7 @@
             "Future": "budúcnosť",
             "Past" : "minulosť"
         },
-        {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina",
+        {"indice": 25, "Heteroglotonimo": "Esloveno", "Autoglotonimo": "slovenščina", "dir":"ltr",
             "ascending" : "naraščajoče",
             "descending" : "padajoče",
             "error" : "napaka",
@@ -1405,7 +1405,7 @@
             "Future": "Futuro",
             "Past" : "Pasado"
         },
-        {"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia",
+        {"indice": 27, "Heteroglotonimo": "Esperanto", "Autoglotonimo": "Lingvo Internacia", "dir":"ltr",
             "ascending" : "ascendanta",
             "descending" : "descendante",
             "error" : "eraro",
@@ -1457,7 +1457,7 @@
             "Future": "Estonteco",
             "Past" : "Preterito"
         },
-        {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel",
+        {"indice": 28, "Heteroglotonimo": "Estonio", "Autoglotonimo": "eesti keel", "dir":"ltr",
             "ascending" : "tõusev",
             "descending" : "laskudes",
             "error" : "viga",
@@ -1509,7 +1509,7 @@
             "Future": "Tulevik",
             "Past" : "Minevik"
         },
-        {"indice": 29, "Heteroglotonimo": "Euskera", "Autoglotonimo": "Euskara",
+        {"indice": 29, "Heteroglotonimo": "Euskera", "Autoglotonimo": "Euskara", "dir":"ltr",
             "ascending" : "goranzko",
             "descending" : "beherantz",
             "error" : "error",
@@ -1561,7 +1561,7 @@
             "Future": "Etorkizuna",
             "Past" : "Iragana"
         },
-        {"indice": 30, "Heteroglotonimo": "Finés / finlandés", "Autoglotonimo": "suomen kieli",
+        {"indice": 30, "Heteroglotonimo": "Finés / finlandés", "Autoglotonimo": "suomen kieli", "dir":"ltr",
             "ascending" : "nouseva",
             "descending" : "aleneva",
             "error" : "virhe",
@@ -1613,7 +1613,7 @@
             "Future": "tulevaisuus",
             "Past" : "menneisyys"
         },
-        {"indice": 31, "Heteroglotonimo": "Francés", "Autoglotonimo": "Français",
+        {"indice": 31, "Heteroglotonimo": "Francés", "Autoglotonimo": "Français", "dir":"ltr",
             "ascending" : "Ascendant",
             "descending" : "descendant",
             "error" : "Erreur",
@@ -1665,7 +1665,7 @@
             "Future": "Futur",
             "Past" : "Passé"
         },
-        {"indice": 32, "Heteroglotonimo": "Frisón", "Autoglotonimo": "Frysk, Friisk, Fräisk",
+        {"indice": 32, "Heteroglotonimo": "Frisón", "Autoglotonimo": "Frysk, Friisk, Fräisk", "dir":"ltr",
             "ascending" : "opkommende",
             "descending" : "descending",
             "error" : "fersin",
@@ -1717,7 +1717,7 @@
             "Future": "Takomst",
             "Past" : "Ferline"
         },
-        {"indice": 33, "Heteroglotonimo": "Gaélico Escocés", "Autoglotonimo": "Gàidhlig",
+        {"indice": 33, "Heteroglotonimo": "Gaélico Escocés", "Autoglotonimo": "Gàidhlig", "dir":"ltr",
             "ascending" : "dìreadh",
             "descending" : "a ’teàrnadh",
             "error" : "mearachd",
@@ -1769,7 +1769,7 @@
             "Future": "Ri teachd",
             "Past" : "Seachad"
         },
-        {"indice": 34, "Heteroglotonimo": "Galés", "Autoglotonimo": "Cymraeg",
+        {"indice": 34, "Heteroglotonimo": "Galés", "Autoglotonimo": "Cymraeg", "dir":"ltr",
             "ascending" : "esgynnol",
             "descending" : "yn disgyn",
             "error" : "gwall",
@@ -1821,7 +1821,7 @@
             "Future": "Dyfodol",
             "Past" : "Gorffennol"
         },
-        {"indice": 35, "Heteroglotonimo": "Gallego", "Autoglotonimo": "Galego",
+        {"indice": 35, "Heteroglotonimo": "Gallego", "Autoglotonimo": "Galego", "dir":"ltr",
             "ascending" : "ascendente",
             "descending" : "descendente",
             "error" : "erro",
@@ -1873,7 +1873,7 @@
             "Future": "Futuro",
             "Past" : "Pasado"
         },
-        {"indice": 36, "Heteroglotonimo": "Georgiano", "Autoglotonimo": "ქართული",
+        {"indice": 36, "Heteroglotonimo": "Georgiano", "Autoglotonimo": "ქართული", "dir":"ltr",
             "ascending" : "აღმავალი",
             "descending" : "დაღმავალი",
             "error" : "შეცდომა",
@@ -1925,7 +1925,7 @@
             "Future": "მომავლის",
             "Past" : "წარსული"
         },
-        {"indice": 37, "Heteroglotonimo": "Griego", "Autoglotonimo": "Ελληνικά",
+        {"indice": 37, "Heteroglotonimo": "Griego", "Autoglotonimo": "Ελληνικά", "dir":"ltr",
             "ascending" : "αύξουσα",
             "descending" : "φθίνων",
             "error" : "λάθος",
@@ -1977,7 +1977,7 @@
             "Future": "Μελλοντικός",
             "Past" : "Το παρελθόν"
         },
-        {"indice": 38, "Heteroglotonimo": "Guyaratí / Gujarati", "Autoglotonimo": "ગુજરાતી",
+        {"indice": 38, "Heteroglotonimo": "Guyaratí / Gujarati", "Autoglotonimo": "ગુજરાતી", "dir":"ltr",
             "ascending" : "ચડતા",
             "descending" : "ઉતરતા",
             "error" : "ભૂલ",
@@ -2029,7 +2029,7 @@
             "Future": "ભાવિ",
             "Past" : "ભૂતકાળ"
         },
-        {"indice": 39, "Heteroglotonimo": "Hausa", "Autoglotonimo": "Hausa ",
+        {"indice": 39, "Heteroglotonimo": "Hausa", "Autoglotonimo": "Hausa ", "dir":"ltr",
             "ascending" : "hawa sama",
             "descending" : "saukowa",
             "error" : "kuskure",
@@ -2081,7 +2081,7 @@
             "Future": "Nan gaba",
             "Past" : "Baya"
         },
-        {"indice": 40, "Heteroglotonimo": "Hawaiano", "Autoglotonimo": "‘Ōlelo Hawai‘i",
+        {"indice": 40, "Heteroglotonimo": "Hawaiano", "Autoglotonimo": "‘Ōlelo Hawai‘i", "dir":"ltr",
             "ascending" : "piʻi aʻe",
             "descending" : "iho nei",
             "error" : "kuhihewa",
@@ -2185,7 +2185,7 @@
             "Future": "עתיד",
             "Past": "עבר"
         },
-        {"indice": 42, "Heteroglotonimo": "Hindi", "Autoglotonimo": "हिन्दी",
+        {"indice": 42, "Heteroglotonimo": "Hindi", "Autoglotonimo": "हिन्दी", "dir":"ltr",
             "ascending" : "आरोही",
             "descending" : "उतरते",
             "error" : "त्रुटि",
@@ -2237,7 +2237,7 @@
             "Future": "भविष्य",
             "Past" : "अतीत"
         },
-        {"indice": 43, "Heteroglotonimo": "Hmong", "Autoglotonimo": "Hmong ",
+        {"indice": 43, "Heteroglotonimo": "Hmong", "Autoglotonimo": "Hmong ", "dir":"ltr",
             "ascending" : "nce mus",
             "descending" : "nqis zus los",
             "error" : "yuam kev",
@@ -2289,7 +2289,7 @@
             "Future": "Yav Tom Ntej",
             "Past" : "Yav tag los"
         },
-        {"indice": 44, "Heteroglotonimo": "Húngaro", "Autoglotonimo": "magyar ",
+        {"indice": 44, "Heteroglotonimo": "Húngaro", "Autoglotonimo": "magyar ", "dir":"ltr",
             "ascending" : "emelkedő",
             "descending" : "csökkenő",
             "error" : "hiba",
@@ -2341,7 +2341,7 @@
             "Future": "Jövő",
             "Past" : "Múlt"
         },
-        {"indice": 45, "Heteroglotonimo": "Igbo", "Autoglotonimo": "asụsụ Ndi Igbo",
+        {"indice": 45, "Heteroglotonimo": "Igbo", "Autoglotonimo": "asụsụ Ndi Igbo", "dir":"ltr",
             "ascending" : "ọdọk",
             "descending" : "na-agbadata",
             "error" : "njehie",
@@ -2393,7 +2393,7 @@
             "Future": "Ọdịnihu",
             "Past" : "Oge gara aga"
         },
-        {"indice": 46, "Heteroglotonimo": "Indonesio", "Autoglotonimo": "bahasa Indonesia",
+        {"indice": 46, "Heteroglotonimo": "Indonesio", "Autoglotonimo": "bahasa Indonesia", "dir":"ltr",
             "ascending" : "naik",
             "descending" : "menurun",
             "error" : "kesalahan",
@@ -2497,7 +2497,7 @@
             "Future": "Future",
             "Past" : "Past"
         },
-        {"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge",
+        {"indice": 48, "Heteroglotonimo": "Irlandés", "Autoglotonimo": "Gaeilge", "dir":"ltr",
             "ascending" : "ag dul suas",
             "descending" : "íslitheach",
             "error" : "earráid",
@@ -2549,7 +2549,7 @@
             "Future": "Todhchaí",
             "Past" : "Caite"
         },
-        {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska",
+        {"indice": 49, "Heteroglotonimo": "Islandés", "Autoglotonimo": "íslenska", "dir":"ltr",
             "ascending" : "hækkandi",
             "descending" : "lækkandi",
             "error" : "villa",
@@ -2601,7 +2601,7 @@
             "Future": "Framtíðin",
             "Past" : "Fortíð"
         },
-        {"indice": 50, "Heteroglotonimo": "Italiano", "Autoglotonimo": "italiano ",
+        {"indice": 50, "Heteroglotonimo": "Italiano", "Autoglotonimo": "italiano ", "dir":"ltr",
             "ascending" : "ascendente",
             "descending" : "discendente",
             "error" : "errore",
@@ -2653,7 +2653,7 @@
             "Future": "Futuro",
             "Past" : "Passato"
         },
-        {"indice": 51, "Heteroglotonimo": "Japonés", "Autoglotonimo": "日本語",
+        {"indice": 51, "Heteroglotonimo": "Japonés", "Autoglotonimo": "日本語", "dir":"ltr",
             "ascending" : "上昇",
             "descending" : "降順",
             "error" : "エラー",
@@ -2705,7 +2705,7 @@
             "Future": "未来",
             "Past" : "過去"
         },
-        {"indice": 52, "Heteroglotonimo": "Javanés", "Autoglotonimo": "Basa Jawa, Basa Jawi",
+        {"indice": 52, "Heteroglotonimo": "Javanés", "Autoglotonimo": "Basa Jawa, Basa Jawi", "dir":"ltr",
             "ascending" : "munggah",
             "descending" : "mandhap",
             "error" : "kesalahan",
@@ -2757,7 +2757,7 @@
             "Future": "Masa depan",
             "Past" : "Mbiyen"
         },
-        {"indice": 53, "Heteroglotonimo": "Jemer / camboyano", "Autoglotonimo": "ខ្មែរ។ ",
+        {"indice": 53, "Heteroglotonimo": "Jemer / camboyano", "Autoglotonimo": "ខ្មែរ។ ", "dir":"ltr",
             "ascending" : "ឡើង",
             "descending" : "ចុះ",
             "error" : "កំហុស",
@@ -2809,7 +2809,7 @@
             "Future": "អនាគត",
             "Past" : "អតីតកាល"
         },
-        {"indice": 54, "Heteroglotonimo": "Kazajo", "Autoglotonimo": "Қазақ тілі",
+        {"indice": 54, "Heteroglotonimo": "Kazajo", "Autoglotonimo": "Қазақ тілі", "dir":"ltr",
             "ascending" : "көтерілуде",
             "descending" : "кему",
             "error" : "қате",
@@ -2861,7 +2861,7 @@
             "Future": "Келешек",
             "Past" : "Өткен"
         },
-        {"indice": 55, "Heteroglotonimo": "Kirguís", "Autoglotonimo": "кыргыз тили",
+        {"indice": 55, "Heteroglotonimo": "Kirguís", "Autoglotonimo": "кыргыз тили", "dir":"ltr",
             "ascending" : "бүтүндөй өрттөлүүчү",
             "descending" : "түшүп",
             "error" : "ката",
@@ -2913,7 +2913,7 @@
             "Future": "болочок",
             "Past" : "өткөн"
         },
-        {"indice": 56, "Heteroglotonimo": "Kurdo", "Autoglotonimo": "Kurdî",
+        {"indice": 56, "Heteroglotonimo": "Kurdo", "Autoglotonimo": "Kurdî", "dir":"ltr",
             "ascending" : "ascending",
             "descending" : "daketin",
             "error" : "şaşî",
@@ -2965,7 +2965,7 @@
             "Future": "Dahatû",
             "Past" : "Borî"
         },
-        {"indice": 57, "Heteroglotonimo": "Lao", "Autoglotonimo": "ພາສາລາວ",
+        {"indice": 57, "Heteroglotonimo": "Lao", "Autoglotonimo": "ພາສາລາວ", "dir":"ltr",
             "ascending" : "ຕັ້ງຊັນຂຶ້ນ",
             "descending" : "ລົງ",
             "error" : "ຄວາມຜິດພາດ",
@@ -3017,7 +3017,7 @@
             "Future": "ອະນາຄົດ",
             "Past" : "ທີ່ຜ່ານມາ"
         },
-        {"indice": 58, "Heteroglotonimo": "Latín", "Autoglotonimo": "latinō",
+        {"indice": 58, "Heteroglotonimo": "Latín", "Autoglotonimo": "latinō", "dir":"ltr",
             "ascending" : "ascendentes",
             "descending" : "descendentes",
             "error" : "error",
@@ -3069,7 +3069,7 @@
             "Future": "future",
             "Past" : "praeteritum"
         },
-        {"indice": 59, "Heteroglotonimo": "Letón", "Autoglotonimo": "Latviešu valoda",
+        {"indice": 59, "Heteroglotonimo": "Letón", "Autoglotonimo": "Latviešu valoda", "dir":"ltr",
             "ascending" : "augoši",
             "descending" : "dilstoši",
             "error" : "kļūda",
@@ -3121,7 +3121,7 @@
             "Future": "Nākotne",
             "Past" : "Iepriekšējie"
         },
-        {"indice": 60, "Heteroglotonimo": "Lituano", "Autoglotonimo": "Lietuvių kalba",
+        {"indice": 60, "Heteroglotonimo": "Lituano", "Autoglotonimo": "Lietuvių kalba", "dir":"ltr",
             "ascending" : "kylant",
             "descending" : "besileidžianti",
             "error" : "klaida",
@@ -3173,7 +3173,7 @@
             "Future": "Ateitis",
             "Past" : "Praeitis"
         },
-        {"indice": 61, "Heteroglotonimo": "Luxemburgués", "Autoglotonimo": "Lëtzebuergesch",
+        {"indice": 61, "Heteroglotonimo": "Luxemburgués", "Autoglotonimo": "Lëtzebuergesch", "dir":"ltr",
             "ascending" : "opsteigend",
             "descending" : "erofgaang",
             "error" : "Feeler",
@@ -3225,7 +3225,7 @@
             "Future": "Zukünfteg",
             "Past" : "Vergaangenheet"
         },
-        {"indice": 62, "Heteroglotonimo": "Macedonio", "Autoglotonimo": "Македонски",
+        {"indice": 62, "Heteroglotonimo": "Macedonio", "Autoglotonimo": "Македонски", "dir":"ltr",
             "ascending" : "растечки",
             "descending" : "Опаѓачки",
             "error" : "грешка",
@@ -3277,7 +3277,7 @@
             "Future": "Иднина",
             "Past" : "Минато"
         },
-        {"indice": 63, "Heteroglotonimo": "Malayalam", "Autoglotonimo": "മലയാളം",
+        {"indice": 63, "Heteroglotonimo": "Malayalam", "Autoglotonimo": "മലയാളം", "dir":"ltr",
             "ascending" : "ആരോഹണം",
             "descending" : "അവരോഹണം",
             "error" : "പിശക്",
@@ -3329,7 +3329,7 @@
             "Future": "ഭാവി",
             "Past" : "കഴിഞ്ഞ"
         },
-        {"indice": 64, "Heteroglotonimo": "Malayo", "Autoglotonimo": "Bahasa Melayu",
+        {"indice": 64, "Heteroglotonimo": "Malayo", "Autoglotonimo": "Bahasa Melayu", "dir":"ltr",
             "ascending" : "menaik",
             "descending" : "turun",
             "error" : "kesilapan",
@@ -3381,7 +3381,7 @@
             "Future": "Masa Depan",
             "Past" : "Pasti"
         },
-        {"indice": 65, "Heteroglotonimo": "Malgache", "Autoglotonimo": "Malagasy",
+        {"indice": 65, "Heteroglotonimo": "Malgache", "Autoglotonimo": "Malagasy", "dir":"ltr",
             "ascending" : "niakatra",
             "descending" : "midina",
             "error" : "fahadisoana",
@@ -3433,7 +3433,7 @@
             "Future": "Future",
             "Past" : "Endrika efa lasa"
         },
-        {"indice": 66, "Heteroglotonimo": "Maltés", "Autoglotonimo": "l-ilsien Malti",
+        {"indice": 66, "Heteroglotonimo": "Maltés", "Autoglotonimo": "l-ilsien Malti", "dir":"ltr",
             "ascending" : "axxendenti",
             "descending" : "dixxendenti",
             "error" : "żball",
@@ -3485,7 +3485,7 @@
             "Future": "Futur",
             "Past" : "Passat"
         },
-        {"indice": 67, "Heteroglotonimo": "Maorí", "Autoglotonimo": "reo māori",
+        {"indice": 67, "Heteroglotonimo": "Maorí", "Autoglotonimo": "reo māori", "dir":"ltr",
             "ascending" : "kei runga",
             "descending" : "heke iho",
             "error" : "hapa",
@@ -3537,7 +3537,7 @@
             "Future": "Meake nei",
             "Past" : "Anamata"
         },
-        {"indice": 68, "Heteroglotonimo": "Maratí", "Autoglotonimo":  "मराठी",
+        {"indice": 68, "Heteroglotonimo": "Maratí", "Autoglotonimo":  "मराठी", "dir":"ltr",
             "ascending" : "चढत्या",
             "descending" : "उतरत्या",
             "error" : "त्रुटी",
@@ -3589,7 +3589,7 @@
             "Future": "भविष्य",
             "Past" : "मागील"
         },
-        {"indice": 69, "Heteroglotonimo": "Mongol", "Autoglotonimo": "Монгол",
+        {"indice": 69, "Heteroglotonimo": "Mongol", "Autoglotonimo": "Монгол", "dir":"ltr",
             "ascending" : "өгсөж буй",
             "descending" : "буурч байгаа",
             "error" : "алдаа",
@@ -3641,7 +3641,7 @@
             "Future": "Ирээдүй",
             "Past" : "Өнгөрсөн"
         },
-        {"indice": 70, "Heteroglotonimo": "Neerlandés", "Autoglotonimo": "Nederlands",
+        {"indice": 70, "Heteroglotonimo": "Neerlandés", "Autoglotonimo": "Nederlands", "dir":"ltr",
             "ascending" : "oplopend",
             "descending" : "aflopend",
             "error" : "fout",
@@ -3693,7 +3693,7 @@
             "Future": "Toekomst",
             "Past" : "Verleden"
         },
-        {"indice": 71, "Heteroglotonimo": "Nepalí", "Autoglotonimo": "नेपाली",
+        {"indice": 71, "Heteroglotonimo": "Nepalí", "Autoglotonimo": "नेपाली", "dir":"ltr",
             "ascending" : "आरोही",
             "descending" : "ओर्लदै",
             "error" : "त्रुटि",
@@ -3745,7 +3745,7 @@
             "Future": "भविष्य",
             "Past" : "विगत"
         },
-        {"indice": 72, "Heteroglotonimo": "Noruego", "Autoglotonimo": "Norsk",
+        {"indice": 72, "Heteroglotonimo": "Noruego", "Autoglotonimo": "Norsk", "dir":"ltr",
             "ascending" : "stigende",
             "descending" : "synkende",
             "error" : "feil",
@@ -3797,7 +3797,7 @@
             "Future": "Framtid",
             "Past" : "Forbi"
         },
-        {"indice": 73, "Heteroglotonimo": "Nyanja", "Autoglotonimo": "chinyanja / chicheŵa",
+        {"indice": 73, "Heteroglotonimo": "Nyanja", "Autoglotonimo": "chinyanja / chicheŵa", "dir":"ltr",
             "ascending" : "kukwera",
             "descending" : "kutsika",
             "error" : "cholakwika",
@@ -3849,7 +3849,7 @@
             "Future": "Zamtsogolo",
             "Past" : "Zakale"
         },
-        {"indice": 74, "Heteroglotonimo": "Panyabí", "Autoglotonimo": "ਪੰਜਾਬੀ",
+        {"indice": 74, "Heteroglotonimo": "Panyabí", "Autoglotonimo": "ਪੰਜਾਬੀ", "dir":"ltr",
             "ascending" : "ਚੜ੍ਹਨਾ",
             "descending" : "ਉਤਰਦਾ",
             "error" : "ਗਲਤੀ",
@@ -4005,7 +4005,7 @@
             "Future": "آینده",
             "Past" : "گذشته"
         },
-        {"indice": 77, "Heteroglotonimo": "Polaco", "Autoglotonimo": "Polski",
+        {"indice": 77, "Heteroglotonimo": "Polaco", "Autoglotonimo": "Polski", "dir":"ltr",
             "ascending" : "rosnąco",
             "descending" : "malejąco",
             "error" : "błąd",
@@ -4057,7 +4057,7 @@
             "Future": "Przyszłość",
             "Past" : "Przeszłość"
         },
-        {"indice": 78, "Heteroglotonimo": "Portugués", "Autoglotonimo": "Português",
+        {"indice": 78, "Heteroglotonimo": "Portugués", "Autoglotonimo": "Português", "dir":"ltr",
             "ascending" : "ascendente",
             "descending" : "descendente",
             "error" : "erro",
@@ -4109,7 +4109,7 @@
             "Future": "Futuro",
             "Past" : "Passado"
         },
-        {"indice": 79, "Heteroglotonimo": "Rumano", "Autoglotonimo": "românesc",
+        {"indice": 79, "Heteroglotonimo": "Rumano", "Autoglotonimo": "românesc", "dir":"ltr",
             "ascending" : "ascendent",
             "descending" : "Descendentă",
             "error" : "eroare",
@@ -4161,7 +4161,7 @@
             "Future": "Viitor",
             "Past" : "Trecut"
         },
-        {"indice": 80, "Heteroglotonimo": "Ruso", "Autoglotonimo": "Русский язык",
+        {"indice": 80, "Heteroglotonimo": "Ruso", "Autoglotonimo": "Русский язык", "dir":"ltr",
             "ascending" : "Восходящий",
             "descending" : "нисходящий",
             "error" : "ошибка",
@@ -4213,7 +4213,7 @@
             "Future": "Будущее",
             "Past" : "прошлый"
         },
-        {"indice": 81, "Heteroglotonimo": "Samoano", "Autoglotonimo": "gagana Samoa",
+        {"indice": 81, "Heteroglotonimo": "Samoano", "Autoglotonimo": "gagana Samoa", "dir":"ltr",
             "ascending" : "alu aʻe",
             "descending" : "alu ifo",
             "error" : "sese",
@@ -4265,7 +4265,7 @@
             "Future": "Lumanai",
             "Past" : "Aso ua mavae"
         },
-        {"indice": 82, "Heteroglotonimo": "Serbio", "Autoglotonimo": "Cрпски / Srpski",
+        {"indice": 82, "Heteroglotonimo": "Serbio", "Autoglotonimo": "Cрпски / Srpski", "dir":"ltr",
             "ascending" : "узлазни",
             "descending" : "силазни",
             "error" : "грешка",
@@ -4317,7 +4317,7 @@
             "Future": "Lumanai",
             "Past" : "Aso ua mavae"
         },
-        {"indice": 83, "Heteroglotonimo": "Shona", "Autoglotonimo": "Shona",
+        {"indice": 83, "Heteroglotonimo": "Shona", "Autoglotonimo": "Shona", "dir":"ltr",
             "ascending" : "kukwira",
             "descending" : "kuburuka",
             "error" : "kukanganisa",
@@ -4421,7 +4421,7 @@
             "Future": "مستقبل",
             "Past" : "گذريل"
         },
-        {"indice": 85, "Heteroglotonimo": "Somalí", "Autoglotonimo": "Af-Soomaali",
+        {"indice": 85, "Heteroglotonimo": "Somalí", "Autoglotonimo": "Af-Soomaali", "dir":"ltr",
             "ascending" : "kor u kaca",
             "descending" : "soo degaya",
             "error" : "qalad",
@@ -4473,7 +4473,7 @@
             "Future": "Mustaqbalka",
             "Past" : "Hore"
         },
-        {"indice": 86, "Heteroglotonimo": "Sotho / sesoto", "Autoglotonimo": "seSotho",
+        {"indice": 86, "Heteroglotonimo": "Sotho / sesoto", "Autoglotonimo": "seSotho", "dir":"ltr",
             "ascending" : "ho nyoloha",
             "descending" : "ho theoha",
             "error" : "phoso",
@@ -4525,7 +4525,7 @@
             "Future": "Bokamoso",
             "Past" : "E fetileng"
         },
-        {"indice": 87, "Heteroglotonimo": "Suajili", "Autoglotonimo": "Kiswahili",
+        {"indice": 87, "Heteroglotonimo": "Suajili", "Autoglotonimo": "Kiswahili", "dir":"ltr",
             "ascending" : "kupaa",
             "descending" : "kushuka",
             "error" : "kosa",
@@ -4577,7 +4577,7 @@
             "Future": "Baadaye",
             "Past" : "Zamani"
         },
-        {"indice": 88, "Heteroglotonimo": "Sueco", "Autoglotonimo": "Svenska",
+        {"indice": 88, "Heteroglotonimo": "Sueco", "Autoglotonimo": "Svenska", "dir":"ltr",
             "ascending" : "stigande",
             "descending" : "nedåtgående",
             "error" : "fel",
@@ -4629,7 +4629,7 @@
             "Future": "Framtida",
             "Past" : "Över"
         },
-        {"indice": 89, "Heteroglotonimo": "Sundanés", "Autoglotonimo": "basa Sunda",
+        {"indice": 89, "Heteroglotonimo": "Sundanés", "Autoglotonimo": "basa Sunda", "dir":"ltr",
             "ascending" : "naék",
             "descending" : "turun",
             "error" : "kasalahan",
@@ -4681,7 +4681,7 @@
             "Future": "Kapayunna",
             "Past" : "Baheula"
         },
-        {"indice": 90, "Heteroglotonimo": "Tagalo", "Autoglotonimo": "Wikang tagalog",
+        {"indice": 90, "Heteroglotonimo": "Tagalo", "Autoglotonimo": "Wikang tagalog", "dir":"ltr",
             "ascending" : "pag-akyat",
             "descending" : "pababang",
             "error" : "error",
@@ -4733,7 +4733,7 @@
             "Future": "Hinaharap",
             "Past" : "Nakaraan"
         },
-        {"indice": 91, "Heteroglotonimo": "Tailandés", "Autoglotonimo":  "ภาษาไทย",
+        {"indice": 91, "Heteroglotonimo": "Tailandés", "Autoglotonimo":  "ภาษาไทย", "dir":"ltr",
             "ascending" : "จากน้อยไปมาก",
             "descending" : "จากมากไปน้อย",
             "error" : "ความผิดพลาด",
@@ -4785,7 +4785,7 @@
             "Future": "อนาคต",
             "Past" : "อดีต"
         },
-        {"indice": 92, "Heteroglotonimo": "Tamil", "Autoglotonimo": "தமிழ்",
+        {"indice": 92, "Heteroglotonimo": "Tamil", "Autoglotonimo": "தமிழ்", "dir":"ltr",
             "ascending" : "ஏறுவரிசையில்",
             "descending" : "இறங்கு",
             "error" : "பிழை",
@@ -4837,7 +4837,7 @@
             "Future": "எதிர்கால",
             "Past" : "கடந்தகால"
         },
-        {"indice": 93, "Heteroglotonimo": "Tayiko", "Autoglotonimo": "Тоҷикӣ / Todžikī",
+        {"indice": 93, "Heteroglotonimo": "Tayiko", "Autoglotonimo": "Тоҷикӣ / Todžikī", "dir":"ltr",
             "ascending" : "боло рафтан",
             "descending" : "фуруд омадан",
             "error" : "хатогӣ",
@@ -4889,7 +4889,7 @@
             "Future": "Оянда",
             "Past" : "Гузашта"
         },
-        {"indice": 94, "Heteroglotonimo": "Telugu", "Autoglotonimo": "తెలుగు",
+        {"indice": 94, "Heteroglotonimo": "Telugu", "Autoglotonimo": "తెలుగు", "dir":"ltr",
             "ascending" : "ఆరోహణ",
             "descending" : "అవరోహణ",
             "error" : "లోపం",
@@ -4941,7 +4941,7 @@
             "Future": "భవిష్యత్తు",
             "Past" : "గత"
         },
-        {"indice": 95, "Heteroglotonimo": "Turco", "Autoglotonimo": "Türkçe, türk dili",
+        {"indice": 95, "Heteroglotonimo": "Turco", "Autoglotonimo": "Türkçe, türk dili", "dir":"ltr",
             "ascending" : "yükselen",
             "descending" : "Azalan",
             "error" : "hata",
@@ -4993,7 +4993,7 @@
             "Future": "gelecek",
             "Past" : "geçmiş"
         },
-        {"indice": 96, "Heteroglotonimo": "Ucraniano", "Autoglotonimo": "Українська мова / Ukraïns'ka mova",
+        {"indice": 96, "Heteroglotonimo": "Ucraniano", "Autoglotonimo": "Українська мова / Ukraïns'ka mova", "dir":"ltr",
             "ascending" : "висхідний",
             "descending" : "низхідний",
             "error" : "помилка",
@@ -5097,7 +5097,7 @@
             "Future": "مستقبل",
             "Past" : "ماضی"
         },
-        {"indice": 98, "Heteroglotonimo": "Uzbeko", "Autoglotonimo": "O'zbek",
+        {"indice": 98, "Heteroglotonimo": "Uzbeko", "Autoglotonimo": "O'zbek", "dir":"ltr",
             "ascending" : "ko'tarilayotgan",
             "descending" : "tushayotgan",
             "error" : "xato",
@@ -5149,7 +5149,7 @@
             "Future": "Kelajak",
             "Past" : "O'tmish"
         },
-        {"indice": 99, "Heteroglotonimo": "Vietnamita", "Autoglotonimo": "Tiếng việt nam",
+        {"indice": 99, "Heteroglotonimo": "Vietnamita", "Autoglotonimo": "Tiếng việt nam", "dir":"ltr",
             "ascending" : "tăng dần",
             "descending" : "giảm dần",
             "error" : "lỗi",
@@ -5201,7 +5201,7 @@
             "Future": "Tương lai",
             "Past" : "Quá khứ"
         },
-        {"indice": 100, "Heteroglotonimo": "Xhosa", "Autoglotonimo": "IsiXhosa",
+        {"indice": 100, "Heteroglotonimo": "Xhosa", "Autoglotonimo": "IsiXhosa", "dir":"ltr",
             "ascending" : "unyuka",
             "descending" : "ukwehla",
             "error" : "impazamo",
@@ -5305,7 +5305,7 @@
             "Future": "צוקונפֿט",
             "Past" : "פאַרגאַנגענהייט"
         },
-        {"indice": 102, "Heteroglotonimo": "Yoruba", "Autoglotonimo": "Èdèe yorùbá",
+        {"indice": 102, "Heteroglotonimo": "Yoruba", "Autoglotonimo": "Èdèe yorùbá", "dir":"ltr",
             "ascending" : "gòkè",
             "descending" : "sokale",
             "error" : "aṣiṣe",
@@ -5357,7 +5357,7 @@
             "Future": "Ojo iwaju",
             "Past" : "Ti o ti kọja"
         },
-        {"indice": 103, "Heteroglotonimo": "Zulú", "Autoglotonimo": "IsiZulu ",
+        {"indice": 103, "Heteroglotonimo": "Zulú", "Autoglotonimo": "IsiZulu ", "dir":"ltr",
             "ascending" : "ekhuphuka",
             "descending" : "ehla",
             "error" : "iphutha",
@@ -5409,7 +5409,7 @@
             "Future": "Ikusasa",
             "Past" : "Esedlule"
         },
-        {"indice": 104, "Heteroglotonimo": "chichewa", "Autoglotonimo": "Chicheŵa",
+        {"indice": 104, "Heteroglotonimo": "chichewa", "Autoglotonimo": "Chicheŵa", "dir":"ltr",
             "ascending" : "kukwera",
             "descending" : "kutsika",
             "error" : "cholakwika",
