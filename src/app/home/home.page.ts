@@ -177,14 +177,38 @@ export class HomePage {
                 // console.log(this.listaDeFechas)
                 // this.contadorService.iniciarMovimiento()
 
-                    this.storage.get('listaDeFechas').then((val) => {
-                        this.listaDeFechas = val
-                        if (val === null) {
-                            this.listaDeFechas = []
-                            // vm.usarSemilla()
-                        }
-                        // console.log(this.listaDeFechas)
+                this.storage.get('listaDeFechas').then((val) => {
+                    this.listaDeFechas = val
+                    let fecha_duplicada = false;
+                    if (val === null) {
+                        this.listaDeFechas = []
                         this.listaDeFechas.push(nuevaFecha);
+                    }
+                    else
+                    {
+                        let indice = 0;
+                        while(this.listaDeFechas.length < indice) {
+                            if (
+                                nuevaFecha.fecha === this.listaDeFechas[indice].fecha &&
+                                nuevaFecha.titulo === this.listaDeFechas[indice].titulo &&
+                                nuevaFecha.year === this.listaDeFechas[indice].year &&
+                                nuevaFecha.mes === this.listaDeFechas[indice].mes &&
+                                nuevaFecha.dia === this.listaDeFechas[indice].dia &&
+                                nuevaFecha.hora === this.listaDeFechas[indice].hora &&
+                                nuevaFecha.minuto === this.listaDeFechas[indice].minuto &&
+                                nuevaFecha.segundo === this.listaDeFechas[indice].segundo &&
+                                nuevaFecha.year_de_creacion === this.listaDeFechas[indice].year_de_creacion &&
+                                nuevaFecha.mes_de_creacion === this.listaDeFechas[indice].mes_de_creacion &&
+                                nuevaFecha.dia_de_creacion === this.listaDeFechas[indice].dia_de_creacion &&
+                                nuevaFecha.hora_de_creacion === this.listaDeFechas[indice].hora_de_creacion &&
+                                nuevaFecha.minuto_de_creacion === this.listaDeFechas[indice].minuto_de_creacion &&
+                                nuevaFecha.segundo_de_creacion === this.listaDeFechas[indice].segundo_de_creacion
+                            ) {
+                                nuevaFecha.id = this.listaDeFechas[indice].id
+                                fecha_duplicada = true
+                                break
+                            }
+                        }      
                         this.listaDeFechas = this.listaDeFechas.sort(
                             function(a,b) 
                             {
@@ -193,53 +217,27 @@ export class HomePage {
                                 return fechaB.getTime() - fechaA.getTime()
                             }
                         );
-                        let right_now = moment();
-                        let fecha_auxiliar = null;
-                        let alguna_modificacion = false;
+                    }
+                    this.storage.set('listaDeFechas', this.listaDeFechas);
+                    /*
+                        se crea un reloj unico que activa a todos los detalles
+                        esto lo hice para evitar terner un hilo con reloj contador para cada proceso
+                        debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
+                        de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
 
-                        this.listaDeFechas.forEach(function(entrada) {
-                            fecha_auxiliar = moment(
-                            {
-                                years: entrada.year,
-                                months: entrada.mes,
-                                days: entrada.dia,
-                                hours: entrada.hora,
-                                minutes: entrada.minuto,
-                                seconds: entrada.segundo 
-                            });
+                        // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
+                        esto para proteger el consumo del procesador.
+                    */
+                    this.listaFiltrada = this.listaDeFechas
+                    this.contadorService.iniciarMovimiento()
+                    
+                    setTimeout(() => {
+                        // Hacer el scroll es muy inconveniente
+                        // se deja comentado para evitar repetir
+                        this.bajalo_para_aca(nuevaFecha.id)
+                    }, 1000);
 
-                            // recorrer toda esta vaina para ver que esta en el pasado
-                            // verifico el caso de que exista alguna fecha que esta en el paso y la marco
-                            if ( right_now > fecha_auxiliar && entrada.pasado === false ) {
-                               entrada.pasado = true;
-                               alguna_modificacion = true;
-                            }
-                            
-                        });
-                        this.storage.set('listaDeFechas', this.listaDeFechas);
-                        /*
-                            se crea un reloj unico que activa a todos los detalles
-                            esto lo hice para evitar terner un hilo con reloj contador para cada proceso
-                            debido a que cuando tenga mas de 3000 fechas tendria mas de 3000 segunderos activados independientes
-                            de esta manera, al tener 3000 fechas, tengo solo un segundero que las mueve todas
-
-                            // ahora voy a activar un hilo del reloj, solo cuando se abre el detalle de una fecha, 
-                            esto para proteger el consumo del procesador.
-                        */
-                        this.listaFiltrada = this.listaDeFechas
-                        this.contadorService.iniciarMovimiento()
-
-                    });
-
-
-
-
-
-                setTimeout(() => {
-                    // Hacer el scroll es muy inconveniente
-                    // se deja comentado para evitar repetir
-                    this.bajalo_para_aca(nuevaFecha.id)
-                }, 1000);
+                });
             }
         });
 
