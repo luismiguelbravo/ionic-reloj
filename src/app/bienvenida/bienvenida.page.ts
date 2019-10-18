@@ -28,8 +28,8 @@ export class BienvenidaPage implements OnInit {
 
 
         vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
-            if( a.Autoglotonimo < b.Autoglotonimo) {return -1;}
-            if( a.Autoglotonimo > b.Autoglotonimo) {return 1;}
+            if( a.Autoglotonimo.toUpperCase() < b.Autoglotonimo.toUpperCase()) {return -1;}
+            if( a.Autoglotonimo.toUpperCase() > b.Autoglotonimo.toUpperCase()) {return 1;}
             return 0;
         });
 
