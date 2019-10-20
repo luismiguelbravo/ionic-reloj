@@ -257,6 +257,12 @@ export class DetalleComponent implements OnInit {
 
         let urlParaCompartir = 'https://mimuqui.com/home?' + params.toString()
 
+        console.log("")
+        console.log(" ============ urlParaCompartir ============ ");
+        console.log(urlParaCompartir);
+        console.log(" ============ urlParaCompartir ============ ");
+        console.log("")
+
         let shareRet = await Share.share({
           title: this.entrada.titulo,
           text: this.construirMensaje(),
