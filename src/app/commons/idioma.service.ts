@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as vocabulario from './vocabulario.json';
+import * as vocabulario_reducido from './vocabulario_reducido.json';
 
 
 @Injectable({
@@ -38,7 +39,11 @@ export class IdiomaService {
 
     listaDeIdiomas(): any[]{
         return vocabulario.lista;
-    } 
+    }
+
+    listaDeIdiomasReducidos(): any[] {
+        return vocabulario_reducido.lista
+    }
     // idiomas que faltan: chichewa
     // probar el idioma YIDIS  en la aplicacion a ver sino da algun error
     constructor() { }

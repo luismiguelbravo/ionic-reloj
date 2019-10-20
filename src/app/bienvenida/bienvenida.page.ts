@@ -24,7 +24,7 @@ export class BienvenidaPage implements OnInit {
 
     ngOnInit() {
         let vm = this;
-        vm.listaDeIdiomas = this.idiomaService.listaDeIdiomas();
+        vm.listaDeIdiomas = this.idiomaService.listaDeIdiomasReducidos();
 
 
         vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
