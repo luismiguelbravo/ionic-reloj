@@ -234,7 +234,25 @@ export class HomePage {
                     setTimeout(() => {
                         // Hacer el scroll es muy inconveniente
                         // se deja comentado para evitar repetir
+
+                        console.log("")
+                        console.log("Bajalo para aca")
+                        console.log("")
+
+                        console.log("")
+                        console.log(" ============= this.bajalo_para_aca(nuevaFecha.id) ============= ")
+                        console.log(nuevaFecha)
+                        console.log(" ============= this.bajalo_para_aca(nuevaFecha.id) ============= ")
+                        console.log("")
+
+                        console.log("")
+                        console.log(" ============= this.listaDeFechas ============= ")
+                        console.log(this.listaDeFechas)
+                        console.log(" ============= this.listaDeFechas ============= ")
+                        console.log("")
+                        
                         this.bajalo_para_aca(nuevaFecha.id)
+                        
                     }, 1000);
 
                 });
