@@ -176,10 +176,10 @@ export class HomePage {
                 // console.log(" === this.listaDeFechas ===");
                 // console.log(this.listaDeFechas)
                 // this.contadorService.iniciarMovimiento()
-
-                this.storage.get('listaDeFechas').then((val) => {
+                let fecha_duplicada = false;
+                this.storage.get('listaDeFechas').then(val => {
                     this.listaDeFechas = val
-                    let fecha_duplicada = false;
+                    
                     if (val === null) {
                         this.listaDeFechas = []
                         this.listaDeFechas.push(nuevaFecha);
@@ -187,7 +187,7 @@ export class HomePage {
                     else
                     {
                         let indice = 0;
-                        while(this.listaDeFechas.length < indice) {
+                        while(indice < this.listaDeFechas.length) {
                             if (
                                 nuevaFecha.fecha === this.listaDeFechas[indice].fecha &&
                                 nuevaFecha.titulo === this.listaDeFechas[indice].titulo &&
@@ -208,7 +208,12 @@ export class HomePage {
                                 fecha_duplicada = true
                                 break
                             }
-                        }      
+                            indice++
+                        }
+                        if (fecha_duplicada === false) {
+                            this.listaDeFechas.push(nuevaFecha);
+                        }
+
                         this.listaDeFechas = this.listaDeFechas.sort(
                             function(a,b) 
                             {
@@ -234,25 +239,7 @@ export class HomePage {
                     setTimeout(() => {
                         // Hacer el scroll es muy inconveniente
                         // se deja comentado para evitar repetir
-
-                        console.log("")
-                        console.log("Bajalo para aca")
-                        console.log("")
-
-                        console.log("")
-                        console.log(" ============= this.bajalo_para_aca(nuevaFecha.id) ============= ")
-                        console.log(nuevaFecha)
-                        console.log(" ============= this.bajalo_para_aca(nuevaFecha.id) ============= ")
-                        console.log("")
-
-                        console.log("")
-                        console.log(" ============= this.listaDeFechas ============= ")
-                        console.log(this.listaDeFechas)
-                        console.log(" ============= this.listaDeFechas ============= ")
-                        console.log("")
-                        
                         this.bajalo_para_aca(nuevaFecha.id)
-                        
                     }, 1000);
 
                 });
