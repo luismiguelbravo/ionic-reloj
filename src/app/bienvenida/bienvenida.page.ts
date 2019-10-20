@@ -38,7 +38,7 @@ export class BienvenidaPage implements OnInit {
     seleccionarEsteIdioma(idioma)
     {
         let vm = this;
-        vm.ididomaSeleccionado = idioma;
+        vm.ididomaSeleccionado = this.idiomaService.get_idioma_by_indice(idioma.indice)
     }
 
     dismiss() {
