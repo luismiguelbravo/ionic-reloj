@@ -8,7 +8,7 @@
                 </span>
             </td-->
             <td style="text-align: center; color: white;">
-                Mimuqui 681
+                Mimuqui 2019
             </td>
             <!--td style="text-align: right; width: 40px;">
                 <span color="primary" (click)="seleccionarIdioma()" style="font-size: 24px; width: 100%; display: block; color: white;">
@@ -19,12 +19,12 @@
     </table>
 </div>
 <ion-content >
-    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -15px;">
+    <ion-fab vertical="top" edge horizontal="start" slot="fixed" style="margin-top: -10px;">
         <ion-fab-button (click)="mostrarFomulario()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
-    <ion-fab vertical="top" edge horizontal="end" slot="fixed" style="margin-top: -15px;">
+    <ion-fab vertical="top" edge horizontal="end" slot="fixed" style="margin-top: -10px;">
         <ion-fab-button (click)="seleccionarIdioma()">
             <ion-icon name="more"></ion-icon>
         </ion-fab-button>
@@ -35,7 +35,7 @@
         <ion-button expand="full" size="small" (click)="usarSemilla()">usar semilla</ion-button>
     </ion-grid-->
 
-    <ion-grid *ngIf="miIdioma">
+    <ion-grid *ngIf="miIdioma" style="padding-top: 15px; margin-bottom: -15px;">
         <ion-row *ngIf="this.listaDeFechas.length > 1">
             <!--ion-col size="10">
                 <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()" showCancelButton="never"></ion-searchbar>
