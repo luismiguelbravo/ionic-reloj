@@ -662,6 +662,13 @@ export class HomePage {
         this.crearNotificacion(nuevaFecha)
 
         vm.exitoAlguardar();
+
+        vm.palabraDeBusqueda = "";
+        setTimeout(() => {
+            // Hacer el scroll es muy inconveniente
+            // se deja comentado para evitar repetir
+            this.bajalo_para_aca(nuevaFecha.id)
+        }, 1000);
     }
 
     buscar():void {
