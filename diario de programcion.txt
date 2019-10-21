@@ -32,11 +32,10 @@ cambiar el nombre de la aplicacion
 
     modifica el archivo config.xml
 
-    $ cordova plugin save
-    $ cordova platform rm ios
-    $ cordova platform add ios
+    $ ionic cordova plugin save
+    $ ionic cordova platform rm ios
+    $ ionic cordova platform add ios
     $ ionic cordova build ios --prod
-
     $ ionic cordova prepare ios
 
 
@@ -102,3 +101,21 @@ pendientes:::
     LISTO :: editar
     LISTO :: verificar la agregacion
     notificaciones
+
+
+REMOVER PLUGIN DE CORDOVA DEL PROYECTO
+
+
+First, you should list your plugins:
+
+  $ ionic cordova plugin list
+With this result, you can simply do:
+
+  $ cordova plugin remove <PLUGIN_NAME>
+  For example:
+
+  $ ionic cordova plugin remove cordova-admob-plus 
+  $ ionic cordova plugin remove cordova-plugin-admob-free
+  $ ionic cordova plugin remove cordova-admob-sdk 
+
+
