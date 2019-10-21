@@ -11,7 +11,6 @@ import { AgregarPage } from '../entrada/agregar/agregar.page';
 import { BienvenidaPage } from '../bienvenida/bienvenida.page';
 import { IdiomaService } from '../commons/idioma.service'
 
-import { Platform } from '@ionic/angular';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -55,7 +54,6 @@ export class HomePage {
         public actionSheetController: ActionSheetController,
         public modalController: ModalController,
         public idiomaService: IdiomaService,
-        private platform: Platform,
         private localNotifications: LocalNotifications,
         private router: Router,
         private activatedRoute: ActivatedRoute
@@ -475,19 +473,15 @@ export class HomePage {
     }
 
     ngOnInit() {
-
-        /*
-        setTimeout(() => {
-            // Hacer el scroll es muy inconveniente
-            // se deja comentado para evitar repetir
-            vm.bajalo_para_aca('55')
-        }, 1000);*/
-
         this.notificacionClickeada = 'ngOnInit()'
         // me suscribo al evento click en la notificacion
         this.localNotifications.on('click').subscribe(res => {
             this.notificacionClickeada = res.data.id
-            this.bajalo_para_aca(res.data.id)
+            setTimeout(() => {
+                // Hacer el scroll es muy inconveniente
+                // se deja comentado para evitar repetir
+                this.bajalo_para_aca(this.notificacionClickeada)
+            }, 1000);
         })
     }
 
