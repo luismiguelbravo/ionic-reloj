@@ -118,4 +118,10 @@ With this result, you can simply do:
   $ ionic cordova plugin remove cordova-plugin-admob-free
   $ ionic cordova plugin remove cordova-admob-sdk 
 
+Se generan las politicas de privacidad
+  $ ionic generate page privacidad 
+
+
+  
+
 
