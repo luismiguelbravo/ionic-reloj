@@ -15,7 +15,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  },  { path: 'bienvenida', loadChildren: './bienvenida/bienvenida.module#BienvenidaPageModule' }
+  },  { path: 'bienvenida', loadChildren: './bienvenida/bienvenida.module#BienvenidaPageModule' },
+  { path: 'privacidad', loadChildren: './privacidad/privacidad.module#PrivacidadPageModule' }
 
   /*{ path: 'agregar', loadChildren: './entrada/agregar/agregar.module#AgregarPageModule' }*/
 ];
