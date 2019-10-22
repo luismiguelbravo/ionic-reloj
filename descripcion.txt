@@ -1,0 +1,5 @@
+Mimuqui, registra eventos en el pasado y en el futuro
+
+Es posible agregar una fecha futura, y la aplicación contará cuento tiempo en años, meses, dias, horas, minutos y segundos falta para que el evento ocurra.
+
+Al agregar una fecha en el pasado, la aplicación calculará cuánto tiempo ha pasado en años, meses, dias, horas, minutos y segundos falta para que el evento ocurra. 
