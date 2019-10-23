@@ -12,6 +12,8 @@
             </ion-label>
         </ion-item>
     </ion-list>
+    <div style="height: 120px; width: 1px; display: block;">
+    </div>
 
     <ion-fab vertical="bottom" horizontal="start" slot="fixed"  *ngIf="ididomaSeleccionado.indice !== null">
         <ion-fab-button color="primary" (click)="guardar()">
@@ -24,5 +26,6 @@
             <ion-icon name="close-circle"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+
 
 </ion-content>
