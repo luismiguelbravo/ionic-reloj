@@ -25,14 +25,6 @@ export class BienvenidaPage implements OnInit {
     ngOnInit() {
         let vm = this;
         vm.listaDeIdiomas = this.idiomaService.listaDeIdiomasReducidos();
-
-
-        vm.listaDeIdiomas = vm.listaDeIdiomas.sort(function(a,b){
-            if( a.Autoglotonimo.toUpperCase() < b.Autoglotonimo.toUpperCase()) {return -1;}
-            if( a.Autoglotonimo.toUpperCase() > b.Autoglotonimo.toUpperCase()) {return 1;}
-            return 0;
-        });
-
     }
 
     seleccionarEsteIdioma(idioma)
