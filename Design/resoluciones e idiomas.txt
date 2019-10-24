@@ -1,0 +1,73 @@
+Inglés (EE. UU.)    Principal   
+Alemán      
+Catalán     
+Checo       
+Chino (simplificado)        
+Chino (tradicional)     
+Coreano     
+Croata      
+Danés       
+Eslovaco        
+Español (España)        
+Español (México)        
+Finés       
+Francés     
+Inglés (Australia)      
+Inglés (Canadá)     
+Inglés (Reino Unido)        
+No disponible en
+Francés (Canadá)    
+Griego  
+Hebreo  
+Hindi   
+Holandés    
+Húngaro 
+Indonesio   
+Italiano    
+Japonés 
+Malayo  
+Noruego 
+Polaco  
+Portugués (Brasil)  
+Portugués (Portugal)    
+Rumano  
+Ruso    
+Sueco   
+Tailandés   
+Turco   
+Ucraniano   
+Vietnamita  
+Árabe   
+
+Resolucion 1
+iPhone
+Pantalla de 6,5"
+1242 x 2688
+
+Resolucion 2
+iPhone
+Pantalla de 5,5"
+1242 x 2208
+
+Resolucion 3
+iPad Pro (3.ª generación)
+Pantalla de 12,9"
+2048 x 2732 
+
+
+iPad Pro (2.ª generación)
+Pantalla de 12,9"
+2048 x 2732 
+
+
+opciones
+1: hacerlo en ingles y dejarlo asi para todos los idiomas
+
+opcion 2
+.- automatizar las pruebas y poner al cypres a que tome las fotos en todos .-los idiomas y despues ir haciendo resize de las fotos
+grabar el video solo en ingles y dejarlo asi para todos
+
+
+opcion 3
+.- automatizar las pruebas y poner al cypres a que tome las fotos en todos los idiomas y despues ir haciendo resize de las fotos
+.- hacer los videos para cada idioma
