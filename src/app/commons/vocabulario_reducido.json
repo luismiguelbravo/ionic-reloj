@@ -427,6 +427,12 @@
           "dir": "ltr"
         },
         {
+          "indice": 93,
+          "Heteroglotonimo": "Tayiko",
+          "Autoglotonimo": "Тоҷикӣ / Todžikī",
+          "dir": "ltr"
+        },
+        {
           "indice": 95,
           "Heteroglotonimo": "Turco",
           "Autoglotonimo": "Türkçe, türk dili",
@@ -436,12 +442,6 @@
           "indice": 90,
           "Heteroglotonimo": "Tagalo",
           "Autoglotonimo": "Wikang tagalog",
-          "dir": "ltr"
-        },
-        {
-          "indice": 93,
-          "Heteroglotonimo": "Tayiko",
-          "Autoglotonimo": "Тоҷикӣ / Todžikī",
           "dir": "ltr"
         },
         {
