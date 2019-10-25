@@ -49,6 +49,18 @@
           "dir": "ltr"
         },
         {
+          "indice": 8,
+          "Heteroglotonimo": "Bielorruso",
+          "Autoglotonimo": "Беларуская",
+          "dir": "ltr"
+        },
+        {
+          "indice": 11,
+          "Heteroglotonimo": "Búlgaro",
+          "Autoglotonimo": "български",
+          "dir": "ltr"
+        },
+        {
           "indice": 10,
           "Heteroglotonimo": "Bosnio",
           "Autoglotonimo": "bosanski jezik",
@@ -229,6 +241,18 @@
           "dir": "ltr"
         },
         {
+          "indice": 54,
+          "Heteroglotonimo": "Kazajo",
+          "Autoglotonimo": "Қазақ тілі",
+          "dir": "ltr"
+        },
+        {
+          "indice": 55,
+          "Heteroglotonimo": "Kirguís",
+          "Autoglotonimo": "кыргыз тили",
+          "dir": "ltr"
+        },
+        {
           "indice": 87,
           "Heteroglotonimo": "Suajili",
           "Autoglotonimo": "Kiswahili",
@@ -337,6 +361,12 @@
           "dir": "ltr"
         },
         {
+          "indice": 80,
+          "Heteroglotonimo": "Ruso",
+          "Autoglotonimo": "Русский язык",
+          "dir": "ltr"
+        },
+        {
           "indice": 67,
           "Heteroglotonimo": "Maorí",
           "Autoglotonimo": "reo māori",
@@ -409,30 +439,6 @@
           "dir": "ltr"
         },
         {
-          "indice": 8,
-          "Heteroglotonimo": "Bielorruso",
-          "Autoglotonimo": "Беларуская",
-          "dir": "ltr"
-        },
-        {
-          "indice": 11,
-          "Heteroglotonimo": "Búlgaro",
-          "Autoglotonimo": "български",
-          "dir": "ltr"
-        },
-        {
-          "indice": 55,
-          "Heteroglotonimo": "Kirguís",
-          "Autoglotonimo": "кыргыз тили",
-          "dir": "ltr"
-        },
-        {
-          "indice": 80,
-          "Heteroglotonimo": "Ruso",
-          "Autoglotonimo": "Русский язык",
-          "dir": "ltr"
-        },
-        {
           "indice": 93,
           "Heteroglotonimo": "Tayiko",
           "Autoglotonimo": "Тоҷикӣ / Todžikī",
@@ -442,12 +448,6 @@
           "indice": 96,
           "Heteroglotonimo": "Ucraniano",
           "Autoglotonimo": "Українська мова / Ukraïns'ka mova",
-          "dir": "ltr"
-        },
-        {
-          "indice": 54,
-          "Heteroglotonimo": "Kazajo",
-          "Autoglotonimo": "Қазақ тілі",
           "dir": "ltr"
         },
         {
