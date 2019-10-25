@@ -4,8 +4,10 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-list>
-        <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma)">
+    <ion-list style="padding: 0 30px;">
+        <ion-item *ngFor="let idioma of listaDeIdiomas" (click)="seleccionarEsteIdioma(idioma)"
+            style="padding: 0;"
+            id="idioma-{{idioma.indice}}">
             <ion-label dir="{{ idioma.dir }}"
                 [ngClass]="{'seleccionado': idioma.indice === ididomaSeleccionado.indice}">
                 {{ idioma.Autoglotonimo }}
