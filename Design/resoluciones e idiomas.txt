@@ -14,8 +14,7 @@ Finés
 Francés     
 Inglés (Australia)      
 Inglés (Canadá)     
-Inglés (Reino Unido)        
-No disponible en
+Inglés (Reino Unido)
 Francés (Canadá)    
 Griego  
 Hebreo  
@@ -37,7 +36,16 @@ Tailandés
 Turco   
 Ucraniano   
 Vietnamita  
-Árabe   
+Árabe
+Fotos que quiero
+logo
+seleccionar idioma
+pantalla de agregar
+pantalla de exito al guardar
+pantalla con evento creado
+
+
+
 
 Resolucion 1
 iPhone

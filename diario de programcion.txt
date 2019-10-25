@@ -1,3 +1,5 @@
+al finalizar remover los ios- de los iconos para que se comporten bien en su plataforma iOS o Android
+
 diario de programcion.txt
 
   - Go to your newly created project: cd ./reloj
