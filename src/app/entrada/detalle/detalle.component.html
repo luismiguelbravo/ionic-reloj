@@ -84,14 +84,13 @@
                             </td>
                         </tr>
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
-                            <td class="label-fecha border-separador">
-                                {{ idiomaService.idioma_seleccionado.Year }}
-                            </td>
                             <td class="numero border-separador">
                                 {{diferenciaEnYears | number:'2.0'}}
                             </td>
-                            <td rowspan="6" style="padding-left: 5px; padding-top: 6px; width: 50%;">
-
+                            <td class="label-fecha border-separador">
+                                {{ idiomaService.idioma_seleccionado.Year }}
+                            </td>
+                            <td id="td-del-circulo" rowspan="6" style="padding-left: 5px; padding-top: 6px; width: 50%;">
                                 <div class="circulo-por-cubrir">
                                     <canvas #myCanvas width="170" height="170" style="background-color: #091126; background-color: transparent; position: absolute; z-index: 3; top: -11px; left: -10px;"></canvas>
                                     <table style="width: 100%; height: 100%;">
@@ -119,46 +118,46 @@
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0}"
                             class="border-separador">
-                            <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.Month }}
-                            </td>
                             <td class="numero">
                                 {{diferenciaEnMeses | number:'2.0'}}
+                            </td>
+                            <td class="label-fecha">
+                                {{ idiomaService.idioma_seleccionado.Month }}
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0}"
                             class="border-separador">
-                            <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.Day }}
-                            </td>
                             <td class="numero">
                                 {{diferenciaEnDias | number:'2.0'}}
+                            </td>
+                            <td class="label-fecha">
+                                {{ idiomaService.idioma_seleccionado.Day }}
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0}"
                             class="border-separador">
-                            <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.Hour }}
-                            </td>
                             <td class="numero">
                                 {{diferenciaEnHoras | number:'2.0'}} 
+                            </td>
+                            <td class="label-fecha">
+                                {{ idiomaService.idioma_seleccionado.Hour }}
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0}"
                             class="border-separador">
-                            <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.Minute }}
-                            </td>
                             <td class="numero">
                                 {{diferenciaEnMinutos | number:'2.0'}}
                             </td>
+                            <td class="label-fecha">
+                                {{ idiomaService.idioma_seleccionado.Minute }}
+                            </td>
                         </tr> 
                         <tr>
-                            <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.Second }}
-                            </td>
                             <td class="numero">
                                 {{diferenciaEnSegundos | number:'2.0'}} 
+                            </td>
+                            <td class="label-fecha">
+                                {{ idiomaService.idioma_seleccionado.Second }}
                             </td>
                         </tr>
                     </table>

@@ -395,6 +395,16 @@ export class HomePage {
         await alert.present();
     }
 
+    async exitoAlCambiarDeIdioma() {
+        const alert = await this.alertController.create({
+            header: 'Exito',
+            subHeader: '',
+            message: 'Bienvenido',
+            buttons: ['OK']
+        });
+        await alert.present();
+    }
+
     async intentarEliminar(id) {
         let vm = this;
         const alert = await this.alertController.create({
@@ -503,6 +513,9 @@ export class HomePage {
                this.storage.set('miIdioma', data.ididomaSeleccionado);
                this.idiomaService.seleccionar_idioma(data.ididomaSeleccionado);
                vm.miIdioma = data.ididomaSeleccionado;
+               // mostrar alerta con mensaje de bienvenida
+               this.exitoAlCambiarDeIdioma()
+
             }
         }
     }

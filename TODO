@@ -21,6 +21,14 @@ listo: Agregar boton para compartir
 
 Cosas que me faltan para publicar en la iOS store
 
-pendiente : logo
-pendiente : agregar publicidad
-pendiente : agregar donaciones
+listo : pendiente : logo
+rechazado : pendiente : agregar publicidad
+rechazado : pendiente : agregar donaciones
+
+*** agregar la palabras
+BIENVENIDO al idioma_service
+cambiar los 'OK' por 'ACEPTAR'
+
+
+*** aumentar el ancho del circulo de porcentaje para que cubra el circulo anterior completamente
+
