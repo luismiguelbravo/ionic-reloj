@@ -8,67 +8,90 @@
 
     <ion-grid style="background-color: #f5f7fa;">
 
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Title }}</ion-label>
+                    <ion-input required [(ngModel)]="titulo_de_entrada"></ion-input>
+                </ion-item>
+                <div class="titulo-invalido" [hidden]="tituloValido()">
+                    {{ idiomaService.idioma_seleccionado.Invalid_Title }}
+                </div>
+            </ion-col>
+        </ion-row>
 
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Title }}</ion-label>
-            <ion-input required [(ngModel)]="titulo_de_entrada"></ion-input>
-        </ion-item>
-        <div class="titulo-invalido" [hidden]="tituloValido()">
-            {{ idiomaService.idioma_seleccionado.Invalid_Title }}
-        </div>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
-            <ion-input required [(ngModel)]="year_de_entrada" type="number"></ion-input>
-        </ion-item>
-        <div class="titulo-invalido" [hidden]="yearValido()">
-            {{ idiomaService.idioma_seleccionado.Invalid_Year }}
-        </div>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
-                <ion-select
-                    [(ngModel)]="mes_de_la_entrada"
-                    placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
-                    okText="{{idiomaService.idioma_seleccionado['Accept']}}"
-                    cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
-                <ion-select-option *ngFor="let mes of idiomaService.idioma_seleccionado.Months" [value]="mes.value">{{ mes.name }}</ion-select-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
-            <ion-select
-                [(ngModel)]="dia_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
-                okText="{{idiomaService.idioma_seleccionado['Accept']}}"
-                cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
-                <ion-select-option *ngFor="let dia of lista_de_dias" [value]="dia">{{ dia }}</ion-select-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Hour }}</ion-label>
-            <ion-select
-                [(ngModel)]="hora_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
-                okText="{{idiomaService.idioma_seleccionado['Accept']}}"
-                cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
-                <ion-select-option *ngFor="let hora of lista_de_horas" [value]="hora">{{ hora  | number:'2.0' }}</ion-select-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Minute }}</ion-label>
-            <ion-select
-                [(ngModel)]="minuto_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
-                okText="{{idiomaService.idioma_seleccionado['Accept']}}"
-                cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
-                <ion-select-option *ngFor="let minuto of lista_CINCUENTA_Y_NUEVE" [value]="minuto">{{ minuto  | number:'2.0' }}</ion-select-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Second }}</ion-label>
-            <ion-select
-                [(ngModel)]="segundo_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
-                okText="{{idiomaService.idioma_seleccionado['Accept']}}"
-                cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
-                <ion-select-option *ngFor="let segundo of lista_CINCUENTA_Y_NUEVE" [value]="segundo">{{ segundo  | number:'2.0' }}</ion-select-option>
-            </ion-select>
-        </ion-item>
+        <ion-row>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
+                    <ion-input required [(ngModel)]="year_de_entrada" type="number"></ion-input>
+                </ion-item>
+                <div class="titulo-invalido" [hidden]="yearValido()">
+                    {{ idiomaService.idioma_seleccionado.Invalid_Year }}
+                </div>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
+                        <ion-select
+                            [(ngModel)]="mes_de_la_entrada"
+                            placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
+                            okText="{{idiomaService.idioma_seleccionado['Accept']}}"
+                            cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
+                        <ion-select-option *ngFor="let mes of idiomaService.idioma_seleccionado.Months" [value]="mes.value">{{ mes.name }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="3">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
+                    <ion-select
+                        [(ngModel)]="dia_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
+                        okText="{{idiomaService.idioma_seleccionado['Accept']}}"
+                        cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
+                        <ion-select-option *ngFor="let dia of lista_de_dias" [value]="dia">{{ dia }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Hour }}</ion-label>
+                    <ion-select
+                        [(ngModel)]="hora_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
+                        okText="{{idiomaService.idioma_seleccionado['Accept']}}"
+                        cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
+                        <ion-select-option *ngFor="let hora of lista_de_horas" [value]="hora">{{ hora  | number:'2.0' }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Minute }}</ion-label>
+                    <ion-select
+                        [(ngModel)]="minuto_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
+                        okText="{{idiomaService.idioma_seleccionado['Accept']}}"
+                        cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
+                        <ion-select-option *ngFor="let minuto of lista_CINCUENTA_Y_NUEVE" [value]="minuto">{{ minuto  | number:'2.0' }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-item>
+                    <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Second }}</ion-label>
+                    <ion-select
+                        [(ngModel)]="segundo_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
+                        okText="{{idiomaService.idioma_seleccionado['Accept']}}"
+                        cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
+                        <ion-select-option *ngFor="let segundo of lista_CINCUENTA_Y_NUEVE" [value]="segundo">{{ segundo  | number:'2.0' }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+
+
         <ion-row>
             <ion-col size="12">
                 <table class="tabla-menu">
