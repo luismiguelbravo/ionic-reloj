@@ -42,6 +42,16 @@ export class BienvenidaPage implements OnInit {
                 return idioma.Autoglotonimo.toLowerCase().includes(vm.palabraDeBusquedaIdioma.toLowerCase()) ||  idioma.Autoglotonimo.includes(vm.palabraDeBusquedaIdioma) 
             });
         }
+        else
+        {
+            vm.listaDeIdiomas = this.idiomaService.listaDeIdiomasReducidos();
+        }
+    }
+
+    cancelarBusqueda():void{
+        this.palabraDeBusquedaIdioma = ""
+        this.listaDeIdiomas = this.idiomaService.listaDeIdiomasReducidos()
+        this.focusOnBuscar()
     }
 
     focusOnBuscar():void {
