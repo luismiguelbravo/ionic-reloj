@@ -713,4 +713,14 @@ export class HomePage {
         })
     }
 
+    cancelarBusqueda():void{
+        this.palabraDeBusqueda = ""
+        this.buscar()
+        this.focusOnBuscar()
+    }
+
+    focusOnBuscar():void {
+        let elemento = document.getElementById("palabraDeBusqueda").focus()
+    }
+
 }
