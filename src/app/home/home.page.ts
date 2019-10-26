@@ -390,17 +390,18 @@ export class HomePage {
             header: 'Error',
             subHeader: '',
             message: 'Titulo o fecha invalida.',
-            buttons: ['OK']
+            buttons: [{ text: this.miIdioma['Accept'] }]
         });
         await alert.present();
     }
 
     async exitoAlCambiarDeIdioma() {
+
         const alert = await this.alertController.create({
-            header: 'Exito',
+            header: this.miIdioma['Success'],
             subHeader: '',
-            message: 'Bienvenido',
-            buttons: ['OK']
+            message: this.miIdioma['Welcome'],
+            buttons: [{ text: this.miIdioma['Accept'] }]
         });
         await alert.present();
     }
