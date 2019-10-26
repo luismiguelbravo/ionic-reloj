@@ -76,17 +76,22 @@ ion-content {
 
 .cuadro-de-busqueda{
     background-color: #061835 !important;
-    -webkit-border-radius: 25px !important;
-    -moz-border-radius: 25px !important;
-    border-radius: 25px !important;
-    border: 1px solid #797979 !important;
     color: white !important;
     width: 100%;
-    height: 29px;
-    margin-top: 15px;
-    padding: 0 20px;
+    border: none; // for black border
+    outline: none;
+    height: 22px;
 }
 
 .cuadro-de-busqueda:focus, .cuadro-de-busqueda:focus{
     outline: none;
+}
+
+.div-de-busqueda {
+    margin-top: 4px;
+    border: 1px solid #797979 !important;
+    -webkit-border-radius: 25px !important;
+    -moz-border-radius: 25px !important;
+    border-radius: 25px !important;
+    overflow: hidden;
 }
