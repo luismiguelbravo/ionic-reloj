@@ -1,13 +1,13 @@
 <ion-header>
     <ion-toolbar>
         <!--ion-title>Bienvenidos</ion-title-->
-        <ion-grid style="padding-top: 15px; margin-bottom: -15px;">
+        <ion-grid>
             <ion-row >
                 <ion-col size="12">
                     <div class="div-de-busqueda">
                         <table style="width: 100%">
                             <tr>
-                                <td>
+                                <td style="text-align: center; width: 43px;">
                                     <ion-icon name="search" style="padding: 10px;" (click)="focusOnBuscar()"></ion-icon>
                                 </td>
                                 <td>
@@ -15,6 +15,9 @@
                                         id="palabraDeBusquedaIdioma"
                                         [(ngModel)]="palabraDeBusquedaIdioma" (ngModelChange)="buscar()"
                                         class="cuadro-de-busqueda">
+                                </td>
+                                <td style="text-align: center; width: 43px;" *ngIf="palabraDeBusquedaIdioma">
+                                    <ion-icon name="close-circle" style="padding: 10px;" (click)="cancelarBusqueda()"></ion-icon>
                                 </td>
                             </tr>
                         </table>                    
