@@ -3,19 +3,17 @@
         <!--ion-title>Bienvenidos</ion-title-->
         <ion-grid style="padding-top: 15px; margin-bottom: -15px;">
             <ion-row >
-                <!--ion-col size="10">
-                    <ion-searchbar placeholder="{{miIdioma.Search}}" [(ngModel)]="palabraDeBusqueda" (ionChange)="buscar()" showCancelButton="never"></ion-searchbar>
-                </ion-col-->
                 <ion-col size="12">
                     <div class="div-de-busqueda">
                         <table style="width: 100%">
                             <tr>
                                 <td>
-                                    <ion-icon name="search" style="padding: 10px;"></ion-icon>
+                                    <ion-icon name="search" style="padding: 10px;" (click)="focusOnBuscar()"></ion-icon>
                                 </td>
                                 <td>
-                                    <input type="text" name="cuadroDeBusqueda"
-                                        [(ngModel)]="palabraDeBusqueda" (ngModelChange)="buscar()"
+                                    <input type="text" name="palabraDeBusquedaIdioma"
+                                        id="palabraDeBusquedaIdioma"
+                                        [(ngModel)]="palabraDeBusquedaIdioma" (ngModelChange)="buscar()"
                                         class="cuadro-de-busqueda">
                                 </td>
                             </tr>

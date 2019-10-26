@@ -11,7 +11,7 @@ export class BienvenidaPage implements OnInit {
 
     listaDeIdiomas : any;
     ididomaSeleccionado: any;
-    palabraDeBusqueda = null
+    palabraDeBusquedaIdioma = null
 
     constructor(
         public idiomaService: IdiomaService,
@@ -36,17 +36,16 @@ export class BienvenidaPage implements OnInit {
 
     buscar():void {
         let vm = this
-        if (vm.palabraDeBusqueda !== "" && vm.palabraDeBusqueda!== null)
+        if (vm.palabraDeBusquedaIdioma !== "" && vm.palabraDeBusquedaIdioma!== null)
         {
             vm.listaDeIdiomas = this.idiomaService.listaDeIdiomasReducidos().filter(function(idioma) {
-                console.log("");
-                console.log(" ===== idioma =====");
-                console.log(idioma);
-                console.log(" ===== idioma =====");
-                console.log("");
-                return idioma.Autoglotonimo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  idioma.Autoglotonimo.includes(vm.palabraDeBusqueda) 
+                return idioma.Autoglotonimo.toLowerCase().includes(vm.palabraDeBusquedaIdioma.toLowerCase()) ||  idioma.Autoglotonimo.includes(vm.palabraDeBusquedaIdioma) 
             });
         }
+    }
+
+    focusOnBuscar():void {
+        let elemento = document.getElementById("palabraDeBusquedaIdioma").focus()
     }
 
 
