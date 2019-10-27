@@ -172,13 +172,14 @@ export class DetalleComponent implements OnInit {
         vm.fechaDeHoy.add(vm.diferenciaEnMinutos, 'minutes')
 
         vm.diferenciaEnSegundos = vm.finalDeLaEspera.diff(vm.fechaDeHoy, 'seconds')
-
+        /*
         vm.diferenciaEnSegundos  = Math.abs(vm.diferenciaEnSegundos)
         vm.diferenciaEnMinutos = Math.abs(vm.diferenciaEnMinutos)
         vm.diferenciaEnHoras = Math.abs(vm.diferenciaEnHoras)
         vm.diferenciaEnDias = Math.abs(vm.diferenciaEnDias)
         vm.diferenciaEnMeses = Math.abs(vm.diferenciaEnMeses)
         vm.diferenciaEnYears = Math.abs(vm.diferenciaEnYears)
+        */
 
         this.clock();
     }
