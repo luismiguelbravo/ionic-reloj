@@ -686,6 +686,11 @@ export class HomePage {
             vm.usarSemilla();
             vm.palabraDeBusqueda = "";
         }
+        if (vm.palabraDeBusqueda === "borrar todo e2e"){
+            vm.palabraDeBusqueda = "";
+            vm.listaFiltrada = vm.listaDeFechas = []
+            this.storage.set('listaDeFechas', this.listaDeFechas);
+        }
         vm.listaFiltrada = vm.listaDeFechas.filter(function(element) {
             return element.titulo.toLowerCase().includes(vm.palabraDeBusqueda.toLowerCase()) ||  element.fecha.includes(vm.palabraDeBusqueda) 
         });
