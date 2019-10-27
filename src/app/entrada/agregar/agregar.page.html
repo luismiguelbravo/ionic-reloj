@@ -21,7 +21,7 @@
         </ion-row>
 
         <ion-row>
-            <ion-col size="3">
+            <ion-col size="12">
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
                     <ion-input id="year-del-evento" required [(ngModel)]="year_de_entrada" type="number"></ion-input>
@@ -30,7 +30,9 @@
                     {{ idiomaService.idioma_seleccionado.Invalid_Year }}
                 </div>
             </ion-col>
-            <ion-col size="6">
+        </ion-row>
+        <ion-row>
+            <ion-col size="8">
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
                         <ion-select
@@ -43,7 +45,7 @@
                     </ion-select>
                 </ion-item>
             </ion-col>
-            <ion-col size="3">
+            <ion-col size="4">
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
                     <ion-select
