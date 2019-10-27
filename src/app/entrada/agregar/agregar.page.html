@@ -12,7 +12,7 @@
             <ion-col size="12">
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Title }}</ion-label>
-                    <ion-input required [(ngModel)]="titulo_de_entrada"></ion-input>
+                    <ion-input id="titulo-del-evento" required [(ngModel)]="titulo_de_entrada"></ion-input>
                 </ion-item>
                 <div class="titulo-invalido" [hidden]="tituloValido()">
                     {{ idiomaService.idioma_seleccionado.Invalid_Title }}
@@ -24,7 +24,7 @@
             <ion-col size="3">
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Year }}</ion-label>
-                    <ion-input required [(ngModel)]="year_de_entrada" type="number"></ion-input>
+                    <ion-input id="year-del-evento" required [(ngModel)]="year_de_entrada" type="number"></ion-input>
                 </ion-item>
                 <div class="titulo-invalido" [hidden]="yearValido()">
                     {{ idiomaService.idioma_seleccionado.Invalid_Year }}
@@ -34,6 +34,7 @@
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Month }}</ion-label>
                         <ion-select
+                            id="mes-del-evento"
                             [(ngModel)]="mes_de_la_entrada"
                             placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
                             okText="{{idiomaService.idioma_seleccionado['Accept']}}"
@@ -46,6 +47,7 @@
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Day }}</ion-label>
                     <ion-select
+                        id="dia-del-evento"
                         [(ngModel)]="dia_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
                         okText="{{idiomaService.idioma_seleccionado['Accept']}}"
                         cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
@@ -59,6 +61,7 @@
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Hour }}</ion-label>
                     <ion-select
+                        id="hora-del-evento"
                         [(ngModel)]="hora_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
                         okText="{{idiomaService.idioma_seleccionado['Accept']}}"
                         cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
@@ -70,6 +73,7 @@
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Minute }}</ion-label>
                     <ion-select
+                        id="minuto-del-evento"
                         [(ngModel)]="minuto_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
                         okText="{{idiomaService.idioma_seleccionado['Accept']}}"
                         cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
@@ -81,6 +85,7 @@
                 <ion-item>
                     <ion-label position="floating">{{ idiomaService.idioma_seleccionado.Second }}</ion-label>
                     <ion-select
+                        id="segundo-del-evento"
                         [(ngModel)]="segundo_de_la_entrada" placeholder="{{idiomaService.idioma_seleccionado['Select One']}}"
                         okText="{{idiomaService.idioma_seleccionado['Accept']}}"
                         cancelText="{{idiomaService.idioma_seleccionado['Cancel']}}">
@@ -97,12 +102,12 @@
                 <table class="tabla-menu">
                     <tr>
                         <td style="background: #3880ff; width: 50%; text-align: center; vertical-align: middle; ">
-                            <span class="ripple" color="primary" (click)="guardar()" style="width: 100%; display: block; font-size: 38px; padding-top: 8px;">
+                            <span id="guardar-evento" class="ripple" color="primary" (click)="guardar()" style="width: 100%; display: block; font-size: 38px; padding-top: 8px;">
                                 <ion-icon slot="icon-only" name="checkmark-circle" style="color: white;"></ion-icon>
                             </span>
                         </td>
                         <td style="background: #0cd1e8; text-align: center; vertical-align: middle;">
-                            <span class="ripple" color="primary" (click)="dismiss()" style="width: 100%; display: block; font-size: 38px; padding-top: 8px;">
+                            <span id="cancelar-guardar-evento" class="ripple" color="primary" (click)="dismiss()" style="width: 100%; display: block; font-size: 38px; padding-top: 8px;">
                                 <ion-icon slot="icon-only" name="backspace" style="color: black;"></ion-icon>
                             </span>
                         </td>
