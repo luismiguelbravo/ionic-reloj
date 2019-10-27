@@ -124,6 +124,17 @@ Se generan las politicas de privacidad
   $ ionic generate page privacidad 
 
 
+forzar la aplicacion completa a que comporte con el estilo grafico de ios o android
+
+Use the below one for getting styled your apk same as ios.
+
+<html lang=“en” dir=“ltr” class=“plt-iphone plt-ios plt-phablet plt-mobile ios” mode=“ios”>
+
+Use the below one for getting styled your ios app same as android.
+
+<html lang=“en” dir=“ltr” class=“plt-android plt-mobile md” mode=“md”>
+
+
   
 
 
