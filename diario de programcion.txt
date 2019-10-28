@@ -46,6 +46,10 @@ cambiar el nombre de la aplicacion
     $ ionic cordova build android --prod
     $ ionic cordova prepare android
 
+  elimina el proyecto de android, lo vuelve a crear, compila la aplicacion javascript y la copia al proyecto android:
+
+    & ionic cordova platform rm android && ionic cordova platform add android && ionic cordova build android --prod && ionic cordova prepare android
+
 
 Modificar el icono de la aplicacion y la pantalla de splash
     $ ionic cordova resources
