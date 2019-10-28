@@ -314,6 +314,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "SQLitePlugin"
       ]
+    },
+    {
+      "id": "cordova-plugin-navigationbar-color.navigationbar",
+      "file": "plugins/cordova-plugin-navigationbar-color/www/navigationbar.js",
+      "pluginId": "cordova-plugin-navigationbar-color",
+      "clobbers": [
+        "window.NavigationBar"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -332,6 +340,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.3",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.4.7",
-    "cordova-sqlite-storage": "3.2.0"
+    "cordova-sqlite-storage": "3.2.0",
+    "cordova-plugin-navigationbar-color": "0.0.8"
   };
 });
