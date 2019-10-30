@@ -17,7 +17,8 @@
 }
 
 .numero {
-    text-align: right;
+    /*text-align: right;*/
+    text-align: center;
     font-size: 24px;
     /*font-family: monospace;*/
     font-family: Share_Tech_Mono-Regular;
@@ -38,7 +39,7 @@ ion-card-header{
 }
 
 .pasado {
-    background-color: #28344066 !important;
+    background-color: #00000066 !important;
 }
 
 .pasado .titulo-de-tiempo {
