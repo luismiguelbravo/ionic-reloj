@@ -76,10 +76,15 @@
                         </tr>
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
                             <td class="numero border-separador">
-                                {{diferenciaEnYears | number:'2.0'}}
+                                <span *ngIf="diferenciaEnYears == 0">&nbsp;</span>{{diferenciaEnYears | number:'2.0'}}
                             </td>
                             <td class="label-fecha border-separador">
-                                {{ idiomaService.idioma_seleccionado.year }}
+                                <span *ngIf="diferenciaEnYears === 1 || diferenciaEnYears === -1">
+                                    {{ idiomaService.idioma_seleccionado.year }}
+                                </span>
+                                <span *ngIf="diferenciaEnYears !== 1 && diferenciaEnYears !== -1">
+                                    {{ idiomaService.idioma_seleccionado.years }}
+                                </span>
                             </td>
                             <td id="td-del-circulo" rowspan="6" style="padding-left: 5px; padding-top: 6px; width: 50%;">
                                 <div class="circulo-por-cubrir">
@@ -110,45 +115,70 @@
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0}"
                             class="border-separador">
                             <td class="numero">
-                                {{diferenciaEnMeses | number:'2.0'}}
+                                <span *ngIf="diferenciaEnMeses == 0">&nbsp;</span>{{diferenciaEnMeses | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.month }}
+                                <span *ngIf="diferenciaEnMeses === 1 || diferenciaEnMeses === -1">
+                                    {{ idiomaService.idioma_seleccionado.month }}
+                                </span>
+                                <span *ngIf="diferenciaEnMeses !== 1 && diferenciaEnMeses !== -1">
+                                    {{ idiomaService.idioma_seleccionado.months }}
+                                </span>
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0}"
                             class="border-separador">
                             <td class="numero">
-                                {{diferenciaEnDias | number:'2.0'}}
+                                <span *ngIf="diferenciaEnDias == 0">&nbsp;</span>{{diferenciaEnDias | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.day }}
+                                <span *ngIf="diferenciaEnDias === 1 || diferenciaEnDias === -1">
+                                    {{ idiomaService.idioma_seleccionado.day }}
+                                </span>
+                                <span *ngIf="diferenciaEnDias !== 1 && diferenciaEnDias !== -1">
+                                    {{ idiomaService.idioma_seleccionado.days }}
+                                </span>
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0}"
                             class="border-separador">
                             <td class="numero">
-                                {{diferenciaEnHoras | number:'2.0'}} 
+                                <span *ngIf="diferenciaEnHoras == 0">&nbsp;</span>{{diferenciaEnHoras | number:'2.0'}} 
                             </td>
                             <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.hour }}
+                                <span *ngIf="diferenciaEnHoras === 1 || diferenciaEnHoras === -1">
+                                    {{ idiomaService.idioma_seleccionado.hour }}
+                                </span>
+                                <span *ngIf="diferenciaEnHoras !== 1 && diferenciaEnHoras !== -1">
+                                    {{ idiomaService.idioma_seleccionado.hours }}
+                                </span>
                             </td>
                         </tr> 
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0}"
                             class="border-separador">
                             <td class="numero">
-                                {{diferenciaEnMinutos | number:'2.0'}}
+                                <span *ngIf="diferenciaEnMinutos == 0">&nbsp;</span>{{diferenciaEnMinutos | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.minute }}
+                                <span *ngIf="diferenciaEnMinutos === 1 || diferenciaEnMinutos === -1">
+                                    {{ idiomaService.idioma_seleccionado.minute }}
+                                </span>
+                                <span *ngIf="diferenciaEnMinutos !== 1 && diferenciaEnMinutos !== -1">
+                                    {{ idiomaService.idioma_seleccionado.minutes }}
+                                </span>
                             </td>
                         </tr> 
                         <tr>
                             <td class="numero">
-                                {{diferenciaEnSegundos | number:'2.0'}} 
+                                <span *ngIf="diferenciaEnSegundos == 0">&nbsp;</span>{{diferenciaEnSegundos | number:'2.0'}} 
                             </td>
                             <td class="label-fecha">
-                                {{ idiomaService.idioma_seleccionado.second }}
+                                <span *ngIf="diferenciaEnSegundos === 1 || diferenciaEnSegundos === -1">
+                                    {{ idiomaService.idioma_seleccionado.second }}
+                                </span>
+                                <span *ngIf="diferenciaEnSegundos !== 1 && diferenciaEnSegundos !== -1">
+                                    {{ idiomaService.idioma_seleccionado.seconds }}
+                                </span>
                             </td>
                         </tr>
                     </table>
