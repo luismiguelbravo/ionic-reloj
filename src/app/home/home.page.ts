@@ -375,7 +375,7 @@ export class HomePage {
         const alert = await this.alertController.create({
             header: vm.miIdioma.success,
             subHeader: '',
-            message: vm.miIdioma["Event_saved_successfully"],
+            message: vm.miIdioma["event saved successfully"],
             buttons: [vm.miIdioma.accept]
         });
         await alert.present()
