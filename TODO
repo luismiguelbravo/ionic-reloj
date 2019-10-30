@@ -36,3 +36,12 @@ Se hizo lo mejor posible con la herramienta que tenia
 hacer un generados de idiomas mas automatico
 en el cual le pase los textos de cada palabra y el arme el json
 
+hacer un text area, con toda esta vaina
+var lines = document.getElementById("myTextarea").value.split('\n');
+for(var i = 0;i < lines.length;i++){
+    console.log(lines[i])
+}
+y con ese indice ir armando los idiomas y tal
+separados por ******
+para delimtar el idioma
+
