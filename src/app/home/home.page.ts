@@ -318,9 +318,9 @@ export class HomePage {
     async mostrarMenuDeOrdenamiento() {
         let vm = this
         const actionSheet = await this.actionSheetController.create({
-          header: vm.miIdioma['Order'],
+          header: vm.miIdioma['order'],
           buttons: [{
-            text: vm.miIdioma['Ascending order'],
+            text: vm.miIdioma['ascending order'],
             icon: 'arrow-up',
             handler: () => {
                 // verficiar que el cuadro de busqueda este lleno o no
@@ -343,7 +343,7 @@ export class HomePage {
 
             }
           }, {
-            text: vm.miIdioma['Descending order'],
+            text: vm.miIdioma['descending order'],
             icon: 'arrow-down',
             handler: () => {
                 if (vm.palabraDeBusqueda === '') {
@@ -373,10 +373,10 @@ export class HomePage {
         let vm = this
 
         const alert = await this.alertController.create({
-            header: vm.miIdioma.Success,
+            header: vm.miIdioma.success,
             subHeader: '',
-            message: vm.miIdioma.Event_saved_successfully,
-            buttons: [vm.miIdioma.Accept]
+            message: vm.miIdioma["Event_saved_successfully"],
+            buttons: [vm.miIdioma.accept]
         });
         await alert.present()
         vm.fechaDeEntrada = ''
@@ -390,7 +390,7 @@ export class HomePage {
             header: 'Error',
             subHeader: '',
             message: 'Titulo o fecha invalida.',
-            buttons: [{ text: this.miIdioma['Accept'] }]
+            buttons: [{ text: this.miIdioma['accept'] }]
         });
         await alert.present();
     }
@@ -398,10 +398,10 @@ export class HomePage {
     async exitoAlCambiarDeIdioma() {
 
         const alert = await this.alertController.create({
-            header: this.miIdioma['Success'],
+            header: this.miIdioma['success'],
             subHeader: '',
-            message: this.miIdioma['Welcome'],
-            buttons: [{ text: this.miIdioma['Accept'] }]
+            message: this.miIdioma['welcome'],
+            buttons: [{ text: this.miIdioma['accept'] }]
         });
         await alert.present();
     }
@@ -409,18 +409,18 @@ export class HomePage {
     async intentarEliminar(id) {
         let vm = this;
         const alert = await this.alertController.create({
-            header: vm.miIdioma['Warning'],
-            message: vm.miIdioma['This action cannot be reversed'],
+            header: vm.miIdioma['warning'],
+            message: vm.miIdioma['this action cannot be reversed'],
             buttons: [
             {
-                text: vm.miIdioma['Cancel'],
+                text: vm.miIdioma['cancel'],
                 role: 'cancel',
                 cssClass: 'secondary',
                 handler: (blah) => {
                     // console.log('Confirm Cancel: blah');
                 }
             }, {
-                text: vm.miIdioma['Delete'],
+                text: vm.miIdioma['delete'],
                 handler: () => {
                 // console.log('Confirm Okay');
                     for( var i = 0; i < this.listaDeFechas.length; i++)
