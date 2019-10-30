@@ -37,7 +37,7 @@ export class AgregarPage implements OnInit {
 
     datosParaGuardar = new Entrada();
 
-    pageTitle = "Agregar"
+    pageTitle = ""
 
     entradaDeEdicion : any;
 
@@ -50,8 +50,9 @@ export class AgregarPage implements OnInit {
         vm.entradaDeEdicion = navParams.get('entrada')
         idiomaService.idioma_seleccionado
         this.id_edicion = ""
-        vm.pageTitle = vm.idiomaService.idioma_seleccionado["Add"];
+        
         if (typeof vm.entradaDeEdicion === "undefined"){
+            vm.pageTitle = vm.idiomaService.idioma_seleccionado["add"];
             let fecha_actual = moment()
             this.year_de_entrada = fecha_actual.year()
             this.mes_de_la_entrada = fecha_actual.month()
@@ -62,6 +63,7 @@ export class AgregarPage implements OnInit {
         }
         else 
         {
+            vm.pageTitle = vm.idiomaService.idioma_seleccionado["edit"];
             this.titulo_de_entrada = vm.entradaDeEdicion.titulo
             this.year_de_entrada = vm.entradaDeEdicion.year
             this.mes_de_la_entrada = vm.entradaDeEdicion.mes
