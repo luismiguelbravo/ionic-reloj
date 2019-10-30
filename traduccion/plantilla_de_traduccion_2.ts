@@ -1,57 +1,56 @@
-                "Months": [
-                    { "value": 0, "name": "january" },
-                    { "value": 1, "name": "february" },
-                    { "value": 2, "name": "march" },
-                    { "value": 3, "name": "april" },
-                    { "value": 4, "name": "may" },
-                    { "value": 5, "name": "june" },
-                    {"value": 6, "name": "july"},
-                    {"value": 7, "name": "august"},
-                    {"value": 8, "name": "september"},
-                    {"value": 9, "name": "october"},
-                    {"value": 10, "name": "november"},
-                    {"value": 11, "name": "december"}
-                ],
-                "accept": "accept",
-                "add": "add",
-                "ascending order": "ascending order",
-                "ascending": "ascending",
-                "cancel": "cancel",
-                "copy": "copy",
-                "day": "day",
-                "days": "days",
-                "delete": "delete",
-                "descending order": "descending order",
-                "descending": "descending",
-                "edit": "edit",
-                "error": "error",
-                "event date": "event date",
-                "event saved successfully": "event saved successfully",
-                "event": "event",
-                "future": "future",
-                "hour": "hour",
-                "hours": "hours",
-                "invalid date": "invalid date",
-                "invalid title": "invalid yitle",
-                "invalid year": "invalid year",
-                "meses": "meses",
-                "minute": "minute",
-                "minutes": "minutes",
-                "month": "month",
-                "months": "months",
-                "order": "order",
-                "past": "past",
-                "remove": "remove",
-                "save": "save",
-                "search": "search",
-                "second": "second",
-                "seconds": "seconds",
-                "select one": "select one",
-                "share": "share",
-                "success": "success",
-                "this action cannot be reversed": "this action cannot be reversed",
-                "title": "title",
-                "warning": "warning",
-                "welcome": "welcome",
-                "year": "year",
-                "years": "years"
+            "accept": 
+            "add": 
+            "ascending order": 
+            "ascending": 
+            "cancel": 
+            "copy": 
+            "day": 
+            "days": 
+            "delete": 
+            "descending order": 
+            "descending": 
+            "edit": 
+            "error": 
+            "event date": 
+            "event saved successfully": 
+            "event": 
+            "future": 
+            "hour": 
+            "hours": 
+            "invalid date": 
+            "invalid title": 
+            "invalid year": 
+            "meses": 
+            "minute": 
+            "minutes": 
+            "month": 
+            "months": 
+            "order": 
+            "past": 
+            "remove": 
+            "save": 
+            "search": 
+            "second": 
+            "seconds": 
+            "select one": 
+            "share": 
+            "success": 
+            "this action cannot be reversed": 
+            "title": 
+            "warning": 
+            "welcome": 
+            "year": 
+            "years": 
+            "Months": [
+                { "value": 0, "name": 
+                { "value": 1, "name": 
+                { "value": 2, "name": 
+                { "value": 3, "name": 
+                { "value": 4, "name": 
+                { "value": 5, "name": 
+                {"value": 6, "name": 
+                {"value": 7, "name": 
+                {"value": 8, "name": 
+                {"value": 9, "name": 
+                {"value": 10, "name": 
+                {"value": 11, "name": 
