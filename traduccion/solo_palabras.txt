@@ -1,0 +1,56 @@
+accept
+add
+ascending order
+ascending
+cancel
+copy
+day
+days
+delete
+descending order
+descending
+edit
+error
+event date
+event saved successfully
+event
+future
+hour
+hours
+invalid date
+invalid title
+invalid year
+meses
+minute
+minutes
+month
+months
+order
+past
+remove
+save
+search
+second
+seconds
+select one
+share
+success
+this action cannot be reversed
+title
+warning
+welcome
+year
+years
+
+january
+february
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
