@@ -1,8 +1,39 @@
 <html>
-	<head>
-		<title>selector de idiomas</title>
-	</head>
-	<body>
-		
-	</body>
+    <head>
+        <title>selector de idiomas</title>
+        <script type="text/javascript">
+
+            function leer_text_area(){
+                var lines = document.getElementById("my_textarea").value.split('\n');
+                for(var i = 0; i < lines.length; i++)
+                {
+                    console.log(lines[i]);
+                }
+            }
+
+            var vocabulario = {
+                "lista": [
+                {
+                  "indice": 85,
+                  "Heteroglotonimo": "Somalí",
+                  "Autoglotonimo": "Af-Soomaali",
+                  "dir": "ltr"
+                },
+                {
+                  "indice": 0,
+                  "Heteroglotonimo": "Afrikáans",
+                  "Autoglotonimo": "afrikáans ",
+                  "dir": "ltr"
+                }
+            ]};
+
+            function iniciar
+        </script>
+    </head>
+    <body>
+        <input type="button" value="traducir un idioma" onclick="leer_text_area()">
+        <br>
+
+        <textarea style="width: 171px; margin: 0px; height: 743px;" id="my_textarea" rows="20" cols="56"></textarea>
+    </body>
 </html>
