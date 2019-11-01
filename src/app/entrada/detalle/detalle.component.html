@@ -76,7 +76,7 @@
                         </tr>
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0}" >
                             <td class="numero border-separador">
-                                <span *ngIf="diferenciaEnYears == 0">&nbsp;</span>{{diferenciaEnYears | number:'2.0'}}
+                                <span *ngIf="diferenciaEnYears == 0 && pasado">&nbsp;</span>{{diferenciaEnYears | number:'2.0'}}
                             </td>
                             <td class="label-fecha border-separador">
                                 <span *ngIf="diferenciaEnYears === 1 || diferenciaEnYears === -1">
@@ -115,7 +115,7 @@
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0}"
                             class="border-separador">
                             <td class="numero">
-                                <span *ngIf="diferenciaEnMeses == 0">&nbsp;</span>{{diferenciaEnMeses | number:'2.0'}}
+                                <span *ngIf="diferenciaEnMeses == 0 && pasado">&nbsp;</span>{{diferenciaEnMeses | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
                                 <span *ngIf="diferenciaEnMeses === 1 || diferenciaEnMeses === -1">
@@ -129,7 +129,7 @@
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0}"
                             class="border-separador">
                             <td class="numero">
-                                <span *ngIf="diferenciaEnDias == 0">&nbsp;</span>{{diferenciaEnDias | number:'2.0'}}
+                                <span *ngIf="diferenciaEnDias == 0 && pasado">&nbsp;</span>{{diferenciaEnDias | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
                                 <span *ngIf="diferenciaEnDias === 1 || diferenciaEnDias === -1">
@@ -143,7 +143,7 @@
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0}"
                             class="border-separador">
                             <td class="numero">
-                                <span *ngIf="diferenciaEnHoras == 0">&nbsp;</span>{{diferenciaEnHoras | number:'2.0'}} 
+                                <span *ngIf="diferenciaEnHoras == 0 && pasado">&nbsp;</span>{{diferenciaEnHoras | number:'2.0'}} 
                             </td>
                             <td class="label-fecha">
                                 <span *ngIf="diferenciaEnHoras === 1 || diferenciaEnHoras === -1">
@@ -157,7 +157,7 @@
                         <tr [ngClass]="{'cifra-en-zero': diferenciaEnYears == 0 && diferenciaEnMeses == 0 && diferenciaEnDias == 0 && diferenciaEnHoras == 0 && diferenciaEnMinutos == 0}"
                             class="border-separador">
                             <td class="numero">
-                                <span *ngIf="diferenciaEnMinutos == 0">&nbsp;</span>{{diferenciaEnMinutos | number:'2.0'}}
+                                <span *ngIf="diferenciaEnMinutos == 0 && pasado">&nbsp;</span>{{diferenciaEnMinutos | number:'2.0'}}
                             </td>
                             <td class="label-fecha">
                                 <span *ngIf="diferenciaEnMinutos === 1 || diferenciaEnMinutos === -1">
@@ -170,7 +170,7 @@
                         </tr> 
                         <tr>
                             <td class="numero">
-                                <span *ngIf="diferenciaEnSegundos == 0">&nbsp;</span>{{diferenciaEnSegundos | number:'2.0'}} 
+                                <span *ngIf="diferenciaEnSegundos == 0 && pasado">&nbsp;</span>{{diferenciaEnSegundos | number:'2.0'}} 
                             </td>
                             <td class="label-fecha">
                                 <span *ngIf="diferenciaEnSegundos === 1 || diferenciaEnSegundos === -1">
