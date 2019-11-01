@@ -311,6 +311,12 @@ export class HomePage {
                 console.log(" ============ editando la notificacion ============ ")
                 console.log("")
                 this.editarNotificacion(vm.listaDeFechas[index])
+                vm.palabraDeBusqueda = "";
+                setTimeout(() => {
+                    // Hacer el scroll es muy inconveniente
+                    // se deja comentado para evitar repetir
+                    this.bajalo_para_aca(vm.listaDeFechas[index].id)
+                }, 1000);
             }
         }
     }
