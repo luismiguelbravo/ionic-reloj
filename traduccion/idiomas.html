@@ -53,24 +53,24 @@
                 vocabulario.lista[idioma_actual]["year"]                            = lines[41];
                 vocabulario.lista[idioma_actual]["years"]                           = lines[42];
                 vocabulario.lista[idioma_actual]["Months"] = [];
-                vocabulario.lista[idioma_actual]["Months"][0] = { value: 0, "january" : lines[43]};
-                vocabulario.lista[idioma_actual]["Months"][1] = { value: 1, "february" : lines[44]};
-                vocabulario.lista[idioma_actual]["Months"][2] = { value: 2, "march" : lines[45]};
-                vocabulario.lista[idioma_actual]["Months"][3] = { value: 3, "april" : lines[46]};
-                vocabulario.lista[idioma_actual]["Months"][4] = { value: 4, "may" : lines[47]};
-                vocabulario.lista[idioma_actual]["Months"][5] = { value: 5, "june" : lines[48]};
-                vocabulario.lista[idioma_actual]["Months"][6] = { value: 6, "july" : lines[49]};
-                vocabulario.lista[idioma_actual]["Months"][7] = { value: 7, "august" : lines[50]};
-                vocabulario.lista[idioma_actual]["Months"][8] = { value: 8, "september" : lines[51]};
-                vocabulario.lista[idioma_actual]["Months"][9] = { value: 9, "october" : lines[52]};
-                vocabulario.lista[idioma_actual]["Months"][10] = { value: 10, "november" : lines[53]};
-                vocabulario.lista[idioma_actual]["Months"][11] = { value: 11, "december" : lines[54]};
+                vocabulario.lista[idioma_actual]["Months"][0] = { value: 0, "name" : lines[43]};
+                vocabulario.lista[idioma_actual]["Months"][1] = { value: 1, "name" : lines[44]};
+                vocabulario.lista[idioma_actual]["Months"][2] = { value: 2, "name" : lines[45]};
+                vocabulario.lista[idioma_actual]["Months"][3] = { value: 3, "name" : lines[46]};
+                vocabulario.lista[idioma_actual]["Months"][4] = { value: 4, "name" : lines[47]};
+                vocabulario.lista[idioma_actual]["Months"][5] = { value: 5, "name" : lines[48]};
+                vocabulario.lista[idioma_actual]["Months"][6] = { value: 6, "name" : lines[49]};
+                vocabulario.lista[idioma_actual]["Months"][7] = { value: 7, "name" : lines[50]};
+                vocabulario.lista[idioma_actual]["Months"][8] = { value: 8, "name" : lines[51]};
+                vocabulario.lista[idioma_actual]["Months"][9] = { value: 9, "name" : lines[52]};
+                vocabulario.lista[idioma_actual]["Months"][10] = { value: 10, "name" : lines[53]};
+                vocabulario.lista[idioma_actual]["Months"][11] = { value: 11, "name" : lines[54]};
 
 
                 
                 document.getElementById("my_textarea").value = "";
                 console.log("vocabulario copiado", idioma_actual + 1, "de 105");
-                if (idioma_actual < 105) {
+                if (idioma_actual < 104) {
                     idioma_actual++;
                     leer_idioma();
                 }
