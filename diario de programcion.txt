@@ -138,7 +138,7 @@ forzar la aplicacion completa a que comporte con el estilo grafico de ios o andr
 
 Use the below one for getting styled your apk same as ios.
 
-<html lang=“en” dir=“ltr” class=“plt-iphone plt-ios plt-phablet plt-mobile ios” mode=“ios”>
+<html lang="en" dir="ltr" class="plt-iphone plt-ios plt-phablet plt-mobile ios" mode="ios">
 
 Use the below one for getting styled your ios app same as android.
 
