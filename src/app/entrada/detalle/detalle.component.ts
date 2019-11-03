@@ -197,19 +197,33 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnSegundos < 0
             )
         {
-            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Past + " :::::::::\n"
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.past + " :::::::::\n"
         }
         else
         {
-            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.Future + " :::::::::\n"
+            mensaje += "::::::::: " + this.idiomaService.idioma_seleccionado.future + " :::::::::\n"
         }
 
         if (this.diferenciaEnYears !== 0) {
-            mensaje += this.idiomaService.idioma_seleccionado.Year + " " + Math.abs(this.diferenciaEnYears) + '\n'
+            if (Math.abs(this.diferenciaEnYears) !== 1)
+            {
+                mensaje += this.diferenciaEnYears  + " " + this.idiomaService.idioma_seleccionado.years + '\n'
+            } 
+            else
+            {
+                mensaje += this.diferenciaEnYears  + " " + this.idiomaService.idioma_seleccionado.year + '\n'
+            }
         }
 
         if (!(this.diferenciaEnYears === 0 && this.diferenciaEnMeses === 0)) {
-            mensaje += this.idiomaService.idioma_seleccionado.Month + " " +  Math.abs(this.diferenciaEnMeses) + '\n'
+            if (Math.abs(this.diferenciaEnMeses) !== 1 )
+            {
+                mensaje += this.diferenciaEnMeses  + " " + this.idiomaService.idioma_seleccionado.months + '\n'
+            }
+            else
+            {
+                mensaje += this.diferenciaEnMeses  + " " + this.idiomaService.idioma_seleccionado.month + '\n'
+            }
         }
 
         if (!(
@@ -218,7 +232,14 @@ export class DetalleComponent implements OnInit {
             this.diferenciaEnDias === 0
         ))
         {
-            mensaje += this.idiomaService.idioma_seleccionado.Day + " " + Math.abs(this.diferenciaEnDias) + '\n'
+            if (Math.abs(this.diferenciaEnDias) !== 1 )
+            {
+                mensaje += this.diferenciaEnDias  + " " + this.idiomaService.idioma_seleccionado.days + '\n'
+            }
+            else
+            {
+                mensaje += this.diferenciaEnDias + " " + this.idiomaService.idioma_seleccionado.day + '\n'
+            }
         }
         if (!(
                 this.diferenciaEnYears === 0 &&
@@ -227,7 +248,14 @@ export class DetalleComponent implements OnInit {
                 this.diferenciaEnHoras === 0
             ))
         {
-            mensaje += this.idiomaService.idioma_seleccionado.Hour + " " + Math.abs(this.diferenciaEnHoras) + '\n'
+            if (Math.abs(this.diferenciaEnHoras) !== 1 )
+            {
+                mensaje += this.diferenciaEnHoras  + " " + this.idiomaService.idioma_seleccionado.hours + '\n'
+            }
+            else
+            {
+                mensaje += this.diferenciaEnHoras  + " " + this.idiomaService.idioma_seleccionado.hour + '\n'
+            }
         }
         if (!(
                 this.diferenciaEnYears === 0 && 
@@ -238,9 +266,23 @@ export class DetalleComponent implements OnInit {
             )
         )
         {
-            mensaje += this.idiomaService.idioma_seleccionado.Minute + " " + Math.abs(this.diferenciaEnMinutos) + '\n'
+            if (Math.abs(this.diferenciaEnMinutos) !== 1)
+            {
+                mensaje += this.diferenciaEnMinutos + " " + this.idiomaService.idioma_seleccionado.minutes + '\n'
+            }
+            else
+            {
+                mensaje += this.diferenciaEnMinutos  + " " + this.idiomaService.idioma_seleccionado.minute + '\n'
+            }
         }
-        mensaje += this.idiomaService.idioma_seleccionado.Second + " " + Math.abs(this.diferenciaEnSegundos) + '\n\n'
+        if (Math.abs(this.diferenciaEnSegundos) !== 1 )
+        {
+            mensaje += this.diferenciaEnSegundos + " " + this.idiomaService.idioma_seleccionado.seconds + '\n\n'
+        }
+        else
+        {
+            mensaje += this.diferenciaEnSegundos + " " + this.idiomaService.idioma_seleccionado.second + '\n\n'
+        }
         return mensaje;
     }
 
@@ -264,6 +306,12 @@ export class DetalleComponent implements OnInit {
         params = params.set('idioma',  this.idiomaService.idioma_seleccionado.indice + '')
 
         let urlParaCompartir = 'https://mimuqui.com/home?' + params.toString()
+
+        console.log("")
+        console.log(" ============ this.construirMensaje() ============ ");
+        console.log(this.construirMensaje());
+        console.log(" ============ this.construirMensaje() ============ ");
+        console.log("")
 
         console.log("")
         console.log(" ============ urlParaCompartir ============ ");
