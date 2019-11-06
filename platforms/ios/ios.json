@@ -185,6 +185,9 @@
     "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
+    "cordova-plugin-navigationbar-color": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
@@ -200,9 +203,6 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-plugin-navigationbar-color": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
@@ -494,6 +494,14 @@
       ]
     },
     {
+      "id": "cordova-plugin-navigationbar-color.navigationbar",
+      "file": "plugins/cordova-plugin-navigationbar-color/www/navigationbar.js",
+      "pluginId": "cordova-plugin-navigationbar-color",
+      "clobbers": [
+        "window.NavigationBar"
+      ]
+    },
+    {
       "id": "cordova-plugin-statusbar.statusbar",
       "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
       "pluginId": "cordova-plugin-statusbar",
@@ -522,14 +530,6 @@
       "clobbers": [
         "SQLitePlugin"
       ]
-    },
-    {
-      "id": "cordova-plugin-navigationbar-color.navigationbar",
-      "file": "plugins/cordova-plugin-navigationbar-color/www/navigationbar.js",
-      "pluginId": "cordova-plugin-navigationbar-color",
-      "clobbers": [
-        "window.NavigationBar"
-      ]
     }
   ],
   "plugin_metadata": {
@@ -544,11 +544,11 @@
     "cordova-plugin-ionic": "5.3.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-local-notification": "0.9.0-beta.2",
+    "cordova-plugin-navigationbar-color": "0.0.8",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.4.7",
-    "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-navigationbar-color": "0.0.8"
+    "cordova-sqlite-storage": "3.2.0"
   }
 }

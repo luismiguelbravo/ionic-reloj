@@ -286,6 +286,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-navigationbar-color.navigationbar",
+      "file": "plugins/cordova-plugin-navigationbar-color/www/navigationbar.js",
+      "pluginId": "cordova-plugin-navigationbar-color",
+      "clobbers": [
+        "window.NavigationBar"
+      ]
+    },
+    {
       "id": "cordova-plugin-statusbar.statusbar",
       "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
       "pluginId": "cordova-plugin-statusbar",
@@ -314,14 +322,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "SQLitePlugin"
       ]
-    },
-    {
-      "id": "cordova-plugin-navigationbar-color.navigationbar",
-      "file": "plugins/cordova-plugin-navigationbar-color/www/navigationbar.js",
-      "pluginId": "cordova-plugin-navigationbar-color",
-      "clobbers": [
-        "window.NavigationBar"
-      ]
     }
   ];
   module.exports.metadata = {
@@ -336,11 +336,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-ionic": "5.3.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "cordova-plugin-local-notification": "0.9.0-beta.2",
+    "cordova-plugin-navigationbar-color": "0.0.8",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.4.7",
-    "cordova-sqlite-storage": "3.2.0",
-    "cordova-plugin-navigationbar-color": "0.0.8"
+    "cordova-sqlite-storage": "3.2.0"
   };
 });

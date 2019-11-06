@@ -10,5 +10,6 @@ Al agregar una fecha en el pasado, la aplicación calculará cuánto tiempo ha p
 *** 2 ***
 Reloj, cronometro, temporizador
 
-*** 1 ***
+https://mimuqui.com/soporte
+
 http://www.mimuqui.com/
