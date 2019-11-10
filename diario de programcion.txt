@@ -142,7 +142,7 @@ Use the below one for getting styled your apk same as ios.
 
 Use the below one for getting styled your ios app same as android.
 
-<html lang=“en” dir=“ltr” class=“plt-android plt-mobile md” mode=“md”>
+<html lang="es" class="plt-android plt-mobile md" mode="md">
 
 
   
