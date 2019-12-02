@@ -73,6 +73,16 @@
 
     <ion-grid *ngIf="miIdioma">
         <ion-row>
+            <ion-col>
+                <a href="https://apps.apple.com/app/id1471921515">
+                    <img src="../../assets/images/badge_appstore_es-modificado.png" width="120">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.bravoluismiguel.reloj">
+                    <img src="../../assets/images/google-play-modificado.png" width="132" style="margin-left: 10px;">
+                </a>
+            </ion-col>
+        </ion-row>
+        <ion-row>
             <ion-col *ngFor="let entrada of this.listaFiltrada " size-lg="4" size-md="6" size-sm="6" size-xs="12">
                 <ion-card class="welcome-card"> <!-- [ngClass]="{'pasado': entrada.pasado }" -->
                     <app-detalle [entrada]="entrada"></app-detalle>
